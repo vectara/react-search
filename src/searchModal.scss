@@ -1,0 +1,60 @@
+$modalPadding: 6vh;
+
+.searchModalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  animation: modalIn 0.2s cubic-bezier(0, 1, 1, 1);
+  pointer-events: none;
+
+  .searchModal {
+    margin-top: $modalPadding;
+    background-color: $colorEmptyShade;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 720px;
+    max-height: calc(100vh - ($modalPadding * 2));
+    z-index: $modalZIndex;
+    pointer-events: all;
+    background-color: $colorEmptyShade;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+      rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: $sizeXs;
+    overflow: hidden;
+  }
+
+  .searchModalResults {
+    border-top: 1px solid $borderColor;
+    overflow-y: auto;
+  }
+
+  .searchModalFooter {
+    border-top: 1px solid $borderColor;
+    padding: 0 $sizeM;
+    background-color: $colorLightShade;
+  }
+}
+
+@media only screen and (max-width: 740px) {
+  .searchModalContainer {
+    overflow-y: auto;
+
+    .searchModal {
+      margin-top: 0 !important;
+      max-width: 100vw !important;
+      max-height: none !important;
+      border-radius: 0 !important;
+      overflow: initial !important;
+    }
+
+    .searchModalResults {
+      overflow-y: none !important;
+    }
+  }
+}

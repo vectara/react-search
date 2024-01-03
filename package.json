@@ -1,0 +1,43 @@
+{
+  "name": "@vectara/search",
+  "version": "0.1.0",
+  "description": "A Vectara-powered Search component",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "npm run clean && node build.js && tsc --emitDeclarationOnly --outDir dist",
+    "clean": "rimraf dist",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node serve.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "classnames": "^2.3.2",
+    "lodash": "^4.17.21",
+    "prismjs": "^1.29.0",
+    "react-focus-on": "^3.9.1",
+    "react-icons": "^4.12.0",
+    "uuid-by-string": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.202",
+    "@types/prismjs": "^1.26.3",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "esbuild": "^0.19.9",
+    "esbuild-css-modules-plugin": "^3.1.0",
+    "esbuild-sass-plugin": "^2.16.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.0"
+  },
+  "files": [
+    "dist"
+  ]
+}

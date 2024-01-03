@@ -1,0 +1,31 @@
+.searchInput {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchInput__input {
+  flex-grow: 1;
+  padding: $sizeL;
+  background-color: $colorEmptyShade;
+  border: none;
+  box-shadow: $shadowSmallStart;
+  outline-width: 1px;
+  outline-style: solid;
+  outline-color: transparent;
+  outline-offset: -1px;
+  font-size: $fontSizeLarge;
+  color: $colorText;
+}
+
+.searchInput__submitButton {
+  position: absolute;
+  right: $sizeM;
+  line-height: 0; // TODO: Should this be applied to all buttons?
+  color: $colorDarkShade;
+  transition: all $transitionSpeed;
+
+  &:hover {
+    color: $colorPrimary;
+  }
+}
