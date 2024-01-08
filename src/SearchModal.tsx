@@ -18,6 +18,7 @@ import {
   VuiTextColor,
 } from "./vui";
 import { FocusOn } from "react-focus-on";
+import { AllowedStyleOverrides } from "types";
 
 type Props = {
   isLoading: boolean;
@@ -27,6 +28,11 @@ type Props = {
   onClose: () => void;
   resultsList: React.ReactNode;
   isOpen?: boolean;
+  // Optional style overrides.
+  // Limited to allowed elements and styles.
+  styles?: {
+    input?: AllowedStyleOverrides;
+  };
 };
 
 export const SearchModal = forwardRef(
@@ -39,6 +45,7 @@ export const SearchModal = forwardRef(
       onClose,
       isOpen,
       resultsList,
+      styles = {},
     }: Props,
     ref: ForwardedRef<HTMLDivElement>
   ) => {
@@ -83,6 +90,7 @@ export const SearchModal = forwardRef(
                       onChange={onChange}
                       onKeyDown={onKeyDown}
                       placeholder="Search docs"
+                      styles={styles?.input}
                     />
 
                     {resultsList && (
