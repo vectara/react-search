@@ -5,6 +5,7 @@ import React, {
 } from "react";
 import { BiSearch } from "react-icons/bi";
 import { VuiSpinner } from "./vui";
+import { AllowedStyleOverrides } from "types";
 
 type Props = {
   value?: string;
@@ -14,6 +15,7 @@ type Props = {
   onSubmit?: FormEventHandler;
   onKeyDown?: KeyboardEventHandler<HTMLInputElement>;
   isLoading?: boolean;
+  styles?: AllowedStyleOverrides;
 };
 
 export const SearchInput = ({
@@ -23,6 +25,7 @@ export const SearchInput = ({
   autoFocus,
   onSubmit,
   isLoading,
+  styles = {},
   ...rest
 }: Props) => {
   return (
@@ -38,6 +41,7 @@ export const SearchInput = ({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
+          style={styles}
           {...rest}
         />
 

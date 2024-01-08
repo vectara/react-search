@@ -11,7 +11,7 @@ import React, {
 import { BiSearch } from "react-icons/bi";
 import getUuid from "uuid-by-string";
 import { VuiFlexContainer, VuiFlexItem, VuiIcon, VuiText } from "./vui";
-import { DeserializedSearchResult } from "./types";
+import { AllowedStyleOverrides, DeserializedSearchResult } from "./types";
 import { useSearch } from "./useSearch";
 import { SearchResult } from "./SearchResult";
 import { SearchModal } from "./SearchModal";
@@ -41,6 +41,14 @@ interface Props {
   // The number of previous searches to cache.
   // Default is 0.
   historySize?: number;
+
+  // Optional style overrides.
+  // Limited to allowed elements and styles.
+  styles?: {
+    toggle?: AllowedStyleOverrides;
+    input?: AllowedStyleOverrides;
+    resultItem?: AllowedStyleOverrides;
+  };
 }
 
 /**
@@ -52,6 +60,7 @@ export const Search: FC<Props> = ({
   corpusId,
   apiUrl,
   historySize = 10,
+  styles,
 }) => {
   // Compute a unique ID for this search component.
   // This creates a namespace, and ensures that stored search results
@@ -205,6 +214,7 @@ export const Search: FC<Props> = ({
               <SearchResult
                 searchResult={searchResult}
                 isSelected={selectedResultIndex === index}
+                styles={styles?.resultItem}
               />
             </div>
           );
@@ -238,7 +248,11 @@ export const Search: FC<Props> = ({
       <BrowserRouter>
         <div className="styleWrapper">
           <div ref={buttonRef}>
-            <button className="searchButton" onClick={() => setIsOpen(true)}>
+            <button
+              className="searchButton"
+              onClick={() => setIsOpen(true)}
+              style={styles?.toggle}
+            >
               <VuiFlexContainer
                 alignItems="center"
                 spacing="none"
@@ -255,7 +269,13 @@ export const Search: FC<Props> = ({
 
                     <VuiFlexItem>
                       <VuiText>
-                        <div>Search</div>
+                        <div
+                          style={{
+                            fontSize: styles?.toggle?.fontSize ?? "inherit",
+                          }}
+                        >
+                          Search
+                        </div>
                       </VuiText>
                     </VuiFlexItem>
                   </VuiFlexContainer>
@@ -274,6 +294,9 @@ export const Search: FC<Props> = ({
             isOpen={isOpen}
             resultsList={resultsList}
             onClose={closeModalAndResetResults}
+            styles={{
+              input: styles?.input,
+            }}
           />
         </div>
       </BrowserRouter>

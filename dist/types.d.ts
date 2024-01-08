@@ -39,4 +39,13 @@ type SearchResponseSummary = {
     text?: string;
     status?: string;
 };
+export type AllowedStyleOverrides = {
+    background?: string;
+    border?: string;
+    color?: string;
+    fontFamily?: string;
+    fontSize?: string;
+    height?: string;
+    padding?: string;
+};
 export {};
