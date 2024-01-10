@@ -1,4 +1,4 @@
-.searchInput {
+.searchForm {
   position: relative;
   display: flex;
   align-items: center;
@@ -18,9 +18,11 @@
   color: $colorText;
 }
 
+.searchInput__submitButtonWrapper {
+  padding-right: $sizeM;
+}
+
 .searchInput__submitButton {
-  position: absolute;
-  right: $sizeM;
   line-height: 0; // TODO: Should this be applied to all buttons?
   color: $colorDarkShade;
   transition: all $transitionSpeed;

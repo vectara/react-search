@@ -10,7 +10,13 @@ import {
 } from "react";
 import { BiSearch } from "react-icons/bi";
 import getUuid from "uuid-by-string";
-import { VuiFlexContainer, VuiFlexItem, VuiIcon, VuiText } from "./vui";
+import {
+  VuiFlexContainer,
+  VuiFlexItem,
+  VuiIcon,
+  VuiSpinner,
+  VuiText,
+} from "./vui";
 import { DeserializedSearchResult } from "./types";
 import { useSearch } from "./useSearch";
 import { SearchResult } from "./SearchResult";
@@ -272,13 +278,34 @@ export const ReactSearch: FC<Props> = ({
           </div>
 
           <SearchModal isOpen={isOpen} onClose={closeModalAndResetResults}>
-            <SearchInput
-              isLoading={isLoading}
-              value={searchValue}
-              onChange={onChange}
-              onKeyDown={onKeyDown}
-              placeholder={placeholder}
-            />
+            <form>
+              <div className="searchForm">
+                <SearchInput
+                  isLoading={isLoading}
+                  value={searchValue}
+                  onChange={onChange}
+                  onKeyDown={onKeyDown}
+                  placeholder={placeholder}
+                />
+                {isLoading ? (
+                  <div className="searchInput__submitButtonWrapper">
+                    <VuiSpinner size="xs" />
+                  </div>
+                ) : (
+                  <div className="searchInput__submitButtonWrapper">
+                    <button
+                      className="searchInput__submitButton"
+                      onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                        e.preventDefault();
+                        sendSearchQuery(searchValue);
+                      }}
+                    >
+                      <BiSearch size="20px" />
+                    </button>
+                  </div>
+                )}
+              </div>
+            </form>
 
             {resultsList && (
               <div className="searchModalResults">{resultsList}</div>
