@@ -1,2 +1,4 @@
 /node_modules
 /dist
+/dev/public/script.js
+/dev/public/script.js.map

@@ -9,11 +9,13 @@
     "build": "npm run clean && node build.js && tsc --emitDeclarationOnly --outDir dist",
     "clean": "rimraf dist",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node serve.js"
+    "dev": "npm run build && node dev/devServer.js"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
     "classnames": "^2.3.2",
     "lodash": "^4.17.21",
     "prismjs": "^1.29.0",
@@ -24,16 +26,16 @@
   "devDependencies": {
     "@types/lodash": "^4.14.202",
     "@types/prismjs": "^1.26.3",
-    "@types/react": "^18.2.45",
-    "@types/react-dom": "^18.2.18",
+    "chokidar": "^3.5.3",
     "esbuild": "^0.19.9",
     "esbuild-css-modules-plugin": "^3.1.0",
     "esbuild-sass-plugin": "^2.16.0",
-    "rimraf": "^5.0.5",
-    "typescript": "^5.3.3",
+    "live-server": "^1.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.21.0"
+    "react-router-dom": "^6.21.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3"
   },
   "peerDependencies": {
     "react": "^18.2.0",
