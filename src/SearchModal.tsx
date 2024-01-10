@@ -1,47 +1,15 @@
-import React, {
-  forwardRef,
-  ForwardedRef,
-  useEffect,
-  useRef,
-  ChangeEvent,
-  KeyboardEvent as ReactKeyboardEvent,
-} from "react";
-import { SearchInput } from "./SearchInput";
-import {
-  VuiFlexContainer,
-  VuiFlexItem,
-  VuiLinkInternal,
-  VuiPortal,
-  VuiScreenBlock,
-  VuiSpacer,
-  VuiText,
-  VuiTextColor,
-} from "./vui";
+import { forwardRef, ForwardedRef, useEffect, useRef, ReactNode } from "react";
+import { VuiPortal, VuiScreenBlock } from "./vui";
 import { FocusOn } from "react-focus-on";
 
 type Props = {
-  isLoading: boolean;
-  searchValue?: string;
-  onChange: (evt: ChangeEvent<HTMLInputElement>) => void;
-  onKeyDown: (evt: ReactKeyboardEvent) => void;
   onClose: () => void;
-  resultsList: React.ReactNode;
   isOpen?: boolean;
+  children?: ReactNode[];
 };
 
 export const SearchModal = forwardRef(
-  (
-    {
-      isLoading,
-      searchValue,
-      onChange,
-      onKeyDown,
-      onClose,
-      isOpen,
-      resultsList,
-    }: Props,
-    ref: ForwardedRef<HTMLDivElement>
-  ) => {
+  ({ onClose, isOpen, children }: Props, ref: ForwardedRef<HTMLDivElement>) => {
     const returnFocusElRef = useRef<HTMLElement | null>(null);
 
     // Return focus on unmount.
@@ -77,56 +45,7 @@ export const SearchModal = forwardRef(
               >
                 <div className="searchModalContainer">
                   <div ref={ref} className="searchModal">
-                    <SearchInput
-                      isLoading={isLoading}
-                      value={searchValue}
-                      onChange={onChange}
-                      onKeyDown={onKeyDown}
-                      placeholder="Search docs"
-                    />
-
-                    {resultsList && (
-                      <div className="searchModalResults">{resultsList}</div>
-                    )}
-
-                    <div className="searchModalFooter">
-                      <VuiSpacer size="xs" />
-
-                      <VuiFlexContainer
-                        alignItems="center"
-                        justifyContent="spaceBetween"
-                      >
-                        <VuiFlexItem>
-                          <VuiText size="s" align="right">
-                            <p>
-                              <strong>
-                                <VuiTextColor color="subdued">
-                                  Built with
-                                </VuiTextColor>{" "}
-                                <VuiLinkInternal
-                                  href="https://vectara.com"
-                                  target="_blank"
-                                >
-                                  Vectara
-                                </VuiLinkInternal>
-                              </strong>
-                            </p>
-                          </VuiText>
-                        </VuiFlexItem>
-
-                        <VuiFlexItem>
-                          <VuiText>
-                            <p>
-                              <VuiTextColor color="subdued">
-                                Ctrl+K
-                              </VuiTextColor>
-                            </p>
-                          </VuiText>
-                        </VuiFlexItem>
-                      </VuiFlexContainer>
-
-                      <VuiSpacer size="xs" />
-                    </div>
+                    {children}
                   </div>
                 </div>
               </FocusOn>

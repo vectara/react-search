@@ -1,4 +1,4 @@
-import React, {
+import {
   ChangeEvent,
   FC,
   useCallback,
@@ -18,6 +18,7 @@ import { SearchModal } from "./SearchModal";
 import { useSearchHistory } from "./useSearchHistory";
 import "./_index.scss";
 import { BrowserRouter } from "react-router-dom";
+import { SearchInput } from "SearchInput";
 
 const getQueryParam = (urlParams: URLSearchParams, key: string) => {
   const value = urlParams.get(key);
@@ -41,17 +42,21 @@ interface Props {
   // The number of previous searches to cache.
   // Default is 0.
   historySize?: number;
+
+  // The search input placeholder.
+  placeholder?: string;
 }
 
 /**
  * A client-side search component that queries a specific corpus with a user-provided string.
  */
-export const Search: FC<Props> = ({
+export const ReactSearch: FC<Props> = ({
   customerId,
   apiKey,
   corpusId,
   apiUrl,
   historySize = 10,
+  placeholder = "Search",
 }) => {
   // Compute a unique ID for this search component.
   // This creates a namespace, and ensures that stored search results
@@ -59,7 +64,7 @@ export const Search: FC<Props> = ({
   // NOTE: This is an implementation for what's historically been found to be
   // an issue with persistent search history: overlap between the histories
   // of different search boxes.
-  const searchId = React.useMemo(
+  const searchId = useMemo(
     () => getUuid(`${customerId}-${corpusId}-${apiKey}`),
     [customerId, corpusId, apiKey]
   );
@@ -255,7 +260,7 @@ export const Search: FC<Props> = ({
 
                     <VuiFlexItem>
                       <VuiText>
-                        <div>Search</div>
+                        <div>{placeholder}</div>
                       </VuiText>
                     </VuiFlexItem>
                   </VuiFlexContainer>
@@ -266,15 +271,19 @@ export const Search: FC<Props> = ({
             </button>
           </div>
 
-          <SearchModal
-            isLoading={isLoading}
-            searchValue={searchValue}
-            onChange={onChange}
-            onKeyDown={onKeyDown}
-            isOpen={isOpen}
-            resultsList={resultsList}
-            onClose={closeModalAndResetResults}
-          />
+          <SearchModal isOpen={isOpen} onClose={closeModalAndResetResults}>
+            <SearchInput
+              isLoading={isLoading}
+              value={searchValue}
+              onChange={onChange}
+              onKeyDown={onKeyDown}
+              placeholder={placeholder}
+            />
+
+            {resultsList && (
+              <div className="searchModalResults">{resultsList}</div>
+            )}
+          </SearchModal>
         </div>
       </BrowserRouter>
     </>
