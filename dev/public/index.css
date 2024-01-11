@@ -1,0 +1,42 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+code {
+  background: #eee;
+  box-sizing: border-box;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 800px;
+  display: block;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+  white-space: pre-wrap;
+  font-size: 0.8rem;
+  margin: 20px 0;
+  padding: 20px;
+}
+
+#root {
+  height: 100%;
+}
+
+#app {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#searchWrapper {
+  width: 100%;
+  max-width: 800px;
+}
