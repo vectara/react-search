@@ -23,7 +23,7 @@ Search results look like this:
 Install React-Search:
 
 ```shell
-npm add @vectara/react-search
+npm install --save @vectara/react-search
 ```
 
 Then use it in your application like this:
