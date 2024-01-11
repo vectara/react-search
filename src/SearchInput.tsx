@@ -27,7 +27,7 @@ export const SearchInput = ({
 }: Props) => {
   return (
     <input
-      className="searchInput__input"
+      className="searchInput"
       type="text"
       autoComplete="off"
       autoCapitalize="off"

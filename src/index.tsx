@@ -288,13 +288,13 @@ export const ReactSearch: FC<Props> = ({
                   placeholder={placeholder}
                 />
                 {isLoading ? (
-                  <div className="searchInput__submitButtonWrapper">
+                  <div className="submitButtonWrapper">
                     <VuiSpinner size="xs" />
                   </div>
                 ) : (
-                  <div className="searchInput__submitButtonWrapper">
+                  <div className="submitButtonWrapper">
                     <button
-                      className="searchInput__submitButton"
+                      className="submitButton"
                       onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                         e.preventDefault();
                         sendSearchQuery(searchValue);
