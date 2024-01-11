@@ -20,7 +20,7 @@ const App = () => (
 const codeSnippet = `
 import { ReactSearch } from "@vectara/react-search";
 
-const App = () => (
+export const App = () => (
   <div>
     <ReactSearch
       corpusId="<Your Vectara corpus ID>"

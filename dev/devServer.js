@@ -16,10 +16,8 @@ const { esm } = require("../buildConfigs");
       ),
     },
     entryPoints: ["dev/index.tsx"],
-    minify: process.env.NODE_ENV === "production",
     outfile: "dev/public/script.js",
     sourcemap: true,
-    logLevel: "silent",
   });
 
   chokidar

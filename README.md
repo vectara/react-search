@@ -11,6 +11,12 @@ This codebase comes with a development environment to facilitate enhancements an
 From the root directory, run:
 
 ```
+npm install
+```
+
+This will install all dependencies necessary for building the component and running the dev environment. Once this completes, run:
+
+```
 npm run dev
 ```
 

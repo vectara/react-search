@@ -266,7 +266,7 @@ export const ReactSearch: FC<Props> = ({
 
                     <VuiFlexItem>
                       <VuiText>
-                        <div>{placeholder}</div>
+                        <div>Search</div>
                       </VuiText>
                     </VuiFlexItem>
                   </VuiFlexContainer>
