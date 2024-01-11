@@ -1,10 +1,10 @@
-.searchInput {
+.searchForm {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.searchInput__input {
+.searchInput {
   flex-grow: 1;
   padding: $sizeL;
   background-color: $colorEmptyShade;
@@ -18,9 +18,11 @@
   color: $colorText;
 }
 
-.searchInput__submitButton {
-  position: absolute;
-  right: $sizeM;
+.submitButtonWrapper {
+  padding-right: $sizeM;
+}
+
+.submitButton {
   line-height: 0; // TODO: Should this be applied to all buttons?
   color: $colorDarkShade;
   transition: all $transitionSpeed;
