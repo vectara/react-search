@@ -1,5 +1,8 @@
 /node_modules
 /src
+/dev
+/images
+buildConfigs.js
 build.js
 global.d.ts
 package-lock.json
