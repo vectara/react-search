@@ -18,14 +18,26 @@ export const SearchResult = ({
     snippet: { text },
   } = searchResult;
 
-  return (
-    <a
-      className={`searchResult${isSelected ? " isSelected" : ""}`}
-      href={url}
-      target={shouldOpenInNewWindow ? "_blank" : "_self"}
-    >
-      <p className="searchResultTitle">{title}</p>
+  const content = (
+    <>
+      {title && <p className="searchResultTitle">{title}</p>}
       <p className="searchResultSnippet">{text}</p>
-    </a>
+    </>
   );
+
+  if (url) {
+    return (
+      <a
+        className={`searchResult searchResult-isLink ${
+          isSelected ? "isSelected" : ""
+        }`}
+        href={url}
+        target={shouldOpenInNewWindow ? "_blank" : "_self"}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return <div className="searchResult">{content}</div>;
 };

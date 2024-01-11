@@ -1,19 +1,12 @@
 .searchResult {
   background-color: $colorEmptyShade;
   display: block;
-  padding: $sizeS $sizeL $sizeS $sizeM;
-  border-left: $sizeS solid $colorEmptyShade;
+  padding: $sizeS $sizeL $sizeS $sizeL;
   text-decoration: none;
   border-bottom: 1px solid $borderColorLight;
 
-  &:hover,
-  &.isSelected {
+  &:hover {
     background-color: $colorLightShade;
-    border-left: $sizeS solid $colorPrimary;
-
-    .searchResultTitle {
-      text-decoration: underline;
-    }
   }
 
   &:last-of-type {
@@ -21,8 +14,26 @@
   }
 }
 
+.searchResult-isLink {
+  padding-left: $sizeM;
+  border-left: $sizeS solid $colorEmptyShade;
+
+  &:hover,
+  &.isSelected {
+    border-left: $sizeS solid $colorPrimary;
+
+    .searchResultTitle {
+      text-decoration: underline;
+    }
+  }
+
+  .searchResultTitle {
+    color: $colorPrimary;
+  }
+}
+
 .searchResultTitle {
-  color: $colorPrimary;
+  color: $colorDarkerShade;
   font-size: 14px;
   font-weight: 700;
   line-height: 22px;

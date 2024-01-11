@@ -197,7 +197,7 @@ export const ReactSearch: FC<Props> = ({
     queryParams.delete("search");
     history.replaceState(null, "", "?" + queryParams.toString());
   };
-
+  console.log(searchResults);
   const resultsList =
     searchResults.length === 0
       ? null

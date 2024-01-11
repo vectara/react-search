@@ -41,7 +41,14 @@ import { ReactSearch } from "@vectara/react-search";
 />;
 ```
 
+### Setting up your search data
+
 React-Search pulls data from your Vectara corpus. To set this up, [create a free Vectara account](https://console.vectara.com/signup) and refer to our [docs](https://docs.vectara.com/docs) for help.
+
+Vectara enables you to define [metadata](https://docs.vectara.com/docs/learn/document-data-structuring#metadata) on your documents. React-Search behaves differently based on the presence of specific metadata fields:
+
+- `title`: If this field is defined it will be rendered as the title of a search result. Typically this is something like the title of the document or webpage.
+- `url`: If this field is defined, React-Search will render the search result as a link to the defined URL.
 
 ## Maintenance
 
