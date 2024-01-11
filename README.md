@@ -1,10 +1,51 @@
 <p align="center">
-  <img style="max-width: 100%;" alt="Welcome to Create UI" src="readmeImages/projectLogo.png"/>
+  <img style="max-width: 100%;" alt="Welcome to Create UI" src="images/projectLogo.png"/>
 </p>
 
-## Development
+# React-Search
 
-This codebase comes with a development environment to facilitate enhancements and bug fixes. It allows developers to quickly iterate on the code and verify changes instantly.
+Use React-Search to add [Vectara](https://vectara.com/) semantic search to your React apps with a few lines of code.
+
+The search input looks like this:
+
+![React-Search input](images/searchInput.jpg)
+
+When the user clicks the search input, they get a search prompt like this:
+
+![React-Search prompt](images/searchPrompt.jpg)
+
+Search results look like this:
+
+![React-Search results](images/searchResults.jpg)
+
+## Usage
+
+Install React-Search:
+
+```shell
+npm add @vectara/react-search
+```
+
+Then use it in your application like this:
+
+```js
+import { ReactSearch } from "@vectara/react-search";
+
+/* snip */
+
+<ReactSearch
+  corpusId="CORPUS_ID"
+  customerId="CUSTOMER_ID"
+  apiKey="API_KEY"
+  placeholder="Search for anything"
+/>;
+```
+
+React-Search pulls data from your Vectara corpus. To set this up, [create a free Vectara account](https://console.vectara.com/signup) and refer to our [docs](https://docs.vectara.com/docs) for help.
+
+## Maintenance
+
+This codebase comes with a development environment to facilitate enhancements and bug fixes. It allows maintainers to quickly iterate on the code and verify changes instantly.
 
 ### Running the development environment
 
@@ -21,8 +62,6 @@ npm run dev
 ```
 
 This spins up an application running at `http://localhost:8080/`. Your latest changes will be reflected here.
-
-![react-search development page](readmeImages/devEnv.png)
 
 ### Making changes to the component
 
