@@ -1,15 +1,16 @@
 const { sassPlugin } = require("esbuild-sass-plugin");
 const cssPlugin = require("esbuild-css-modules-plugin");
-const { peerDependencies } = require("./package.json");
+const { dependencies, peerDependencies } = require("./package.json");
 const entryFile = "src/index.tsx";
 
 const sharedConfig = {
   bundle: true,
   entryPoints: [entryFile],
   logLevel: "info",
+  treeShaking: true,
   minify: true,
   sourcemap: true,
-  external: Object.keys(peerDependencies),
+  external: [...Object.keys(dependencies), ...Object.keys(peerDependencies)],
   target: ["esnext", "node12.22.0"],
   plugins: [cssPlugin(), sassPlugin({ type: "style" })],
 };

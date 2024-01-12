@@ -1,10 +1,8 @@
-import React, {
+import {
   ChangeEventHandler,
   FormEventHandler,
   KeyboardEventHandler,
 } from "react";
-import { BiSearch } from "react-icons/bi";
-import { VuiSpinner } from "./vui";
 
 type Props = {
   value?: string;
