@@ -80,7 +80,7 @@ const parseMetadata = (rawMetadata: DocMetadata[]) => {
   return {
     source: metadata.source as string,
     url: metadata.url,
-    title: metadata.title || "Untitled",
+    title: metadata.title,
     metadata,
   };
 };
@@ -137,12 +137,15 @@ const compileDedupedResults = (
   const dedupedResults: DeserializedSearchResult[] = [];
 
   undedupedResults.forEach((result) => {
-    if (listedUrls[result.url]) {
-      return;
+    if (result.url) {
+      if (listedUrls[result.url]) {
+        return;
+      } else {
+        listedUrls[result.url] = true;
+      }
     }
 
     dedupedResults.push(result);
-    listedUrls[result.url] = true;
   });
 
   return dedupedResults;
