@@ -7,6 +7,7 @@ import {
   useRef,
   useEffect,
   useMemo,
+  ReactNode,
 } from "react";
 import { BiSearch } from "react-icons/bi";
 import getUuid from "uuid-by-string";
@@ -23,7 +24,6 @@ import { SearchResult } from "./SearchResult";
 import { SearchModal } from "./SearchModal";
 import { useSearchHistory } from "./useSearchHistory";
 import "./_index.scss";
-import { BrowserRouter } from "react-router-dom";
 import { SearchInput } from "SearchInput";
 
 const getQueryParam = (urlParams: URLSearchParams, key: string) => {
@@ -246,73 +246,70 @@ export const ReactSearch: FC<Props> = ({
 
   return (
     <>
-      <BrowserRouter>
-        <div className="styleWrapper">
-          <div ref={buttonRef}>
-            <button className="searchButton" onClick={() => setIsOpen(true)}>
-              <VuiFlexContainer
-                alignItems="center"
-                spacing="none"
-                justifyContent="spaceBetween"
-                className="searchButton__inner"
-              >
-                <VuiFlexItem>
-                  <VuiFlexContainer alignItems="center" spacing="xs">
-                    <VuiFlexItem>
-                      <VuiIcon>
-                        <BiSearch />
-                      </VuiIcon>
-                    </VuiFlexItem>
+      <div className="styleWrapper">
+        <div ref={buttonRef}>
+          <button className="searchButton" onClick={() => setIsOpen(true)}>
+            <VuiFlexContainer
+              alignItems="center"
+              spacing="none"
+              justifyContent="spaceBetween"
+              className="searchButton__inner"
+            >
+              <VuiFlexItem>
+                <VuiFlexContainer alignItems="center" spacing="xs">
+                  <VuiFlexItem>
+                    <VuiIcon>
+                      <BiSearch />
+                    </VuiIcon>
+                  </VuiFlexItem>
 
-                    <VuiFlexItem>
-                      <VuiText>
-                        <div>Search</div>
-                      </VuiText>
-                    </VuiFlexItem>
-                  </VuiFlexContainer>
-                </VuiFlexItem>
+                  <VuiFlexItem>
+                    <VuiText>
+                      <div>Search</div>
+                    </VuiText>
+                  </VuiFlexItem>
+                </VuiFlexContainer>
+              </VuiFlexItem>
 
-                <div className="searchButtonShortcut">Ctrl + K</div>
-              </VuiFlexContainer>
-            </button>
-          </div>
-
-          <SearchModal isOpen={isOpen} onClose={closeModalAndResetResults}>
-            <form>
-              <div className="searchForm">
-                <SearchInput
-                  isLoading={isLoading}
-                  value={searchValue}
-                  onChange={onChange}
-                  onKeyDown={onKeyDown}
-                  placeholder={placeholder}
-                />
-                {isLoading ? (
-                  <div className="submitButtonWrapper">
-                    <VuiSpinner size="xs" />
-                  </div>
-                ) : (
-                  <div className="submitButtonWrapper">
-                    <button
-                      className="submitButton"
-                      onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-                        e.preventDefault();
-                        sendSearchQuery(searchValue);
-                      }}
-                    >
-                      <BiSearch size="20px" />
-                    </button>
-                  </div>
-                )}
-              </div>
-            </form>
-
-            {resultsList && (
-              <div className="searchModalResults">{resultsList}</div>
-            )}
-          </SearchModal>
+              <div className="searchButtonShortcut">Ctrl + K</div>
+            </VuiFlexContainer>
+          </button>
         </div>
-      </BrowserRouter>
+        <SearchModal isOpen={isOpen} onClose={closeModalAndResetResults}>
+          <form>
+            <div className="searchForm">
+              <SearchInput
+                isLoading={isLoading}
+                value={searchValue}
+                onChange={onChange}
+                onKeyDown={onKeyDown}
+                placeholder={placeholder}
+              />
+              {isLoading ? (
+                <div className="submitButtonWrapper">
+                  <VuiSpinner size="xs" />
+                </div>
+              ) : (
+                <div className="submitButtonWrapper">
+                  <button
+                    className="submitButton"
+                    onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                      e.preventDefault();
+                      sendSearchQuery(searchValue);
+                    }}
+                  >
+                    <BiSearch size="20px" />
+                  </button>
+                </div>
+              )}
+            </div>
+          </form>
+
+          {resultsList && (
+            <div className="searchModalResults">{resultsList}</div>
+          )}
+        </SearchModal>
+      </div>
     </>
   );
 };
