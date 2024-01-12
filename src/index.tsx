@@ -7,17 +7,11 @@ import {
   useRef,
   useEffect,
   useMemo,
-  ReactNode,
+  ReactNode
 } from "react";
 import { BiSearch } from "react-icons/bi";
 import getUuid from "uuid-by-string";
-import {
-  VuiFlexContainer,
-  VuiFlexItem,
-  VuiIcon,
-  VuiSpinner,
-  VuiText,
-} from "./vui";
+import { VuiFlexContainer, VuiFlexItem, VuiIcon, VuiSpinner, VuiText } from "./vui";
 import { DeserializedSearchResult } from "./types";
 import { useSearch } from "./useSearch";
 import { SearchResult } from "./SearchResult";
@@ -62,7 +56,7 @@ export const ReactSearch: FC<Props> = ({
   corpusId,
   apiUrl,
   historySize = 10,
-  placeholder = "Search",
+  placeholder = "Search"
 }) => {
   // Compute a unique ID for this search component.
   // This creates a namespace, and ensures that stored search results
@@ -70,24 +64,12 @@ export const ReactSearch: FC<Props> = ({
   // NOTE: This is an implementation for what's historically been found to be
   // an issue with persistent search history: overlap between the histories
   // of different search boxes.
-  const searchId = useMemo(
-    () => getUuid(`${customerId}-${corpusId}-${apiKey}`),
-    [customerId, corpusId, apiKey]
-  );
+  const searchId = useMemo(() => getUuid(`${customerId}-${corpusId}-${apiKey}`), [customerId, corpusId, apiKey]);
   const { addPreviousSearch } = useSearchHistory(searchId, historySize);
-  const { fetchSearchResults, isLoading } = useSearch(
-    customerId,
-    corpusId,
-    apiKey,
-    apiUrl
-  );
+  const { fetchSearchResults, isLoading } = useSearch(customerId, corpusId, apiKey, apiUrl);
 
-  const [selectedResultIndex, setSelectedResultIndex] = useState<number | null>(
-    null
-  );
-  const [searchResults, setSearchResults] = useState<
-    DeserializedSearchResult[]
-  >([]);
+  const [selectedResultIndex, setSelectedResultIndex] = useState<number | null>(null);
+  const [searchResults, setSearchResults] = useState<DeserializedSearchResult[]>([]);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>("");
 
@@ -164,17 +146,13 @@ export const ReactSearch: FC<Props> = ({
 
       if (key === "ArrowDown") {
         setSelectedResultIndex((prevValue) => {
-          return prevValue === null || prevValue === searchResults.length - 1
-            ? 0
-            : prevValue + 1;
+          return prevValue === null || prevValue === searchResults.length - 1 ? 0 : prevValue + 1;
         });
       }
 
       if (key === "ArrowUp") {
         setSelectedResultIndex((prevValue) => {
-          return prevValue === null || prevValue === 0
-            ? searchResults.length - 1
-            : prevValue - 1;
+          return prevValue === null || prevValue === 0 ? searchResults.length - 1 : prevValue - 1;
         });
       }
     },
@@ -203,20 +181,12 @@ export const ReactSearch: FC<Props> = ({
       ? null
       : searchResults.map((searchResult, index) => {
           const {
-            snippet: { pre, text, post },
+            snippet: { pre, text, post }
           } = searchResult;
 
           return (
-            <div
-              ref={
-                selectedResultIndex === index ? selectedResultRef : undefined
-              }
-              key={`${pre}${text}${post}`}
-            >
-              <SearchResult
-                searchResult={searchResult}
-                isSelected={selectedResultIndex === index}
-              />
+            <div ref={selectedResultIndex === index ? selectedResultRef : undefined} key={`${pre}${text}${post}`}>
+              <SearchResult searchResult={searchResult} isSelected={selectedResultIndex === index} />
             </div>
           );
         });
@@ -225,7 +195,7 @@ export const ReactSearch: FC<Props> = ({
     if (selectedResultRef.current) {
       selectedResultRef.current.scrollIntoView({
         behavior: "instant",
-        block: "nearest",
+        block: "nearest"
       });
     }
   }, [selectedResultRef.current]);
@@ -305,9 +275,7 @@ export const ReactSearch: FC<Props> = ({
             </div>
           </form>
 
-          {resultsList && (
-            <div className="searchModalResults">{resultsList}</div>
-          )}
+          {resultsList && <div className="searchModalResults">{resultsList}</div>}
         </SearchModal>
       </div>
     </>

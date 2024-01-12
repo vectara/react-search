@@ -2,23 +2,14 @@ const esbuild = require("esbuild");
 const chokidar = require("chokidar");
 const liveServer = require("live-server");
 const { esm } = require("../buildConfigs");
+const { config: devScriptBuildConfig } = require("./buildConfigs");
 
 (async () => {
   // Builder for the react-search package
   const pkgBuilder = await esbuild.context(esm);
 
   // Builder for the development page
-  const devPageBuilder = await esbuild.context({
-    bundle: true,
-    define: {
-      "process.env.NODE_ENV": JSON.stringify(
-        process.env.NODE_ENV || "development"
-      ),
-    },
-    entryPoints: ["dev/index.tsx"],
-    outfile: "dev/public/script.js",
-    sourcemap: true,
-  });
+  const devPageBuilder = await esbuild.context(devScriptBuildConfig);
 
   chokidar
     // Watch for changes to dev env code or react-search build
