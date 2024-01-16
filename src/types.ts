@@ -6,8 +6,8 @@ export type DeserializedSearchResult = {
     post: string;
   };
   source: string;
-  url: string;
-  title: string;
+  url?: string;
+  title?: string;
   metadata: Record<string, unknown>;
 };
 

@@ -6,8 +6,7 @@ import {
   KeyboardEvent as ReactKeyboardEvent,
   useRef,
   useEffect,
-  useMemo,
-  ReactNode
+  useMemo
 } from "react";
 import { BiSearch } from "react-icons/bi";
 import getUuid from "uuid-by-string";
@@ -17,8 +16,8 @@ import { useSearch } from "./useSearch";
 import { SearchResult } from "./SearchResult";
 import { SearchModal } from "./SearchModal";
 import { useSearchHistory } from "./useSearchHistory";
-import { SearchInput } from "SearchInput";
 import "./_index.scss";
+import { SearchInput } from "./SearchInput";
 
 const getQueryParam = (urlParams: URLSearchParams, key: string) => {
   const value = urlParams.get(key);
@@ -256,13 +255,7 @@ export const ReactSearch: FC<Props> = ({
         <SearchModal isOpen={isOpen} onClose={closeModalAndResetResults}>
           <form>
             <div className="searchForm">
-              <SearchInput
-                isLoading={isLoading}
-                value={searchValue}
-                onChange={onChange}
-                onKeyDown={onKeyDown}
-                placeholder={placeholder}
-              />
+              <SearchInput value={searchValue} onChange={onChange} onKeyDown={onKeyDown} placeholder={placeholder} />
               {isLoading ? (
                 <div className="submitButtonWrapper">
                   <VuiSpinner size="xs" />

@@ -9,7 +9,7 @@
     "build": "npm run clean && node build.js && tsc --emitDeclarationOnly --outDir dist",
     "buildDevScript": "node dev/build.js",
     "clean": "rimraf dist",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --coverage",
     "dev": "npm run build && node dev/devServer.js"
   },
   "author": "",
@@ -25,16 +25,24 @@
     "uuid-by-string": "^4.0.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.2.0",
+    "@testing-library/react": "^14.1.2",
+    "@types/jest": "^29.5.11",
     "@types/lodash": "^4.14.202",
     "@types/prismjs": "^1.26.3",
     "chokidar": "^3.5.3",
+    "cross-fetch": "^4.0.0",
     "esbuild": "^0.19.9",
     "esbuild-css-modules-plugin": "^3.1.0",
     "esbuild-sass-plugin": "^2.16.0",
+    "jest": "^29.7.0",
+    "jest-css-modules": "^2.1.0",
+    "jest-environment-jsdom": "^29.7.0",
     "live-server": "^1.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rimraf": "^5.0.5",
+    "ts-jest": "^29.1.1",
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
