@@ -17,8 +17,8 @@ import { useSearch } from "./useSearch";
 import { SearchResult } from "./SearchResult";
 import { SearchModal } from "./SearchModal";
 import { useSearchHistory } from "./useSearchHistory";
-import "./_index.scss";
 import { SearchInput } from "SearchInput";
+import "./_index.scss";
 
 const getQueryParam = (urlParams: URLSearchParams, key: string) => {
   const value = urlParams.get(key);
@@ -45,6 +45,9 @@ interface Props {
 
   // The search input placeholder.
   placeholder?: string;
+
+  // Whether to enable deeplinking to a particular search.
+  isDeeplinkable?: boolean;
 }
 
 /**
@@ -56,7 +59,8 @@ export const ReactSearch: FC<Props> = ({
   corpusId,
   apiUrl,
   historySize = 10,
-  placeholder = "Search"
+  placeholder = "Search",
+  isDeeplinkable = false
 }) => {
   // Compute a unique ID for this search component.
   // This creates a namespace, and ensures that stored search results
@@ -93,10 +97,12 @@ export const ReactSearch: FC<Props> = ({
       return;
     }
 
-    // Persist search.
-    const queryParams = new URLSearchParams(window.location.search);
-    queryParams.set("search", query);
-    history.replaceState(null, "", "?" + queryParams.toString());
+    if (isDeeplinkable) {
+      // Persist search.
+      const queryParams = new URLSearchParams(window.location.search);
+      queryParams.set("search", query);
+      history.replaceState(null, "", "?" + queryParams.toString());
+    }
 
     addPreviousSearch(query);
     const searchId = ++searchCount.current;
@@ -170,10 +176,12 @@ export const ReactSearch: FC<Props> = ({
     setSearchValue("");
     resetResults();
 
-    // Clear persisted search.
-    const queryParams = new URLSearchParams(window.location.search);
-    queryParams.delete("search");
-    history.replaceState(null, "", "?" + queryParams.toString());
+    if (isDeeplinkable) {
+      // Clear persisted search.
+      const queryParams = new URLSearchParams(window.location.search);
+      queryParams.delete("search");
+      history.replaceState(null, "", "?" + queryParams.toString());
+    }
   };
 
   const resultsList =
