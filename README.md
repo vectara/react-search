@@ -24,7 +24,7 @@ Search results look like this:
 
 ![React-Search results](images/searchResults.jpg)
 
-## Usage
+## Use it in your application
 
 Install React-Search:
 
@@ -117,3 +117,7 @@ This spins up an application running at `http://localhost:8080/`. Your latest ch
 Once the development environment is running, any changes made to .ts and .tsx files in the `/src` directory will trigger a rebuild of the component and a reload of the webpage.
 
 Additionally, any changes to the development app source code at `/dev/index.tsx` will also trigger a rebuild + reload.
+
+## License
+
+Vectara React-Search is an open-sourced software licensed under the [Apache 2.0 license](/LICENSE).
