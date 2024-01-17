@@ -6,6 +6,12 @@
 
 Use React-Search to add [Vectara](https://vectara.com/) semantic search to your React apps with a few lines of code.
 
+## Demo
+
+**[Try out the demo!](https://vectara.github.io/react-search/)**
+
+## UI
+
 The search input looks like this:
 
 ![React-Search input](images/searchInput.jpg)
