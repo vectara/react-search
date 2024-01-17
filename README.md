@@ -44,6 +44,7 @@ import { ReactSearch } from "@vectara/react-search";
   corpusId="CORPUS_ID"
   apiKey="API_KEY"
   placeholder="Search for anything"
+  isDeeplinkable
 />;
 ```
 
