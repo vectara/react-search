@@ -7,10 +7,10 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "npm run clean && node build.js && tsc --emitDeclarationOnly --outDir dist",
-    "buildDevScript": "node dev/build.js",
+    "buildDevScript": "cd dev && npm run build",
     "clean": "rimraf dist",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npm run build && node dev/devServer.js"
+    "dev": "cd dev && npm run dev"
   },
   "author": "",
   "license": "MIT",

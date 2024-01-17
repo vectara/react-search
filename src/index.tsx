@@ -6,8 +6,7 @@ import {
   KeyboardEvent as ReactKeyboardEvent,
   useRef,
   useEffect,
-  useMemo,
-  ReactNode
+  useMemo
 } from "react";
 import { BiSearch } from "react-icons/bi";
 import getUuid from "uuid-by-string";
@@ -17,7 +16,7 @@ import { useSearch } from "./useSearch";
 import { SearchResult } from "./SearchResult";
 import { SearchModal } from "./SearchModal";
 import { useSearchHistory } from "./useSearchHistory";
-import { SearchInput } from "SearchInput";
+import { SearchInput } from "./SearchInput";
 import "./_index.scss";
 
 const getQueryParam = (urlParams: URLSearchParams, key: string) => {
