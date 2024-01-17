@@ -11,7 +11,6 @@ type Props = {
   autoFocus?: boolean;
   onSubmit?: FormEventHandler;
   onKeyDown?: KeyboardEventHandler<HTMLInputElement>;
-  isLoading?: boolean;
 };
 
 export const SearchInput = ({
@@ -20,7 +19,6 @@ export const SearchInput = ({
   placeholder,
   autoFocus,
   onSubmit,
-  isLoading,
   ...rest
 }: Props) => {
   return (
