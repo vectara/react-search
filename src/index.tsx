@@ -225,12 +225,12 @@ export const ReactSearch: FC<Props> = ({
     <>
       <div className="styleWrapper">
         <div ref={buttonRef}>
-          <button className="searchButton" onClick={() => setIsOpen(true)}>
+          <button className="vrsSearchButton" onClick={() => setIsOpen(true)}>
             <VuiFlexContainer
               alignItems="center"
               spacing="none"
               justifyContent="spaceBetween"
-              className="searchButton__inner"
+              className="vrsSearchButton__inner"
             >
               <VuiFlexItem>
                 <VuiFlexContainer alignItems="center" spacing="xs">
@@ -248,22 +248,22 @@ export const ReactSearch: FC<Props> = ({
                 </VuiFlexContainer>
               </VuiFlexItem>
 
-              <div className="searchButtonShortcut">Ctrl + K</div>
+              <div className="vrsSearchButtonShortcut">Ctrl + K</div>
             </VuiFlexContainer>
           </button>
         </div>
         <SearchModal isOpen={isOpen} onClose={closeModalAndResetResults}>
           <form>
-            <div className="searchForm">
+            <div className="vrsSearchForm">
               <SearchInput value={searchValue} onChange={onChange} onKeyDown={onKeyDown} placeholder={placeholder} />
               {isLoading ? (
-                <div className="submitButtonWrapper">
+                <div className="vrsSubmitButtonWrapper">
                   <VuiSpinner size="xs" />
                 </div>
               ) : (
-                <div className="submitButtonWrapper">
+                <div className="vrsSubmitButtonWrapper">
                   <button
-                    className="submitButton"
+                    className="vrsSubmitButton"
                     onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                       e.preventDefault();
                       sendSearchQuery(searchValue);
@@ -276,7 +276,7 @@ export const ReactSearch: FC<Props> = ({
             </div>
           </form>
 
-          {resultsList && <div className="searchModalResults">{resultsList}</div>}
+          {resultsList && <div className="vrsSearchModalResults">{resultsList}</div>}
         </SearchModal>
       </div>
     </>

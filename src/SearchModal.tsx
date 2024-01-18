@@ -8,51 +8,49 @@ type Props = {
   children?: ReactNode[];
 };
 
-export const SearchModal = forwardRef(
-  ({ onClose, isOpen, children }: Props, ref: ForwardedRef<HTMLDivElement>) => {
-    const returnFocusElRef = useRef<HTMLElement | null>(null);
+export const SearchModal = forwardRef(({ onClose, isOpen, children }: Props, ref: ForwardedRef<HTMLDivElement>) => {
+  const returnFocusElRef = useRef<HTMLElement | null>(null);
 
-    // Return focus on unmount.
-    useEffect(() => {
-      if (isOpen) {
-        returnFocusElRef.current = document.activeElement as HTMLElement;
-      } else {
-        returnFocusElRef.current?.focus();
-        returnFocusElRef.current = null;
-      }
-    }, [isOpen]);
+  // Return focus on unmount.
+  useEffect(() => {
+    if (isOpen) {
+      returnFocusElRef.current = document.activeElement as HTMLElement;
+    } else {
+      returnFocusElRef.current?.focus();
+      returnFocusElRef.current = null;
+    }
+  }, [isOpen]);
 
-    // Allow contents to respond to blur events before unmounting.
-    const onCloseDelayed = () => {
-      window.setTimeout(() => {
-        onClose();
-      }, 0);
-    };
+  // Allow contents to respond to blur events before unmounting.
+  const onCloseDelayed = () => {
+    window.setTimeout(() => {
+      onClose();
+    }, 0);
+  };
 
-    return (
-      <VuiPortal>
-        <div className="styleWrapper">
-          {isOpen && (
-            <VuiScreenBlock>
-              <FocusOn
-                onEscapeKey={onCloseDelayed}
-                onClickOutside={onCloseDelayed}
-                // Enable manual focus return to work.
-                returnFocus={false}
-                // Enable focus on contents when it's open,
-                // but enable manual focus return to work when it's closed.
-                autoFocus={isOpen}
-              >
-                <div className="searchModalContainer">
-                  <div ref={ref} className="searchModal">
-                    {children}
-                  </div>
+  return (
+    <VuiPortal>
+      <div className="styleWrapper">
+        {isOpen && (
+          <VuiScreenBlock>
+            <FocusOn
+              onEscapeKey={onCloseDelayed}
+              onClickOutside={onCloseDelayed}
+              // Enable manual focus return to work.
+              returnFocus={false}
+              // Enable focus on contents when it's open,
+              // but enable manual focus return to work when it's closed.
+              autoFocus={isOpen}
+            >
+              <div className="vrsSearchModalContainer">
+                <div ref={ref} className="vrsSearchModal">
+                  {children}
                 </div>
-              </FocusOn>
-            </VuiScreenBlock>
-          )}
-        </div>
-      </VuiPortal>
-    );
-  }
-);
+              </div>
+            </FocusOn>
+          </VuiScreenBlock>
+        )}
+      </div>
+    </VuiPortal>
+  );
+});

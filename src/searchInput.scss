@@ -1,10 +1,10 @@
-.searchForm {
+.vrsSearchForm {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.searchInput {
+.vrsSearchInput {
   flex-grow: 1;
   padding: $sizeL;
   background-color: $colorEmptyShade;
@@ -18,11 +18,11 @@
   color: $colorText;
 }
 
-.submitButtonWrapper {
+.vrsSubmitButtonWrapper {
   padding-right: $sizeM;
 }
 
-.submitButton {
+.vrsSubmitButton {
   line-height: 0; // TODO: Should this be applied to all buttons?
   color: $colorDarkShade;
   transition: all $transitionSpeed;

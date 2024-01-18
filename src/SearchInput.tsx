@@ -1,8 +1,4 @@
-import {
-  ChangeEventHandler,
-  FormEventHandler,
-  KeyboardEventHandler,
-} from "react";
+import { ChangeEventHandler, FormEventHandler, KeyboardEventHandler } from "react";
 
 type Props = {
   value?: string;
@@ -13,17 +9,10 @@ type Props = {
   onKeyDown?: KeyboardEventHandler<HTMLInputElement>;
 };
 
-export const SearchInput = ({
-  value,
-  onChange,
-  placeholder,
-  autoFocus,
-  onSubmit,
-  ...rest
-}: Props) => {
+export const SearchInput = ({ value, onChange, placeholder, autoFocus, onSubmit, ...rest }: Props) => {
   return (
     <input
-      className="searchInput"
+      className="vrsSearchInput"
       type="text"
       autoComplete="off"
       autoCapitalize="off"
