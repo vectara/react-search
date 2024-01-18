@@ -223,7 +223,7 @@ export const ReactSearch: FC<Props> = ({
 
   return (
     <>
-      <div className="styleWrapper">
+      <div className="vrsStyleWrapper">
         <div ref={buttonRef}>
           <button className="vrsSearchButton" onClick={() => setIsOpen(true)}>
             <VuiFlexContainer

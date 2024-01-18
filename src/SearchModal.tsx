@@ -30,7 +30,7 @@ export const SearchModal = forwardRef(({ onClose, isOpen, children }: Props, ref
 
   return (
     <VuiPortal>
-      <div className="styleWrapper">
+      <div className="vrsStyleWrapper">
         {isOpen && (
           <VuiScreenBlock>
             <FocusOn
