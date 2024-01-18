@@ -175,7 +175,7 @@ const App = () => {
       <VuiAppLayout>
         <VuiAppContent className="appExampleContent" padding="xl">
           <Routes>
-            <Route path="/" element={<Content />} />
+            <Route path="*" element={<Content />} />
           </Routes>
         </VuiAppContent>
       </VuiAppLayout>
