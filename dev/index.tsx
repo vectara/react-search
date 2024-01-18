@@ -1,13 +1,27 @@
 import React, { ChangeEvent, useCallback, useState } from "react";
 import ReactDOM from "react-dom";
+import { Route, BrowserRouter, Routes } from "react-router-dom";
+import { BiLogoGithub } from "react-icons/bi";
 import { ReactSearch } from "../";
+import {
+  VuiAppContent,
+  VuiAppHeader,
+  VuiAppLayout,
+  VuiFlexContainer,
+  VuiFlexItem,
+  VuiIcon,
+  VuiIconButton,
+  VuiTitle
+} from "./src/ui";
+import { HeaderLogo } from "./src/components/HeaderLogo";
+import "./src/ui/_index.scss";
 
 const DEFAULT_CORPUS_ID = "1";
 const DEFAULT_CUSTOMER_ID = "1366999410";
 const DEFAULT_API_KEY = "zqt_UXrBcnI2UXINZkrv4g1tQPhzj02vfdtqYJIDiA";
 const DEFAULT_PLACEHOLDER = 'Try searching for "vectara" or "grounded generation"';
 
-const App = () => {
+const Content = () => {
   const [corpusId, setCorpusId] = useState<string>("");
   const [customerId, setCustomerId] = useState<string>("");
   const [apiKey, setApiKey] = useState<string>("");
@@ -31,7 +45,6 @@ const App = () => {
 
   return (
     <>
-      <Navbar />
       <div className="pageContentWrapper">
         <h1 id="title">@vectara/react-search</h1>
         <div>
@@ -139,15 +152,48 @@ export const App = () => (
 );
 `;
 
-const Navbar = () => (
-  <div id="navbar">
-    <a href="https://vectara.com/" target="_blank">
-      <img src="https://vectara.com/wp-content/uploads/2023/07/vectara-color-logo.svg" alt="Vectara Logo" />
-    </a>
-    <div>
-      <a href="https://console.vectara.com/signup">Try Vectara Free</a>
-    </div>
-  </div>
-);
+const App = () => {
+  return (
+    <BrowserRouter>
+      <VuiAppHeader
+        left={
+          <VuiFlexContainer spacing="m" alignItems="center">
+            <VuiFlexItem grow={false} shrink={false}>
+              <HeaderLogo />
+            </VuiFlexItem>
+
+            <VuiFlexItem grow={false} shrink={false}>
+              <VuiTitle size="xs">
+                <h1>
+                  <strong>Vectara React-Search</strong>
+                </h1>
+              </VuiTitle>
+            </VuiFlexItem>
+          </VuiFlexContainer>
+        }
+        right={
+          <VuiIconButton
+            href="https://github.com/vectara/react-search"
+            target="_blank"
+            color="neutral"
+            size="l"
+            icon={
+              <VuiIcon>
+                <BiLogoGithub />
+              </VuiIcon>
+            }
+          />
+        }
+      />
+      <VuiAppLayout>
+        <VuiAppContent className="appExampleContent" padding="xl">
+          <Routes>
+            <Route path="/" element={<Content />} />
+          </Routes>
+        </VuiAppContent>
+      </VuiAppLayout>
+    </BrowserRouter>
+  );
+};
 
 ReactDOM.render(<App />, document.getElementById("root"));
