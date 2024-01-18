@@ -1,6 +1,6 @@
 $modalPadding: 6vh;
 
-.searchModalContainer {
+.vrsSearchModalContainer {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,7 +12,7 @@ $modalPadding: 6vh;
   animation: modalIn 0.2s cubic-bezier(0, 1, 1, 1);
   pointer-events: none;
 
-  .searchModal {
+  .vrsSearchModal {
     margin-top: $modalPadding;
     background-color: $colorEmptyShade;
     display: flex;
@@ -23,23 +23,22 @@ $modalPadding: 6vh;
     z-index: $modalZIndex;
     pointer-events: all;
     background-color: $colorEmptyShade;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-      rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     border-radius: $sizeXs;
     overflow: hidden;
   }
 
-  .searchModalResults {
+  .vrsSearchModalResults {
     border-top: 1px solid $borderColor;
     overflow-y: auto;
   }
 }
 
 @media only screen and (max-width: 740px) {
-  .searchModalContainer {
+  .vrsSearchModalContainer {
     overflow-y: auto;
 
-    .searchModal {
+    .vrsSearchModal {
       margin-top: 0 !important;
       max-width: 100vw !important;
       max-height: none !important;
@@ -47,7 +46,7 @@ $modalPadding: 6vh;
       overflow: initial !important;
     }
 
-    .searchModalResults {
+    .vrsSearchModalResults {
       overflow-y: none !important;
     }
   }

@@ -6,30 +6,24 @@ type Props = {
   shouldOpenInNewWindow?: boolean;
 };
 
-export const SearchResult = ({
-  searchResult,
-  isSelected = false,
-  shouldOpenInNewWindow = false,
-}: Props) => {
+export const SearchResult = ({ searchResult, isSelected = false, shouldOpenInNewWindow = false }: Props) => {
   const {
     title,
     url,
-    snippet: { text },
+    snippet: { text }
   } = searchResult;
 
   const content = (
     <>
-      {title && <p className="searchResultTitle">{title}</p>}
-      <p className="searchResultSnippet">{text}</p>
+      {title && <p className="vrsSearchResultTitle">{title}</p>}
+      <p className="vrsSearchResultSnippet">{text}</p>
     </>
   );
 
   if (url) {
     return (
       <a
-        className={`searchResult searchResult-isLink ${
-          isSelected ? "isSelected" : ""
-        }`}
+        className={`vrsSearchResult vrsSearchResult-isLink ${isSelected ? "isSelected" : ""}`}
         href={url}
         target={shouldOpenInNewWindow ? "_blank" : "_self"}
       >
@@ -38,5 +32,5 @@ export const SearchResult = ({
     );
   }
 
-  return <div className="searchResult">{content}</div>;
+  return <div className="vrsSearchResult">{content}</div>;
 };

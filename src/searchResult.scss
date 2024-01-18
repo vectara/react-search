@@ -1,4 +1,4 @@
-.searchResult {
+.vrsSearchResult {
   background-color: $colorEmptyShade;
   display: block;
   padding: $sizeS $sizeL $sizeS $sizeL;
@@ -14,7 +14,7 @@
   }
 }
 
-.searchResult-isLink {
+.vrsSearchResult-isLink {
   padding-left: $sizeM;
   border-left: $sizeS solid $colorEmptyShade;
 
@@ -22,17 +22,17 @@
   &.isSelected {
     border-left: $sizeS solid $colorPrimary;
 
-    .searchResultTitle {
+    .vrsSearchResultTitle {
       text-decoration: underline;
     }
   }
 
-  .searchResultTitle {
+  .vrsSearchResultTitle {
     color: $colorPrimary;
   }
 }
 
-.searchResultTitle {
+.vrsSearchResultTitle {
   color: $colorDarkerShade;
   font-size: 14px;
   font-weight: 700;
@@ -40,7 +40,7 @@
   margin-bottom: $sizeXxs;
 }
 
-.searchResultSnippet {
+.vrsSearchResultSnippet {
   color: $colorDarkerShade;
   font-size: 14px;
   line-height: 20px;
