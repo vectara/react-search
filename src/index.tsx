@@ -25,7 +25,7 @@ const getQueryParam = (urlParams: URLSearchParams, key: string) => {
   return undefined;
 };
 
-interface Props {
+export interface Props {
   // Vectara customer ID
   customerId: string;
 
@@ -47,6 +47,9 @@ interface Props {
 
   // Whether to enable deeplinking to a particular search.
   isDeeplinkable?: boolean;
+
+  // Whether to open selected results in a new browser tab.
+  openResultsInNewTab?: boolean;
 }
 
 /**
@@ -59,7 +62,8 @@ export const ReactSearch: FC<Props> = ({
   apiUrl,
   historySize = 10,
   placeholder = "Search",
-  isDeeplinkable = false
+  isDeeplinkable = false,
+  openResultsInNewTab = false
 }) => {
   // Compute a unique ID for this search component.
   // This creates a namespace, and ensures that stored search results
@@ -139,7 +143,7 @@ export const ReactSearch: FC<Props> = ({
         evt.preventDefault();
 
         if (selectedResultIndex !== null) {
-          window.open(searchResults[selectedResultIndex].url, "_self");
+          window.open(searchResults[selectedResultIndex].url, openResultsInNewTab ? "_blank" : "_self");
         } else {
           sendSearchQuery(searchValue);
         }
@@ -193,7 +197,11 @@ export const ReactSearch: FC<Props> = ({
 
           return (
             <div ref={selectedResultIndex === index ? selectedResultRef : undefined} key={`${pre}${text}${post}`}>
-              <SearchResult searchResult={searchResult} isSelected={selectedResultIndex === index} />
+              <SearchResult
+                searchResult={searchResult}
+                isSelected={selectedResultIndex === index}
+                opensInNewTab={openResultsInNewTab}
+              />
             </div>
           );
         });

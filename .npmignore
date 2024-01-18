@@ -8,3 +8,5 @@ global.d.ts
 package-lock.json
 README.md
 tsconfig.json
+setupTests.ts
+jest.config.js

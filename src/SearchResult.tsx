@@ -3,10 +3,10 @@ import { DeserializedSearchResult } from "./types";
 type Props = {
   searchResult: DeserializedSearchResult;
   isSelected?: boolean;
-  shouldOpenInNewWindow?: boolean;
+  opensInNewTab?: boolean;
 };
 
-export const SearchResult = ({ searchResult, isSelected = false, shouldOpenInNewWindow = false }: Props) => {
+export const SearchResult = ({ searchResult, isSelected = false, opensInNewTab = false }: Props) => {
   const {
     title,
     url,
@@ -23,14 +23,19 @@ export const SearchResult = ({ searchResult, isSelected = false, shouldOpenInNew
   if (url) {
     return (
       <a
+        data-testid="vrsResultLink"
         className={`vrsSearchResult vrsSearchResult-isLink ${isSelected ? "isSelected" : ""}`}
         href={url}
-        target={shouldOpenInNewWindow ? "_blank" : "_self"}
+        target={opensInNewTab ? "_blank" : "_self"}
       >
         {content}
       </a>
     );
   }
 
-  return <div className="vrsSearchResult">{content}</div>;
+  return (
+    <div data-testid="vrsResultWrapper" className="vrsSearchResult">
+      {content}
+    </div>
+  );
 };
