@@ -92,7 +92,7 @@ const Content = () => {
         <h2>Use it in your code</h2>
       </VuiTitle>
 
-      <VuiSpacer size="s" />
+      <VuiSpacer size="m" />
 
       <VuiText>
         <p>
@@ -100,7 +100,7 @@ const Content = () => {
         </p>
       </VuiText>
 
-      <VuiSpacer size="s" />
+      <VuiSpacer size="m" />
 
       <VuiCode>npm install @vectara/react-search</VuiCode>
 
