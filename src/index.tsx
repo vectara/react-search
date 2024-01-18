@@ -200,7 +200,7 @@ export const ReactSearch: FC<Props> = ({
               <SearchResult
                 searchResult={searchResult}
                 isSelected={selectedResultIndex === index}
-                shouldOpenInNewTab={openResultsInNewTab}
+                opensInNewTab={openResultsInNewTab}
               />
             </div>
           );

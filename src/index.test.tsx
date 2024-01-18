@@ -75,7 +75,7 @@ describe("ReactSearch", () => {
       });
 
       expect(searchResultSpy).toHaveBeenCalledWith(
-        { isSelected: false, searchResult: MOCK_SEARCH_RESULT, shouldOpenInNewTab: false },
+        { isSelected: false, searchResult: MOCK_SEARCH_RESULT, opensInNewTab: false },
         {}
       );
     });
@@ -91,7 +91,7 @@ describe("ReactSearch", () => {
       });
 
       expect(searchResultSpy).toHaveBeenCalledWith(
-        { isSelected: false, searchResult: MOCK_SEARCH_RESULT, shouldOpenInNewTab: false },
+        { isSelected: false, searchResult: MOCK_SEARCH_RESULT, opensInNewTab: false },
         {}
       );
     });

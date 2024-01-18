@@ -3,10 +3,10 @@ import { DeserializedSearchResult } from "./types";
 type Props = {
   searchResult: DeserializedSearchResult;
   isSelected?: boolean;
-  shouldOpenInNewTab?: boolean;
+  opensInNewTab?: boolean;
 };
 
-export const SearchResult = ({ searchResult, isSelected = false, shouldOpenInNewTab = false }: Props) => {
+export const SearchResult = ({ searchResult, isSelected = false, opensInNewTab = false }: Props) => {
   const {
     title,
     url,
@@ -23,10 +23,10 @@ export const SearchResult = ({ searchResult, isSelected = false, shouldOpenInNew
   if (url) {
     return (
       <a
-        data-testid="vectara-react-search-result-link"
+        data-testid="vrsResultLink"
         className={`vrsSearchResult vrsSearchResult-isLink ${isSelected ? "isSelected" : ""}`}
         href={url}
-        target={shouldOpenInNewTab ? "_blank" : "_self"}
+        target={opensInNewTab ? "_blank" : "_self"}
       >
         {content}
       </a>
@@ -34,7 +34,7 @@ export const SearchResult = ({ searchResult, isSelected = false, shouldOpenInNew
   }
 
   return (
-    <div data-testid="vectara-react-search-result-div" className="vrsSearchResult">
+    <div data-testid="vrsResultWrapper" className="vrsSearchResult">
       {content}
     </div>
   );

@@ -53,16 +53,16 @@ describe("SearchResult", () => {
     });
 
     it("should render an anchor tag that opens in a new tab if configured", () => {
-      render(<SearchResult searchResult={MOCK_SEARCH_RESULT} isSelected={false} shouldOpenInNewTab={true} />);
-      const anchor = screen.getByTestId("vectara-react-search-result-link");
+      render(<SearchResult searchResult={MOCK_SEARCH_RESULT} isSelected={false} opensInNewTab={true} />);
+      const anchor = screen.getByTestId("vrsResultLink");
 
       expect(anchor).toHaveAttribute("href", MOCK_SEARCH_RESULT.url);
       expect(anchor).toHaveAttribute("target", "_blank");
     });
 
     it("should have the right class name if selected or not selected", () => {
-      render(<SearchResult searchResult={MOCK_SEARCH_RESULT} isSelected={true} shouldOpenInNewTab={true} />);
-      let anchor = screen.getByTestId("vectara-react-search-result-link");
+      render(<SearchResult searchResult={MOCK_SEARCH_RESULT} isSelected={true} opensInNewTab={true} />);
+      let anchor = screen.getByTestId("vrsResultLink");
 
       expect(anchor).toHaveClass("isSelected");
     });
@@ -75,11 +75,11 @@ describe("SearchResult", () => {
     };
     it("should render a div if no URL was provided", () => {
       render(<SearchResult searchResult={searchResultNoUrl} isSelected={false} />);
-      const anchor = screen.queryByTestId("vectara-react-search-result-link");
-      const div = screen.getByTestId("vectara-react-search-result-div");
+      const anchor = screen.queryByTestId("vrsResultLink");
+      const wrapper = screen.getByTestId("vrsResultWrapper");
 
       expect(anchor).not.toBeInTheDocument();
-      expect(div).toBeInTheDocument();
+      expect(wrapper).toBeInTheDocument();
     });
   });
 });
