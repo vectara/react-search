@@ -74,6 +74,10 @@ Configure the placeholder text in the search modal's input.
 
 Defaults to `false`. Set this option if you want to persist a search query to a URL parameter. This will enable users to share or bookmark the URL. Loading the URL will automatically open the search modal and search for the query that's stored in the URL.
 
+#### `openResultsInNewTab` (optional)
+
+Defaults to `false`. Set this option if you want a search result to open in a new tab.
+
 ### Set up your search data
 
 React-Search pulls data from your Vectara corpus. To set this up:

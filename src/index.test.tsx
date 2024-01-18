@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { render, fireEvent, act, screen } from "@testing-library/react";
-import { ReactSearch } from ".";
+import { Props as ReactSearchProps, ReactSearch } from ".";
 import * as SearchInput from "./SearchInput";
 import * as SearchResult from "./SearchResult";
 import { useSearch } from "./useSearch";
@@ -18,6 +18,34 @@ jest.mock("./useSearch", () => ({
 
 afterAll(() => jest.useRealTimers());
 
+const MOCK_SEARCH_RESULT = {
+  id: "mock-id",
+  snippet: {
+    pre: "mock-pre-snippet",
+    text: "mock-text-snippet",
+    post: "mock-post-snippet"
+  },
+  source: "mock-source",
+  url: "mock-url",
+  title: "mock-title",
+  metadata: {
+    "mock-metadata-key-1": "mock-metadata-value-1"
+  }
+};
+
+const renderSearch = (customProps: Partial<ReactSearchProps> = {}) => {
+  const props = {
+    corpusId: "mock-corpus-id",
+    customerId: "mock-customer-id",
+    apiKey: "mock-api-key",
+    placeholder: "mock-placeholder",
+    ...customProps
+  };
+  const { container } = render(<ReactSearch {...props} />);
+
+  return container;
+};
+
 describe("ReactSearch", () => {
   it("should render a SearchInput", () => {
     (useSearch as jest.Mock).mockImplementation(() => ({
@@ -31,37 +59,42 @@ describe("ReactSearch", () => {
     expect(searchInputSpy).toHaveBeenCalledTimes(1);
   });
 
-  it("should render SearchResults if there are any", async () => {
-    (useSearch as jest.Mock).mockImplementation(() => ({
-      fetchSearchResults: async () =>
-        Promise.resolve([
-          {
-            id: "mock-id",
-            snippet: {
-              pre: "mock-pre-snippet",
-              text: "mock-text-snippet",
-              post: "mock-post-snippet"
-            },
-            source: "mock-source",
-            url: "mock-url",
-            title: "mock-title",
-            metadata: {
-              "mock-metadata-key-1": "mock-metadata-value-1"
-            }
-          }
-        ]),
-      isLoading: false
-    }));
-    const searchResultSpy = jest.spyOn(SearchResult, "SearchResult");
-    const container = renderSearch();
+  describe("Search Results", () => {
+    it("should render SearchResults", async () => {
+      (useSearch as jest.Mock).mockImplementation(() => ({
+        fetchSearchResults: async () => Promise.resolve([MOCK_SEARCH_RESULT]),
+        isLoading: false
+      }));
+      const searchResultSpy = jest.spyOn(SearchResult, "SearchResult");
+      const container = renderSearch();
 
-    await act(() => {
-      const input = container.querySelectorAll("input");
-      fireEvent.change(input[0], { target: { value: "mock-value" } });
-      jest.runAllTimers();
+      await act(() => {
+        const input = container.querySelectorAll("input");
+        fireEvent.change(input[0], { target: { value: "mock-value" } });
+        jest.runAllTimers();
+      });
+
+      expect(searchResultSpy).toHaveBeenCalledWith(
+        { isSelected: false, searchResult: MOCK_SEARCH_RESULT, shouldOpenInNewTab: false },
+        {}
+      );
     });
 
-    expect(searchResultSpy).toHaveBeenCalledTimes(1);
+    it("should render SearchResults that are configured to open in a new tab", async () => {
+      const searchResultSpy = jest.spyOn(SearchResult, "SearchResult");
+      const container = renderSearch({ openResultsInNewTab: true });
+
+      await act(() => {
+        const input = container.querySelectorAll("input");
+        fireEvent.change(input[0], { target: { value: "mock-value" } });
+        jest.runAllTimers();
+      });
+
+      expect(searchResultSpy).toHaveBeenCalledWith(
+        { isSelected: false, searchResult: MOCK_SEARCH_RESULT, shouldOpenInNewTab: false },
+        {}
+      );
+    });
   });
 
   it("should render input value and make request for a deeplinked search", async () => {
@@ -81,16 +114,3 @@ describe("ReactSearch", () => {
     expect(mockFetchSearchResults).toHaveBeenCalledTimes(1);
   });
 });
-
-const renderSearch = () => {
-  const { container } = render(
-    <ReactSearch
-      corpusId="mock-corpus-id"
-      customerId="mock-customer-id"
-      apiKey="mock-api-key"
-      placeholder="mock-placeholder"
-    />
-  );
-
-  return container;
-};
