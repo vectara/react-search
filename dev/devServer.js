@@ -13,8 +13,8 @@ const { config: devScriptBuildConfig } = require("./buildConfigs");
 
   chokidar
     // Watch for changes to dev env code or react-search build
-    .watch(["dev/**/*.{ts,tsx,css}", "dist/*.js"], {
-      interval: 0, // No delay
+    .watch(["dev/*.{ts,tsx,scss}", "dev/**/*.{ts,tsx,scss}", "dist/*.js"], {
+      interval: 0 // No delay
     })
     .on("all", () => {
       devPageBuilder.rebuild();
@@ -23,7 +23,7 @@ const { config: devScriptBuildConfig } = require("./buildConfigs");
   chokidar
     // Watch for changes to the react-search component
     .watch("src/**/*.{ts,tsx,scss}", {
-      interval: 0, // No delay
+      interval: 0 // No delay
     })
     .on("all", () => {
       pkgBuilder.rebuild();
@@ -33,6 +33,6 @@ const { config: devScriptBuildConfig } = require("./buildConfigs");
   liveServer.start({
     open: true,
     port: +process.env.PORT || 8080,
-    root: "dev/public",
+    root: "dev/public"
   });
 })();
