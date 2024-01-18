@@ -124,20 +124,18 @@ const Content = () => {
   );
 };
 
-const codeSnippet = `
-import { ReactSearch } from "@vectara/react-search";
+const codeSnippet = `import { ReactSearch } from "@vectara/react-search";
 
 export const App = () => (
   <div>
     <ReactSearch
-      corpusId="<Your Vectara corpus ID>"
       customerId="<Your Vectara customer ID>"
-      apiKey="<Your Vectara query key>"
+      corpusId="<Your Vectara corpus ID>"
+      apiKey="<Your Vectara API key>"
       placeholder="What would you like to search for?"
     />
   </div>
-);
-`;
+);`;
 
 const App = () => {
   return (
