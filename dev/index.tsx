@@ -92,7 +92,7 @@ const Content = () => {
         <h2>Use it in your code</h2>
       </VuiTitle>
 
-      <VuiSpacer size="s" />
+      <VuiSpacer size="m" />
 
       <VuiText>
         <p>
@@ -100,7 +100,7 @@ const Content = () => {
         </p>
       </VuiText>
 
-      <VuiSpacer size="s" />
+      <VuiSpacer size="m" />
 
       <VuiCode>npm install @vectara/react-search</VuiCode>
 
@@ -124,20 +124,18 @@ const Content = () => {
   );
 };
 
-const codeSnippet = `
-import { ReactSearch } from "@vectara/react-search";
+const codeSnippet = `import { ReactSearch } from "@vectara/react-search";
 
 export const App = () => (
   <div>
     <ReactSearch
-      corpusId="<Your Vectara corpus ID>"
       customerId="<Your Vectara customer ID>"
-      apiKey="<Your Vectara query key>"
+      corpusId="<Your Vectara corpus ID>"
+      apiKey="<Your Vectara API key>"
       placeholder="What would you like to search for?"
     />
   </div>
-);
-`;
+);`;
 
 const App = () => {
   return (
