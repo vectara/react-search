@@ -34,6 +34,8 @@ const Content = () => {
   const [customerId, setCustomerId] = useState<string>("");
   const [apiKey, setApiKey] = useState<string>("");
   const [placeholder, setPlaceholder] = useState<string>(DEFAULT_PLACEHOLDER);
+  const [isDeeplinkable, setIsDeeplinkable] = useState<boolean>(false);
+  const [openResultsInNewTab, setOpenResultsInNewTab] = useState<boolean>(false);
 
   const onUpdateCorpusId = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setCorpusId(e.target.value);
@@ -49,6 +51,14 @@ const Content = () => {
 
   const onUpdatePlaceholder = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setPlaceholder(e.target.value);
+  }, []);
+
+  const onUpdateIsDeeplinkable = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    setIsDeeplinkable(e.target.checked);
+  }, []);
+
+  const onUpdateOpenResultsInNewTab = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    setOpenResultsInNewTab(e.target.checked);
   }, []);
 
   return (
@@ -77,6 +87,8 @@ const Content = () => {
           customerId={customerId === "" ? DEFAULT_CUSTOMER_ID : customerId}
           apiKey={apiKey === "" ? DEFAULT_API_KEY : apiKey}
           placeholder={placeholder}
+          isDeeplinkable={isDeeplinkable}
+          openResultsInNewTab={openResultsInNewTab}
         />
       </div>
 
@@ -106,7 +118,9 @@ const Content = () => {
 
       <VuiSpacer size="s" />
 
-      <VuiCode language="tsx">{codeSnippet}</VuiCode>
+      <VuiCode language="tsx">
+        {generateCodeSnippet(customerId, corpusId, apiKey, placeholder, isDeeplinkable, openResultsInNewTab)}
+      </VuiCode>
 
       <ConfigurationDrawer
         isOpen={isConfigurationDrawerOpen}
@@ -119,23 +133,61 @@ const Content = () => {
         onUpdateApiKey={onUpdateApiKey}
         placeholder={placeholder}
         onUpdatePlaceholder={onUpdatePlaceholder}
+        isDeeplinkable={isDeeplinkable}
+        onUpdateIsDeeplinkable={onUpdateIsDeeplinkable}
+        openResultsInNewTab={openResultsInNewTab}
+        onUpdateOpenResultsInNewTab={onUpdateOpenResultsInNewTab}
       />
     </div>
   );
 };
 
-const codeSnippet = `import { ReactSearch } from "@vectara/react-search";
+const generateCodeSnippet = (
+  customerId?: string,
+  corpusId?: string,
+  apiKey?: string,
+  placeholder?: string,
+  isDeepLinkable: boolean = false,
+  openResultsInNewTab: boolean = false
+) => {
+  let quotedPlaceholder = placeholder;
 
-export const App = () => (
-  <div>
-    <ReactSearch
-      customerId="<Your Vectara customer ID>"
-      corpusId="<Your Vectara corpus ID>"
-      apiKey="<Your Vectara API key>"
-      placeholder="What would you like to search for?"
-    />
-  </div>
-);`;
+  if (placeholder) {
+    if (placeholder.match('"')) {
+      quotedPlaceholder = `'${placeholder}'`;
+    } else {
+      quotedPlaceholder = `"${placeholder}"`;
+    }
+  }
+
+  const props = [
+    `customerId="${customerId === "" ? "<Your Vectara customer ID>" : customerId}"`,
+    `corpusId="${corpusId === "" ? "<Your Vectara corpus ID>" : corpusId}"`,
+    `apiKey="${apiKey === "" ? "<Your Vectara API key>" : apiKey}"`
+  ];
+
+  if (placeholder) {
+    props.push(`placeholder=${quotedPlaceholder}`);
+  }
+
+  if (isDeepLinkable) {
+    props.push(`isDeeplinkable={${isDeepLinkable}}`);
+  }
+
+  if (openResultsInNewTab) {
+    props.push(`openResultsInNewTab={${openResultsInNewTab}}`);
+  }
+
+  return `import { ReactSearch } from "@vectara/react-search";
+
+  export const App = () => (
+    <div>
+      <ReactSearch
+        ${props.join("\n        ")}
+      />
+    </div>
+  );`;
+};
 
 const App = () => {
   return (

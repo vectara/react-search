@@ -1,4 +1,14 @@
-import { VuiButtonPrimary, VuiDrawer, VuiLink, VuiSpacer, VuiText, VuiTitle, VuiFormGroup, VuiTextInput } from "../ui";
+import {
+  VuiButtonPrimary,
+  VuiDrawer,
+  VuiLink,
+  VuiSpacer,
+  VuiText,
+  VuiTitle,
+  VuiFormGroup,
+  VuiTextInput,
+  VuiToggle
+} from "../ui";
 
 type Props = {
   isOpen: boolean;
@@ -11,6 +21,10 @@ type Props = {
   onUpdateApiKey: (event: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
   onUpdatePlaceholder: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  isDeeplinkable: boolean;
+  onUpdateIsDeeplinkable: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  openResultsInNewTab: boolean;
+  onUpdateOpenResultsInNewTab: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const ConfigurationDrawer = ({
@@ -23,7 +37,11 @@ export const ConfigurationDrawer = ({
   apiKey,
   onUpdateApiKey,
   placeholder,
-  onUpdatePlaceholder
+  onUpdatePlaceholder,
+  isDeeplinkable,
+  onUpdateIsDeeplinkable,
+  openResultsInNewTab,
+  onUpdateOpenResultsInNewTab
 }: Props) => {
   return (
     <VuiDrawer
@@ -68,7 +86,7 @@ export const ConfigurationDrawer = ({
         <VuiTextInput value={apiKey} onChange={onUpdateApiKey} fullWidth />
       </VuiFormGroup>
 
-      <VuiSpacer size="m" />
+      <VuiSpacer size="l" />
 
       <VuiTitle size="s">
         <h3 className="header">Customize appearance</h3>
@@ -78,6 +96,24 @@ export const ConfigurationDrawer = ({
 
       <VuiFormGroup label="Placeholder text" labelFor="placeholderText">
         <VuiTextInput value={placeholder} onChange={onUpdatePlaceholder} fullWidth />
+      </VuiFormGroup>
+
+      <VuiSpacer size="l" />
+
+      <VuiTitle size="s">
+        <h3 className="header">Customize behavior</h3>
+      </VuiTitle>
+
+      <VuiSpacer size="s" />
+
+      <VuiFormGroup label="Allow deeplinking" labelFor="isDeepLinkable">
+        <VuiToggle checked={isDeeplinkable} onChange={onUpdateIsDeeplinkable} id="isDeeplinkable" />
+      </VuiFormGroup>
+
+      <VuiSpacer size="xs" />
+
+      <VuiFormGroup label="Open results in a new tab" labelFor="openResultsInNewTab">
+        <VuiToggle checked={openResultsInNewTab} onChange={onUpdateOpenResultsInNewTab} id="openResultsInNewTab" />
       </VuiFormGroup>
 
       <VuiSpacer size="l" />
