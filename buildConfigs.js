@@ -1,6 +1,6 @@
 const { sassPlugin } = require("esbuild-sass-plugin");
 const cssPlugin = require("esbuild-css-modules-plugin");
-const { dependencies, peerDependencies } = require("./package.json");
+const { dependencies, devDependencies, peerDependencies } = require("./package.json");
 const entryFile = "src/index.tsx";
 
 const sharedConfig = {
@@ -10,20 +10,20 @@ const sharedConfig = {
   treeShaking: true,
   minify: true,
   sourcemap: true,
-  external: [...Object.keys(dependencies), ...Object.keys(peerDependencies)],
+  external: [...Object.keys(dependencies), ...Object.keys(devDependencies), ...Object.keys(peerDependencies)],
   target: ["esnext", "node12.22.0"],
-  plugins: [cssPlugin(), sassPlugin({ type: "style" })],
+  plugins: [cssPlugin(), sassPlugin({ type: "style" })]
 };
 
 module.exports = {
   esm: {
     ...sharedConfig,
     format: "esm",
-    outfile: "./dist/index.esm.js",
+    outfile: "./dist/index.esm.js"
   },
   cjs: {
     ...sharedConfig,
     format: "cjs",
-    outfile: "./dist/index.cjs.js",
-  },
+    outfile: "./dist/index.cjs.js"
+  }
 };
