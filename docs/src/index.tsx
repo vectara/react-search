@@ -1,7 +1,7 @@
 import { ChangeEvent, useCallback, useState } from "react";
 import ReactDOM from "react-dom";
 import { BiLogoGithub } from "react-icons/bi";
-import { ReactSearch } from "../";
+import { ReactSearch } from "../../src";
 import {
   VuiAppContent,
   VuiAppHeader,
@@ -16,10 +16,10 @@ import {
   VuiSpacer,
   VuiText,
   VuiTitle
-} from "./src/ui";
-import { HeaderLogo } from "./src/components/HeaderLogo";
+} from "./ui";
+import { HeaderLogo } from "./components/HeaderLogo";
 import { ConfigurationDrawer } from "components/ConfigurationDrawer";
-import "./src/ui/_index.scss";
+import "./ui/_index.scss";
 import "./index.scss";
 
 const generateCodeSnippet = (
