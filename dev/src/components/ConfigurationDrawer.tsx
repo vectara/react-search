@@ -62,7 +62,7 @@ export const ConfigurationDrawer = ({
 
       <VuiText>
         <p>
-          <VuiLink href="https://github.com/vectara/react-search?tab=readme-ov-file#set-up-your-search-data">
+          <VuiLink isAnchor href="https://github.com/vectara/react-search?tab=readme-ov-file#set-up-your-search-data">
             How to set up your Vectara data
           </VuiLink>
         </p>
