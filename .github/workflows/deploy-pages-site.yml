@@ -36,8 +36,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          # Everything in the dev/public folder will be uploaded as the GitHub page
-          path: "dev/public"
+          # Everything in this folder will be uploaded as the GitHub page
+          path: "docs/public"
 
   # Deployment job
   deploy:
