@@ -1,6 +1,6 @@
 /node_modules
 /src
-/dev
+/docs
 /images
 buildConfigs.js
 build.js
