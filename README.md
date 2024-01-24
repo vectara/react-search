@@ -1,5 +1,5 @@
 <p align="center">
-  <img style="max-width: 100%;" alt="Welcome to Create UI" src="images/projectLogo.png"/>
+  <img style="max-width: 100%;" alt="Welcome to Create UI" src="https://raw.githubusercontent.com/vectara/react-search/main/images/projectLogo.png"/>
 </p>
 
 # React-Search
@@ -14,15 +14,15 @@ Use React-Search to add [Vectara](https://vectara.com/) semantic search to your 
 
 The search input looks like this:
 
-![React-Search input](images/searchInput.jpg)
+![React-Search input](https://raw.githubusercontent.com/vectara/react-search/main/images/searchInput.jpg)
 
 When the user clicks the search input, they get a search prompt like this:
 
-![React-Search prompt](images/searchPrompt.jpg)
+![React-Search prompt](https://raw.githubusercontent.com/vectara/react-search/main/images/searchPrompt.jpg)
 
 Search results look like this:
 
-![React-Search results](images/searchResults.jpg)
+![React-Search results](https://raw.githubusercontent.com/vectara/react-search/main/images/searchResults.jpg)
 
 ## Use it in your application
 
@@ -88,7 +88,7 @@ React-Search pulls data from your Vectara corpus. To set this up:
 
 **Pro-tip:** After you create an API key, navigate to your corpus and click on the "Access control" tab. Find your API key on the bottom and select the "Copy all" option to copy your customer ID, corpus ID, and API key. This gives you all the data you need to configure your `<ReactSearch />` instance.
 
-![Copy all option](images/copyAll.jpg)
+![Copy all option](https://raw.githubusercontent.com/vectara/react-search/main/images/copyAll.jpg)
 
 #### How to use metadata
 
