@@ -12,8 +12,22 @@
     "clean": "rimraf dist",
     "test": "jest --coverage"
   },
-  "author": "",
+  "author": {
+    "name": "Vectara, Inc.",
+    "url": "https://www.vectara.com"
+  },
   "license": "MIT",
+  "homepage": "https://vectara.github.io/react-search/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vectara/react-search"
+  },
+  "keywords": [
+    "vectara",
+    "search",
+    "component",
+    "widget"
+  ],
   "dependencies": {
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
