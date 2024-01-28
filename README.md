@@ -64,7 +64,7 @@ Every Vectara account is associated with a customer ID. You can find your custom
 
 #### `corpusId` (required)
 
-After you [create a corpus](https://docs.vectara.com/docs/console-ui/creating-a-corpus)), you can find its ID by navigating to the corpus and looking in the top-left corner, next to the corpus name.
+After you [create a corpus](https://docs.vectara.com/docs/console-ui/creating-a-corpus), you can find its ID by navigating to the corpus and looking in the top-left corner, next to the corpus name.
 
 #### `apiKey` (required)
 
