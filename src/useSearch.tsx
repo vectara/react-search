@@ -35,31 +35,28 @@ export const useSearch = (
             numResults: 20,
             corpusKey: [
               {
-                corpusId,
-              },
-            ],
-          },
-        ],
+                corpusId
+              }
+            ]
+          }
+        ]
       });
     },
     [corpusId]
   );
 
-  const fetchSearchResults = async (
-    query: string
-  ): Promise<DeserializedSearchResult[]> => {
+  const fetchSearchResults = async (query: string): Promise<DeserializedSearchResult[]> => {
     setIsLoading(true);
     const requestBody = generateRequestBody(query);
     const response = await fetch(apiUrl, {
       headers,
       body: requestBody,
-      method: "POST",
+      method: "POST"
     });
     const responseJson = await response.json();
     setIsLoading(false);
 
-    const results =
-      deserializeSearchResponse(responseJson.responseSet?.[0]) ?? [];
+    const results = deserializeSearchResponse(responseJson.responseSet?.[0]) ?? [];
 
     return compileDedupedResults(results);
   };
@@ -81,13 +78,11 @@ const parseMetadata = (rawMetadata: DocMetadata[]) => {
     source: metadata.source as string,
     url: metadata.url,
     title: metadata.title,
-    metadata,
+    metadata
   };
 };
 
-const deserializeSearchResponse = (
-  searchResponse?: SearchResponse
-): Array<DeserializedSearchResult> | undefined => {
+const deserializeSearchResponse = (searchResponse?: SearchResponse): Array<DeserializedSearchResult> | undefined => {
   if (!searchResponse) return undefined;
 
   const results: Array<DeserializedSearchResult> = [];
@@ -105,12 +100,12 @@ const deserializeSearchResponse = (
       snippet: {
         pre,
         text,
-        post,
+        post
       },
       source,
       url,
       title,
-      metadata,
+      metadata
     });
   });
 
@@ -121,18 +116,12 @@ const START_TAG = "%START_SNIPPET%";
 const END_TAG = "%END_SNIPPET%";
 
 const parseSnippet = (source: string) => {
-  const [pre, textAndPost] =
-    source.indexOf(START_TAG) !== -1 ? source.split(START_TAG) : ["", source];
-  const [text, post] =
-    textAndPost.indexOf(END_TAG) !== -1
-      ? textAndPost.split(END_TAG)
-      : [textAndPost, ""];
+  const [pre, textAndPost] = source.indexOf(START_TAG) !== -1 ? source.split(START_TAG) : ["", source];
+  const [text, post] = textAndPost.indexOf(END_TAG) !== -1 ? textAndPost.split(END_TAG) : [textAndPost, ""];
   return { pre, post, text };
 };
 
-const compileDedupedResults = (
-  undedupedResults: DeserializedSearchResult[]
-): DeserializedSearchResult[] => {
+const compileDedupedResults = (undedupedResults: DeserializedSearchResult[]): DeserializedSearchResult[] => {
   const listedUrls: Record<string, boolean> = {};
   const dedupedResults: DeserializedSearchResult[] = [];
 

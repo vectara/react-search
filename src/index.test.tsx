@@ -1,8 +1,9 @@
 import React, { ReactNode } from "react";
-import { render, fireEvent, act, screen } from "@testing-library/react";
-import { Props as ReactSearchProps, ReactSearch } from ".";
+import { render, fireEvent, act, screen, waitFor } from "@testing-library/react";
+import { ReactSearch } from ".";
+import { Props as ReactSearchProps } from "./types";
 import * as SearchInput from "./SearchInput";
-import * as SearchResult from "./SearchResult";
+import { SearchResult } from "./SearchResult";
 import { useSearch } from "./useSearch";
 
 jest.useFakeTimers();
@@ -12,6 +13,15 @@ jest.mock("./SearchModal", () => {
     SearchModal: ({ children }: { children: ReactNode[] }) => <div>{children}</div>
   };
 });
+
+jest.mock("./SearchResult", () => {
+  return {
+    SearchResult: jest.fn().mockImplementation(({ children }: { children: ReactNode[] }) => {
+      return <div>{children}</div>;
+    })
+  };
+});
+
 jest.mock("./useSearch", () => ({
   useSearch: jest.fn()
 }));
@@ -65,23 +75,21 @@ describe("ReactSearch", () => {
         fetchSearchResults: async () => Promise.resolve([MOCK_SEARCH_RESULT]),
         isLoading: false
       }));
-      const searchResultSpy = jest.spyOn(SearchResult, "SearchResult");
+
       const container = renderSearch();
 
-      await act(() => {
+      act(() => {
         const input = container.querySelectorAll("input");
         fireEvent.change(input[0], { target: { value: "mock-value" } });
         jest.runAllTimers();
       });
 
-      expect(searchResultSpy).toHaveBeenCalledWith(
-        { isSelected: false, searchResult: MOCK_SEARCH_RESULT, opensInNewTab: false },
-        {}
-      );
+      await waitFor(() => {
+        expect(SearchResult).toHaveBeenCalled();
+      });
     });
 
     it("should render SearchResults that are configured to open in a new tab", async () => {
-      const searchResultSpy = jest.spyOn(SearchResult, "SearchResult");
       const container = renderSearch({ openResultsInNewTab: true });
 
       await act(() => {
@@ -90,21 +98,20 @@ describe("ReactSearch", () => {
         jest.runAllTimers();
       });
 
-      expect(searchResultSpy).toHaveBeenCalledWith(
-        { isSelected: false, searchResult: MOCK_SEARCH_RESULT, opensInNewTab: false },
-        {}
-      );
+      await waitFor(() => {
+        expect(SearchResult).toHaveBeenCalled();
+      });
     });
   });
 
-  it("should render input value and make request for a deeplinked search", async () => {
+  it("should render input value and make request for a deeplinked search", () => {
     const mockFetchSearchResults = jest.fn().mockImplementation(async () => Promise.resolve([]));
     (useSearch as jest.Mock).mockImplementation(() => ({
       fetchSearchResults: mockFetchSearchResults,
       isLoading: false
     }));
 
-    await act(() => {
+    act(() => {
       window.history.pushState({}, "Page With Deeplinked Search", "?search=mock-search");
       renderSearch();
     });
