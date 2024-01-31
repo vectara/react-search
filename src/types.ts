@@ -1,3 +1,30 @@
+export interface Props {
+  // Vectara customer ID
+  customerId: string;
+
+  // Vectara API key
+  apiKey: string;
+
+  // Vectara corpus ID
+  corpusId: string;
+
+  // An optional API url to direct requests toward
+  apiUrl?: string;
+
+  // The number of previous searches to cache.
+  // Default is 0.
+  historySize?: number;
+
+  // The search input placeholder.
+  placeholder?: string;
+
+  // Whether to enable deeplinking to a particular search.
+  isDeeplinkable?: boolean;
+
+  // Whether to open selected results in a new browser tab.
+  openResultsInNewTab?: boolean;
+}
+
 export type DeserializedSearchResult = {
   id: string;
   snippet: {
