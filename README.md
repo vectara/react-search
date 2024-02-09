@@ -120,7 +120,7 @@ npm install
 This will install all dependencies necessary for building the component and running the dev environment. Once this completes, run:
 
 ```
-npm run dev
+npm run docs
 ```
 
 This spins up an application running at `http://localhost:8080/`. Your latest changes will be reflected here.
@@ -129,7 +129,7 @@ This spins up an application running at `http://localhost:8080/`. Your latest ch
 
 Once the development environment is running, any changes made to .ts and .tsx files in the `/src` directory will trigger a rebuild of the component and a reload of the webpage.
 
-Additionally, any changes to the development app source code at `/dev/index.tsx` will also trigger a rebuild + reload.
+Additionally, any changes to the development app source code at `/docs/index.tsx` will also trigger a rebuild + reload.
 
 ## License
 
