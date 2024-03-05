@@ -2,7 +2,7 @@
 module.exports = {
   preset: "ts-jest",
   testEnvironment: "jsdom",
-  testPathIgnorePatterns: ["src/vui"],
+  testPathIgnorePatterns: ["src/vui", "docs/"],
   coverageReporters: ["text", "text-summary"],
   coveragePathIgnorePatterns: ["node_modules", "src/vui"],
   setupFilesAfterEnv: ["./setupTests.ts"],

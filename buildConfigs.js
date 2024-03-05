@@ -4,7 +4,7 @@ const { dependencies, devDependencies, peerDependencies } = require("./package.j
 
 const sharedConfig = {
   bundle: true,
-  entryPoints: ["src/index.tsx", "src/ReactSearchNext.tsx"],
+  entryPoints: ["src/index.tsx", "src/ReactSearchNext.tsx", "src/useSearch.ts"],
   logLevel: "info",
   treeShaking: true,
   minify: true,

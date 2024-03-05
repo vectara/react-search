@@ -10,6 +10,7 @@ React-Search is a UI widget for adding [Vectara](https://vectara.com/)-powered s
 >
 > Looking for something else? Try another open-source project:
 >
+> - **[React-Chatbot](https://github.com/vectara/react-chatbot)**: Add a compact Vectara-powered chatbot widget chat to your React apps.
 > - **[Create-UI](https://github.com/vectara/create-ui)**: The fastest way to generate a working React codebase for a range of generative and semantic search UIs.
 > - **[Vectara Answer](https://github.com/vectara/vectara-answer)**: Demo app for Summarized Semantic Search with advanced configuration options.
 > - **[Vectara Ingest](https://github.com/vectara/vectara-ingest)**: Sample templates and crawlers for pulling data from many popular data sources.
@@ -34,6 +35,8 @@ Search results look like this:
 
 ## Use it in your application
 
+### Use the search component directly
+
 Install React-Search:
 
 ```shell
@@ -56,35 +59,81 @@ import { ReactSearch } from "@vectara/react-search";
 />;
 ```
 
-### Configuration options
+#### <u>Configuration options</u>
 
-#### `customerId` (required)
+##### `customerId` (required)
 
 Every Vectara account is associated with a customer ID. You can find your customer ID by logging into the [Vectara Console](https://console.vectara.com/) and opening your account dropdown in the top-right corner.
 
-#### `corpusId` (required)
+##### `corpusId` (required)
 
 After you [create a corpus](https://docs.vectara.com/docs/console-ui/creating-a-corpus), you can find its ID by navigating to the corpus and looking in the top-left corner, next to the corpus name.
 
-#### `apiKey` (required)
+##### `apiKey` (required)
 
 API keys enable applications to access data inside of corpora. Learn how to [create a **QueryService** API key](https://docs.vectara.com/docs/console-ui/manage-api-access#create-an-api-key).
 
-#### `apiUrl` (optional)
+##### `apiUrl` (optional)
 
 By default, React-Search sends query requests to the Vectara servers. If you want to use a proxy server, you can configure this option with the URL of your proxy.
 
-#### `placeholder` (optional)
+##### `placeholder` (optional)
 
 Configure the placeholder text in the search modal's input.
 
-#### `isDeeplinkable` (optional)
+##### `isDeeplinkable` (optional)
 
 Defaults to `false`. Set this option if you want to persist a search query to a URL parameter. This will enable users to share or bookmark the URL. Loading the URL will automatically open the search modal and search for the query that's stored in the URL.
 
-#### `openResultsInNewTab` (optional)
+##### `openResultsInNewTab` (optional)
 
 Defaults to `false`. Set this option if you want a search result to open in a new tab.
+
+### Power your own search UI with the useSearch hook
+
+Install React-Search:
+
+```shell
+npm install --save @vectara/react-search
+```
+
+Then use the `useSearch` hook in your application like this:
+
+```js
+import { useSearch } from "@vectara/react-search/lib/useSearch";
+
+/* snip */
+
+const { fetchSearchResults, isLoading } = useSearch("CUSTOMER_ID", "CORPUS_ID", "API_KEY");
+```
+
+The values returned by the hook can be passed on to your custom components as props or used in any way you wish.
+
+#### <u>Hook Values</u>
+
+##### fetchSearchResults: `async (query: string) => Promise<DeserializedSearchResult[]>`
+
+This is used to send a message to the search API. When the search succeeds, an array of search results is returned. Each search result is a `DeserializedSearchResult` object. More information on types can be found [here](src/types.ts).
+
+##### isLoading: `boolean`
+
+A boolean value indicating whether or not a search request is still pending
+
+### Usage with SSR Frameworks
+
+Using React-Search with SSR frameworks may require additional infrastructure. Here are some common gotchas:
+
+#### Next.js
+
+React-Search offers a `ReactSearchNext` variant that is compatible with Next.js. It accepts the same props that `ReactSearch` does.
+
+It can be imported as:
+
+```js
+import { ReactSearchNext } from "@vectara/react-search/lib/ReactSearchNext";
+```
+
+**In addition to using this Next.js-compatible component, you will also need to use the `"use client"` directive in the file that imports `ReactSearchNext`.**
 
 ### Set up your search data
 

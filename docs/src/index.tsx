@@ -60,13 +60,13 @@ const generateCodeSnippet = (
 
   return `import { ReactSearch } from "@vectara/react-search";
 
-  export const App = () => (
-    <div>
-      <ReactSearch
-        ${props.join("\n        ")}
-      />
-    </div>
-  );`;
+export const App = () => (
+  <div>
+    <ReactSearch
+      ${props.join("\n        ")}
+    />
+  </div>
+);`;
 };
 
 const DEFAULT_CORPUS_ID = "1";
@@ -206,6 +206,61 @@ const App = () => {
             <VuiCode language="tsx">
               {generateCodeSnippet(customerId, corpusId, apiKey, placeholder, isDeeplinkable, openResultsInNewTab)}
             </VuiCode>
+
+            <VuiSpacer size="xxl" />
+
+            <VuiTitle size="m">
+              <h2>Create your own view</h2>
+            </VuiTitle>
+
+            <VuiSpacer size="m" />
+
+            <VuiText>
+              <p>
+                React-Search also exposes a useSearch hook that sends and receives data to/from the search API. This is
+                perfect for creating your own components that are powered by Vectara's search functionality.
+              </p>
+              <p>Check out the example below.</p>
+            </VuiText>
+
+            <VuiSpacer size="s" />
+
+            <VuiCode language="tsx">
+              {`
+import { useSearch } from "@vectara/react-search/lib";
+
+export const App = () => {
+  const { fetchSearchResults, isLoading } = useSearch(
+    "CUSTOMER_ID",
+    "CORPUS_ID",
+    "API_KEY"
+  );
+
+  /* You can pass the values returned by the hook to your custom components as props, or use them
+  however you wish. */
+};
+`}
+            </VuiCode>
+
+            <VuiSpacer size="m" />
+
+            <VuiText>
+              <p></p>
+              <p>The hook returns:</p>
+              <ul>
+                <li>fetchSearchResults - a function that sends a search string to the search endpoint</li>
+                <li>isLoading - a boolean value indicating whether or not a search request is pending</li>
+              </ul>
+            </VuiText>
+
+            <VuiSpacer size="m" />
+
+            <VuiText>
+              For more details, including return value types,{" "}
+              <VuiLink isAnchor href="https://github.com/vectara/react-search">
+                read the docs.
+              </VuiLink>
+            </VuiText>
 
             <ConfigurationDrawer
               isOpen={isConfigurationDrawerOpen}
