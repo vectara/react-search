@@ -60,13 +60,13 @@ const generateCodeSnippet = (
 
   return `import { ReactSearch } from "@vectara/react-search";
 
-  export const App = () => (
-    <div>
-      <ReactSearch
-        ${props.join("\n        ")}
-      />
-    </div>
-  );`;
+export const App = () => (
+  <div>
+    <ReactSearch
+      ${props.join("\n        ")}
+    />
+  </div>
+);`;
 };
 
 const DEFAULT_CORPUS_ID = "1";
