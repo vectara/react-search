@@ -1,6 +1,13 @@
 @import "./vui/components/index";
 @import "./searchModal";
 
+// Short circuit any styles that the shadow host may have inherited.
+:host {
+  all: initial;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
 /**
  * A one-off reset for the button elements.
  */
@@ -56,10 +63,4 @@ button {
   font-size: $fontSizeStandard;
   background-color: $colorPrimaryLightShade;
   color: $colorPrimary;
-}
-
-.vrsSearchModalContainer {
-  @import "./vui/_reset";
-  @import "./searchInput";
-  @import "./searchResult";
 }

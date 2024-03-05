@@ -7,9 +7,9 @@ module.exports = {
     define: {
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV || "development")
     },
-    entryPoints: ["docs/src/index.tsx"],
-    outfile: "docs/public/script.js",
-    sourcemap: true,
+    entryPoints: ["src/index.tsx"],
+    outfile: "public/script.js",
+    sourcemap: false,
     plugins: [cssPlugin(), sassPlugin({ type: "style" })]
   }
 };

@@ -8,6 +8,7 @@ import {
   useEffect,
   useMemo
 } from "react";
+import * as ReactDOM from "react-dom";
 import getUuid from "uuid-by-string";
 import { VuiFlexContainer, VuiFlexItem, VuiSpinner, VuiText } from "./vui";
 import { DeserializedSearchResult, Props } from "./types";
@@ -15,7 +16,10 @@ import { useSearch } from "./useSearch";
 import { SearchResult } from "./SearchResult";
 import { SearchModal } from "./SearchModal";
 import { useSearchHistory } from "./useSearchHistory";
-import "./_index.scss";
+
+// @ts-ignore
+import cssText from "./_index.scss";
+
 import { SearchInput } from "./SearchInput";
 
 const getQueryParam = (urlParams: URLSearchParams, key: string) => {
@@ -27,7 +31,7 @@ const getQueryParam = (urlParams: URLSearchParams, key: string) => {
 /**
  * A client-side search component that queries a specific corpus with a user-provided string.
  */
-export const ReactSearch: FC<Props> = ({
+const ReactSearchInternal: FC<Props> = ({
   customerId,
   apiKey,
   corpusId,
@@ -285,3 +289,78 @@ const SearchIcon = () => (
     </svg>
   </div>
 );
+
+class ReactSearchWebComponent extends HTMLElement {
+  sheet!: CSSStyleSheet;
+  sr!: ShadowRoot;
+  mountPoint!: HTMLDivElement;
+
+  // Props
+  customerId!: string;
+  corpusId!: string;
+  apiKey!: string;
+  placeholder?: string;
+  isDeeplinkable?: boolean;
+  openResultsInNewTab?: boolean;
+  apiUrl?: string;
+  historySize?: number;
+
+  static get observedAttributes() {
+    return ["customerid", "corpusid", "apikey", "placeholder", "isDeepLinkable", "openResultsInNewTab"];
+  }
+
+  constructor() {
+    super();
+    this.sr = this.attachShadow({ mode: "open" });
+
+    // If the CSSStyleSheet constructor isn't supported, default to creating a style element.
+    // We prefer the CSSStyleSheet approach as it's a recommended way to style web components, and growing in support:
+    // https://webcomponents.guide/learn/components/styling/
+    try {
+      this.sheet = new CSSStyleSheet();
+      this.sheet.replaceSync(cssText);
+      this.sr.adoptedStyleSheets = [this.sheet];
+    } catch {
+      const styleElement = document.createElement("style");
+      styleElement.innerText = cssText;
+      this.sr.appendChild(styleElement);
+    }
+
+    this.mountPoint = document.createElement("div");
+    this.sr.appendChild(this.mountPoint);
+  }
+
+  public connectedCallback() {
+    const customerId = this.getAttribute("customerId") ?? "";
+    const corpusId = this.getAttribute("corpusId") ?? "";
+    const apiKey = this.getAttribute("apiKey") ?? "";
+    const placeholder = this.getAttribute("placeholder") ?? undefined;
+    const isDeepLinkable = this.getAttribute("isDeeplinkable") === "true";
+    const openResultsInNewTab = this.getAttribute("openResultsInNewTab") === "true";
+
+    ReactDOM.render(
+      <>
+        <ReactSearchInternal
+          customerId={customerId}
+          corpusId={corpusId}
+          apiKey={apiKey}
+          placeholder={placeholder}
+          isDeeplinkable={isDeepLinkable}
+          openResultsInNewTab={openResultsInNewTab}
+        />
+      </>,
+      this.mountPoint
+    );
+  }
+
+  attributeChangedCallback() {
+    this.connectedCallback();
+  }
+}
+
+window.customElements.get("react-search") || window.customElements.define("react-search", ReactSearchWebComponent);
+
+export const ReactSearch = (props: Props) => {
+  // @ts-ignore
+  return <react-search {...props} />;
+};

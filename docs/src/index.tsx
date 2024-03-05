@@ -1,7 +1,7 @@
 import { ChangeEvent, useCallback, useState } from "react";
 import ReactDOM from "react-dom";
 import { BiLogoGithub } from "react-icons/bi";
-import { ReactSearch } from "../../src";
+import { ReactSearch } from "@vectara/react-search";
 import {
   VuiAppContent,
   VuiAppHeader,

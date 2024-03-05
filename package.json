@@ -8,9 +8,9 @@
   "scripts": {
     "build": "npm run clean && node build.js && tsc --emitDeclarationOnly --outDir lib",
     "buildDocs": "node docs/build.js",
-    "docs": "node docs/docsServer.js",
     "clean": "rimraf lib",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "docs": "npm install && npm run build && npm install --prefix docs && npm run docs --prefix docs"
   },
   "author": {
     "name": "Vectara, Inc.",
