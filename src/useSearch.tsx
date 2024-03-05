@@ -21,6 +21,7 @@ export const useSearch = (
     headersInstance.append("customer-id", customerId);
     headersInstance.append("x-api-key", apiKey);
     headersInstance.append("content-type", "application/json");
+    headersInstance.append("x-source", "react-search");
 
     return headersInstance;
   }, [customerId, apiKey]);

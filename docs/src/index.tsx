@@ -72,7 +72,7 @@ const generateCodeSnippet = (
 const DEFAULT_CORPUS_ID = "1";
 const DEFAULT_CUSTOMER_ID = "1366999410";
 const DEFAULT_API_KEY = "zqt_UXrBcnI2UXINZkrv4g1tQPhzj02vfdtqYJIDiA";
-const DEFAULT_PLACEHOLDER = 'Try searching for "vectara" or "grounded generation"';
+const DEFAULT_PLACEHOLDER = 'Try searching for "vectara" or "RAG"';
 
 const App = () => {
   const [isConfigurationDrawerOpen, setIsConfigurationDrawerOpen] = useState(false);
