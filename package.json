@@ -30,8 +30,9 @@
     "widget"
   ],
   "dependencies": {
-    "@types/react": "^18.2.48",
-    "@types/react-dom": "^18.2.18",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
     "classnames": "^2.3.2",
     "lodash": "^4.17.21",
     "prismjs": "^1.29.0",

@@ -88,7 +88,7 @@ Defaults to `false`. Set this option if you want to persist a search query to a 
 
 Defaults to `false`. Set this option if you want a search result to open in a new tab.
 
-### Use your own views with the useSearch hook
+### Power your own search UI with the useSearch hook
 
 Install React-Search:
 
