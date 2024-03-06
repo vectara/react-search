@@ -227,7 +227,7 @@ const App = () => {
 
             <VuiCode language="tsx">
               {`
-import { useSearch } from "@vectara/react-search/lib";
+import { useSearch } from "@vectara/react-search/lib/useSearch";
 
 export const App = () => {
   const { fetchSearchResults, isLoading } = useSearch(
