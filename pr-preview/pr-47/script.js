@@ -1941,9 +1941,9 @@
               }
             }
           }
-          function compare(a, b2) {
-            var diff = a.sortIndex - b2.sortIndex;
-            return diff !== 0 ? diff : a.id - b2.id;
+          function compare(a, b) {
+            var diff = a.sortIndex - b.sortIndex;
+            return diff !== 0 ? diff : a.id - b.id;
           }
           var ImmediatePriority = 1;
           var UserBlockingPriority = 2;
@@ -5472,8 +5472,8 @@
           var batchedUpdatesImpl = function(fn, bookkeeping) {
             return fn(bookkeeping);
           };
-          var discreteUpdatesImpl = function(fn, a, b2, c, d) {
-            return fn(a, b2, c, d);
+          var discreteUpdatesImpl = function(fn, a, b, c, d) {
+            return fn(a, b, c, d);
           };
           var flushDiscreteUpdatesImpl = function() {
           };
@@ -5499,23 +5499,23 @@
               finishEventHandler();
             }
           }
-          function batchedEventUpdates(fn, a, b2) {
+          function batchedEventUpdates(fn, a, b) {
             if (isBatchingEventUpdates) {
-              return fn(a, b2);
+              return fn(a, b);
             }
             isBatchingEventUpdates = true;
             try {
-              return batchedEventUpdatesImpl(fn, a, b2);
+              return batchedEventUpdatesImpl(fn, a, b);
             } finally {
               isBatchingEventUpdates = false;
               finishEventHandler();
             }
           }
-          function discreteUpdates(fn, a, b2, c, d) {
+          function discreteUpdates(fn, a, b, c, d) {
             var prevIsInsideEventHandler = isInsideEventHandler;
             isInsideEventHandler = true;
             try {
-              return discreteUpdatesImpl(fn, a, b2, c, d);
+              return discreteUpdatesImpl(fn, a, b, c, d);
             } finally {
               isInsideEventHandler = prevIsInsideEventHandler;
               if (!isInsideEventHandler) {
@@ -5592,7 +5592,7 @@
               passiveBrowserEventsSupported = false;
             }
           }
-          function invokeGuardedCallbackProd(name, func2, context, a, b2, c, d, e, f) {
+          function invokeGuardedCallbackProd(name, func2, context, a, b, c, d, e, f) {
             var funcArgs = Array.prototype.slice.call(arguments, 3);
             try {
               func2.apply(context, funcArgs);
@@ -5604,7 +5604,7 @@
           {
             if (typeof window !== "undefined" && typeof window.dispatchEvent === "function" && typeof document !== "undefined" && typeof document.createEvent === "function") {
               var fakeNode = document.createElement("react");
-              invokeGuardedCallbackImpl = function invokeGuardedCallbackDev(name, func2, context, a, b2, c, d, e, f) {
+              invokeGuardedCallbackImpl = function invokeGuardedCallbackDev(name, func2, context, a, b, c, d, e, f) {
                 if (!(typeof document !== "undefined")) {
                   {
                     throw Error("The `document` global was defined when React was initialized, but is not defined anymore. This can happen in a test environment if a component schedules an update from an asynchronous callback, but the test has already finished running. To solve this, you can either unmount the component at the end of your test (and ensure that any asynchronous operations get canceled in `componentWillUnmount`), or you can change the test itself to be asynchronous.");
@@ -5681,12 +5681,12 @@
               caughtError = error2;
             }
           };
-          function invokeGuardedCallback(name, func2, context, a, b2, c, d, e, f) {
+          function invokeGuardedCallback(name, func2, context, a, b, c, d, e, f) {
             hasError = false;
             caughtError = null;
             invokeGuardedCallbackImpl$1.apply(reporter, arguments);
           }
-          function invokeGuardedCallbackAndCatchFirstError(name, func2, context, a, b2, c, d, e, f) {
+          function invokeGuardedCallbackAndCatchFirstError(name, func2, context, a, b, c, d, e, f) {
             invokeGuardedCallback.apply(this, arguments);
             if (hasError) {
               var error2 = clearCaughtError();
@@ -5894,7 +5894,7 @@
               return fiber;
             }
             var a = fiber;
-            var b2 = alternate;
+            var b = alternate;
             while (true) {
               var parentA = a.return;
               if (parentA === null) {
@@ -5904,7 +5904,7 @@
               if (parentB === null) {
                 var nextParent = parentA.return;
                 if (nextParent !== null) {
-                  a = b2 = nextParent;
+                  a = b = nextParent;
                   continue;
                 }
                 break;
@@ -5916,7 +5916,7 @@
                     assertIsMounted(parentA);
                     return fiber;
                   }
-                  if (child === b2) {
+                  if (child === b) {
                     assertIsMounted(parentA);
                     return alternate;
                   }
@@ -5928,9 +5928,9 @@
                   }
                 }
               }
-              if (a.return !== b2.return) {
+              if (a.return !== b.return) {
                 a = parentA;
-                b2 = parentB;
+                b = parentB;
               } else {
                 var didFindChild = false;
                 var _child = parentA.child;
@@ -5938,12 +5938,12 @@
                   if (_child === a) {
                     didFindChild = true;
                     a = parentA;
-                    b2 = parentB;
+                    b = parentB;
                     break;
                   }
-                  if (_child === b2) {
+                  if (_child === b) {
                     didFindChild = true;
-                    b2 = parentA;
+                    b = parentA;
                     a = parentB;
                     break;
                   }
@@ -5955,12 +5955,12 @@
                     if (_child === a) {
                       didFindChild = true;
                       a = parentB;
-                      b2 = parentA;
+                      b = parentA;
                       break;
                     }
-                    if (_child === b2) {
+                    if (_child === b) {
                       didFindChild = true;
-                      b2 = parentB;
+                      b = parentB;
                       a = parentA;
                       break;
                     }
@@ -5973,7 +5973,7 @@
                   }
                 }
               }
-              if (!(a.alternate === b2)) {
+              if (!(a.alternate === b)) {
                 {
                   throw Error("Return fibers should always be each others' alternates. This error is likely caused by a bug in React. Please file an issue.");
                 }
@@ -6950,14 +6950,14 @@
           function laneToIndex(lane) {
             return pickArbitraryLaneIndex(lane);
           }
-          function includesSomeLane(a, b2) {
-            return (a & b2) !== NoLanes;
+          function includesSomeLane(a, b) {
+            return (a & b) !== NoLanes;
           }
           function isSubsetOfLanes(set2, subset) {
             return (set2 & subset) === subset;
           }
-          function mergeLanes(a, b2) {
-            return a | b2;
+          function mergeLanes(a, b) {
+            return a | b;
           }
           function removeLanes(set2, subset) {
             return set2 & ~subset;
@@ -6965,8 +6965,8 @@
           function laneToLanes(lane) {
             return lane;
           }
-          function higherPriorityLane(a, b2) {
-            return a !== NoLane && a < b2 ? a : b2;
+          function higherPriorityLane(a, b) {
+            return a !== NoLane && a < b ? a : b;
           }
           function createLaneMap(initial) {
             var laneMap = [];
@@ -7995,8 +7995,8 @@
             }
             accumulateEnterLeaveTwoPhaseListeners(dispatchQueue, leave, enter, from, to);
           }
-          function is(x, y2) {
-            return x === y2 && (x !== 0 || 1 / x === 1 / y2) || x !== x && y2 !== y2;
+          function is(x, y) {
+            return x === y && (x !== 0 || 1 / x === 1 / y) || x !== x && y !== y;
           }
           var objectIs = typeof Object.is === "function" ? Object.is : is;
           var hasOwnProperty$2 = Object.prototype.hasOwnProperty;
@@ -18352,12 +18352,12 @@
               }
             }
           }
-          function discreteUpdates$1(fn, a, b2, c, d) {
+          function discreteUpdates$1(fn, a, b, c, d) {
             var prevExecutionContext = executionContext;
             executionContext |= DiscreteEventContext;
             {
               try {
-                return runWithPriority$1(UserBlockingPriority$2, fn.bind(null, a, b2, c, d));
+                return runWithPriority$1(UserBlockingPriority$2, fn.bind(null, a, b, c, d));
               } finally {
                 executionContext = prevExecutionContext;
                 if (executionContext === NoContext) {
@@ -21319,7 +21319,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           this.hash();
         };
         Md5.prototype.hash = function() {
-          var a, b2, c, d, bc, da, blocks2 = this.blocks;
+          var a, b, c, d, bc, da, blocks2 = this.blocks;
           if (this.first) {
             a = blocks2[0] - 680876937;
             a = (a << 7 | a >>> 25) - 271733879 << 0;
@@ -21327,159 +21327,159 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
             d = (d << 12 | d >>> 20) + a << 0;
             c = (-271733879 ^ d & (a ^ -271733879)) + blocks2[2] - 1126478375;
             c = (c << 17 | c >>> 15) + d << 0;
-            b2 = (a ^ c & (d ^ a)) + blocks2[3] - 1316259209;
-            b2 = (b2 << 22 | b2 >>> 10) + c << 0;
+            b = (a ^ c & (d ^ a)) + blocks2[3] - 1316259209;
+            b = (b << 22 | b >>> 10) + c << 0;
           } else {
             a = this.h0;
-            b2 = this.h1;
+            b = this.h1;
             c = this.h2;
             d = this.h3;
-            a += (d ^ b2 & (c ^ d)) + blocks2[0] - 680876936;
-            a = (a << 7 | a >>> 25) + b2 << 0;
-            d += (c ^ a & (b2 ^ c)) + blocks2[1] - 389564586;
+            a += (d ^ b & (c ^ d)) + blocks2[0] - 680876936;
+            a = (a << 7 | a >>> 25) + b << 0;
+            d += (c ^ a & (b ^ c)) + blocks2[1] - 389564586;
             d = (d << 12 | d >>> 20) + a << 0;
-            c += (b2 ^ d & (a ^ b2)) + blocks2[2] + 606105819;
+            c += (b ^ d & (a ^ b)) + blocks2[2] + 606105819;
             c = (c << 17 | c >>> 15) + d << 0;
-            b2 += (a ^ c & (d ^ a)) + blocks2[3] - 1044525330;
-            b2 = (b2 << 22 | b2 >>> 10) + c << 0;
+            b += (a ^ c & (d ^ a)) + blocks2[3] - 1044525330;
+            b = (b << 22 | b >>> 10) + c << 0;
           }
-          a += (d ^ b2 & (c ^ d)) + blocks2[4] - 176418897;
-          a = (a << 7 | a >>> 25) + b2 << 0;
-          d += (c ^ a & (b2 ^ c)) + blocks2[5] + 1200080426;
+          a += (d ^ b & (c ^ d)) + blocks2[4] - 176418897;
+          a = (a << 7 | a >>> 25) + b << 0;
+          d += (c ^ a & (b ^ c)) + blocks2[5] + 1200080426;
           d = (d << 12 | d >>> 20) + a << 0;
-          c += (b2 ^ d & (a ^ b2)) + blocks2[6] - 1473231341;
+          c += (b ^ d & (a ^ b)) + blocks2[6] - 1473231341;
           c = (c << 17 | c >>> 15) + d << 0;
-          b2 += (a ^ c & (d ^ a)) + blocks2[7] - 45705983;
-          b2 = (b2 << 22 | b2 >>> 10) + c << 0;
-          a += (d ^ b2 & (c ^ d)) + blocks2[8] + 1770035416;
-          a = (a << 7 | a >>> 25) + b2 << 0;
-          d += (c ^ a & (b2 ^ c)) + blocks2[9] - 1958414417;
+          b += (a ^ c & (d ^ a)) + blocks2[7] - 45705983;
+          b = (b << 22 | b >>> 10) + c << 0;
+          a += (d ^ b & (c ^ d)) + blocks2[8] + 1770035416;
+          a = (a << 7 | a >>> 25) + b << 0;
+          d += (c ^ a & (b ^ c)) + blocks2[9] - 1958414417;
           d = (d << 12 | d >>> 20) + a << 0;
-          c += (b2 ^ d & (a ^ b2)) + blocks2[10] - 42063;
+          c += (b ^ d & (a ^ b)) + blocks2[10] - 42063;
           c = (c << 17 | c >>> 15) + d << 0;
-          b2 += (a ^ c & (d ^ a)) + blocks2[11] - 1990404162;
-          b2 = (b2 << 22 | b2 >>> 10) + c << 0;
-          a += (d ^ b2 & (c ^ d)) + blocks2[12] + 1804603682;
-          a = (a << 7 | a >>> 25) + b2 << 0;
-          d += (c ^ a & (b2 ^ c)) + blocks2[13] - 40341101;
+          b += (a ^ c & (d ^ a)) + blocks2[11] - 1990404162;
+          b = (b << 22 | b >>> 10) + c << 0;
+          a += (d ^ b & (c ^ d)) + blocks2[12] + 1804603682;
+          a = (a << 7 | a >>> 25) + b << 0;
+          d += (c ^ a & (b ^ c)) + blocks2[13] - 40341101;
           d = (d << 12 | d >>> 20) + a << 0;
-          c += (b2 ^ d & (a ^ b2)) + blocks2[14] - 1502002290;
+          c += (b ^ d & (a ^ b)) + blocks2[14] - 1502002290;
           c = (c << 17 | c >>> 15) + d << 0;
-          b2 += (a ^ c & (d ^ a)) + blocks2[15] + 1236535329;
-          b2 = (b2 << 22 | b2 >>> 10) + c << 0;
-          a += (c ^ d & (b2 ^ c)) + blocks2[1] - 165796510;
-          a = (a << 5 | a >>> 27) + b2 << 0;
-          d += (b2 ^ c & (a ^ b2)) + blocks2[6] - 1069501632;
+          b += (a ^ c & (d ^ a)) + blocks2[15] + 1236535329;
+          b = (b << 22 | b >>> 10) + c << 0;
+          a += (c ^ d & (b ^ c)) + blocks2[1] - 165796510;
+          a = (a << 5 | a >>> 27) + b << 0;
+          d += (b ^ c & (a ^ b)) + blocks2[6] - 1069501632;
           d = (d << 9 | d >>> 23) + a << 0;
-          c += (a ^ b2 & (d ^ a)) + blocks2[11] + 643717713;
+          c += (a ^ b & (d ^ a)) + blocks2[11] + 643717713;
           c = (c << 14 | c >>> 18) + d << 0;
-          b2 += (d ^ a & (c ^ d)) + blocks2[0] - 373897302;
-          b2 = (b2 << 20 | b2 >>> 12) + c << 0;
-          a += (c ^ d & (b2 ^ c)) + blocks2[5] - 701558691;
-          a = (a << 5 | a >>> 27) + b2 << 0;
-          d += (b2 ^ c & (a ^ b2)) + blocks2[10] + 38016083;
+          b += (d ^ a & (c ^ d)) + blocks2[0] - 373897302;
+          b = (b << 20 | b >>> 12) + c << 0;
+          a += (c ^ d & (b ^ c)) + blocks2[5] - 701558691;
+          a = (a << 5 | a >>> 27) + b << 0;
+          d += (b ^ c & (a ^ b)) + blocks2[10] + 38016083;
           d = (d << 9 | d >>> 23) + a << 0;
-          c += (a ^ b2 & (d ^ a)) + blocks2[15] - 660478335;
+          c += (a ^ b & (d ^ a)) + blocks2[15] - 660478335;
           c = (c << 14 | c >>> 18) + d << 0;
-          b2 += (d ^ a & (c ^ d)) + blocks2[4] - 405537848;
-          b2 = (b2 << 20 | b2 >>> 12) + c << 0;
-          a += (c ^ d & (b2 ^ c)) + blocks2[9] + 568446438;
-          a = (a << 5 | a >>> 27) + b2 << 0;
-          d += (b2 ^ c & (a ^ b2)) + blocks2[14] - 1019803690;
+          b += (d ^ a & (c ^ d)) + blocks2[4] - 405537848;
+          b = (b << 20 | b >>> 12) + c << 0;
+          a += (c ^ d & (b ^ c)) + blocks2[9] + 568446438;
+          a = (a << 5 | a >>> 27) + b << 0;
+          d += (b ^ c & (a ^ b)) + blocks2[14] - 1019803690;
           d = (d << 9 | d >>> 23) + a << 0;
-          c += (a ^ b2 & (d ^ a)) + blocks2[3] - 187363961;
+          c += (a ^ b & (d ^ a)) + blocks2[3] - 187363961;
           c = (c << 14 | c >>> 18) + d << 0;
-          b2 += (d ^ a & (c ^ d)) + blocks2[8] + 1163531501;
-          b2 = (b2 << 20 | b2 >>> 12) + c << 0;
-          a += (c ^ d & (b2 ^ c)) + blocks2[13] - 1444681467;
-          a = (a << 5 | a >>> 27) + b2 << 0;
-          d += (b2 ^ c & (a ^ b2)) + blocks2[2] - 51403784;
+          b += (d ^ a & (c ^ d)) + blocks2[8] + 1163531501;
+          b = (b << 20 | b >>> 12) + c << 0;
+          a += (c ^ d & (b ^ c)) + blocks2[13] - 1444681467;
+          a = (a << 5 | a >>> 27) + b << 0;
+          d += (b ^ c & (a ^ b)) + blocks2[2] - 51403784;
           d = (d << 9 | d >>> 23) + a << 0;
-          c += (a ^ b2 & (d ^ a)) + blocks2[7] + 1735328473;
+          c += (a ^ b & (d ^ a)) + blocks2[7] + 1735328473;
           c = (c << 14 | c >>> 18) + d << 0;
-          b2 += (d ^ a & (c ^ d)) + blocks2[12] - 1926607734;
-          b2 = (b2 << 20 | b2 >>> 12) + c << 0;
-          bc = b2 ^ c;
+          b += (d ^ a & (c ^ d)) + blocks2[12] - 1926607734;
+          b = (b << 20 | b >>> 12) + c << 0;
+          bc = b ^ c;
           a += (bc ^ d) + blocks2[5] - 378558;
-          a = (a << 4 | a >>> 28) + b2 << 0;
+          a = (a << 4 | a >>> 28) + b << 0;
           d += (bc ^ a) + blocks2[8] - 2022574463;
           d = (d << 11 | d >>> 21) + a << 0;
           da = d ^ a;
-          c += (da ^ b2) + blocks2[11] + 1839030562;
+          c += (da ^ b) + blocks2[11] + 1839030562;
           c = (c << 16 | c >>> 16) + d << 0;
-          b2 += (da ^ c) + blocks2[14] - 35309556;
-          b2 = (b2 << 23 | b2 >>> 9) + c << 0;
-          bc = b2 ^ c;
+          b += (da ^ c) + blocks2[14] - 35309556;
+          b = (b << 23 | b >>> 9) + c << 0;
+          bc = b ^ c;
           a += (bc ^ d) + blocks2[1] - 1530992060;
-          a = (a << 4 | a >>> 28) + b2 << 0;
+          a = (a << 4 | a >>> 28) + b << 0;
           d += (bc ^ a) + blocks2[4] + 1272893353;
           d = (d << 11 | d >>> 21) + a << 0;
           da = d ^ a;
-          c += (da ^ b2) + blocks2[7] - 155497632;
+          c += (da ^ b) + blocks2[7] - 155497632;
           c = (c << 16 | c >>> 16) + d << 0;
-          b2 += (da ^ c) + blocks2[10] - 1094730640;
-          b2 = (b2 << 23 | b2 >>> 9) + c << 0;
-          bc = b2 ^ c;
+          b += (da ^ c) + blocks2[10] - 1094730640;
+          b = (b << 23 | b >>> 9) + c << 0;
+          bc = b ^ c;
           a += (bc ^ d) + blocks2[13] + 681279174;
-          a = (a << 4 | a >>> 28) + b2 << 0;
+          a = (a << 4 | a >>> 28) + b << 0;
           d += (bc ^ a) + blocks2[0] - 358537222;
           d = (d << 11 | d >>> 21) + a << 0;
           da = d ^ a;
-          c += (da ^ b2) + blocks2[3] - 722521979;
+          c += (da ^ b) + blocks2[3] - 722521979;
           c = (c << 16 | c >>> 16) + d << 0;
-          b2 += (da ^ c) + blocks2[6] + 76029189;
-          b2 = (b2 << 23 | b2 >>> 9) + c << 0;
-          bc = b2 ^ c;
+          b += (da ^ c) + blocks2[6] + 76029189;
+          b = (b << 23 | b >>> 9) + c << 0;
+          bc = b ^ c;
           a += (bc ^ d) + blocks2[9] - 640364487;
-          a = (a << 4 | a >>> 28) + b2 << 0;
+          a = (a << 4 | a >>> 28) + b << 0;
           d += (bc ^ a) + blocks2[12] - 421815835;
           d = (d << 11 | d >>> 21) + a << 0;
           da = d ^ a;
-          c += (da ^ b2) + blocks2[15] + 530742520;
+          c += (da ^ b) + blocks2[15] + 530742520;
           c = (c << 16 | c >>> 16) + d << 0;
-          b2 += (da ^ c) + blocks2[2] - 995338651;
-          b2 = (b2 << 23 | b2 >>> 9) + c << 0;
-          a += (c ^ (b2 | ~d)) + blocks2[0] - 198630844;
-          a = (a << 6 | a >>> 26) + b2 << 0;
-          d += (b2 ^ (a | ~c)) + blocks2[7] + 1126891415;
+          b += (da ^ c) + blocks2[2] - 995338651;
+          b = (b << 23 | b >>> 9) + c << 0;
+          a += (c ^ (b | ~d)) + blocks2[0] - 198630844;
+          a = (a << 6 | a >>> 26) + b << 0;
+          d += (b ^ (a | ~c)) + blocks2[7] + 1126891415;
           d = (d << 10 | d >>> 22) + a << 0;
-          c += (a ^ (d | ~b2)) + blocks2[14] - 1416354905;
+          c += (a ^ (d | ~b)) + blocks2[14] - 1416354905;
           c = (c << 15 | c >>> 17) + d << 0;
-          b2 += (d ^ (c | ~a)) + blocks2[5] - 57434055;
-          b2 = (b2 << 21 | b2 >>> 11) + c << 0;
-          a += (c ^ (b2 | ~d)) + blocks2[12] + 1700485571;
-          a = (a << 6 | a >>> 26) + b2 << 0;
-          d += (b2 ^ (a | ~c)) + blocks2[3] - 1894986606;
+          b += (d ^ (c | ~a)) + blocks2[5] - 57434055;
+          b = (b << 21 | b >>> 11) + c << 0;
+          a += (c ^ (b | ~d)) + blocks2[12] + 1700485571;
+          a = (a << 6 | a >>> 26) + b << 0;
+          d += (b ^ (a | ~c)) + blocks2[3] - 1894986606;
           d = (d << 10 | d >>> 22) + a << 0;
-          c += (a ^ (d | ~b2)) + blocks2[10] - 1051523;
+          c += (a ^ (d | ~b)) + blocks2[10] - 1051523;
           c = (c << 15 | c >>> 17) + d << 0;
-          b2 += (d ^ (c | ~a)) + blocks2[1] - 2054922799;
-          b2 = (b2 << 21 | b2 >>> 11) + c << 0;
-          a += (c ^ (b2 | ~d)) + blocks2[8] + 1873313359;
-          a = (a << 6 | a >>> 26) + b2 << 0;
-          d += (b2 ^ (a | ~c)) + blocks2[15] - 30611744;
+          b += (d ^ (c | ~a)) + blocks2[1] - 2054922799;
+          b = (b << 21 | b >>> 11) + c << 0;
+          a += (c ^ (b | ~d)) + blocks2[8] + 1873313359;
+          a = (a << 6 | a >>> 26) + b << 0;
+          d += (b ^ (a | ~c)) + blocks2[15] - 30611744;
           d = (d << 10 | d >>> 22) + a << 0;
-          c += (a ^ (d | ~b2)) + blocks2[6] - 1560198380;
+          c += (a ^ (d | ~b)) + blocks2[6] - 1560198380;
           c = (c << 15 | c >>> 17) + d << 0;
-          b2 += (d ^ (c | ~a)) + blocks2[13] + 1309151649;
-          b2 = (b2 << 21 | b2 >>> 11) + c << 0;
-          a += (c ^ (b2 | ~d)) + blocks2[4] - 145523070;
-          a = (a << 6 | a >>> 26) + b2 << 0;
-          d += (b2 ^ (a | ~c)) + blocks2[11] - 1120210379;
+          b += (d ^ (c | ~a)) + blocks2[13] + 1309151649;
+          b = (b << 21 | b >>> 11) + c << 0;
+          a += (c ^ (b | ~d)) + blocks2[4] - 145523070;
+          a = (a << 6 | a >>> 26) + b << 0;
+          d += (b ^ (a | ~c)) + blocks2[11] - 1120210379;
           d = (d << 10 | d >>> 22) + a << 0;
-          c += (a ^ (d | ~b2)) + blocks2[2] + 718787259;
+          c += (a ^ (d | ~b)) + blocks2[2] + 718787259;
           c = (c << 15 | c >>> 17) + d << 0;
-          b2 += (d ^ (c | ~a)) + blocks2[9] - 343485551;
-          b2 = (b2 << 21 | b2 >>> 11) + c << 0;
+          b += (d ^ (c | ~a)) + blocks2[9] - 343485551;
+          b = (b << 21 | b >>> 11) + c << 0;
           if (this.first) {
             this.h0 = a + 1732584193 << 0;
-            this.h1 = b2 - 271733879 << 0;
+            this.h1 = b - 271733879 << 0;
             this.h2 = c - 1732584194 << 0;
             this.h3 = d + 271733878 << 0;
             this.first = false;
           } else {
             this.h0 = this.h0 + a << 0;
-            this.h1 = this.h1 + b2 << 0;
+            this.h1 = this.h1 + b << 0;
             this.h2 = this.h2 + c << 0;
             this.h3 = this.h3 + d << 0;
           }
@@ -21699,102 +21699,102 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           this.hash();
         };
         Sha1.prototype.hash = function() {
-          var a = this.h0, b2 = this.h1, c = this.h2, d = this.h3, e = this.h4;
+          var a = this.h0, b = this.h1, c = this.h2, d = this.h3, e = this.h4;
           var f, j, t, blocks2 = this.blocks;
           for (j = 16; j < 80; ++j) {
             t = blocks2[j - 3] ^ blocks2[j - 8] ^ blocks2[j - 14] ^ blocks2[j - 16];
             blocks2[j] = t << 1 | t >>> 31;
           }
           for (j = 0; j < 20; j += 5) {
-            f = b2 & c | ~b2 & d;
+            f = b & c | ~b & d;
             t = a << 5 | a >>> 27;
             e = t + f + e + 1518500249 + blocks2[j] << 0;
-            b2 = b2 << 30 | b2 >>> 2;
-            f = a & b2 | ~a & c;
+            b = b << 30 | b >>> 2;
+            f = a & b | ~a & c;
             t = e << 5 | e >>> 27;
             d = t + f + d + 1518500249 + blocks2[j + 1] << 0;
             a = a << 30 | a >>> 2;
-            f = e & a | ~e & b2;
+            f = e & a | ~e & b;
             t = d << 5 | d >>> 27;
             c = t + f + c + 1518500249 + blocks2[j + 2] << 0;
             e = e << 30 | e >>> 2;
             f = d & e | ~d & a;
             t = c << 5 | c >>> 27;
-            b2 = t + f + b2 + 1518500249 + blocks2[j + 3] << 0;
+            b = t + f + b + 1518500249 + blocks2[j + 3] << 0;
             d = d << 30 | d >>> 2;
             f = c & d | ~c & e;
-            t = b2 << 5 | b2 >>> 27;
+            t = b << 5 | b >>> 27;
             a = t + f + a + 1518500249 + blocks2[j + 4] << 0;
             c = c << 30 | c >>> 2;
           }
           for (; j < 40; j += 5) {
-            f = b2 ^ c ^ d;
+            f = b ^ c ^ d;
             t = a << 5 | a >>> 27;
             e = t + f + e + 1859775393 + blocks2[j] << 0;
-            b2 = b2 << 30 | b2 >>> 2;
-            f = a ^ b2 ^ c;
+            b = b << 30 | b >>> 2;
+            f = a ^ b ^ c;
             t = e << 5 | e >>> 27;
             d = t + f + d + 1859775393 + blocks2[j + 1] << 0;
             a = a << 30 | a >>> 2;
-            f = e ^ a ^ b2;
+            f = e ^ a ^ b;
             t = d << 5 | d >>> 27;
             c = t + f + c + 1859775393 + blocks2[j + 2] << 0;
             e = e << 30 | e >>> 2;
             f = d ^ e ^ a;
             t = c << 5 | c >>> 27;
-            b2 = t + f + b2 + 1859775393 + blocks2[j + 3] << 0;
+            b = t + f + b + 1859775393 + blocks2[j + 3] << 0;
             d = d << 30 | d >>> 2;
             f = c ^ d ^ e;
-            t = b2 << 5 | b2 >>> 27;
+            t = b << 5 | b >>> 27;
             a = t + f + a + 1859775393 + blocks2[j + 4] << 0;
             c = c << 30 | c >>> 2;
           }
           for (; j < 60; j += 5) {
-            f = b2 & c | b2 & d | c & d;
+            f = b & c | b & d | c & d;
             t = a << 5 | a >>> 27;
             e = t + f + e - 1894007588 + blocks2[j] << 0;
-            b2 = b2 << 30 | b2 >>> 2;
-            f = a & b2 | a & c | b2 & c;
+            b = b << 30 | b >>> 2;
+            f = a & b | a & c | b & c;
             t = e << 5 | e >>> 27;
             d = t + f + d - 1894007588 + blocks2[j + 1] << 0;
             a = a << 30 | a >>> 2;
-            f = e & a | e & b2 | a & b2;
+            f = e & a | e & b | a & b;
             t = d << 5 | d >>> 27;
             c = t + f + c - 1894007588 + blocks2[j + 2] << 0;
             e = e << 30 | e >>> 2;
             f = d & e | d & a | e & a;
             t = c << 5 | c >>> 27;
-            b2 = t + f + b2 - 1894007588 + blocks2[j + 3] << 0;
+            b = t + f + b - 1894007588 + blocks2[j + 3] << 0;
             d = d << 30 | d >>> 2;
             f = c & d | c & e | d & e;
-            t = b2 << 5 | b2 >>> 27;
+            t = b << 5 | b >>> 27;
             a = t + f + a - 1894007588 + blocks2[j + 4] << 0;
             c = c << 30 | c >>> 2;
           }
           for (; j < 80; j += 5) {
-            f = b2 ^ c ^ d;
+            f = b ^ c ^ d;
             t = a << 5 | a >>> 27;
             e = t + f + e - 899497514 + blocks2[j] << 0;
-            b2 = b2 << 30 | b2 >>> 2;
-            f = a ^ b2 ^ c;
+            b = b << 30 | b >>> 2;
+            f = a ^ b ^ c;
             t = e << 5 | e >>> 27;
             d = t + f + d - 899497514 + blocks2[j + 1] << 0;
             a = a << 30 | a >>> 2;
-            f = e ^ a ^ b2;
+            f = e ^ a ^ b;
             t = d << 5 | d >>> 27;
             c = t + f + c - 899497514 + blocks2[j + 2] << 0;
             e = e << 30 | e >>> 2;
             f = d ^ e ^ a;
             t = c << 5 | c >>> 27;
-            b2 = t + f + b2 - 899497514 + blocks2[j + 3] << 0;
+            b = t + f + b - 899497514 + blocks2[j + 3] << 0;
             d = d << 30 | d >>> 2;
             f = c ^ d ^ e;
-            t = b2 << 5 | b2 >>> 27;
+            t = b << 5 | b >>> 27;
             a = t + f + a - 899497514 + blocks2[j + 4] << 0;
             c = c << 30 | c >>> 2;
           }
           this.h0 = this.h0 + a << 0;
-          this.h1 = this.h1 + b2 << 0;
+          this.h1 = this.h1 + b << 0;
           this.h2 = this.h2 + c << 0;
           this.h3 = this.h3 + d << 0;
           this.h4 = this.h4 + e << 0;
@@ -23207,11 +23207,11 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           shape: createShapeTypeChecker,
           exact: createStrictShapeTypeChecker
         };
-        function is(x, y2) {
-          if (x === y2) {
-            return x !== 0 || 1 / x === 1 / y2;
+        function is(x, y) {
+          if (x === y) {
+            return x !== 0 || 1 / x === 1 / y;
           } else {
-            return x !== x && y2 !== y2;
+            return x !== x && y !== y;
           }
         }
         function PropTypeError(message, data) {
@@ -30717,7 +30717,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
 
   // ../lib/index.js
   var import_react7 = __toESM(require_react());
-  var de = __toESM(require_react_dom());
+  var fe = __toESM(require_react_dom());
   var import_uuid_by_string = __toESM(require_src());
   var import_classnames = __toESM(require_classnames());
   var import_jsx_runtime = __toESM(require_jsx_runtime());
@@ -31502,14 +31502,14 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   };
 
   // ../node_modules/focus-lock/dist/es2015/utils/tabOrder.js
-  var tabSort = function(a, b2) {
-    var tabDiff = a.tabIndex - b2.tabIndex;
-    var indexDiff = a.index - b2.index;
+  var tabSort = function(a, b) {
+    var tabDiff = a.tabIndex - b.tabIndex;
+    var indexDiff = a.index - b.index;
     if (tabDiff) {
       if (!a.tabIndex) {
         return 1;
       }
-      if (!b2.tabIndex) {
+      if (!b.tabIndex) {
         return -1;
       }
     }
@@ -32481,8 +32481,8 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   var extractRef3 = function(ref) {
     return ref && "current" in ref ? ref.current : ref;
   };
-  var deltaCompare = function(x, y2) {
-    return x[0] === y2[0] && x[1] === y2[1];
+  var deltaCompare = function(x, y) {
+    return x[0] === y[0] && x[1] === y[1];
   };
   var generateStyle = function(id2) {
     return "\n  .block-interactivity-".concat(id2, " {pointer-events: none;}\n  .allow-interactivity-").concat(id2, " {pointer-events: all;}\n");
@@ -32883,13 +32883,13 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   var import_react12 = __toESM(require_react());
   var import_jsx_runtime9 = __toESM(require_jsx_runtime());
   var import_jsx_runtime10 = __toESM(require_jsx_runtime());
-  var we = Object.defineProperty;
-  var Ce = Object.defineProperties;
+  var Ce = Object.defineProperty;
+  var we = Object.defineProperties;
   var Fe = Object.getOwnPropertyDescriptors;
   var z = Object.getOwnPropertySymbols;
   var te = Object.prototype.hasOwnProperty;
   var ie = Object.prototype.propertyIsEnumerable;
-  var ee = (t, e, i) => e in t ? we(t, e, { enumerable: true, configurable: true, writable: true, value: i }) : t[e] = i;
+  var ee = (t, e, i) => e in t ? Ce(t, e, { enumerable: true, configurable: true, writable: true, value: i }) : t[e] = i;
   var v = (t, e) => {
     for (var i in e || (e = {}))
       te.call(e, i) && ee(t, i, e[i]);
@@ -32898,8 +32898,8 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         ie.call(e, i) && ee(t, i, e[i]);
     return t;
   };
-  var y = (t, e) => Ce(t, Fe(e));
-  var b = (t, e) => {
+  var T = (t, e) => we(t, Fe(e));
+  var S = (t, e) => {
     var i = {};
     for (var n in t)
       te.call(t, n) && e.indexOf(n) < 0 && (i[n] = t[n]);
@@ -32924,20 +32924,20 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }, c = (x) => x.done ? n(x.value) : Promise.resolve(x.value).then(o, s);
     c((i = i.apply(t, e)).next());
   });
-  var Te = { baseline: "vuiFlexContainer--alignItemsBaseline", center: "vuiFlexContainer--alignItemsCenter", end: "vuiFlexContainer--alignItemsEnd", start: "vuiFlexContainer--alignItemsStart", stretch: "vuiFlexContainer--alignItemsStretch" };
-  var ye = { column: "vuiFlexContainer--directionColumn", columnReverse: "vuiFlexContainer--directionColumnReverse", row: "vuiFlexContainer--directionRow", rowReverse: "vuiFlexContainer--directionRowReverse" };
+  var ye = { baseline: "vuiFlexContainer--alignItemsBaseline", center: "vuiFlexContainer--alignItemsCenter", end: "vuiFlexContainer--alignItemsEnd", start: "vuiFlexContainer--alignItemsStart", stretch: "vuiFlexContainer--alignItemsStretch" };
+  var Te = { column: "vuiFlexContainer--directionColumn", columnReverse: "vuiFlexContainer--directionColumnReverse", row: "vuiFlexContainer--directionRow", rowReverse: "vuiFlexContainer--directionRowReverse" };
   var ke = { center: "vuiFlexContainer--justifyContentCenter", end: "vuiFlexContainer--justifyContentEnd", start: "vuiFlexContainer--justifyContentStart", spaceAround: "vuiFlexContainer--justifyContentSpaceAround", spaceBetween: "vuiFlexContainer--justifyContentSpaceBetween", spaceEvenly: "vuiFlexContainer--justifyContentSpaceEvenly" };
   var Re = { none: "vuiFlexContainer--spacingNone", xxs: "vuiFlexContainer--spacingXxs", xs: "vuiFlexContainer--spacingXs", s: "vuiFlexContainer--spacingS", m: "vuiFlexContainer--spacingM", l: "vuiFlexContainer--spacingL", xl: "vuiFlexContainer--spacingXl", xxl: "vuiFlexContainer--spacingXxl" };
   var P = (a) => {
-    var m = a, { children: t, alignItems: e = "stretch", direction: i = "row", justifyContent: n = "start", spacing: r = "m", wrap: o, className: s, fullWidth: c } = m, x = b(m, ["children", "alignItems", "direction", "justifyContent", "spacing", "wrap", "className", "fullWidth"]);
-    let S = (0, import_classnames.default)(s, "vuiFlexContainer", Te[e], ye[i], ke[n], Re[r], { "vuiFlexContainer--wrap": o, "vuiFlexContainer--fullWidth": c });
-    return (0, import_jsx_runtime.jsx)("div", y(v({ className: S }, x), { children: t }));
+    var m = a, { children: t, alignItems: e = "stretch", direction: i = "row", justifyContent: n = "start", spacing: r = "m", wrap: o, className: s, fullWidth: c } = m, x = S(m, ["children", "alignItems", "direction", "justifyContent", "spacing", "wrap", "className", "fullWidth"]);
+    let b = (0, import_classnames.default)(s, "vuiFlexContainer", ye[e], Te[i], ke[n], Re[r], { "vuiFlexContainer--wrap": o, "vuiFlexContainer--fullWidth": c });
+    return (0, import_jsx_runtime.jsx)("div", T(v({ className: b }, x), { children: t }));
   };
   var Me = { baseline: "vuiFlexItem--alignItemsBaseline", center: "vuiFlexItem--alignItemsCenter", end: "vuiFlexItem--alignItemsEnd", start: "vuiFlexItem--alignItemsStart", stretch: "vuiFlexItem--alignItemsStretch" };
   var R = (x) => {
-    var a = x, { children: t, grow: e, shrink: i, basis: n = "auto", alignItems: r = "stretch", className: o, truncate: s } = a, c = b(a, ["children", "grow", "shrink", "basis", "alignItems", "className", "truncate"]);
-    let m = e === false, S = i === false, f = (0, import_classnames2.default)("vuiFlexItem", `vuiFlexItem--${n}`, Me[r], { [`vuiFlexItem--flexGrow${e}`]: typeof e == "number", "vuiFlexItem--flexGrowNone": m, [`vuiFlexItem--flexShrink${i}`]: typeof i == "number", "vuiFlexItem--flexShrinkNone": S, "vuiFlexItem--truncate": s }, o);
-    return (0, import_jsx_runtime2.jsx)("div", y(v({ className: f }, c), { children: t }));
+    var a = x, { children: t, grow: e, shrink: i, basis: n = "auto", alignItems: r = "stretch", className: o, truncate: s } = a, c = S(a, ["children", "grow", "shrink", "basis", "alignItems", "className", "truncate"]);
+    let m = e === false, b = i === false, d = (0, import_classnames2.default)("vuiFlexItem", `vuiFlexItem--${n}`, Me[r], { [`vuiFlexItem--flexGrow${e}`]: typeof e == "number", "vuiFlexItem--flexGrowNone": m, [`vuiFlexItem--flexShrink${i}`]: typeof i == "number", "vuiFlexItem--flexShrinkNone": b, "vuiFlexItem--truncate": s }, o);
+    return (0, import_jsx_runtime2.jsx)("div", T(v({ className: d }, c), { children: t }));
   };
   var A = ({ children: t }) => {
     let e = (0, import_react8.useRef)(null);
@@ -32953,9 +32953,9 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return (0, import_jsx_runtime4.jsx)("div", { className: e, children: (0, import_jsx_runtime4.jsxs)("svg", { className: "vuiSpinner__animation", version: "1.0", width: "100px", height: "100px", viewBox: "0 0 128 128", xmlSpace: "preserve", children: [(0, import_jsx_runtime4.jsxs)("g", { children: [(0, import_jsx_runtime4.jsx)("path", { fill: "#d7c3fc", d: "M99.359,10.919a60.763,60.763,0,1,0,0,106.162A63.751,63.751,0,1,1,99.359,10.919Z" }), (0, import_jsx_runtime4.jsx)("animateTransform", { attributeName: "transform", type: "rotate", from: "0 64 64", to: "360 64 64", dur: "960ms", repeatCount: "indefinite" })] }), (0, import_jsx_runtime4.jsxs)("g", { children: [(0, import_jsx_runtime4.jsx)("path", { fill: "#ab81fa", d: "M28.641,117.081a60.763,60.763,0,1,0,0-106.162A63.751,63.751,0,1,1,28.641,117.081Z" }), (0, import_jsx_runtime4.jsx)("animateTransform", { attributeName: "transform", type: "rotate", from: "0 64 64", to: "360 64 64", dur: "1440ms", repeatCount: "indefinite" })] }), (0, import_jsx_runtime4.jsxs)("g", { children: [(0, import_jsx_runtime4.jsx)("path", { fill: "#7027f6", d: "M117.081,99.313a60.763,60.763,0,1,0-106.162,0A63.751,63.751,0,1,1,117.081,99.313Z" }), (0, import_jsx_runtime4.jsx)("animateTransform", { attributeName: "transform", type: "rotate", from: "0 64 64", to: "360 64 64", dur: "2880ms", repeatCount: "indefinite" })] })] }) });
   };
   var V = (c) => {
-    var x = c, { children: t, className: e, id: i, truncate: n, size: r = "s", align: o } = x, s = b(x, ["children", "className", "id", "truncate", "size", "align"]);
+    var x = c, { children: t, className: e, id: i, truncate: n, size: r = "s", align: o } = x, s = S(x, ["children", "className", "id", "truncate", "size", "align"]);
     let a = (0, import_classnames4.default)("vuiText", `vuiText--${r}`, { [`vuiText--${o}`]: o, "vuiText--truncate": n }, e);
-    return (0, import_jsx_runtime5.jsx)("div", y(v({ className: a, id: i }, s), { children: t }));
+    return (0, import_jsx_runtime5.jsx)("div", T(v({ className: a, id: i }, s), { children: t }));
   };
   var qe = "https://api.vectara.io/v1/query";
   var oe = (t, e, i, n = qe) => {
@@ -32964,31 +32964,31 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
       return a.append("customer-id", t), a.append("x-api-key", i), a.append("content-type", "application/json"), a.append("x-source", "react-search"), a;
     }, [t, i]), c = (0, import_react10.useCallback)((a) => JSON.stringify({ query: [{ query: a, start: 0, numResults: 20, corpusKey: [{ corpusId: e }] }] }), [e]);
     return { fetchSearchResults: (a) => L(void 0, null, function* () {
-      var d, C;
+      var f, w;
       o(true);
-      let m = c(a), f = yield (yield fetch(n, { headers: s, body: m, method: "POST" })).json();
+      let m = c(a), d = yield (yield fetch(n, { headers: s, body: m, method: "POST" })).json();
       o(false);
-      let w = (C = Ue((d = f.responseSet) == null ? void 0 : d[0])) != null ? C : [];
-      return Ze(w);
+      let C = (w = Ke((f = d.responseSet) == null ? void 0 : f[0])) != null ? w : [];
+      return Ze(C);
     }), isLoading: r };
   };
-  var $e = (t) => {
+  var Ue = (t) => {
     let e = {};
     return t.forEach((i) => {
       e[i.name] = i.value;
     }), e;
   };
-  var Ke = (t) => {
-    let e = $e(t);
+  var $e = (t) => {
+    let e = Ue(t);
     return { source: e.source, url: e.url, title: e.title, metadata: e };
   };
-  var Ue = (t) => {
+  var Ke = (t) => {
     if (!t)
       return;
     let e = [], { response: i, document: n } = t;
     return i.forEach((r) => {
-      let { documentIndex: o, text: s } = r, { pre: c, post: x, text: a } = We(s), m = n[Number(o)], { id: S, metadata: f } = m, { source: w, url: d, title: C, metadata: j } = Ke(f);
-      e.push({ id: S, snippet: { pre: c, text: a, post: x }, source: w, url: d, title: C, metadata: j });
+      let { documentIndex: o, text: s } = r, { pre: c, post: x, text: a } = We(s), m = n[Number(o)], { id: b, metadata: d } = m, { source: C, url: f, title: w, metadata: j } = $e(d);
+      e.push({ id: b, snippet: { pre: c, text: a, post: x }, source: C, url: f, title: w, metadata: j });
     }), e;
   };
   var ne = "%START_SNIPPET%";
@@ -33803,6 +33803,11 @@ fieldset {
   margin-bottom: 0;
 }
 
+:host {
+  all: initial;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
 .vrsSearchModalContainer {
   position: fixed;
   top: 0;
@@ -33864,7 +33869,7 @@ fieldset {
     return (0, import_jsx_runtime8.jsx)(A, { children: (0, import_jsx_runtime8.jsx)("div", { className: "vrsStyleWrapper", children: e && (0, import_jsx_runtime8.jsx)(O, { children: (0, import_jsx_runtime8.jsx)(FocusOn2, { onEscapeKey: o, onClickOutside: o, returnFocus: true, autoFocus: e, children: (0, import_jsx_runtime8.jsx)(it, { ref: n, children: i }) }) }) }) });
   });
   var tt = ({ ref: t, children: e }) => (0, import_jsx_runtime8.jsx)("div", { className: "vrsSearchModalContainer", children: (0, import_jsx_runtime8.jsx)("div", { ref: t, className: "vrsSearchModal", children: e }) });
-  var $ = class extends HTMLElement {
+  var U = class extends HTMLElement {
     static get observedAttributes() {
       return ["isopen", "onclosedelayedupdatetime", "reactchildrenupdatetime", "refupdatetime"];
     }
@@ -33895,7 +33900,7 @@ fieldset {
       this.connectedCallback();
     }
   };
-  window.customElements.get("react-search-modal-contents") || window.customElements.define("react-search-modal-contents", $);
+  window.customElements.get("react-search-modal-contents") || window.customElements.define("react-search-modal-contents", U);
   var it = (t) => {
     let e = (0, import_react11.useRef)(null);
     return (0, import_react11.useEffect)(() => {
@@ -33912,7 +33917,7 @@ fieldset {
     }, [i]);
     return { getPreviousSearches: n, addPreviousSearch: r };
   };
-  var U = `.vuiFlexContainer {
+  var K = `.vuiFlexContainer {
   display: flex;
   align-items: stretch;
 }
@@ -35238,6 +35243,11 @@ fieldset {
   margin-bottom: 0;
 }
 
+:host {
+  all: initial;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
 .vrsSearchModalContainer {
   position: fixed;
   top: 0;
@@ -35285,6 +35295,11 @@ fieldset {
     overflow-y: none !important;
   }
 }
+:host {
+  all: initial;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
 /**
  * A one-off reset for the button elements.
  */
@@ -35340,7 +35355,7 @@ button {
   color: rgb(38, 76, 214);
 }`;
   var pe = (s) => {
-    var c = s, { value: t, onChange: e, placeholder: i, autoFocus: n, onSubmit: r } = c, o = b(c, ["value", "onChange", "placeholder", "autoFocus", "onSubmit"]);
+    var c = s, { value: t, onChange: e, placeholder: i, autoFocus: n, onSubmit: r } = c, o = S(c, ["value", "onChange", "placeholder", "autoFocus", "onSubmit"]);
     return (0, import_jsx_runtime9.jsx)("input", v({ "data-testid": "searchInput", className: "vrsSearchInput", type: "text", autoComplete: "off", autoCapitalize: "off", spellCheck: "false", autoFocus: n, placeholder: i, value: t, onChange: e }, o));
   };
   var st = (t, e) => {
@@ -35349,7 +35364,7 @@ button {
       return decodeURIComponent(i);
   };
   var ut = ({ customerId: t, apiKey: e, corpusId: i, apiUrl: n, historySize: r = 10, placeholder: o = "Search", isDeeplinkable: s = false, openResultsInNewTab: c = false }) => {
-    let x = (0, import_react7.useMemo)(() => (0, import_uuid_by_string.default)(`${t}-${i}-${e}`), [t, i, e]), { addPreviousSearch: a } = xe(x, r), { fetchSearchResults: m, isLoading: S } = oe(t, i, e, n), [f, w] = (0, import_react7.useState)(null), [d, C] = (0, import_react7.useState)([]), [j, N] = (0, import_react7.useState)(false), [k, X] = (0, import_react7.useState)(""), he = (0, import_react7.useRef)(null), T = (0, import_react7.useRef)(null), J = (0, import_react7.useRef)(0);
+    let x = (0, import_react7.useMemo)(() => (0, import_uuid_by_string.default)(`${t}-${i}-${e}`), [t, i, e]), { addPreviousSearch: a } = xe(x, r), { fetchSearchResults: m, isLoading: b } = oe(t, i, e, n), [d, C] = (0, import_react7.useState)(null), [f, w] = (0, import_react7.useState)([]), [j, N] = (0, import_react7.useState)(false), [k, X] = (0, import_react7.useState)(""), he = (0, import_react7.useRef)(null), y = (0, import_react7.useRef)(null), J = (0, import_react7.useRef)(0);
     (0, import_react7.useEffect)(() => {
       let u = new URLSearchParams(window.location.search), p = st(u, "search");
       p && (N(true), X(p), E(p));
@@ -35363,7 +35378,7 @@ button {
       }
       a(u);
       let p = ++J.current, h = yield m(u);
-      p === J.current && (C(h), w(null), T.current = null);
+      p === J.current && (w(h), C(null), y.current = null);
     });
     (0, import_react7.useEffect)(() => {
       let u = setTimeout(() => {
@@ -35376,28 +35391,28 @@ button {
       X(p), p.length === 0 && Q();
     }, ge = (0, import_react7.useCallback)((u) => {
       let p = u.key;
-      p === "Enter" && (u.preventDefault(), f !== null ? window.open(d[f].url, c ? "_blank" : "_self") : E(k)), d.length !== 0 && (p === "ArrowDown" && w((h) => h === null || h === d.length - 1 ? 0 : h + 1), p === "ArrowUp" && w((h) => h === null || h === 0 ? d.length - 1 : h - 1));
-    }, [d, f]), Q = () => {
-      C([]), w(null), T.current = null;
-    }, be = () => {
+      p === "Enter" && (u.preventDefault(), d !== null ? window.open(f[d].url, c ? "_blank" : "_self") : E(k)), f.length !== 0 && (p === "ArrowDown" && C((h) => h === null || h === f.length - 1 ? 0 : h + 1), p === "ArrowUp" && C((h) => h === null || h === 0 ? f.length - 1 : h - 1));
+    }, [f, d]), Q = () => {
+      w([]), C(null), y.current = null;
+    }, Se = () => {
       if (N(false), X(""), Q(), s) {
         let u = new URLSearchParams(window.location.search);
         u.delete("search"), history.replaceState(null, "", "?" + u.toString());
       }
-    }, Y = d.length === 0 ? null : d.map((u, p) => {
-      let { snippet: { pre: h, text: M, post: Se } } = u;
-      return (0, import_jsx_runtime10.jsx)("div", { ref: f === p ? T : void 0, children: (0, import_jsx_runtime10.jsx)(le, { searchResult: u, isSelected: f === p, opensInNewTab: c }) }, `${h}${M}${Se}`);
+    }, Y = f.length === 0 ? null : f.map((u, p) => {
+      let { snippet: { pre: h, text: M, post: be } } = u;
+      return (0, import_jsx_runtime10.jsx)("div", { ref: d === p ? y : void 0, children: (0, import_jsx_runtime10.jsx)(le, { searchResult: u, isSelected: d === p, opensInNewTab: c }) }, `${h}${M}${be}`);
     });
     return (0, import_react7.useEffect)(() => {
-      T.current && T.current.scrollIntoView({ behavior: "instant", block: "nearest" });
-    }, [T.current]), (0, import_react7.useEffect)(() => {
+      y.current && y.current.scrollIntoView({ behavior: "instant", block: "nearest" });
+    }, [y.current]), (0, import_react7.useEffect)(() => {
       let u = (p) => {
         p.key === "k" && p.ctrlKey && N(true);
       };
       return document.addEventListener("keyup", u), () => {
         document.removeEventListener("keyup", u);
       };
-    }, []), (0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: (0, import_jsx_runtime10.jsxs)("div", { className: "vrsStyleWrapper", children: [(0, import_jsx_runtime10.jsx)("div", { ref: he, children: (0, import_jsx_runtime10.jsx)("button", { className: "vrsSearchButton", onClick: () => N(true), children: (0, import_jsx_runtime10.jsxs)(P, { alignItems: "center", spacing: "none", justifyContent: "spaceBetween", className: "vrsSearchButton__inner", children: [(0, import_jsx_runtime10.jsx)(R, { children: (0, import_jsx_runtime10.jsxs)(P, { alignItems: "center", spacing: "xs", children: [(0, import_jsx_runtime10.jsx)(R, { children: (0, import_jsx_runtime10.jsx)(me, {}) }), (0, import_jsx_runtime10.jsx)(R, { children: (0, import_jsx_runtime10.jsx)(V, { children: (0, import_jsx_runtime10.jsx)("div", { children: "Search" }) }) })] }) }), (0, import_jsx_runtime10.jsx)("div", { className: "vrsSearchButtonShortcut", children: "Ctrl + K" })] }) }) }), (0, import_jsx_runtime10.jsxs)(ce, { isOpen: j, onClose: be, children: [(0, import_jsx_runtime10.jsx)("form", { children: (0, import_jsx_runtime10.jsxs)("div", { className: "vrsSearchForm", children: [(0, import_jsx_runtime10.jsx)(pe, { value: k, onChange: ve, onKeyDown: ge, placeholder: o }), S ? (0, import_jsx_runtime10.jsx)("div", { className: "vrsSubmitButtonWrapper", children: (0, import_jsx_runtime10.jsx)(H, { size: "xs" }) }) : (0, import_jsx_runtime10.jsx)("div", { className: "vrsSubmitButtonWrapper", children: (0, import_jsx_runtime10.jsx)("button", { className: "vrsSubmitButton", onClick: (u) => {
+    }, []), (0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: (0, import_jsx_runtime10.jsxs)("div", { className: "vrsStyleWrapper", children: [(0, import_jsx_runtime10.jsx)("div", { ref: he, children: (0, import_jsx_runtime10.jsx)("button", { className: "vrsSearchButton", onClick: () => N(true), children: (0, import_jsx_runtime10.jsxs)(P, { alignItems: "center", spacing: "none", justifyContent: "spaceBetween", className: "vrsSearchButton__inner", children: [(0, import_jsx_runtime10.jsx)(R, { children: (0, import_jsx_runtime10.jsxs)(P, { alignItems: "center", spacing: "xs", children: [(0, import_jsx_runtime10.jsx)(R, { children: (0, import_jsx_runtime10.jsx)(me, {}) }), (0, import_jsx_runtime10.jsx)(R, { children: (0, import_jsx_runtime10.jsx)(V, { children: (0, import_jsx_runtime10.jsx)("div", { children: "Search" }) }) })] }) }), (0, import_jsx_runtime10.jsx)("div", { className: "vrsSearchButtonShortcut", children: "Ctrl + K" })] }) }) }), (0, import_jsx_runtime10.jsxs)(ce, { isOpen: j, onClose: Se, children: [(0, import_jsx_runtime10.jsx)("form", { children: (0, import_jsx_runtime10.jsxs)("div", { className: "vrsSearchForm", children: [(0, import_jsx_runtime10.jsx)(pe, { value: k, onChange: ve, onKeyDown: ge, placeholder: o }), b ? (0, import_jsx_runtime10.jsx)("div", { className: "vrsSubmitButtonWrapper", children: (0, import_jsx_runtime10.jsx)(H, { size: "xs" }) }) : (0, import_jsx_runtime10.jsx)("div", { className: "vrsSubmitButtonWrapper", children: (0, import_jsx_runtime10.jsx)("button", { className: "vrsSubmitButton", onClick: (u) => {
       u.preventDefault(), E(k);
     }, children: (0, import_jsx_runtime10.jsx)(me, {}) }) })] }) }), Y && (0, import_jsx_runtime10.jsx)("div", { className: "vrsSearchModalResults", children: Y })] })] }) });
   };
@@ -35409,17 +35424,17 @@ button {
     constructor() {
       super(), this.sr = this.attachShadow({ mode: "open" });
       try {
-        this.sheet = new CSSStyleSheet(), this.sheet.replaceSync(U), this.sr.adoptedStyleSheets = [this.sheet];
+        this.sheet = new CSSStyleSheet(), this.sheet.replaceSync(K), this.sr.adoptedStyleSheets = [this.sheet];
       } catch (e) {
         let i = document.createElement("style");
-        i.innerText = U, this.sr.appendChild(i);
+        i.innerText = K, this.sr.appendChild(i);
       }
       this.mountPoint = document.createElement("div"), this.sr.appendChild(this.mountPoint);
     }
     connectedCallback() {
       var c, x, a, m;
       let e = (c = this.getAttribute("customerId")) != null ? c : "", i = (x = this.getAttribute("corpusId")) != null ? x : "", n = (a = this.getAttribute("apiKey")) != null ? a : "", r = (m = this.getAttribute("placeholder")) != null ? m : void 0, o = this.getAttribute("isDeeplinkable") === "true", s = this.getAttribute("openResultsInNewTab") === "true";
-      de.render((0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: (0, import_jsx_runtime10.jsx)(ut, { customerId: e, corpusId: i, apiKey: n, placeholder: r, isDeeplinkable: o, openResultsInNewTab: s }) }), this.mountPoint);
+      fe.render((0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: (0, import_jsx_runtime10.jsx)(ut, { customerId: e, corpusId: i, apiKey: n, placeholder: r, isDeeplinkable: o, openResultsInNewTab: s }) }), this.mountPoint);
     }
     attributeChangedCallback() {
       this.connectedCallback();
