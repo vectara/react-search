@@ -1,10 +1,12 @@
 import React, { ReactNode } from "react";
-import { render, fireEvent, act, screen, waitFor } from "@testing-library/react";
+import { render, fireEvent, act, waitFor } from "@testing-library/react";
 import { ReactSearch } from ".";
 import { Props as ReactSearchProps } from "./types";
 import * as SearchInput from "./SearchInput";
 import { SearchResult } from "./SearchResult";
 import { useSearch } from "./useSearch";
+
+import { screen } from "shadow-dom-testing-library";
 
 jest.useFakeTimers();
 
@@ -76,11 +78,11 @@ describe("ReactSearch", () => {
         isLoading: false
       }));
 
-      const container = renderSearch();
+      renderSearch();
 
       act(() => {
-        const input = container.querySelectorAll("input");
-        fireEvent.change(input[0], { target: { value: "mock-value" } });
+        const input = screen.getByShadowTestId("searchInput");
+        fireEvent.change(input, { target: { value: "mock-value" } });
         jest.runAllTimers();
       });
 
@@ -90,11 +92,11 @@ describe("ReactSearch", () => {
     });
 
     it("should render SearchResults that are configured to open in a new tab", async () => {
-      const container = renderSearch({ openResultsInNewTab: true });
+      renderSearch({ openResultsInNewTab: true });
 
       await act(() => {
-        const input = container.querySelectorAll("input");
-        fireEvent.change(input[0], { target: { value: "mock-value" } });
+        const input = screen.getByShadowTestId("searchInput");
+        fireEvent.change(input, { target: { value: "mock-value" } });
         jest.runAllTimers();
       });
 
@@ -102,22 +104,23 @@ describe("ReactSearch", () => {
         expect(SearchResult).toHaveBeenCalled();
       });
     });
-  });
 
-  it("should render input value and make request for a deeplinked search", () => {
-    const mockFetchSearchResults = jest.fn().mockImplementation(async () => Promise.resolve([]));
-    (useSearch as jest.Mock).mockImplementation(() => ({
-      fetchSearchResults: mockFetchSearchResults,
-      isLoading: false
-    }));
+    it("should render input value and make request for a deeplinked search", () => {
+      const mockFetchSearchResults = jest.fn().mockImplementation(async () => Promise.resolve([]));
+      (useSearch as jest.Mock).mockImplementation(() => ({
+        fetchSearchResults: mockFetchSearchResults,
+        isLoading: false
+      }));
 
-    act(() => {
-      window.history.pushState({}, "Page With Deeplinked Search", "?search=mock-search");
-      renderSearch();
+      act(() => {
+        window.history.pushState({}, "Page With Deeplinked Search", "?search=mock-search");
+        renderSearch();
+      });
+
+      const input = screen.getByShadowTestId("searchInput");
+
+      expect(input.getAttribute("value")).toEqual("mock-search");
+      expect(mockFetchSearchResults).toHaveBeenCalledTimes(1);
     });
-
-    const input = screen.getByPlaceholderText<HTMLInputElement>("mock-placeholder");
-    expect(input.value).toEqual("mock-search");
-    expect(mockFetchSearchResults).toHaveBeenCalledTimes(1);
   });
 });
