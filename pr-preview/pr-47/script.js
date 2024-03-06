@@ -35339,7 +35339,7 @@ button {
 }`;
   var pe = (s) => {
     var c = s, { value: i, onChange: e, placeholder: t, autoFocus: n, onSubmit: r } = c, o = b(c, ["value", "onChange", "placeholder", "autoFocus", "onSubmit"]);
-    return (0, import_jsx_runtime9.jsx)("input", v({ className: "vrsSearchInput", type: "text", autoComplete: "off", autoCapitalize: "off", spellCheck: "false", autoFocus: n, placeholder: t, value: i, onChange: e }, o));
+    return (0, import_jsx_runtime9.jsx)("input", v({ "data-testid": "searchInput", className: "vrsSearchInput", type: "text", autoComplete: "off", autoCapitalize: "off", spellCheck: "false", autoFocus: n, placeholder: t, value: i, onChange: e }, o));
   };
   var st = (i, e) => {
     let t = i.get(e);
