@@ -26,9 +26,9 @@
     mod
   ));
 
-  // node_modules/object-assign/index.js
+  // ../node_modules/object-assign/index.js
   var require_object_assign = __commonJS({
-    "node_modules/object-assign/index.js"(exports2, module2) {
+    "../node_modules/object-assign/index.js"(exports2, module2) {
       "use strict";
       var getOwnPropertySymbols = Object.getOwnPropertySymbols;
       var hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -96,9 +96,9 @@
     }
   });
 
-  // node_modules/react/cjs/react.development.js
+  // ../node_modules/react/cjs/react.development.js
   var require_react_development = __commonJS({
-    "node_modules/react/cjs/react.development.js"(exports2) {
+    "../node_modules/react/cjs/react.development.js"(exports2) {
       "use strict";
       if (true) {
         (function() {
@@ -523,7 +523,7 @@
               }
             }
           }
-          var ReactElement5 = function(type, key, ref, self2, source, owner, props) {
+          var ReactElement4 = function(type, key, ref, self2, source, owner, props) {
             var element = {
               // This tag allows us to uniquely identify this as a React Element
               $$typeof: REACT_ELEMENT_TYPE,
@@ -621,13 +621,13 @@
                 }
               }
             }
-            return ReactElement5(type, key, ref, self2, source, ReactCurrentOwner.current, props);
+            return ReactElement4(type, key, ref, self2, source, ReactCurrentOwner.current, props);
           }
           function cloneAndReplaceKey(oldElement, newKey) {
-            var newElement = ReactElement5(oldElement.type, newKey, oldElement.ref, oldElement._self, oldElement._source, oldElement._owner, oldElement.props);
+            var newElement = ReactElement4(oldElement.type, newKey, oldElement.ref, oldElement._self, oldElement._source, oldElement._owner, oldElement.props);
             return newElement;
           }
-          function cloneElement9(element, config, children) {
+          function cloneElement8(element, config, children) {
             if (!!(element === null || element === void 0)) {
               {
                 throw Error("React.cloneElement(...): The argument must be a React element, but you passed " + element + ".");
@@ -672,7 +672,7 @@
               }
               props.children = childArray;
             }
-            return ReactElement5(element.type, key, ref, self2, source, owner, props);
+            return ReactElement4(element.type, key, ref, self2, source, owner, props);
           }
           function isValidElement2(object2) {
             return typeof object2 === "object" && object2 !== null && object2.$$typeof === REACT_ELEMENT_TYPE;
@@ -1017,26 +1017,26 @@
             }
             return lazyType;
           }
-          function forwardRef19(render) {
+          function forwardRef18(render3) {
             {
-              if (render != null && render.$$typeof === REACT_MEMO_TYPE) {
+              if (render3 != null && render3.$$typeof === REACT_MEMO_TYPE) {
                 error("forwardRef requires a render function but received a `memo` component. Instead of forwardRef(memo(...)), use memo(forwardRef(...)).");
-              } else if (typeof render !== "function") {
-                error("forwardRef requires a render function but was given %s.", render === null ? "null" : typeof render);
+              } else if (typeof render3 !== "function") {
+                error("forwardRef requires a render function but was given %s.", render3 === null ? "null" : typeof render3);
               } else {
-                if (render.length !== 0 && render.length !== 2) {
-                  error("forwardRef render functions accept exactly two parameters: props and ref. %s", render.length === 1 ? "Did you forget to use the ref parameter?" : "Any additional parameter will be undefined.");
+                if (render3.length !== 0 && render3.length !== 2) {
+                  error("forwardRef render functions accept exactly two parameters: props and ref. %s", render3.length === 1 ? "Did you forget to use the ref parameter?" : "Any additional parameter will be undefined.");
                 }
               }
-              if (render != null) {
-                if (render.defaultProps != null || render.propTypes != null) {
+              if (render3 != null) {
+                if (render3.defaultProps != null || render3.propTypes != null) {
                   error("forwardRef render functions do not support propTypes or defaultProps. Did you accidentally pass a React component?");
                 }
               }
             }
             var elementType = {
               $$typeof: REACT_FORWARD_REF_TYPE,
-              render
+              render: render3
             };
             {
               var ownName;
@@ -1048,8 +1048,8 @@
                 },
                 set: function(name) {
                   ownName = name;
-                  if (render.displayName == null) {
-                    render.displayName = name;
+                  if (render3.displayName == null) {
+                    render3.displayName = name;
                   }
                 }
               });
@@ -1126,7 +1126,7 @@
             }
             return dispatcher.useContext(Context, unstable_observedBits);
           }
-          function useState22(initialState) {
+          function useState20(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -1134,11 +1134,11 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useReducer(reducer, initialArg, init);
           }
-          function useRef17(initialValue) {
+          function useRef14(initialValue) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
-          function useEffect23(create, deps) {
+          function useEffect20(create, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useEffect(create, deps);
           }
@@ -1146,11 +1146,11 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useLayoutEffect(create, deps);
           }
-          function useCallback9(callback, deps) {
+          function useCallback6(callback, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useCallback(callback, deps);
           }
-          function useMemo5(create, deps) {
+          function useMemo4(create, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useMemo(create, deps);
           }
@@ -1669,7 +1669,7 @@
             return validatedFactory;
           }
           function cloneElementWithValidation(element, props, children) {
-            var newElement = cloneElement9.apply(this, arguments);
+            var newElement = cloneElement8.apply(this, arguments);
             for (var i = 2; i < arguments.length; i++) {
               validateChildKeys(arguments[i], newElement.type);
             }
@@ -1703,29 +1703,29 @@
           exports2.createElement = createElement$1;
           exports2.createFactory = createFactory;
           exports2.createRef = createRef;
-          exports2.forwardRef = forwardRef19;
+          exports2.forwardRef = forwardRef18;
           exports2.isValidElement = isValidElement2;
           exports2.lazy = lazy;
           exports2.memo = memo;
-          exports2.useCallback = useCallback9;
+          exports2.useCallback = useCallback6;
           exports2.useContext = useContext3;
           exports2.useDebugValue = useDebugValue;
-          exports2.useEffect = useEffect23;
+          exports2.useEffect = useEffect20;
           exports2.useImperativeHandle = useImperativeHandle;
           exports2.useLayoutEffect = useLayoutEffect4;
-          exports2.useMemo = useMemo5;
+          exports2.useMemo = useMemo4;
           exports2.useReducer = useReducer;
-          exports2.useRef = useRef17;
-          exports2.useState = useState22;
+          exports2.useRef = useRef14;
+          exports2.useState = useState20;
           exports2.version = ReactVersion;
         })();
       }
     }
   });
 
-  // node_modules/react/index.js
+  // ../node_modules/react/index.js
   var require_react = __commonJS({
-    "node_modules/react/index.js"(exports2, module2) {
+    "../node_modules/react/index.js"(exports2, module2) {
       "use strict";
       if (false) {
         module2.exports = null;
@@ -1735,9 +1735,9 @@
     }
   });
 
-  // node_modules/scheduler/cjs/scheduler.development.js
+  // ../node_modules/scheduler/cjs/scheduler.development.js
   var require_scheduler_development = __commonJS({
-    "node_modules/scheduler/cjs/scheduler.development.js"(exports2) {
+    "../node_modules/scheduler/cjs/scheduler.development.js"(exports2) {
       "use strict";
       if (true) {
         (function() {
@@ -2216,9 +2216,9 @@
     }
   });
 
-  // node_modules/scheduler/index.js
+  // ../node_modules/scheduler/index.js
   var require_scheduler = __commonJS({
-    "node_modules/scheduler/index.js"(exports2, module2) {
+    "../node_modules/scheduler/index.js"(exports2, module2) {
       "use strict";
       if (false) {
         module2.exports = null;
@@ -2228,9 +2228,9 @@
     }
   });
 
-  // node_modules/scheduler/cjs/scheduler-tracing.development.js
+  // ../node_modules/scheduler/cjs/scheduler-tracing.development.js
   var require_scheduler_tracing_development = __commonJS({
-    "node_modules/scheduler/cjs/scheduler-tracing.development.js"(exports2) {
+    "../node_modules/scheduler/cjs/scheduler-tracing.development.js"(exports2) {
       "use strict";
       if (true) {
         (function() {
@@ -2510,9 +2510,9 @@
     }
   });
 
-  // node_modules/scheduler/tracing.js
+  // ../node_modules/scheduler/tracing.js
   var require_tracing = __commonJS({
-    "node_modules/scheduler/tracing.js"(exports2, module2) {
+    "../node_modules/scheduler/tracing.js"(exports2, module2) {
       "use strict";
       if (false) {
         module2.exports = null;
@@ -2522,18 +2522,18 @@
     }
   });
 
-  // node_modules/react-dom/cjs/react-dom.development.js
+  // ../node_modules/react-dom/cjs/react-dom.development.js
   var require_react_dom_development = __commonJS({
-    "node_modules/react-dom/cjs/react-dom.development.js"(exports2) {
+    "../node_modules/react-dom/cjs/react-dom.development.js"(exports2) {
       "use strict";
       if (true) {
         (function() {
           "use strict";
-          var React23 = require_react();
+          var React22 = require_react();
           var _assign = require_object_assign();
           var Scheduler = require_scheduler();
           var tracing = require_tracing();
-          var ReactSharedInternals = React23.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React22.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           function warn(format) {
             {
               for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
@@ -2565,7 +2565,7 @@
               Function.prototype.apply.call(console[level], console, argsWithFormat);
             }
           }
-          if (!React23) {
+          if (!React22) {
             {
               throw Error("ReactDOM was loaded before React. Make sure you load the React package before loading ReactDOM.");
             }
@@ -2577,7 +2577,7 @@
           var HostPortal = 4;
           var HostComponent = 5;
           var HostText = 6;
-          var Fragment31 = 7;
+          var Fragment29 = 7;
           var Mode = 8;
           var ContextConsumer = 9;
           var ContextProvider = 10;
@@ -3985,7 +3985,7 @@
           var didWarnInvalidChild = false;
           function flattenChildren(children) {
             var content = "";
-            React23.Children.forEach(children, function(child) {
+            React22.Children.forEach(children, function(child) {
               if (child == null) {
                 return;
               }
@@ -3996,7 +3996,7 @@
           function validateProps(element, props) {
             {
               if (typeof props.children === "object" && props.children !== null) {
-                React23.Children.forEach(props.children, function(child) {
+                React22.Children.forEach(props.children, function(child) {
                   if (child == null) {
                     return;
                   }
@@ -4438,7 +4438,7 @@
             var warnedForNaNValue = false;
             var warnedForInfinityValue = false;
             var camelize = function(string2) {
-              return string2.replace(hyphenPattern, function(_, character) {
+              return string2.replace(hyphenPattern, function(_2, character) {
                 return character.toUpperCase();
               });
             };
@@ -11388,7 +11388,7 @@
           }
           var fakeInternalInstance = {};
           var isArray = Array.isArray;
-          var emptyRefsObject = new React23.Component().refs;
+          var emptyRefsObject = new React22.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -12171,7 +12171,7 @@
               }
             }
             function updateFragment2(returnFiber, current2, fragment, lanes, key) {
-              if (current2 === null || current2.tag !== Fragment31) {
+              if (current2 === null || current2.tag !== Fragment29) {
                 var created = createFiberFromFragment(fragment, returnFiber.mode, lanes, key);
                 created.return = returnFiber;
                 return created;
@@ -12540,7 +12540,7 @@
               while (child !== null) {
                 if (child.key === key) {
                   switch (child.tag) {
-                    case Fragment31: {
+                    case Fragment29: {
                       if (element.type === REACT_FRAGMENT_TYPE) {
                         deleteRemainingChildren(returnFiber, child.sibling);
                         var existing = useFiber(child, element.props.children);
@@ -14845,18 +14845,18 @@
                 }
               }
             }
-            var render2 = Component2.render;
+            var render4 = Component2.render;
             var ref = workInProgress2.ref;
             var nextChildren;
             prepareToReadContext(workInProgress2, renderLanes2);
             {
               ReactCurrentOwner$1.current = workInProgress2;
               setIsRendering(true);
-              nextChildren = renderWithHooks(current2, workInProgress2, render2, nextProps, ref, renderLanes2);
+              nextChildren = renderWithHooks(current2, workInProgress2, render4, nextProps, ref, renderLanes2);
               if (workInProgress2.mode & StrictMode) {
                 disableLogs();
                 try {
-                  nextChildren = renderWithHooks(current2, workInProgress2, render2, nextProps, ref, renderLanes2);
+                  nextChildren = renderWithHooks(current2, workInProgress2, render4, nextProps, ref, renderLanes2);
                 } finally {
                   reenableLogs();
                 }
@@ -16034,9 +16034,9 @@
               }
             }
             var newProps = workInProgress2.pendingProps;
-            var render2 = newProps.children;
+            var render4 = newProps.children;
             {
-              if (typeof render2 !== "function") {
+              if (typeof render4 !== "function") {
                 error("A context consumer was rendered with multiple children, or a child that isn't a function. A context consumer expects a single child that is a function. If you did pass a function, make sure there is no trailing or leading whitespace around it.");
               }
             }
@@ -16046,7 +16046,7 @@
             {
               ReactCurrentOwner$1.current = workInProgress2;
               setIsRendering(true);
-              newChildren = render2(newValue);
+              newChildren = render4(newValue);
               setIsRendering(false);
             }
             workInProgress2.flags |= PerformedWork;
@@ -16257,7 +16257,7 @@
                 var _resolvedProps2 = workInProgress2.elementType === type ? _unresolvedProps2 : resolveDefaultProps(type, _unresolvedProps2);
                 return updateForwardRef(current2, workInProgress2, type, _resolvedProps2, renderLanes2);
               }
-              case Fragment31:
+              case Fragment29:
                 return updateFragment(current2, workInProgress2, renderLanes2);
               case Mode:
                 return updateMode(current2, workInProgress2, renderLanes2);
@@ -16430,7 +16430,7 @@
               case SimpleMemoComponent:
               case FunctionComponent:
               case ForwardRef:
-              case Fragment31:
+              case Fragment29:
               case Mode:
               case Profiler:
               case ContextConsumer:
@@ -20180,7 +20180,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
             return fiber;
           }
           function createFiberFromFragment(elements, mode, lanes, key) {
-            var fiber = createFiber(Fragment31, elements, key, mode);
+            var fiber = createFiber(Fragment29, elements, key, mode);
             fiber.lanes = lanes;
             return fiber;
           }
@@ -20361,7 +20361,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
               root3.mutableSourceEagerHydrationData.push(mutableSource, version);
             }
           }
-          function createPortal3(children, containerInfo, implementation) {
+          function createPortal2(children, containerInfo, implementation) {
             var key = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : null;
             return {
               // This tag allow us to uniquely identify this as a React Portal
@@ -20938,7 +20938,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
             }
             return legacyRenderSubtreeIntoContainer(null, element, container, true, callback);
           }
-          function render(element, container, callback) {
+          function render3(element, container, callback) {
             if (!isValidContainer(container)) {
               {
                 throw Error("Target container is not a DOM element.");
@@ -21025,7 +21025,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
                 throw Error("Target container is not a DOM element.");
               }
             }
-            return createPortal3(children, container, null, key);
+            return createPortal2(children, container, null, key);
           }
           function renderSubtreeIntoContainer(parentComponent, element, containerNode, callback) {
             return unstable_renderSubtreeIntoContainer(parentComponent, element, containerNode, callback);
@@ -21075,7 +21075,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           exports2.findDOMNode = findDOMNode;
           exports2.flushSync = flushSync;
           exports2.hydrate = hydrate;
-          exports2.render = render;
+          exports2.render = render3;
           exports2.unmountComponentAtNode = unmountComponentAtNode;
           exports2.unstable_batchedUpdates = batchedUpdates$1;
           exports2.unstable_createPortal = unstable_createPortal;
@@ -21086,9 +21086,9 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }
   });
 
-  // node_modules/react-dom/index.js
+  // ../node_modules/react-dom/index.js
   var require_react_dom = __commonJS({
-    "node_modules/react-dom/index.js"(exports2, module2) {
+    "../node_modules/react-dom/index.js"(exports2, module2) {
       "use strict";
       if (false) {
         checkDCE();
@@ -21099,9 +21099,9 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }
   });
 
-  // node_modules/js-md5/src/md5.js
+  // ../node_modules/js-md5/src/md5.js
   var require_md5 = __commonJS({
-    "node_modules/js-md5/src/md5.js"(exports, module) {
+    "../node_modules/js-md5/src/md5.js"(exports, module) {
       (function() {
         "use strict";
         var ERROR = "input is invalid type";
@@ -21551,9 +21551,9 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }
   });
 
-  // node_modules/js-sha1/src/sha1.js
+  // ../node_modules/js-sha1/src/sha1.js
   var require_sha1 = __commonJS({
-    "node_modules/js-sha1/src/sha1.js"(exports, module) {
+    "../node_modules/js-sha1/src/sha1.js"(exports, module) {
       (function() {
         "use strict";
         var root = typeof window === "object" ? window : {};
@@ -21858,9 +21858,9 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }
   });
 
-  // node_modules/uuid-by-string/src/lib.js
+  // ../node_modules/uuid-by-string/src/lib.js
   var require_lib = __commonJS({
-    "node_modules/uuid-by-string/src/lib.js"(exports2, module2) {
+    "../node_modules/uuid-by-string/src/lib.js"(exports2, module2) {
       var md5 = require_md5();
       var sha1 = require_sha1();
       var HEX_DIGITS = "0123456789abcdef".split("");
@@ -21953,9 +21953,9 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }
   });
 
-  // node_modules/uuid-by-string/src/index.js
+  // ../node_modules/uuid-by-string/src/index.js
   var require_src = __commonJS({
-    "node_modules/uuid-by-string/src/index.js"(exports2, module2) {
+    "../node_modules/uuid-by-string/src/index.js"(exports2, module2) {
       var lib = require_lib();
       var EMPTY_UINT8_ARRAY = new Uint8Array(0);
       function generateUuid(target, namespace, version) {
@@ -21981,13 +21981,13 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }
   });
 
-  // node_modules/classnames/index.js
+  // ../node_modules/classnames/index.js
   var require_classnames = __commonJS({
-    "node_modules/classnames/index.js"(exports2, module2) {
+    "../node_modules/classnames/index.js"(exports2, module2) {
       (function() {
         "use strict";
         var hasOwn = {}.hasOwnProperty;
-        function classNames59() {
+        function classNames53() {
           var classes = "";
           for (var i = 0; i < arguments.length; i++) {
             var arg = arguments[i];
@@ -22005,7 +22005,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
             return "";
           }
           if (Array.isArray(arg)) {
-            return classNames59.apply(null, arg);
+            return classNames53.apply(null, arg);
           }
           if (arg.toString !== Object.prototype.toString && !arg.toString.toString().includes("[native code]")) {
             return arg.toString();
@@ -22028,27 +22028,27 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           return value + newClass;
         }
         if (typeof module2 !== "undefined" && module2.exports) {
-          classNames59.default = classNames59;
-          module2.exports = classNames59;
+          classNames53.default = classNames53;
+          module2.exports = classNames53;
         } else if (typeof define === "function" && typeof define.amd === "object" && define.amd) {
           define("classnames", [], function() {
-            return classNames59;
+            return classNames53;
           });
         } else {
-          window.classNames = classNames59;
+          window.classNames = classNames53;
         }
       })();
     }
   });
 
-  // node_modules/react/cjs/react-jsx-runtime.development.js
+  // ../node_modules/react/cjs/react-jsx-runtime.development.js
   var require_react_jsx_runtime_development = __commonJS({
-    "node_modules/react/cjs/react-jsx-runtime.development.js"(exports2) {
+    "../node_modules/react/cjs/react-jsx-runtime.development.js"(exports2) {
       "use strict";
       if (true) {
         (function() {
           "use strict";
-          var React23 = require_react();
+          var React22 = require_react();
           var _assign = require_object_assign();
           var REACT_ELEMENT_TYPE = 60103;
           var REACT_PORTAL_TYPE = 60106;
@@ -22105,7 +22105,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
             }
             return null;
           }
-          var ReactSharedInternals = React23.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React22.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           function error(format) {
             {
               for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
@@ -22576,7 +22576,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
               });
             }
           }
-          var ReactElement5 = function(type, key, ref, self2, source, owner, props) {
+          var ReactElement4 = function(type, key, ref, self2, source, owner, props) {
             var element = {
               // This tag allows us to uniquely identify this as a React Element
               $$typeof: REACT_ELEMENT_TYPE,
@@ -22653,7 +22653,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
                   defineRefPropWarningGetter(props, displayName);
                 }
               }
-              return ReactElement5(type, key, ref, self2, source, ReactCurrentOwner.current, props);
+              return ReactElement4(type, key, ref, self2, source, ReactCurrentOwner.current, props);
             }
           }
           var ReactCurrentOwner$1 = ReactSharedInternals.ReactCurrentOwner;
@@ -22880,18 +22880,18 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
               return jsxWithValidation(type, props, key, false);
             }
           }
-          var jsx92 = jsxWithValidationDynamic;
-          var jsxs56 = jsxWithValidationStatic;
-          exports2.jsx = jsx92;
-          exports2.jsxs = jsxs56;
+          var jsx82 = jsxWithValidationDynamic;
+          var jsxs52 = jsxWithValidationStatic;
+          exports2.jsx = jsx82;
+          exports2.jsxs = jsxs52;
         })();
       }
     }
   });
 
-  // node_modules/react/jsx-runtime.js
+  // ../node_modules/react/jsx-runtime.js
   var require_jsx_runtime = __commonJS({
-    "node_modules/react/jsx-runtime.js"(exports2, module2) {
+    "../node_modules/react/jsx-runtime.js"(exports2, module2) {
       "use strict";
       if (false) {
         module2.exports = null;
@@ -22901,9 +22901,9 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }
   });
 
-  // node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js
+  // ../node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js
   var require_react_is_development = __commonJS({
-    "node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js"(exports2) {
+    "../node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js"(exports2) {
       "use strict";
       if (true) {
         (function() {
@@ -22970,7 +22970,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           var ContextProvider = REACT_PROVIDER_TYPE;
           var Element2 = REACT_ELEMENT_TYPE;
           var ForwardRef = REACT_FORWARD_REF_TYPE;
-          var Fragment31 = REACT_FRAGMENT_TYPE;
+          var Fragment29 = REACT_FRAGMENT_TYPE;
           var Lazy = REACT_LAZY_TYPE;
           var Memo = REACT_MEMO_TYPE;
           var Portal = REACT_PORTAL_TYPE;
@@ -23029,7 +23029,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           exports2.ContextProvider = ContextProvider;
           exports2.Element = Element2;
           exports2.ForwardRef = ForwardRef;
-          exports2.Fragment = Fragment31;
+          exports2.Fragment = Fragment29;
           exports2.Lazy = Lazy;
           exports2.Memo = Memo;
           exports2.Portal = Portal;
@@ -23056,9 +23056,9 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }
   });
 
-  // node_modules/prop-types/node_modules/react-is/index.js
+  // ../node_modules/prop-types/node_modules/react-is/index.js
   var require_react_is = __commonJS({
-    "node_modules/prop-types/node_modules/react-is/index.js"(exports2, module2) {
+    "../node_modules/prop-types/node_modules/react-is/index.js"(exports2, module2) {
       "use strict";
       if (false) {
         module2.exports = null;
@@ -23068,25 +23068,25 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }
   });
 
-  // node_modules/prop-types/lib/ReactPropTypesSecret.js
+  // ../node_modules/prop-types/lib/ReactPropTypesSecret.js
   var require_ReactPropTypesSecret = __commonJS({
-    "node_modules/prop-types/lib/ReactPropTypesSecret.js"(exports2, module2) {
+    "../node_modules/prop-types/lib/ReactPropTypesSecret.js"(exports2, module2) {
       "use strict";
       var ReactPropTypesSecret = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
       module2.exports = ReactPropTypesSecret;
     }
   });
 
-  // node_modules/prop-types/lib/has.js
+  // ../node_modules/prop-types/lib/has.js
   var require_has = __commonJS({
-    "node_modules/prop-types/lib/has.js"(exports2, module2) {
+    "../node_modules/prop-types/lib/has.js"(exports2, module2) {
       module2.exports = Function.call.bind(Object.prototype.hasOwnProperty);
     }
   });
 
-  // node_modules/prop-types/checkPropTypes.js
+  // ../node_modules/prop-types/checkPropTypes.js
   var require_checkPropTypes = __commonJS({
-    "node_modules/prop-types/checkPropTypes.js"(exports2, module2) {
+    "../node_modules/prop-types/checkPropTypes.js"(exports2, module2) {
       "use strict";
       var printWarning = function() {
       };
@@ -23150,9 +23150,9 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }
   });
 
-  // node_modules/prop-types/factoryWithTypeCheckers.js
+  // ../node_modules/prop-types/factoryWithTypeCheckers.js
   var require_factoryWithTypeCheckers = __commonJS({
-    "node_modules/prop-types/factoryWithTypeCheckers.js"(exports2, module2) {
+    "../node_modules/prop-types/factoryWithTypeCheckers.js"(exports2, module2) {
       "use strict";
       var ReactIs = require_react_is();
       var assign = require_object_assign();
@@ -23593,9 +23593,9 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }
   });
 
-  // node_modules/prop-types/index.js
+  // ../node_modules/prop-types/index.js
   var require_prop_types = __commonJS({
-    "node_modules/prop-types/index.js"(exports2, module2) {
+    "../node_modules/prop-types/index.js"(exports2, module2) {
       if (true) {
         ReactIs = require_react_is();
         throwOnDirectAccess = true;
@@ -23608,15 +23608,15 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }
   });
 
-  // node_modules/prismjs/prism.js
+  // ../node_modules/prismjs/prism.js
   var require_prism = __commonJS({
-    "node_modules/prismjs/prism.js"(exports2, module2) {
+    "../node_modules/prismjs/prism.js"(exports2, module2) {
       var _self = typeof window !== "undefined" ? window : typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope ? self : {};
       var Prism3 = function(_self2) {
         var lang = /(?:^|\s)lang(?:uage)?-([\w-]+)(?=\s|$)/i;
         var uniqueId = 0;
         var plainTextGrammar = {};
-        var _ = {
+        var _2 = {
           /**
            * By default, Prism will attempt to highlight all code elements (by calling {@link Prism.highlightAll}) on the
            * current page after the page finished loading. This might be a problem if e.g. you wanted to asynchronously load
@@ -23725,9 +23725,9 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
               visited = visited || {};
               var clone;
               var id2;
-              switch (_.util.type(o)) {
+              switch (_2.util.type(o)) {
                 case "Object":
-                  id2 = _.util.objId(o);
+                  id2 = _2.util.objId(o);
                   if (visited[id2]) {
                     return visited[id2];
                   }
@@ -23744,7 +23744,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
                     clone
                   );
                 case "Array":
-                  id2 = _.util.objId(o);
+                  id2 = _2.util.objId(o);
                   if (visited[id2]) {
                     return visited[id2];
                   }
@@ -23752,8 +23752,8 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
                   visited[id2] = clone;
                   /** @type {Array} */
                   /** @type {any} */
-                  o.forEach(function(v, i) {
-                    clone[i] = deepClone(v, visited);
+                  o.forEach(function(v2, i) {
+                    clone[i] = deepClone(v2, visited);
                   });
                   return (
                     /** @type {any} */
@@ -23902,7 +23902,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
              * });
              */
             extend: function(id2, redef) {
-              var lang2 = _.util.clone(_.languages[id2]);
+              var lang2 = _2.util.clone(_2.languages[id2]);
               for (var key in redef) {
                 lang2[key] = redef[key];
               }
@@ -23985,7 +23985,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
              */
             insertBefore: function(inside, before, insert, root2) {
               root2 = root2 || /** @type {any} */
-              _.languages;
+              _2.languages;
               var grammar = root2[inside];
               var ret = {};
               for (var token in grammar) {
@@ -24004,7 +24004,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
               }
               var old = root2[inside];
               root2[inside] = ret;
-              _.languages.DFS(_.languages, function(key, value) {
+              _2.languages.DFS(_2.languages, function(key, value) {
                 if (value === old && key != inside) {
                   this[key] = ret;
                 }
@@ -24014,12 +24014,12 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
             // Traverse a language definition with Depth First Search
             DFS: function DFS(o, callback, type, visited) {
               visited = visited || {};
-              var objId = _.util.objId;
+              var objId = _2.util.objId;
               for (var i in o) {
                 if (o.hasOwnProperty(i)) {
                   callback.call(o, i, o[i], type || i);
                   var property = o[i];
-                  var propertyType = _.util.type(property);
+                  var propertyType = _2.util.type(property);
                   if (propertyType === "Object" && !visited[objId(property)]) {
                     visited[objId(property)] = true;
                     DFS(property, callback, null, visited);
@@ -24045,7 +24045,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
            * @public
            */
           highlightAll: function(async, callback) {
-            _.highlightAllUnder(document, async, callback);
+            _2.highlightAllUnder(document, async, callback);
           },
           /**
            * Fetches all the descendants of `container` that have a `.language-xxxx` class and then calls
@@ -24068,11 +24068,11 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
               container,
               selector: 'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'
             };
-            _.hooks.run("before-highlightall", env);
+            _2.hooks.run("before-highlightall", env);
             env.elements = Array.prototype.slice.apply(env.container.querySelectorAll(env.selector));
-            _.hooks.run("before-all-elements-highlight", env);
+            _2.hooks.run("before-all-elements-highlight", env);
             for (var i = 0, element; element = env.elements[i++]; ) {
-              _.highlightElement(element, async === true, env.callback);
+              _2.highlightElement(element, async === true, env.callback);
             }
           },
           /**
@@ -24104,12 +24104,12 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
            * @public
            */
           highlightElement: function(element, async, callback) {
-            var language = _.util.getLanguage(element);
-            var grammar = _.languages[language];
-            _.util.setLanguage(element, language);
+            var language = _2.util.getLanguage(element);
+            var grammar = _2.languages[language];
+            _2.util.setLanguage(element, language);
             var parent = element.parentElement;
             if (parent && parent.nodeName.toLowerCase() === "pre") {
-              _.util.setLanguage(parent, language);
+              _2.util.setLanguage(parent, language);
             }
             var code = element.textContent;
             var env = {
@@ -24120,29 +24120,29 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
             };
             function insertHighlightedCode(highlightedCode) {
               env.highlightedCode = highlightedCode;
-              _.hooks.run("before-insert", env);
+              _2.hooks.run("before-insert", env);
               env.element.innerHTML = env.highlightedCode;
-              _.hooks.run("after-highlight", env);
-              _.hooks.run("complete", env);
+              _2.hooks.run("after-highlight", env);
+              _2.hooks.run("complete", env);
               callback && callback.call(env.element);
             }
-            _.hooks.run("before-sanity-check", env);
+            _2.hooks.run("before-sanity-check", env);
             parent = env.element.parentElement;
             if (parent && parent.nodeName.toLowerCase() === "pre" && !parent.hasAttribute("tabindex")) {
               parent.setAttribute("tabindex", "0");
             }
             if (!env.code) {
-              _.hooks.run("complete", env);
+              _2.hooks.run("complete", env);
               callback && callback.call(env.element);
               return;
             }
-            _.hooks.run("before-highlight", env);
+            _2.hooks.run("before-highlight", env);
             if (!env.grammar) {
-              insertHighlightedCode(_.util.encode(env.code));
+              insertHighlightedCode(_2.util.encode(env.code));
               return;
             }
             if (async && _self2.Worker) {
-              var worker = new Worker(_.filename);
+              var worker = new Worker(_2.filename);
               worker.onmessage = function(evt) {
                 insertHighlightedCode(evt.data);
               };
@@ -24152,7 +24152,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
                 immediateClose: true
               }));
             } else {
-              insertHighlightedCode(_.highlight(env.code, env.grammar, env.language));
+              insertHighlightedCode(_2.highlight(env.code, env.grammar, env.language));
             }
           },
           /**
@@ -24181,13 +24181,13 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
               grammar,
               language
             };
-            _.hooks.run("before-tokenize", env);
+            _2.hooks.run("before-tokenize", env);
             if (!env.grammar) {
               throw new Error('The language "' + env.language + '" has no grammar.');
             }
-            env.tokens = _.tokenize(env.code, env.grammar);
-            _.hooks.run("after-tokenize", env);
-            return Token.stringify(_.util.encode(env.tokens), env.language);
+            env.tokens = _2.tokenize(env.code, env.grammar);
+            _2.hooks.run("after-tokenize", env);
+            return Token.stringify(_2.util.encode(env.tokens), env.language);
           },
           /**
            * This is the heart of Prism, and the most low-level function you can use. It accepts a string of text as input
@@ -24246,7 +24246,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
              * @public
              */
             add: function(name, callback) {
-              var hooks = _.hooks.all;
+              var hooks = _2.hooks.all;
               hooks[name] = hooks[name] || [];
               hooks[name].push(callback);
             },
@@ -24260,7 +24260,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
              * @public
              */
             run: function(name, env) {
-              var callbacks = _.hooks.all[name];
+              var callbacks = _2.hooks.all[name];
               if (!callbacks || !callbacks.length) {
                 return;
               }
@@ -24271,7 +24271,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           },
           Token
         };
-        _self2.Prism = _;
+        _self2.Prism = _2;
         function Token(type, content, alias, matchedStr) {
           this.type = type;
           this.content = content;
@@ -24305,7 +24305,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
               env.classes.push(aliases);
             }
           }
-          _.hooks.run("wrap", env);
+          _2.hooks.run("wrap", env);
           var attributes = "";
           for (var name in env.attributes) {
             attributes += " " + name + '="' + (env.attributes[name] || "").replace(/"/g, "&quot;") + '"';
@@ -24401,7 +24401,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
                   pos += before.length;
                 }
                 removeRange(tokenList, removeFrom, removeCount);
-                var wrapped = new Token(token, inside ? _.tokenize(matchStr, inside) : matchStr, alias, matchStr);
+                var wrapped = new Token(token, inside ? _2.tokenize(matchStr, inside) : matchStr, alias, matchStr);
                 currentNode = addAfter(tokenList, removeFrom, wrapped);
                 if (after) {
                   addAfter(tokenList, currentNode, after);
@@ -24456,35 +24456,35 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         }
         if (!_self2.document) {
           if (!_self2.addEventListener) {
-            return _;
+            return _2;
           }
-          if (!_.disableWorkerMessageHandler) {
+          if (!_2.disableWorkerMessageHandler) {
             _self2.addEventListener("message", function(evt) {
               var message = JSON.parse(evt.data);
               var lang2 = message.language;
               var code = message.code;
               var immediateClose = message.immediateClose;
-              _self2.postMessage(_.highlight(code, _.languages[lang2], lang2));
+              _self2.postMessage(_2.highlight(code, _2.languages[lang2], lang2));
               if (immediateClose) {
                 _self2.close();
               }
             }, false);
           }
-          return _;
+          return _2;
         }
-        var script = _.util.currentScript();
+        var script = _2.util.currentScript();
         if (script) {
-          _.filename = script.src;
+          _2.filename = script.src;
           if (script.hasAttribute("data-manual")) {
-            _.manual = true;
+            _2.manual = true;
           }
         }
         function highlightAutomaticallyCallback() {
-          if (!_.manual) {
-            _.highlightAll();
+          if (!_2.manual) {
+            _2.highlightAll();
           }
         }
-        if (!_.manual) {
+        if (!_2.manual) {
           var readyState = document.readyState;
           if (readyState === "loading" || readyState === "interactive" && script && script.defer) {
             document.addEventListener("DOMContentLoaded", highlightAutomaticallyCallback);
@@ -24496,7 +24496,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
             }
           }
         }
-        return _;
+        return _2;
       }(_self);
       if (typeof module2 !== "undefined" && module2.exports) {
         module2.exports = Prism3;
@@ -25057,9 +25057,9 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }
   });
 
-  // node_modules/lodash/lodash.js
+  // ../node_modules/lodash/lodash.js
   var require_lodash = __commonJS({
-    "node_modules/lodash/lodash.js"(exports2, module2) {
+    "../node_modules/lodash/lodash.js"(exports2, module2) {
       (function() {
         var undefined2;
         var VERSION = "4.17.21";
@@ -25747,7 +25747,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           return string2.match(reUnicodeWord) || [];
         }
         var runInContext = function runInContext2(context) {
-          context = context == null ? root2 : _.defaults(root2.Object(), context, _.pick(root2, contextProps));
+          context = context == null ? root2 : _2.defaults(root2.Object(), context, _2.pick(root2, contextProps));
           var Array2 = context.Array, Date2 = context.Date, Error2 = context.Error, Function2 = context.Function, Math2 = context.Math, Object2 = context.Object, RegExp2 = context.RegExp, String2 = context.String, TypeError2 = context.TypeError;
           var arrayProto = Array2.prototype, funcProto = Function2.prototype, objectProto = Object2.prototype;
           var coreJsData = context["__core-js_shared__"];
@@ -29236,7 +29236,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           function isWeakSet(value) {
             return isObjectLike(value) && baseGetTag(value) == weakSetTag;
           }
-          var lt = createRelationalOperation(baseLt);
+          var lt2 = createRelationalOperation(baseLt);
           var lte = createRelationalOperation(function(value, other) {
             return value <= other;
           });
@@ -29318,7 +29318,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           var assignWith = createAssigner(function(object2, source, srcIndex, customizer) {
             copyObject(source, keys(source), object2, customizer);
           });
-          var at = flatRest(baseAt);
+          var at2 = flatRest(baseAt);
           function create(prototype, properties) {
             var result2 = baseCreate(prototype);
             return properties == null ? result2 : baseAssign(result2, properties);
@@ -30052,7 +30052,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           lodash.assignIn = assignIn;
           lodash.assignInWith = assignInWith;
           lodash.assignWith = assignWith;
-          lodash.at = at;
+          lodash.at = at2;
           lodash.before = before;
           lodash.bind = bind;
           lodash.bindAll = bindAll;
@@ -30286,7 +30286,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           lodash.lastIndexOf = lastIndexOf;
           lodash.lowerCase = lowerCase;
           lodash.lowerFirst = lowerFirst;
-          lodash.lt = lt;
+          lodash.lt = lt2;
           lodash.lte = lte;
           lodash.max = max;
           lodash.maxBy = maxBy;
@@ -30521,30 +30521,30 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           }
           return lodash;
         };
-        var _ = runInContext();
+        var _2 = runInContext();
         if (typeof define == "function" && typeof define.amd == "object" && define.amd) {
-          root2._ = _;
+          root2._ = _2;
           define(function() {
-            return _;
+            return _2;
           });
         } else if (freeModule) {
-          (freeModule.exports = _)._ = _;
-          freeExports._ = _;
+          (freeModule.exports = _2)._ = _2;
+          freeExports._ = _2;
         } else {
-          root2._ = _;
+          root2._ = _2;
         }
       }).call(exports2);
     }
   });
 
-  // docs/src/index.tsx
+  // src/index.tsx
   var import_react46 = __toESM(require_react());
   var import_react_dom3 = __toESM(require_react_dom());
 
-  // node_modules/react-icons/lib/iconBase.mjs
+  // ../node_modules/react-icons/lib/iconBase.mjs
   var import_react2 = __toESM(require_react(), 1);
 
-  // node_modules/react-icons/lib/iconContext.mjs
+  // ../node_modules/react-icons/lib/iconContext.mjs
   var import_react = __toESM(require_react(), 1);
   var DefaultContext = {
     color: void 0,
@@ -30555,7 +30555,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   };
   var IconContext = import_react.default.createContext && /* @__PURE__ */ import_react.default.createContext(DefaultContext);
 
-  // node_modules/react-icons/lib/iconBase.mjs
+  // ../node_modules/react-icons/lib/iconBase.mjs
   var _excluded = ["attr", "size", "title"];
   function _objectWithoutProperties(source, excluded) {
     if (source == null)
@@ -30689,7 +30689,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return IconContext !== void 0 ? /* @__PURE__ */ import_react2.default.createElement(IconContext.Consumer, null, (conf) => elem(conf)) : elem(DefaultContext);
   }
 
-  // node_modules/react-icons/bi/index.mjs
+  // ../node_modules/react-icons/bi/index.mjs
   function BiCaretDown(props) {
     return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24" }, "child": [{ "tag": "path", "attr": { "d": "m11.998 17 7-8h-14z" }, "child": [] }] })(props);
   }
@@ -30715,400 +30715,31 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24" }, "child": [{ "tag": "path", "attr": { "fillRule": "evenodd", "clipRule": "evenodd", "d": "M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z" }, "child": [] }] })(props);
   }
 
-  // src/index.tsx
-  var import_react12 = __toESM(require_react());
+  // ../lib/index.js
+  var import_react7 = __toESM(require_react());
+  var fe = __toESM(require_react_dom());
   var import_uuid_by_string = __toESM(require_src());
-
-  // src/vui/components/flex/FlexContainer.tsx
   var import_classnames = __toESM(require_classnames());
   var import_jsx_runtime = __toESM(require_jsx_runtime());
-  var alignItemsToClassNameMap = {
-    baseline: "vuiFlexContainer--alignItemsBaseline",
-    center: "vuiFlexContainer--alignItemsCenter",
-    end: "vuiFlexContainer--alignItemsEnd",
-    start: "vuiFlexContainer--alignItemsStart",
-    stretch: "vuiFlexContainer--alignItemsStretch"
-  };
-  var directionToClassNameMap = {
-    column: "vuiFlexContainer--directionColumn",
-    columnReverse: "vuiFlexContainer--directionColumnReverse",
-    row: "vuiFlexContainer--directionRow",
-    rowReverse: "vuiFlexContainer--directionRowReverse"
-  };
-  var justifyContentToClassNameMap = {
-    center: "vuiFlexContainer--justifyContentCenter",
-    end: "vuiFlexContainer--justifyContentEnd",
-    start: "vuiFlexContainer--justifyContentStart",
-    spaceAround: "vuiFlexContainer--justifyContentSpaceAround",
-    spaceBetween: "vuiFlexContainer--justifyContentSpaceBetween",
-    spaceEvenly: "vuiFlexContainer--justifyContentSpaceEvenly"
-  };
-  var spacingToClassNameMap = {
-    none: "vuiFlexContainer--spacingNone",
-    xxs: "vuiFlexContainer--spacingXxs",
-    xs: "vuiFlexContainer--spacingXs",
-    s: "vuiFlexContainer--spacingS",
-    m: "vuiFlexContainer--spacingM",
-    l: "vuiFlexContainer--spacingL",
-    xl: "vuiFlexContainer--spacingXl",
-    xxl: "vuiFlexContainer--spacingXxl"
-  };
-  var VuiFlexContainer = ({
-    children,
-    alignItems = "stretch",
-    direction = "row",
-    justifyContent = "start",
-    spacing = "m",
-    wrap,
-    className,
-    fullWidth,
-    ...rest
-  }) => {
-    const classes = (0, import_classnames.default)(
-      className,
-      "vuiFlexContainer",
-      alignItemsToClassNameMap[alignItems],
-      directionToClassNameMap[direction],
-      justifyContentToClassNameMap[justifyContent],
-      spacingToClassNameMap[spacing],
-      {
-        "vuiFlexContainer--wrap": wrap,
-        "vuiFlexContainer--fullWidth": fullWidth
-      }
-    );
-    return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: classes, ...rest, children });
-  };
-
-  // src/vui/components/flex/FlexItem.tsx
   var import_classnames2 = __toESM(require_classnames());
   var import_jsx_runtime2 = __toESM(require_jsx_runtime());
-  var alignItemsToClassNameMap2 = {
-    baseline: "vuiFlexItem--alignItemsBaseline",
-    center: "vuiFlexItem--alignItemsCenter",
-    end: "vuiFlexItem--alignItemsEnd",
-    start: "vuiFlexItem--alignItemsStart",
-    stretch: "vuiFlexItem--alignItemsStretch"
-  };
-  var VuiFlexItem = ({
-    children,
-    grow,
-    shrink,
-    basis = "auto",
-    alignItems = "stretch",
-    className,
-    truncate,
-    ...rest
-  }) => {
-    const isGrowNone = grow === false;
-    const isShrinkNone = shrink === false;
-    const classes = (0, import_classnames2.default)(
-      "vuiFlexItem",
-      `vuiFlexItem--${basis}`,
-      alignItemsToClassNameMap2[alignItems],
-      {
-        [`vuiFlexItem--flexGrow${grow}`]: typeof grow === "number",
-        "vuiFlexItem--flexGrowNone": isGrowNone,
-        [`vuiFlexItem--flexShrink${shrink}`]: typeof shrink === "number",
-        "vuiFlexItem--flexShrinkNone": isShrinkNone,
-        "vuiFlexItem--truncate": truncate
-      },
-      className
-    );
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: classes, ...rest, children });
-  };
-
-  // src/vui/components/portal/Portal.tsx
-  var import_react3 = __toESM(require_react());
+  var import_react8 = __toESM(require_react());
   var import_react_dom = __toESM(require_react_dom());
-  var VuiPortal = ({ children }) => {
-    const portalRef = (0, import_react3.useRef)(null);
-    (0, import_react3.useEffect)(() => {
-      portalRef.current = document.createElement("div");
-      document.body.appendChild(portalRef.current);
-      return () => {
-        portalRef.current?.parentNode?.removeChild(portalRef.current);
-      };
-    }, []);
-    if (!portalRef.current)
-      return null;
-    return (0, import_react_dom.createPortal)(children, portalRef.current);
-  };
-
-  // src/vui/components/screenBlock/ScreenBlock.tsx
   var import_jsx_runtime3 = __toESM(require_jsx_runtime());
-  var VuiScreenBlock = ({ onClick, children }) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "vuiScreenBlock", children: [
-      children,
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "vuiScreenBlock__mask", onClick })
-    ] });
-  };
-
-  // src/vui/components/spinner/Spinner.tsx
   var import_classnames3 = __toESM(require_classnames());
   var import_jsx_runtime4 = __toESM(require_jsx_runtime());
-  var sizeToClassNameMap = {
-    xs: "vuiSpinner--xs",
-    s: "vuiSpinner--s",
-    m: "vuiSpinner--m",
-    l: "vuiSpinner--l",
-    xl: "vuiSpinner--xl",
-    xxl: "vuiSpinner--xxl",
-    xxxl: "vuiSpinner--xxxl"
-  };
-  var VuiSpinner = ({ size = "m" }) => {
-    const classes = (0, import_classnames3.default)("vuiSpinner", sizeToClassNameMap[size]);
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: classes, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
-      "svg",
-      {
-        className: "vuiSpinner__animation",
-        version: "1.0",
-        width: "100px",
-        height: "100px",
-        viewBox: "0 0 128 128",
-        xmlSpace: "preserve",
-        children: [
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("g", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-              "path",
-              {
-                fill: "#d7c3fc",
-                d: "M99.359,10.919a60.763,60.763,0,1,0,0,106.162A63.751,63.751,0,1,1,99.359,10.919Z"
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-              "animateTransform",
-              {
-                attributeName: "transform",
-                type: "rotate",
-                from: "0 64 64",
-                to: "360 64 64",
-                dur: "960ms",
-                repeatCount: "indefinite"
-              }
-            )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("g", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-              "path",
-              {
-                fill: "#ab81fa",
-                d: "M28.641,117.081a60.763,60.763,0,1,0,0-106.162A63.751,63.751,0,1,1,28.641,117.081Z"
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-              "animateTransform",
-              {
-                attributeName: "transform",
-                type: "rotate",
-                from: "0 64 64",
-                to: "360 64 64",
-                dur: "1440ms",
-                repeatCount: "indefinite"
-              }
-            )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("g", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-              "path",
-              {
-                fill: "#7027f6",
-                d: "M117.081,99.313a60.763,60.763,0,1,0-106.162,0A63.751,63.751,0,1,1,117.081,99.313Z"
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-              "animateTransform",
-              {
-                attributeName: "transform",
-                type: "rotate",
-                from: "0 64 64",
-                to: "360 64 64",
-                dur: "2880ms",
-                repeatCount: "indefinite"
-              }
-            )
-          ] })
-        ]
-      }
-    ) });
-  };
-
-  // src/vui/components/typography/Text.tsx
   var import_classnames4 = __toESM(require_classnames());
   var import_jsx_runtime5 = __toESM(require_jsx_runtime());
-  var VuiText = ({
-    children,
-    className,
-    id: id2,
-    truncate,
-    size = "s",
-    align,
-    ...rest
-  }) => {
-    const classes = (0, import_classnames4.default)(
-      "vuiText",
-      `vuiText--${size}`,
-      {
-        // Don't default to left alignment, so that the component inherits
-        // whatever has been defined by an ancestor.
-        [`vuiText--${align}`]: align,
-        "vuiText--truncate": truncate
-      },
-      className
-    );
-    return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: classes, id: id2, ...rest, children });
-  };
-
-  // src/vui/components/typography/TextColor.tsx
   var import_classnames5 = __toESM(require_classnames());
   var import_jsx_runtime6 = __toESM(require_jsx_runtime());
-
-  // src/vui/components/typography/Title.tsx
   var import_classnames6 = __toESM(require_classnames());
-  var import_react4 = __toESM(require_react());
-
-  // src/useSearch.ts
-  var import_react5 = __toESM(require_react());
-  var DEFAULT_QUERY_API_URL = "https://api.vectara.io/v1/query";
-  var useSearch = (customerId, corpusId, apiKey, apiUrl = DEFAULT_QUERY_API_URL) => {
-    const [isLoading, setIsLoading] = (0, import_react5.useState)(false);
-    const headers = import_react5.default.useMemo(() => {
-      const headersInstance = new Headers();
-      headersInstance.append("customer-id", customerId);
-      headersInstance.append("x-api-key", apiKey);
-      headersInstance.append("content-type", "application/json");
-      headersInstance.append("x-source", "react-search");
-      return headersInstance;
-    }, [customerId, apiKey]);
-    const generateRequestBody = (0, import_react5.useCallback)(
-      (query) => {
-        return JSON.stringify({
-          query: [
-            {
-              query,
-              start: 0,
-              numResults: 20,
-              corpusKey: [
-                {
-                  corpusId
-                }
-              ]
-            }
-          ]
-        });
-      },
-      [corpusId]
-    );
-    const fetchSearchResults = async (query) => {
-      setIsLoading(true);
-      const requestBody = generateRequestBody(query);
-      const response = await fetch(apiUrl, {
-        headers,
-        body: requestBody,
-        method: "POST"
-      });
-      const responseJson = await response.json();
-      setIsLoading(false);
-      const results = deserializeSearchResponse(responseJson.responseSet?.[0]) ?? [];
-      return compileDedupedResults(results);
-    };
-    return { fetchSearchResults, isLoading };
-  };
-  var convertMetadataToObject = (metadata) => {
-    const obj = {};
-    metadata.forEach((item) => {
-      obj[item.name] = item.value;
-    });
-    return obj;
-  };
-  var parseMetadata = (rawMetadata) => {
-    const metadata = convertMetadataToObject(rawMetadata);
-    return {
-      source: metadata.source,
-      url: metadata.url,
-      title: metadata.title,
-      metadata
-    };
-  };
-  var deserializeSearchResponse = (searchResponse) => {
-    if (!searchResponse)
-      return void 0;
-    const results = [];
-    const { response: responses, document: documents } = searchResponse;
-    responses.forEach((response) => {
-      const { documentIndex, text: rawText } = response;
-      const { pre, post, text } = parseSnippet(rawText);
-      const document2 = documents[Number(documentIndex)];
-      const { id: id2, metadata: rawMetadata } = document2;
-      const { source, url, title, metadata } = parseMetadata(rawMetadata);
-      results.push({
-        id: id2,
-        snippet: {
-          pre,
-          text,
-          post
-        },
-        source,
-        url,
-        title,
-        metadata
-      });
-    });
-    return results;
-  };
-  var START_TAG = "%START_SNIPPET%";
-  var END_TAG = "%END_SNIPPET%";
-  var parseSnippet = (source) => {
-    const [pre, textAndPost] = source.indexOf(START_TAG) !== -1 ? source.split(START_TAG) : ["", source];
-    const [text, post] = textAndPost.indexOf(END_TAG) !== -1 ? textAndPost.split(END_TAG) : [textAndPost, ""];
-    return { pre, post, text };
-  };
-  var compileDedupedResults = (undedupedResults) => {
-    const listedUrls = {};
-    const dedupedResults = [];
-    undedupedResults.forEach((result) => {
-      if (result.url) {
-        if (listedUrls[result.url]) {
-          return;
-        } else {
-          listedUrls[result.url] = true;
-        }
-      }
-      dedupedResults.push(result);
-    });
-    return dedupedResults;
-  };
-
-  // src/SearchResult.tsx
-  var import_jsx_runtime7 = __toESM(require_jsx_runtime());
-  var SearchResult = ({ searchResult, isSelected = false, opensInNewTab = false }) => {
-    const {
-      title,
-      url,
-      snippet: { text }
-    } = searchResult;
-    const content = /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
-      title && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { className: "vrsSearchResultTitle", children: title }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { className: "vrsSearchResultSnippet", children: text })
-    ] });
-    if (url) {
-      return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-        "a",
-        {
-          "data-testid": "vrsResultLink",
-          className: `vrsSearchResult vrsSearchResult-isLink ${isSelected ? "isSelected" : ""}`,
-          href: url,
-          target: opensInNewTab ? "_blank" : "_self",
-          children: content
-        }
-      );
-    }
-    return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { "data-testid": "vrsResultWrapper", className: "vrsSearchResult", children: content });
-  };
-
-  // src/SearchModal.tsx
+  var import_react9 = __toESM(require_react());
   var import_react10 = __toESM(require_react());
+  var import_jsx_runtime7 = __toESM(require_jsx_runtime());
+  var import_react11 = __toESM(require_react());
+  var ue = __toESM(require_react_dom());
 
-  // node_modules/tslib/tslib.es6.mjs
+  // ../node_modules/tslib/tslib.es6.mjs
   var __assign = function() {
     __assign = Object.assign || function __assign2(t) {
       for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -31143,7 +30774,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   }
   function __spreadArray(to, from, pack) {
     if (pack || arguments.length === 2)
-      for (var i = 0, l = from.length, ar; i < l; i++) {
+      for (var i = 0, l2 = from.length, ar; i < l2; i++) {
         if (ar || !(i in from)) {
           if (!ar)
             ar = Array.prototype.slice.call(from, 0, i);
@@ -31153,22 +30784,22 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return to.concat(ar || Array.prototype.slice.call(from));
   }
 
-  // node_modules/react-focus-on/dist/es2015/Combination.js
-  var React17 = __toESM(require_react());
+  // ../node_modules/react-focus-on/dist/es2015/Combination.js
+  var React16 = __toESM(require_react());
 
-  // node_modules/react-focus-on/dist/es2015/UI.js
-  var React9 = __toESM(require_react());
+  // ../node_modules/react-focus-on/dist/es2015/UI.js
+  var React8 = __toESM(require_react());
 
-  // node_modules/react-remove-scroll/dist/es2015/UI.js
-  var React6 = __toESM(require_react());
+  // ../node_modules/react-remove-scroll/dist/es2015/UI.js
+  var React5 = __toESM(require_react());
 
-  // node_modules/react-remove-scroll-bar/dist/es2015/constants.js
+  // ../node_modules/react-remove-scroll-bar/dist/es2015/constants.js
   var zeroRightClassName = "right-scroll-bar-position";
   var fullWidthClassName = "width-before-scroll-bar";
   var noScrollbarsClassName = "with-scroll-bars-hidden";
   var removedBarSizeVariable = "--removed-body-scroll-bar-size";
 
-  // node_modules/use-callback-ref/dist/es2015/assignRef.js
+  // ../node_modules/use-callback-ref/dist/es2015/assignRef.js
   function assignRef(ref, value) {
     if (typeof ref === "function") {
       ref(value);
@@ -31178,10 +30809,10 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return ref;
   }
 
-  // node_modules/use-callback-ref/dist/es2015/useRef.js
-  var import_react6 = __toESM(require_react());
+  // ../node_modules/use-callback-ref/dist/es2015/useRef.js
+  var import_react3 = __toESM(require_react());
   function useCallbackRef(initialValue, callback) {
-    var ref = (0, import_react6.useState)(function() {
+    var ref = (0, import_react3.useState)(function() {
       return {
         // value
         value: initialValue,
@@ -31206,8 +30837,8 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return ref.facade;
   }
 
-  // node_modules/use-callback-ref/dist/es2015/useMergeRef.js
-  var React4 = __toESM(require_react());
+  // ../node_modules/use-callback-ref/dist/es2015/useMergeRef.js
+  var React3 = __toESM(require_react());
   var currentValues = /* @__PURE__ */ new WeakMap();
   function useMergeRefs(refs, defaultValue) {
     var callbackRef = useCallbackRef(defaultValue || null, function(newValue) {
@@ -31215,7 +30846,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         return assignRef(ref, newValue);
       });
     });
-    React4.useLayoutEffect(function() {
+    React3.useLayoutEffect(function() {
       var oldValue = currentValues.get(callbackRef);
       if (oldValue) {
         var prevRefs_1 = new Set(oldValue);
@@ -31237,7 +30868,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return callbackRef;
   }
 
-  // node_modules/use-sidecar/dist/es2015/medium.js
+  // ../node_modules/use-sidecar/dist/es2015/medium.js
   function ItoI(a) {
     return a;
   }
@@ -31329,8 +30960,8 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return medium;
   }
 
-  // node_modules/use-sidecar/dist/es2015/exports.js
-  var React5 = __toESM(require_react());
+  // ../node_modules/use-sidecar/dist/es2015/exports.js
+  var React4 = __toESM(require_react());
   var SideCar = function(_a) {
     var sideCar = _a.sideCar, rest = __rest(_a, ["sideCar"]);
     if (!sideCar) {
@@ -31340,7 +30971,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     if (!Target) {
       throw new Error("Sidecar medium not found");
     }
-    return React5.createElement(Target, __assign({}, rest));
+    return React4.createElement(Target, __assign({}, rest));
   };
   SideCar.isSideCarExport = true;
   function exportSidecar(medium, exported) {
@@ -31348,16 +30979,16 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return SideCar;
   }
 
-  // node_modules/react-remove-scroll/dist/es2015/medium.js
+  // ../node_modules/react-remove-scroll/dist/es2015/medium.js
   var effectCar = createSidecarMedium();
 
-  // node_modules/react-remove-scroll/dist/es2015/UI.js
+  // ../node_modules/react-remove-scroll/dist/es2015/UI.js
   var nothing = function() {
     return;
   };
-  var RemoveScroll = React6.forwardRef(function(props, parentRef) {
-    var ref = React6.useRef(null);
-    var _a = React6.useState({
+  var RemoveScroll = React5.forwardRef(function(props, parentRef) {
+    var ref = React5.useRef(null);
+    var _a = React5.useState({
       onScrollCapture: nothing,
       onWheelCapture: nothing,
       onTouchMoveCapture: nothing
@@ -31366,11 +30997,11 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     var SideCar2 = sideCar;
     var containerRef = useMergeRefs([ref, parentRef]);
     var containerProps = __assign(__assign({}, rest), callbacks);
-    return React6.createElement(
-      React6.Fragment,
+    return React5.createElement(
+      React5.Fragment,
       null,
-      enabled && React6.createElement(SideCar2, { sideCar: effectCar, removeScrollBar, shards, noIsolation, inert, setCallbacks, allowPinchZoom: !!allowPinchZoom, lockRef: ref, gapMode }),
-      forwardProps ? React6.cloneElement(React6.Children.only(children), __assign(__assign({}, containerProps), { ref: containerRef })) : React6.createElement(Container, __assign({}, containerProps, { className, ref: containerRef }), children)
+      enabled && React5.createElement(SideCar2, { sideCar: effectCar, removeScrollBar, shards, noIsolation, inert, setCallbacks, allowPinchZoom: !!allowPinchZoom, lockRef: ref, gapMode }),
+      forwardProps ? React5.cloneElement(React5.Children.only(children), __assign(__assign({}, containerProps), { ref: containerRef })) : React5.createElement(Container, __assign({}, containerProps, { className, ref: containerRef }), children)
     );
   });
   RemoveScroll.defaultProps = {
@@ -31383,7 +31014,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     zeroRight: zeroRightClassName
   };
 
-  // node_modules/@babel/runtime/helpers/esm/extends.js
+  // ../node_modules/@babel/runtime/helpers/esm/extends.js
   function _extends2() {
     _extends2 = Object.assign ? Object.assign.bind() : function(target) {
       for (var i = 1; i < arguments.length; i++) {
@@ -31399,22 +31030,22 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return _extends2.apply(this, arguments);
   }
 
-  // node_modules/react-focus-lock/dist/es2015/Lock.js
-  var React8 = __toESM(require_react());
+  // ../node_modules/react-focus-lock/dist/es2015/Lock.js
+  var React7 = __toESM(require_react());
   var import_prop_types2 = __toESM(require_prop_types());
 
-  // node_modules/focus-lock/dist/es2015/constants.js
+  // ../node_modules/focus-lock/dist/es2015/constants.js
   var FOCUS_GROUP = "data-focus-lock";
   var FOCUS_DISABLED = "data-focus-lock-disabled";
   var FOCUS_ALLOW = "data-no-focus-lock";
   var FOCUS_AUTO = "data-autofocus-inside";
   var FOCUS_NO_AUTOFOCUS = "data-no-autofocus";
 
-  // node_modules/react-focus-lock/dist/es2015/Lock.js
-  var import_react7 = __toESM(require_react());
+  // ../node_modules/react-focus-lock/dist/es2015/Lock.js
+  var import_react4 = __toESM(require_react());
 
-  // node_modules/react-focus-lock/dist/es2015/FocusGuard.js
-  var React7 = __toESM(require_react());
+  // ../node_modules/react-focus-lock/dist/es2015/FocusGuard.js
+  var React6 = __toESM(require_react());
   var import_prop_types = __toESM(require_prop_types());
   var hiddenGuard = {
     width: "1px",
@@ -31427,12 +31058,12 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   };
   var InFocusGuard = function InFocusGuard2(_ref) {
     var children = _ref.children;
-    return /* @__PURE__ */ React7.createElement(React7.Fragment, null, /* @__PURE__ */ React7.createElement("div", {
+    return /* @__PURE__ */ React6.createElement(React6.Fragment, null, /* @__PURE__ */ React6.createElement("div", {
       key: "guard-first",
       "data-focus-guard": true,
       "data-focus-auto-guard": true,
       style: hiddenGuard
-    }), children, children && /* @__PURE__ */ React7.createElement("div", {
+    }), children, children && /* @__PURE__ */ React6.createElement("div", {
       key: "guard-last",
       "data-focus-guard": true,
       "data-focus-auto-guard": true,
@@ -31446,7 +31077,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     children: null
   };
 
-  // node_modules/react-focus-lock/dist/es2015/medium.js
+  // ../node_modules/react-focus-lock/dist/es2015/medium.js
   var mediumFocus = createMedium({}, function(_ref) {
     var target = _ref.target, currentTarget = _ref.currentTarget;
     return {
@@ -31463,35 +31094,35 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     // ssr: true,
   });
 
-  // node_modules/react-focus-lock/dist/es2015/Lock.js
+  // ../node_modules/react-focus-lock/dist/es2015/Lock.js
   var emptyArray = [];
-  var FocusLock = /* @__PURE__ */ React8.forwardRef(function FocusLockUI(props, parentRef) {
+  var FocusLock = /* @__PURE__ */ React7.forwardRef(function FocusLockUI(props, parentRef) {
     var _extends22;
-    var _React$useState = React8.useState(), realObserved = _React$useState[0], setObserved = _React$useState[1];
-    var observed = React8.useRef();
-    var isActive = React8.useRef(false);
-    var originalFocusedElement = React8.useRef(null);
+    var _React$useState = React7.useState(), realObserved = _React$useState[0], setObserved = _React$useState[1];
+    var observed = React7.useRef();
+    var isActive = React7.useRef(false);
+    var originalFocusedElement = React7.useRef(null);
     var children = props.children, disabled = props.disabled, noFocusGuards = props.noFocusGuards, persistentFocus = props.persistentFocus, crossFrame = props.crossFrame, autoFocus = props.autoFocus, allowTextSelection = props.allowTextSelection, group = props.group, className = props.className, whiteList = props.whiteList, hasPositiveIndices = props.hasPositiveIndices, _props$shards = props.shards, shards = _props$shards === void 0 ? emptyArray : _props$shards, _props$as = props.as, Container = _props$as === void 0 ? "div" : _props$as, _props$lockProps = props.lockProps, containerProps = _props$lockProps === void 0 ? {} : _props$lockProps, SideCar2 = props.sideCar, shouldReturnFocus = props.returnFocus, focusOptions = props.focusOptions, onActivationCallback = props.onActivation, onDeactivationCallback = props.onDeactivation;
-    var _React$useState2 = React8.useState({}), id2 = _React$useState2[0];
-    var onActivation = React8.useCallback(function() {
+    var _React$useState2 = React7.useState({}), id2 = _React$useState2[0];
+    var onActivation = React7.useCallback(function() {
       originalFocusedElement.current = originalFocusedElement.current || document && document.activeElement;
       if (observed.current && onActivationCallback) {
         onActivationCallback(observed.current);
       }
       isActive.current = true;
     }, [onActivationCallback]);
-    var onDeactivation = React8.useCallback(function() {
+    var onDeactivation = React7.useCallback(function() {
       isActive.current = false;
       if (onDeactivationCallback) {
         onDeactivationCallback(observed.current);
       }
     }, [onDeactivationCallback]);
-    (0, import_react7.useEffect)(function() {
+    (0, import_react4.useEffect)(function() {
       if (!disabled) {
         originalFocusedElement.current = null;
       }
     }, []);
-    var returnFocus = React8.useCallback(function(allowDefer) {
+    var returnFocus = React7.useCallback(function(allowDefer) {
       var returnFocusTo = originalFocusedElement.current;
       if (returnFocusTo && returnFocusTo.focus) {
         var howToReturnFocus = typeof shouldReturnFocus === "function" ? shouldReturnFocus(returnFocusTo) : shouldReturnFocus;
@@ -31508,13 +31139,13 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         }
       }
     }, [shouldReturnFocus]);
-    var onFocus3 = React8.useCallback(function(event) {
+    var onFocus3 = React7.useCallback(function(event) {
       if (isActive.current) {
         mediumFocus.useMedium(event);
       }
     }, []);
     var onBlur3 = mediumBlur.useMedium;
-    var setObserveNode = React8.useCallback(function(newObserved) {
+    var setObserveNode = React7.useCallback(function(newObserved) {
       if (observed.current !== newObserved) {
         observed.current = newObserved;
         setObserved(newObserved);
@@ -31524,7 +31155,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
       if (typeof allowTextSelection !== "undefined") {
         console.warn("React-Focus-Lock: allowTextSelection is deprecated and enabled by default");
       }
-      React8.useEffect(function() {
+      React7.useEffect(function() {
         if (!observed.current && typeof Container !== "string") {
           console.error("FocusLock: could not obtain ref to internal node");
         }
@@ -31534,22 +31165,22 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     var hasLeadingGuards = noFocusGuards !== true;
     var hasTailingGuards = hasLeadingGuards && noFocusGuards !== "tail";
     var mergedRef = useMergeRefs([parentRef, setObserveNode]);
-    return /* @__PURE__ */ React8.createElement(React8.Fragment, null, hasLeadingGuards && [
+    return /* @__PURE__ */ React7.createElement(React7.Fragment, null, hasLeadingGuards && [
       // nearest focus guard
-      /* @__PURE__ */ React8.createElement("div", {
+      /* @__PURE__ */ React7.createElement("div", {
         key: "guard-first",
         "data-focus-guard": true,
         tabIndex: disabled ? -1 : 0,
         style: hiddenGuard
       }),
       // first tabbed element guard
-      hasPositiveIndices ? /* @__PURE__ */ React8.createElement("div", {
+      hasPositiveIndices ? /* @__PURE__ */ React7.createElement("div", {
         key: "guard-nearest",
         "data-focus-guard": true,
         tabIndex: disabled ? -1 : 1,
         style: hiddenGuard
       }) : null
-    ], !disabled && /* @__PURE__ */ React8.createElement(SideCar2, {
+    ], !disabled && /* @__PURE__ */ React7.createElement(SideCar2, {
       id: id2,
       sideCar: mediumSidecar,
       observed: realObserved,
@@ -31563,13 +31194,13 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
       onDeactivation,
       returnFocus,
       focusOptions
-    }), /* @__PURE__ */ React8.createElement(Container, _extends2({
+    }), /* @__PURE__ */ React7.createElement(Container, _extends2({
       ref: mergedRef
     }, lockProps, {
       className,
       onBlur: onBlur3,
       onFocus: onFocus3
-    }), children), hasTailingGuards && /* @__PURE__ */ React8.createElement("div", {
+    }), children), hasTailingGuards && /* @__PURE__ */ React7.createElement("div", {
       "data-focus-guard": true,
       tabIndex: disabled ? -1 : 0,
       style: hiddenGuard
@@ -31618,23 +31249,23 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   };
   var Lock_default = FocusLock;
 
-  // node_modules/react-focus-lock/dist/es2015/util.js
+  // ../node_modules/react-focus-lock/dist/es2015/util.js
   function deferAction(action) {
     setTimeout(action, 1);
   }
 
-  // node_modules/react-focus-lock/dist/es2015/UI.js
+  // ../node_modules/react-focus-lock/dist/es2015/UI.js
   var UI_default = Lock_default;
 
-  // node_modules/react-focus-on/dist/es2015/medium.js
+  // ../node_modules/react-focus-on/dist/es2015/medium.js
   var effectCar2 = createSidecarMedium();
   var focusHiddenMarker = "data-focus-on-hidden";
 
-  // node_modules/react-focus-on/dist/es2015/UI.js
+  // ../node_modules/react-focus-on/dist/es2015/UI.js
   var PREVENT_SCROLL = { preventScroll: true };
-  var FocusOn = React9.forwardRef(function(props, parentRef) {
-    var _a = React9.useState(false), lockProps = _a[0], setLockProps = _a[1];
-    var children = props.children, autoFocus = props.autoFocus, shards = props.shards, crossFrame = props.crossFrame, _b = props.enabled, enabled = _b === void 0 ? true : _b, _c = props.scrollLock, scrollLock = _c === void 0 ? true : _c, _d = props.focusLock, focusLock = _d === void 0 ? true : _d, _e = props.returnFocus, returnFocus = _e === void 0 ? true : _e, inert = props.inert, allowPinchZoom = props.allowPinchZoom, sideCar = props.sideCar, className = props.className, shouldIgnore = props.shouldIgnore, preventScrollOnFocus = props.preventScrollOnFocus, style = props.style, as = props.as, gapMode = props.gapMode, rest = __rest(props, ["children", "autoFocus", "shards", "crossFrame", "enabled", "scrollLock", "focusLock", "returnFocus", "inert", "allowPinchZoom", "sideCar", "className", "shouldIgnore", "preventScrollOnFocus", "style", "as", "gapMode"]);
+  var FocusOn = React8.forwardRef(function(props, parentRef) {
+    var _a = React8.useState(false), lockProps = _a[0], setLockProps = _a[1];
+    var children = props.children, autoFocus = props.autoFocus, shards = props.shards, crossFrame = props.crossFrame, _b = props.enabled, enabled = _b === void 0 ? true : _b, _c = props.scrollLock, scrollLock = _c === void 0 ? true : _c, _d = props.focusLock, focusLock = _d === void 0 ? true : _d, _e2 = props.returnFocus, returnFocus = _e2 === void 0 ? true : _e2, inert = props.inert, allowPinchZoom = props.allowPinchZoom, sideCar = props.sideCar, className = props.className, shouldIgnore = props.shouldIgnore, preventScrollOnFocus = props.preventScrollOnFocus, style = props.style, as = props.as, gapMode = props.gapMode, rest = __rest(props, ["children", "autoFocus", "shards", "crossFrame", "enabled", "scrollLock", "focusLock", "returnFocus", "inert", "allowPinchZoom", "sideCar", "className", "shouldIgnore", "preventScrollOnFocus", "style", "as", "gapMode"]);
     var SideCar2 = sideCar;
     var onActivation = lockProps.onActivation, onDeactivation = lockProps.onDeactivation, restProps = __rest(lockProps, ["onActivation", "onDeactivation"]);
     var appliedLockProps = __assign(__assign({}, restProps), {
@@ -31647,19 +31278,19 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
       inert,
       enabled: enabled && scrollLock
     });
-    return React9.createElement(
-      React9.Fragment,
+    return React8.createElement(
+      React8.Fragment,
       null,
-      React9.createElement(UI_default, { ref: parentRef, sideCar, disabled: !(lockProps && enabled && focusLock), returnFocus, autoFocus, shards, crossFrame, onActivation, onDeactivation, className, whiteList: shouldIgnore, lockProps: appliedLockProps, focusOptions: preventScrollOnFocus ? PREVENT_SCROLL : void 0, as: RemoveScroll }, children),
-      enabled && React9.createElement(SideCar2, __assign({}, rest, { sideCar: effectCar2, setLockProps, shards }))
+      React8.createElement(UI_default, { ref: parentRef, sideCar, disabled: !(lockProps && enabled && focusLock), returnFocus, autoFocus, shards, crossFrame, onActivation, onDeactivation, className, whiteList: shouldIgnore, lockProps: appliedLockProps, focusOptions: preventScrollOnFocus ? PREVENT_SCROLL : void 0, as: RemoveScroll }, children),
+      enabled && React8.createElement(SideCar2, __assign({}, rest, { sideCar: effectCar2, setLockProps, shards }))
     );
   });
 
-  // node_modules/react-focus-lock/dist/es2015/Trap.js
-  var React11 = __toESM(require_react());
+  // ../node_modules/react-focus-lock/dist/es2015/Trap.js
+  var React10 = __toESM(require_react());
   var import_prop_types3 = __toESM(require_prop_types());
 
-  // node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js
+  // ../node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js
   function _setPrototypeOf(o, p) {
     _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf2(o2, p2) {
       o2.__proto__ = p2;
@@ -31668,14 +31299,14 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return _setPrototypeOf(o, p);
   }
 
-  // node_modules/@babel/runtime/helpers/esm/inheritsLoose.js
+  // ../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js
   function _inheritsLoose(subClass, superClass) {
     subClass.prototype = Object.create(superClass.prototype);
     subClass.prototype.constructor = subClass;
     _setPrototypeOf(subClass, superClass);
   }
 
-  // node_modules/@babel/runtime/helpers/esm/typeof.js
+  // ../node_modules/@babel/runtime/helpers/esm/typeof.js
   function _typeof(o) {
     "@babel/helpers - typeof";
     return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o2) {
@@ -31685,7 +31316,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }, _typeof(o);
   }
 
-  // node_modules/@babel/runtime/helpers/esm/toPrimitive.js
+  // ../node_modules/@babel/runtime/helpers/esm/toPrimitive.js
   function toPrimitive(t, r) {
     if ("object" != _typeof(t) || !t)
       return t;
@@ -31699,13 +31330,13 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return ("string" === r ? String : Number)(t);
   }
 
-  // node_modules/@babel/runtime/helpers/esm/toPropertyKey.js
+  // ../node_modules/@babel/runtime/helpers/esm/toPropertyKey.js
   function toPropertyKey(t) {
     var i = toPrimitive(t, "string");
     return "symbol" == _typeof(i) ? i : String(i);
   }
 
-  // node_modules/@babel/runtime/helpers/esm/defineProperty.js
+  // ../node_modules/@babel/runtime/helpers/esm/defineProperty.js
   function _defineProperty2(obj, key, value) {
     key = toPropertyKey(key);
     if (key in obj) {
@@ -31721,8 +31352,8 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return obj;
   }
 
-  // node_modules/react-clientside-effect/lib/index.es.js
-  var import_react8 = __toESM(require_react());
+  // ../node_modules/react-clientside-effect/lib/index.es.js
+  var import_react5 = __toESM(require_react());
   function withSideEffect(reducePropsToState2, handleStateChangeOnClient2) {
     if (true) {
       if (typeof reducePropsToState2 !== "function") {
@@ -31770,18 +31401,18 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           mountedInstances.splice(index, 1);
           emitChange();
         };
-        _proto.render = function render() {
-          return /* @__PURE__ */ import_react8.default.createElement(WrappedComponent, this.props);
+        _proto.render = function render3() {
+          return /* @__PURE__ */ import_react5.default.createElement(WrappedComponent, this.props);
         };
         return SideEffect2;
-      }(import_react8.PureComponent);
+      }(import_react5.PureComponent);
       _defineProperty2(SideEffect, "displayName", "SideEffect(" + getDisplayName(WrappedComponent) + ")");
       return SideEffect;
     };
   }
   var index_es_default = withSideEffect;
 
-  // node_modules/focus-lock/dist/es2015/utils/array.js
+  // ../node_modules/focus-lock/dist/es2015/utils/array.js
   var toArray = function(a) {
     var ret = Array(a.length);
     for (var i = 0; i < a.length; ++i) {
@@ -31796,7 +31427,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return Array.isArray(a) ? a[0] : a;
   };
 
-  // node_modules/focus-lock/dist/es2015/utils/is.js
+  // ../node_modules/focus-lock/dist/es2015/utils/is.js
   var isElementHidden = function(node2) {
     if (node2.nodeType !== Node.ELEMENT_NODE) {
       return false;
@@ -31870,7 +31501,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return Boolean(x);
   };
 
-  // node_modules/focus-lock/dist/es2015/utils/tabOrder.js
+  // ../node_modules/focus-lock/dist/es2015/utils/tabOrder.js
   var tabSort = function(a, b) {
     var tabDiff = a.tabIndex - b.tabIndex;
     var indexDiff = a.index - b.index;
@@ -31896,7 +31527,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }).sort(tabSort);
   };
 
-  // node_modules/focus-lock/dist/es2015/utils/tabbables.js
+  // ../node_modules/focus-lock/dist/es2015/utils/tabbables.js
   var tabbables = [
     "button:enabled",
     "select:enabled",
@@ -31917,7 +31548,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     "[autofocus]"
   ];
 
-  // node_modules/focus-lock/dist/es2015/utils/tabUtils.js
+  // ../node_modules/focus-lock/dist/es2015/utils/tabUtils.js
   var queryTabbables = tabbables.join(",");
   var queryGuardTabbables = "".concat(queryTabbables, ", [data-focus-guard]");
   var getFocusablesWithShadowDom = function(parent, withGuards) {
@@ -31958,7 +31589,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }, []);
   };
 
-  // node_modules/focus-lock/dist/es2015/utils/DOMutils.js
+  // ../node_modules/focus-lock/dist/es2015/utils/DOMutils.js
   var filterFocusable = function(nodes, visibilityCache) {
     return toArray(nodes).filter(function(node2) {
       return isVisibleCached(visibilityCache, node2);
@@ -32004,12 +31635,12 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }
   };
 
-  // node_modules/focus-lock/dist/es2015/utils/all-affected.js
+  // ../node_modules/focus-lock/dist/es2015/utils/all-affected.js
   var filterNested = function(nodes) {
     var contained = /* @__PURE__ */ new Set();
-    var l = nodes.length;
-    for (var i = 0; i < l; i += 1) {
-      for (var j = i + 1; j < l; j += 1) {
+    var l2 = nodes.length;
+    for (var i = 0; i < l2; i += 1) {
+      for (var j = i + 1; j < l2; j += 1) {
         var position = nodes[i].compareDocumentPosition(nodes[j]);
         if ((position & Node.DOCUMENT_POSITION_CONTAINED_BY) > 0) {
           contained.add(j);
@@ -32019,7 +31650,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         }
       }
     }
-    return nodes.filter(function(_, index) {
+    return nodes.filter(function(_2, index) {
       return !contained.has(index);
     });
   };
@@ -32035,7 +31666,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }, []);
   };
 
-  // node_modules/focus-lock/dist/es2015/utils/safe.js
+  // ../node_modules/focus-lock/dist/es2015/utils/safe.js
   var safeProbe = function(cb) {
     try {
       return cb();
@@ -32044,7 +31675,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }
   };
 
-  // node_modules/focus-lock/dist/es2015/utils/getActiveElement.js
+  // ../node_modules/focus-lock/dist/es2015/utils/getActiveElement.js
   var getActiveElement = function(inDocument) {
     if (inDocument === void 0) {
       inDocument = document;
@@ -32058,7 +31689,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }) ? getActiveElement(activeElement.contentWindow.document) : activeElement;
   };
 
-  // node_modules/focus-lock/dist/es2015/focusInside.js
+  // ../node_modules/focus-lock/dist/es2015/focusInside.js
   var focusInFrame = function(frame, activeElement) {
     return frame === activeElement;
   };
@@ -32079,7 +31710,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     });
   };
 
-  // node_modules/focus-lock/dist/es2015/focusIsHidden.js
+  // ../node_modules/focus-lock/dist/es2015/focusIsHidden.js
   var focusIsHidden = function(inDocument) {
     if (inDocument === void 0) {
       inDocument = document;
@@ -32093,7 +31724,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     });
   };
 
-  // node_modules/focus-lock/dist/es2015/utils/correctFocus.js
+  // ../node_modules/focus-lock/dist/es2015/utils/correctFocus.js
   var findSelectedRadio = function(node2, nodes) {
     return nodes.filter(isRadioElement).filter(function(el) {
       return el.name === node2.name;
@@ -32117,7 +31748,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     });
   };
 
-  // node_modules/focus-lock/dist/es2015/utils/firstFocus.js
+  // ../node_modules/focus-lock/dist/es2015/utils/firstFocus.js
   var pickFirstFocus = function(nodes) {
     if (nodes[0] && nodes.length > 1) {
       return correctNode(nodes[0], nodes);
@@ -32131,7 +31762,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return index;
   };
 
-  // node_modules/focus-lock/dist/es2015/solver.js
+  // ../node_modules/focus-lock/dist/es2015/solver.js
   var NEW_FOCUS = "NEW_FOCUS";
   var newFocus = function(innerNodes, outerNodes, activeElement, lastNode) {
     var cnt = innerNodes.length;
@@ -32182,7 +31813,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return void 0;
   };
 
-  // node_modules/focus-lock/dist/es2015/utils/auto-focus.js
+  // ../node_modules/focus-lock/dist/es2015/utils/auto-focus.js
   var findAutoFocused = function(autoFocusables) {
     return function(node2) {
       var _a;
@@ -32207,7 +31838,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return pickFirstFocus(filterAutoFocusable(orderedNodes));
   };
 
-  // node_modules/focus-lock/dist/es2015/utils/parenting.js
+  // ../node_modules/focus-lock/dist/es2015/utils/parenting.js
   var getParents = function(node2, parents) {
     if (parents === void 0) {
       parents = [];
@@ -32255,7 +31886,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }, []);
   };
 
-  // node_modules/focus-lock/dist/es2015/focusSolver.js
+  // ../node_modules/focus-lock/dist/es2015/focusSolver.js
   var reorderNodes = function(srcNodes, dstNodes) {
     var remap = /* @__PURE__ */ new Map();
     dstNodes.forEach(function(entity) {
@@ -32306,7 +31937,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return orderedInnerElements[newId];
   };
 
-  // node_modules/focus-lock/dist/es2015/focusables.js
+  // ../node_modules/focus-lock/dist/es2015/focusables.js
   var expandFocusableNodes = function(topNode) {
     var entries = getAllAffectedNodes(topNode).filter(isNotAGuard);
     var commonParent = getTopCommonParent(topNode, topNode, entries);
@@ -32330,7 +31961,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     });
   };
 
-  // node_modules/focus-lock/dist/es2015/commands.js
+  // ../node_modules/focus-lock/dist/es2015/commands.js
   var focusOn = function(target, focusOptions) {
     if ("focus" in target) {
       target.focus(focusOptions);
@@ -32340,7 +31971,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }
   };
 
-  // node_modules/focus-lock/dist/es2015/moveFocusInside.js
+  // ../node_modules/focus-lock/dist/es2015/moveFocusInside.js
   var guardCount = 0;
   var lockDisabled = false;
   var moveFocusInside = function(topNode, lastNode, options) {
@@ -32366,7 +31997,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }
   };
 
-  // node_modules/react-focus-lock/dist/es2015/Trap.js
+  // ../node_modules/react-focus-lock/dist/es2015/Trap.js
   var focusOnBody = function focusOnBody2() {
     return document && document.activeElement === document.body;
   };
@@ -32505,7 +32136,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   };
   var FocusTrap = function FocusTrap2(_ref4) {
     var children = _ref4.children;
-    return /* @__PURE__ */ React11.createElement("div", {
+    return /* @__PURE__ */ React10.createElement("div", {
       onBlur,
       onFocus
     }, children);
@@ -32574,19 +32205,19 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   });
   var Trap_default = index_es_default(reducePropsToState, handleStateChangeOnClient)(FocusWatcher);
 
-  // node_modules/react-focus-lock/dist/es2015/sidecar.js
+  // ../node_modules/react-focus-lock/dist/es2015/sidecar.js
   var sidecar_default = exportSidecar(mediumSidecar, Trap_default);
 
-  // node_modules/react-remove-scroll/dist/es2015/SideEffect.js
-  var React14 = __toESM(require_react());
-
-  // node_modules/react-remove-scroll-bar/dist/es2015/component.js
+  // ../node_modules/react-remove-scroll/dist/es2015/SideEffect.js
   var React13 = __toESM(require_react());
 
-  // node_modules/react-style-singleton/dist/es2015/hook.js
+  // ../node_modules/react-remove-scroll-bar/dist/es2015/component.js
   var React12 = __toESM(require_react());
 
-  // node_modules/get-nonce/dist/es2015/index.js
+  // ../node_modules/react-style-singleton/dist/es2015/hook.js
+  var React11 = __toESM(require_react());
+
+  // ../node_modules/get-nonce/dist/es2015/index.js
   var currentNonce;
   var getNonce = function() {
     if (currentNonce) {
@@ -32598,7 +32229,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return void 0;
   };
 
-  // node_modules/react-style-singleton/dist/es2015/singleton.js
+  // ../node_modules/react-style-singleton/dist/es2015/singleton.js
   function makeStyleTag() {
     if (!document)
       return null;
@@ -32610,11 +32241,11 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }
     return tag;
   }
-  function injectStyles(tag, css5) {
+  function injectStyles(tag, css4) {
     if (tag.styleSheet) {
-      tag.styleSheet.cssText = css5;
+      tag.styleSheet.cssText = css4;
     } else {
-      tag.appendChild(document.createTextNode(css5));
+      tag.appendChild(document.createTextNode(css4));
     }
   }
   function insertStyleTag(tag) {
@@ -32644,11 +32275,11 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     };
   };
 
-  // node_modules/react-style-singleton/dist/es2015/hook.js
+  // ../node_modules/react-style-singleton/dist/es2015/hook.js
   var styleHookSingleton = function() {
     var sheet = stylesheetSingleton();
     return function(styles2, isDynamic) {
-      React12.useEffect(function() {
+      React11.useEffect(function() {
         sheet.add(styles2);
         return function() {
           sheet.remove();
@@ -32657,7 +32288,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     };
   };
 
-  // node_modules/react-style-singleton/dist/es2015/component.js
+  // ../node_modules/react-style-singleton/dist/es2015/component.js
   var styleSingleton = function() {
     var useStyle = styleHookSingleton();
     var Sheet = function(_a) {
@@ -32668,7 +32299,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return Sheet;
   };
 
-  // node_modules/react-remove-scroll-bar/dist/es2015/utils.js
+  // ../node_modules/react-remove-scroll-bar/dist/es2015/utils.js
   var zeroGap = {
     left: 0,
     top: 0,
@@ -32703,7 +32334,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     };
   };
 
-  // node_modules/react-remove-scroll-bar/dist/es2015/component.js
+  // ../node_modules/react-remove-scroll-bar/dist/es2015/component.js
   var Style = styleSingleton();
   var getStyles = function(_a, allowRelative, gapMode, important) {
     var left = _a.left, top = _a.top, right = _a.right, gap = _a.gap;
@@ -32718,13 +32349,13 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   };
   var RemoveScrollBar = function(props) {
     var noRelative = props.noRelative, noImportant = props.noImportant, _a = props.gapMode, gapMode = _a === void 0 ? "margin" : _a;
-    var gap = React13.useMemo(function() {
+    var gap = React12.useMemo(function() {
       return getGapWidth(gapMode);
     }, [gapMode]);
-    return React13.createElement(Style, { styles: getStyles(gap, !noRelative, gapMode, !noImportant ? "!important" : "") });
+    return React12.createElement(Style, { styles: getStyles(gap, !noRelative, gapMode, !noImportant ? "!important" : "") });
   };
 
-  // node_modules/react-remove-scroll/dist/es2015/aggresiveCapture.js
+  // ../node_modules/react-remove-scroll/dist/es2015/aggresiveCapture.js
   var passiveSupported = false;
   if (typeof window !== "undefined") {
     try {
@@ -32743,7 +32374,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   var options;
   var nonPassive = passiveSupported ? { passive: false } : false;
 
-  // node_modules/react-remove-scroll/dist/es2015/handleScroll.js
+  // ../node_modules/react-remove-scroll/dist/es2015/handleScroll.js
   var alwaysContainsScroll = function(node2) {
     return node2.tagName === "TEXTAREA";
   };
@@ -32840,7 +32471,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return shouldCancelScroll;
   };
 
-  // node_modules/react-remove-scroll/dist/es2015/SideEffect.js
+  // ../node_modules/react-remove-scroll/dist/es2015/SideEffect.js
   var getTouchXY = function(event) {
     return "changedTouches" in event ? [event.changedTouches[0].clientX, event.changedTouches[0].clientY] : [0, 0];
   };
@@ -32859,16 +32490,16 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   var idCounter = 0;
   var lockStack = [];
   function RemoveScrollSideCar(props) {
-    var shouldPreventQueue = React14.useRef([]);
-    var touchStartRef = React14.useRef([0, 0]);
-    var activeAxis = React14.useRef();
-    var id2 = React14.useState(idCounter++)[0];
-    var Style3 = React14.useState(styleSingleton)[0];
-    var lastProps = React14.useRef(props);
-    React14.useEffect(function() {
+    var shouldPreventQueue = React13.useRef([]);
+    var touchStartRef = React13.useRef([0, 0]);
+    var activeAxis = React13.useRef();
+    var id2 = React13.useState(idCounter++)[0];
+    var Style3 = React13.useState(styleSingleton)[0];
+    var lastProps = React13.useRef(props);
+    React13.useEffect(function() {
       lastProps.current = props;
     }, [props]);
-    React14.useEffect(function() {
+    React13.useEffect(function() {
       if (props.inert) {
         document.body.classList.add("block-interactivity-".concat(id2));
         var allow_1 = __spreadArray([props.lockRef.current], (props.shards || []).map(extractRef3), true).filter(Boolean);
@@ -32884,7 +32515,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
       }
       return;
     }, [props.inert, props.lockRef.current, props.shards]);
-    var shouldCancelEvent = React14.useCallback(function(event, parent) {
+    var shouldCancelEvent = React13.useCallback(function(event, parent) {
       if ("touches" in event && event.touches.length === 2) {
         return !lastProps.current.allowPinchZoom;
       }
@@ -32920,7 +32551,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
       var cancelingAxis = activeAxis.current || currentAxis;
       return handleScroll(cancelingAxis, parent, event, cancelingAxis === "h" ? deltaX : deltaY, true);
     }, []);
-    var shouldPrevent = React14.useCallback(function(_event) {
+    var shouldPrevent = React13.useCallback(function(_event) {
       var event = _event;
       if (!lockStack.length || lockStack[lockStack.length - 1] !== Style3) {
         return;
@@ -32947,7 +32578,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         }
       }
     }, []);
-    var shouldCancel = React14.useCallback(function(name, delta, target, should) {
+    var shouldCancel = React13.useCallback(function(name, delta, target, should) {
       var event = { name, delta, target, should, shadowParent: getOutermostShadowParent(target) };
       shouldPreventQueue.current.push(event);
       setTimeout(function() {
@@ -32956,17 +32587,17 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         });
       }, 1);
     }, []);
-    var scrollTouchStart = React14.useCallback(function(event) {
+    var scrollTouchStart = React13.useCallback(function(event) {
       touchStartRef.current = getTouchXY(event);
       activeAxis.current = void 0;
     }, []);
-    var scrollWheel = React14.useCallback(function(event) {
+    var scrollWheel = React13.useCallback(function(event) {
       shouldCancel(event.type, getDeltaXY(event), event.target, shouldCancelEvent(event, props.lockRef.current));
     }, []);
-    var scrollTouchMove = React14.useCallback(function(event) {
+    var scrollTouchMove = React13.useCallback(function(event) {
       shouldCancel(event.type, getTouchXY(event), event.target, shouldCancelEvent(event, props.lockRef.current));
     }, []);
-    React14.useEffect(function() {
+    React13.useEffect(function() {
       lockStack.push(Style3);
       props.setCallbacks({
         onScrollCapture: scrollWheel,
@@ -32986,11 +32617,11 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
       };
     }, []);
     var removeScrollBar = props.removeScrollBar, inert = props.inert;
-    return React14.createElement(
-      React14.Fragment,
+    return React13.createElement(
+      React13.Fragment,
       null,
-      inert ? React14.createElement(Style3, { styles: generateStyle(id2) }) : null,
-      removeScrollBar ? React14.createElement(RemoveScrollBar, { gapMode: props.gapMode }) : null
+      inert ? React13.createElement(Style3, { styles: generateStyle(id2) }) : null,
+      removeScrollBar ? React13.createElement(RemoveScrollBar, { gapMode: props.gapMode }) : null
     );
   }
   function getOutermostShadowParent(node2) {
@@ -33005,13 +32636,13 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return shadowParent;
   }
 
-  // node_modules/react-remove-scroll/dist/es2015/sidecar.js
+  // ../node_modules/react-remove-scroll/dist/es2015/sidecar.js
   var sidecar_default2 = exportSidecar(effectCar, RemoveScrollSideCar);
 
-  // node_modules/react-focus-on/dist/es2015/Effect.js
-  var React16 = __toESM(require_react());
+  // ../node_modules/react-focus-on/dist/es2015/Effect.js
+  var React15 = __toESM(require_react());
 
-  // node_modules/aria-hidden/dist/es2015/index.js
+  // ../node_modules/aria-hidden/dist/es2015/index.js
   var getDefaultParent = function(originalTarget) {
     if (typeof document === "undefined") {
       return null;
@@ -33128,25 +32759,25 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return applyAttributeToOthers(targets, activeParentNode, markerName, "aria-hidden");
   };
 
-  // node_modules/react-focus-on/dist/es2015/InteractivityDisabler.js
-  var React15 = __toESM(require_react());
+  // ../node_modules/react-focus-on/dist/es2015/InteractivityDisabler.js
+  var React14 = __toESM(require_react());
   var Style2 = styleSingleton();
   var styles = "\n [" + focusHiddenMarker + "] {\n   pointer-events: none !important;\n }\n";
   var InteractivityDisabler = function() {
-    return React15.createElement(Style2, { styles });
+    return React14.createElement(Style2, { styles });
   };
 
-  // node_modules/react-focus-on/dist/es2015/Effect.js
-  var import_react9 = __toESM(require_react());
+  // ../node_modules/react-focus-on/dist/es2015/Effect.js
+  var import_react6 = __toESM(require_react());
   var extractRef4 = function(ref) {
     return "current" in ref ? ref.current : ref;
   };
   function Effect(_a) {
     var setLockProps = _a.setLockProps, onEscapeKey = _a.onEscapeKey, onClickOutside = _a.onClickOutside, shards = _a.shards, onActivation = _a.onActivation, onDeactivation = _a.onDeactivation, noIsolation = _a.noIsolation;
-    var _b = (0, import_react9.useState)(void 0), activeNode = _b[0], setActiveNode = _b[1];
-    var lastEventTarget = (0, import_react9.useRef)(null);
-    var mouseTouches = (0, import_react9.useRef)(0);
-    React16.useEffect(function() {
+    var _b = (0, import_react6.useState)(void 0), activeNode = _b[0], setActiveNode = _b[1];
+    var lastEventTarget = (0, import_react6.useRef)(null);
+    var mouseTouches = (0, import_react6.useRef)(0);
+    React15.useEffect(function() {
       var onKeyDown = function(event) {
         if (!event.defaultPrevented) {
           if ((event.code === "Escape" || event.key === "Escape" || event.keyCode === 27) && onEscapeKey) {
@@ -33187,7 +32818,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         };
       }
     }, [activeNode, onClickOutside, onEscapeKey]);
-    (0, import_react9.useEffect)(function() {
+    (0, import_react6.useEffect)(function() {
       if (activeNode) {
         if (onActivation) {
           onActivation(activeNode);
@@ -33199,7 +32830,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         };
       }
     }, [!!activeNode]);
-    (0, import_react9.useEffect)(function() {
+    (0, import_react6.useEffect)(function() {
       var _undo = function() {
         return null;
       };
@@ -33233,81 +32864,155 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         setLockProps(false);
       };
     }, []);
-    return React16.createElement(InteractivityDisabler, null);
+    return React15.createElement(InteractivityDisabler, null);
   }
 
-  // node_modules/react-focus-on/dist/es2015/sidecar.js
+  // ../node_modules/react-focus-on/dist/es2015/sidecar.js
   var sidecar_default3 = exportSidecar(effectCar2, Effect);
 
-  // node_modules/react-focus-on/dist/es2015/Combination.js
+  // ../node_modules/react-focus-on/dist/es2015/Combination.js
   var RequireSideCar = function(props) {
-    return React17.createElement(sidecar_default3, __assign({}, props));
+    return React16.createElement(sidecar_default3, __assign({}, props));
   };
-  var FocusOn2 = React17.forwardRef(function(props, ref) {
-    return React17.createElement(FocusOn, __assign({}, props, { ref, sideCar: RequireSideCar }));
+  var FocusOn2 = React16.forwardRef(function(props, ref) {
+    return React16.createElement(FocusOn, __assign({}, props, { ref, sideCar: RequireSideCar }));
   });
 
-  // src/SearchModal.tsx
+  // ../lib/index.js
   var import_jsx_runtime8 = __toESM(require_jsx_runtime());
-  var SearchModal = (0, import_react10.forwardRef)(({ onClose, isOpen, children }, ref) => {
-    const returnFocusElRef = (0, import_react10.useRef)(null);
-    (0, import_react10.useEffect)(() => {
-      if (isOpen) {
-        returnFocusElRef.current = document.activeElement;
-      } else {
-        returnFocusElRef.current?.focus();
-        returnFocusElRef.current = null;
-      }
-    }, [isOpen]);
-    const onCloseDelayed = () => {
-      window.setTimeout(() => {
-        onClose();
-      }, 0);
-    };
-    return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(VuiPortal, { children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "vrsStyleWrapper", children: isOpen && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(VuiScreenBlock, { children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-      FocusOn2,
-      {
-        onEscapeKey: onCloseDelayed,
-        onClickOutside: onCloseDelayed,
-        returnFocus: false,
-        autoFocus: isOpen,
-        children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "vrsSearchModalContainer", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { ref, className: "vrsSearchModal", children }) })
-      }
-    ) }) }) });
-  });
-
-  // src/useSearchHistory.ts
-  var import_react11 = __toESM(require_react());
-  var useSearchHistory = (searchId, size = 10) => {
-    const getStorageKey = (0, import_react11.useCallback)(() => {
-      return `vectara-search:${searchId}:history`;
-    }, [searchId]);
-    const getPreviousSearches = (0, import_react11.useCallback)(() => {
-      const storedData = window.localStorage.getItem(getStorageKey());
-      return JSON.parse(storedData ?? "[]");
-    }, [getStorageKey]);
-    const addPreviousSearch = (0, import_react11.useCallback)(
-      (searchTerm) => {
-        const previousSearches = getPreviousSearches();
-        const updatedPreviousSearches = [searchTerm, ...previousSearches].slice(
-          0,
-          size
-        );
-        window.localStorage.setItem(
-          getStorageKey(),
-          JSON.stringify(updatedPreviousSearches)
-        );
-      },
-      [getStorageKey]
-    );
-    return {
-      getPreviousSearches,
-      addPreviousSearch
-    };
+  var import_react12 = __toESM(require_react());
+  var import_jsx_runtime9 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime10 = __toESM(require_jsx_runtime());
+  var we = Object.defineProperty;
+  var Ce = Object.defineProperties;
+  var Fe = Object.getOwnPropertyDescriptors;
+  var z = Object.getOwnPropertySymbols;
+  var te = Object.prototype.hasOwnProperty;
+  var ie = Object.prototype.propertyIsEnumerable;
+  var ee = (t, e, i) => e in t ? we(t, e, { enumerable: true, configurable: true, writable: true, value: i }) : t[e] = i;
+  var v = (t, e) => {
+    for (var i in e || (e = {}))
+      te.call(e, i) && ee(t, i, e[i]);
+    if (z)
+      for (var i of z(e))
+        ie.call(e, i) && ee(t, i, e[i]);
+    return t;
   };
-
-  // src/_index.scss
-  var css = `.vuiFlexContainer {
+  var T = (t, e) => Ce(t, Fe(e));
+  var S = (t, e) => {
+    var i = {};
+    for (var n in t)
+      te.call(t, n) && e.indexOf(n) < 0 && (i[n] = t[n]);
+    if (t != null && z)
+      for (var n of z(t))
+        e.indexOf(n) < 0 && ie.call(t, n) && (i[n] = t[n]);
+    return i;
+  };
+  var L = (t, e, i) => new Promise((n, o) => {
+    var r = (c) => {
+      try {
+        a(i.next(c));
+      } catch (s) {
+        o(s);
+      }
+    }, u = (c) => {
+      try {
+        a(i.throw(c));
+      } catch (s) {
+        o(s);
+      }
+    }, a = (c) => c.done ? n(c.value) : Promise.resolve(c.value).then(r, u);
+    a((i = i.apply(t, e)).next());
+  });
+  var ye = { baseline: "vuiFlexContainer--alignItemsBaseline", center: "vuiFlexContainer--alignItemsCenter", end: "vuiFlexContainer--alignItemsEnd", start: "vuiFlexContainer--alignItemsStart", stretch: "vuiFlexContainer--alignItemsStretch" };
+  var Te = { column: "vuiFlexContainer--directionColumn", columnReverse: "vuiFlexContainer--directionColumnReverse", row: "vuiFlexContainer--directionRow", rowReverse: "vuiFlexContainer--directionRowReverse" };
+  var ke = { center: "vuiFlexContainer--justifyContentCenter", end: "vuiFlexContainer--justifyContentEnd", start: "vuiFlexContainer--justifyContentStart", spaceAround: "vuiFlexContainer--justifyContentSpaceAround", spaceBetween: "vuiFlexContainer--justifyContentSpaceBetween", spaceEvenly: "vuiFlexContainer--justifyContentSpaceEvenly" };
+  var Re = { none: "vuiFlexContainer--spacingNone", xxs: "vuiFlexContainer--spacingXxs", xs: "vuiFlexContainer--spacingXs", s: "vuiFlexContainer--spacingS", m: "vuiFlexContainer--spacingM", l: "vuiFlexContainer--spacingL", xl: "vuiFlexContainer--spacingXl", xxl: "vuiFlexContainer--spacingXxl" };
+  var P = (s) => {
+    var m = s, { children: t, alignItems: e = "stretch", direction: i = "row", justifyContent: n = "start", spacing: o = "m", wrap: r, className: u, fullWidth: a } = m, c = S(m, ["children", "alignItems", "direction", "justifyContent", "spacing", "wrap", "className", "fullWidth"]);
+    let b = (0, import_classnames.default)(u, "vuiFlexContainer", ye[e], Te[i], ke[n], Re[o], { "vuiFlexContainer--wrap": r, "vuiFlexContainer--fullWidth": a });
+    return (0, import_jsx_runtime.jsx)("div", T(v({ className: b }, c), { children: t }));
+  };
+  var Me = { baseline: "vuiFlexItem--alignItemsBaseline", center: "vuiFlexItem--alignItemsCenter", end: "vuiFlexItem--alignItemsEnd", start: "vuiFlexItem--alignItemsStart", stretch: "vuiFlexItem--alignItemsStretch" };
+  var R = (c) => {
+    var s = c, { children: t, grow: e, shrink: i, basis: n = "auto", alignItems: o = "stretch", className: r, truncate: u } = s, a = S(s, ["children", "grow", "shrink", "basis", "alignItems", "className", "truncate"]);
+    let m = e === false, b = i === false, d = (0, import_classnames2.default)("vuiFlexItem", `vuiFlexItem--${n}`, Me[o], { [`vuiFlexItem--flexGrow${e}`]: typeof e == "number", "vuiFlexItem--flexGrowNone": m, [`vuiFlexItem--flexShrink${i}`]: typeof i == "number", "vuiFlexItem--flexShrinkNone": b, "vuiFlexItem--truncate": u }, r);
+    return (0, import_jsx_runtime2.jsx)("div", T(v({ className: d }, a), { children: t }));
+  };
+  var A = ({ children: t }) => {
+    let e = (0, import_react8.useRef)(null);
+    return (0, import_react8.useEffect)(() => (e.current = document.createElement("div"), document.body.appendChild(e.current), () => {
+      var i, n;
+      (n = (i = e.current) == null ? void 0 : i.parentNode) == null || n.removeChild(e.current);
+    }), []), e.current ? (0, import_react_dom.createPortal)(t, e.current) : null;
+  };
+  var H = ({ onClick: t, children: e }) => (0, import_jsx_runtime3.jsxs)("div", { className: "vuiScreenBlock", children: [e, (0, import_jsx_runtime3.jsx)("div", { className: "vuiScreenBlock__mask", onClick: t })] });
+  var je = { xs: "vuiSpinner--xs", s: "vuiSpinner--s", m: "vuiSpinner--m", l: "vuiSpinner--l", xl: "vuiSpinner--xl", xxl: "vuiSpinner--xxl", xxxl: "vuiSpinner--xxxl" };
+  var O = ({ size: t = "m" }) => {
+    let e = (0, import_classnames3.default)("vuiSpinner", je[t]);
+    return (0, import_jsx_runtime4.jsx)("div", { className: e, children: (0, import_jsx_runtime4.jsxs)("svg", { className: "vuiSpinner__animation", version: "1.0", width: "100px", height: "100px", viewBox: "0 0 128 128", xmlSpace: "preserve", children: [(0, import_jsx_runtime4.jsxs)("g", { children: [(0, import_jsx_runtime4.jsx)("path", { fill: "#d7c3fc", d: "M99.359,10.919a60.763,60.763,0,1,0,0,106.162A63.751,63.751,0,1,1,99.359,10.919Z" }), (0, import_jsx_runtime4.jsx)("animateTransform", { attributeName: "transform", type: "rotate", from: "0 64 64", to: "360 64 64", dur: "960ms", repeatCount: "indefinite" })] }), (0, import_jsx_runtime4.jsxs)("g", { children: [(0, import_jsx_runtime4.jsx)("path", { fill: "#ab81fa", d: "M28.641,117.081a60.763,60.763,0,1,0,0-106.162A63.751,63.751,0,1,1,28.641,117.081Z" }), (0, import_jsx_runtime4.jsx)("animateTransform", { attributeName: "transform", type: "rotate", from: "0 64 64", to: "360 64 64", dur: "1440ms", repeatCount: "indefinite" })] }), (0, import_jsx_runtime4.jsxs)("g", { children: [(0, import_jsx_runtime4.jsx)("path", { fill: "#7027f6", d: "M117.081,99.313a60.763,60.763,0,1,0-106.162,0A63.751,63.751,0,1,1,117.081,99.313Z" }), (0, import_jsx_runtime4.jsx)("animateTransform", { attributeName: "transform", type: "rotate", from: "0 64 64", to: "360 64 64", dur: "2880ms", repeatCount: "indefinite" })] })] }) });
+  };
+  var V = (a) => {
+    var c = a, { children: t, className: e, id: i, truncate: n, size: o = "s", align: r } = c, u = S(c, ["children", "className", "id", "truncate", "size", "align"]);
+    let s = (0, import_classnames4.default)("vuiText", `vuiText--${o}`, { [`vuiText--${r}`]: r, "vuiText--truncate": n }, e);
+    return (0, import_jsx_runtime5.jsx)("div", T(v({ className: s, id: i }, u), { children: t }));
+  };
+  var qe = "https://api.vectara.io/v1/query";
+  var oe = (t, e, i, n = qe) => {
+    let [o, r] = (0, import_react10.useState)(false), u = import_react10.default.useMemo(() => {
+      let s = new Headers();
+      return s.append("customer-id", t), s.append("x-api-key", i), s.append("content-type", "application/json"), s.append("x-source", "react-search"), s;
+    }, [t, i]), a = (0, import_react10.useCallback)((s) => JSON.stringify({ query: [{ query: s, start: 0, numResults: 20, corpusKey: [{ corpusId: e }] }] }), [e]);
+    return { fetchSearchResults: (s) => L(void 0, null, function* () {
+      var f, C;
+      r(true);
+      let m = a(s), d = yield (yield fetch(n, { headers: u, body: m, method: "POST" })).json();
+      r(false);
+      let w = (C = Ke((f = d.responseSet) == null ? void 0 : f[0])) != null ? C : [];
+      return Ze(w);
+    }), isLoading: o };
+  };
+  var Ue = (t) => {
+    let e = {};
+    return t.forEach((i) => {
+      e[i.name] = i.value;
+    }), e;
+  };
+  var $e = (t) => {
+    let e = Ue(t);
+    return { source: e.source, url: e.url, title: e.title, metadata: e };
+  };
+  var Ke = (t) => {
+    if (!t)
+      return;
+    let e = [], { response: i, document: n } = t;
+    return i.forEach((o) => {
+      let { documentIndex: r, text: u } = o, { pre: a, post: c, text: s } = We(u), m = n[Number(r)], { id: b, metadata: d } = m, { source: w, url: f, title: C, metadata: j } = $e(d);
+      e.push({ id: b, snippet: { pre: a, text: s, post: c }, source: w, url: f, title: C, metadata: j });
+    }), e;
+  };
+  var ne = "%START_SNIPPET%";
+  var re = "%END_SNIPPET%";
+  var We = (t) => {
+    let [e, i] = t.indexOf(ne) !== -1 ? t.split(ne) : ["", t], [n, o] = i.indexOf(re) !== -1 ? i.split(re) : [i, ""];
+    return { pre: e, post: o, text: n };
+  };
+  var Ze = (t) => {
+    let e = {}, i = [];
+    return t.forEach((n) => {
+      if (n.url) {
+        if (e[n.url])
+          return;
+        e[n.url] = true;
+      }
+      i.push(n);
+    }), i;
+  };
+  var le = ({ searchResult: t, isSelected: e = false, opensInNewTab: i = false }) => {
+    let { title: n, url: o, snippet: { text: r } } = t, u = (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [n && (0, import_jsx_runtime7.jsx)("p", { className: "vrsSearchResultTitle", children: n }), (0, import_jsx_runtime7.jsx)("p", { className: "vrsSearchResultSnippet", children: r })] });
+    return o ? (0, import_jsx_runtime7.jsx)("a", { "data-testid": "vrsResultLink", className: `vrsSearchResult vrsSearchResult-isLink ${e ? "isSelected" : ""}`, href: o, target: i ? "_blank" : "_self", children: u }) : (0, import_jsx_runtime7.jsx)("div", { "data-testid": "vrsResultWrapper", className: "vrsSearchResult", children: u });
+  };
+  var q = `.vuiFlexContainer {
   display: flex;
   align-items: stretch;
 }
@@ -33842,6 +33547,1707 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   color: #2c313a !important;
 }
 
+body,
+textarea {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: none;
+  vertical-align: baseline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+a[href],
+button,
+[role=button] {
+  cursor: pointer;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+input {
+  margin: 0;
+  padding: 0;
+}
+
+input:disabled {
+  opacity: 1; /* required on iOS */
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+hr {
+  margin: 0;
+}
+
+fieldset {
+  min-inline-size: auto;
+}
+
+.vrsSearchForm {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.vrsSearchInput {
+  flex-grow: 1;
+  padding: 24px;
+  background-color: #ffffff;
+  border: none;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 0px 0px 0px, rgba(60, 64, 67, 0.15) 0px 0px 0px 0px;
+  outline-width: 1px;
+  outline-style: solid;
+  outline-color: transparent;
+  outline-offset: -1px;
+  font-size: 18px;
+  color: #2c313a;
+}
+
+.vrsSubmitButtonWrapper {
+  padding-right: 16px;
+}
+
+.vrsSubmitButton {
+  line-height: 0;
+  color: #69707d;
+  transition: all 0.2s;
+}
+.vrsSubmitButton:hover {
+  color: rgb(38, 76, 214);
+}
+
+.vrsSearchResult {
+  background-color: #ffffff;
+  display: block;
+  padding: 12px 24px 12px 24px;
+  text-decoration: none;
+  border-bottom: 1px solid #e3e4f3;
+}
+.vrsSearchResult:hover {
+  background-color: #f3f7fb;
+}
+.vrsSearchResult:last-of-type {
+  border-bottom: none;
+}
+
+.vrsSearchResult-isLink {
+  padding-left: 16px;
+  border-left: 12px solid #ffffff;
+}
+.vrsSearchResult-isLink:hover, .vrsSearchResult-isLink.isSelected {
+  border-left: 12px solid rgb(38, 76, 214);
+}
+.vrsSearchResult-isLink:hover .vrsSearchResultTitle, .vrsSearchResult-isLink.isSelected .vrsSearchResultTitle {
+  text-decoration: underline;
+}
+.vrsSearchResult-isLink .vrsSearchResultTitle {
+  color: rgb(38, 76, 214);
+}
+
+.vrsSearchResultTitle {
+  color: #2c313a;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 22px;
+  margin-bottom: 4px;
+}
+
+.vrsSearchResultSnippet {
+  color: #2c313a;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 0;
+}
+
+:host {
+  all: initial;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.vrsSearchModalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  animation: modalIn 0.2s cubic-bezier(0, 1, 1, 1);
+  pointer-events: none;
+}
+.vrsSearchModalContainer .vrsSearchModal {
+  margin-top: 6vh;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 720px;
+  max-height: 88vh;
+  z-index: 12;
+  pointer-events: all;
+  background-color: #ffffff;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.vrsSearchModalContainer .vrsSearchModalResults {
+  border-top: 1px solid #cbcdde;
+  overflow-y: auto;
+}
+
+@media only screen and (max-width: 740px) {
+  .vrsSearchModalContainer {
+    overflow-y: auto;
+  }
+  .vrsSearchModalContainer .vrsSearchModal {
+    margin-top: 0 !important;
+    max-width: 100vw !important;
+    max-height: none !important;
+    border-radius: 0 !important;
+    overflow: initial !important;
+  }
+  .vrsSearchModalContainer .vrsSearchModalResults {
+    overflow-y: none !important;
+  }
+}`;
+  var ce = (0, import_react11.forwardRef)(({ onClose: t, isOpen: e, children: i }, n) => {
+    let o = (0, import_react11.useRef)(null);
+    (0, import_react11.useEffect)(() => {
+      var u, a, c;
+      e ? o.current = (a = (u = document.activeElement) == null ? void 0 : u.shadowRoot) == null ? void 0 : a.querySelector("button") : ((c = o.current) == null || c.focus(), o.current = null);
+    }, [e]);
+    let r = () => {
+      window.setTimeout(() => {
+        t();
+      }, 0);
+    };
+    return (0, import_jsx_runtime8.jsx)(A, { children: (0, import_jsx_runtime8.jsx)("div", { className: "vrsStyleWrapper", children: e && (0, import_jsx_runtime8.jsx)(H, { children: (0, import_jsx_runtime8.jsx)(FocusOn2, { onEscapeKey: r, onClickOutside: r, returnFocus: false, autoFocus: e, children: (0, import_jsx_runtime8.jsx)(it, { ref: n, children: i }) }) }) }) });
+  });
+  var tt = ({ ref: t, children: e }) => (0, import_jsx_runtime8.jsx)("div", { className: "vrsSearchModalContainer", children: (0, import_jsx_runtime8.jsx)("div", { ref: t, className: "vrsSearchModal", children: e }) });
+  var U = class extends HTMLElement {
+    static get observedAttributes() {
+      return ["isopen", "onclosedelayedupdatetime", "reactchildrenupdatetime", "refupdatetime"];
+    }
+    setOnCloseDelayed(e) {
+      this.onCloseDelayed = e, this.setAttribute("onclosedelayedupdatetime", Date.now().toString());
+    }
+    setReactChildren(e) {
+      this.reactChildren = e, this.setAttribute("reactchildrenupdatetime", Date.now().toString());
+    }
+    setRef(e) {
+      this.ref = e, this.setAttribute("refupdatetime", Date.now().toString());
+    }
+    constructor() {
+      super(), this.sr = this.attachShadow({ mode: "open" });
+      try {
+        this.sheet = new CSSStyleSheet(), this.sheet.replaceSync(q), this.sr.adoptedStyleSheets = [this.sheet];
+      } catch (e) {
+        let i = document.createElement("style");
+        i.innerText = q, this.sr.appendChild(i);
+      }
+      this.mountPoint = document.createElement("div"), this.sr.appendChild(this.mountPoint);
+    }
+    connectedCallback() {
+      let e = this.reactChildren, i = this.ref;
+      ue.render((0, import_jsx_runtime8.jsx)(import_jsx_runtime8.Fragment, { children: (0, import_jsx_runtime8.jsx)(tt, { ref: i, children: e }) }), this.mountPoint);
+    }
+    attributeChangedCallback() {
+      this.connectedCallback();
+    }
+  };
+  window.customElements.get("react-search-modal-contents") || window.customElements.define("react-search-modal-contents", U);
+  var it = (t) => {
+    let e = (0, import_react11.useRef)(null);
+    return (0, import_react11.useEffect)(() => {
+      e.current && (e.current.setReactChildren(t.children), e.current.setRef(t.ref), e.current.setOnCloseDelayed(t.onCloseDelayed));
+    }, [t]), (0, import_jsx_runtime8.jsx)("react-search-modal-contents", { ref: e, isOpen: t.isOpen });
+  };
+  var xe = (t, e = 10) => {
+    let i = (0, import_react12.useCallback)(() => `vectara-search:${t}:history`, [t]), n = (0, import_react12.useCallback)(() => {
+      let r = window.localStorage.getItem(i());
+      return JSON.parse(r != null ? r : "[]");
+    }, [i]), o = (0, import_react12.useCallback)((r) => {
+      let u = n(), a = [r, ...u].slice(0, e);
+      window.localStorage.setItem(i(), JSON.stringify(a));
+    }, [i]);
+    return { getPreviousSearches: n, addPreviousSearch: o };
+  };
+  var K = `.vuiFlexContainer {
+  display: flex;
+  align-items: stretch;
+}
+
+.vuiFlexContainer--fullWidth {
+  width: 100%;
+}
+
+.vuiFlexContainer--wrap {
+  flex-wrap: wrap;
+}
+
+.vuiFlexContainer--alignItemsBaseline {
+  align-items: baseline;
+}
+
+.vuiFlexContainer--alignItemsCenter {
+  align-items: center;
+}
+
+.vuiFlexContainer--alignItemsEnd {
+  align-items: end;
+}
+
+.vuiFlexContainer--alignItemsStart {
+  align-items: start;
+}
+
+.vuiFlexContainer--alignItemsStretch {
+  align-items: stretch;
+}
+
+.vuiFlexContainer--directionColumn {
+  flex-direction: column;
+}
+
+.vuiFlexContainer--directionColumnReverse {
+  flex-direction: column-reverse;
+}
+
+.vuiFlexContainer--directionRow {
+  flex-direction: row;
+}
+
+.vuiFlexContainer--directionRowReverse {
+  flex-direction: row-reverse;
+}
+
+.vuiFlexContainer--justifyContentCenter {
+  justify-content: center;
+}
+
+.vuiFlexContainer--justifyContentEnd {
+  justify-content: end;
+}
+
+.vuiFlexContainer--justifyContentStart {
+  justify-content: start;
+}
+
+.vuiFlexContainer--justifyContentSpaceAround {
+  justify-content: space-around;
+}
+
+.vuiFlexContainer--justifyContentSpaceBetween {
+  justify-content: space-between;
+}
+
+.vuiFlexContainer--justifyContentSpaceEvenly {
+  justify-content: space-evenly;
+}
+
+.vuiFlexContainer--spacingNone {
+  margin: 0;
+}
+.vuiFlexContainer--spacingNone > .vuiFlexItem {
+  margin: 0;
+}
+
+.vuiFlexContainer--spacingXxs {
+  margin: -2px;
+}
+.vuiFlexContainer--spacingXxs > .vuiFlexItem {
+  margin: 2px;
+}
+
+.vuiFlexContainer--spacingXs {
+  margin: -4px;
+}
+.vuiFlexContainer--spacingXs > .vuiFlexItem {
+  margin: 4px;
+}
+
+.vuiFlexContainer--spacingS {
+  margin: -6px;
+}
+.vuiFlexContainer--spacingS > .vuiFlexItem {
+  margin: 6px;
+}
+
+.vuiFlexContainer--spacingM {
+  margin: -8px;
+}
+.vuiFlexContainer--spacingM > .vuiFlexItem {
+  margin: 8px;
+}
+
+.vuiFlexContainer--spacingL {
+  margin: -12px;
+}
+.vuiFlexContainer--spacingL > .vuiFlexItem {
+  margin: 12px;
+}
+
+.vuiFlexContainer--spacingXl {
+  margin: -16px;
+}
+.vuiFlexContainer--spacingXl > .vuiFlexItem {
+  margin: 16px;
+}
+
+.vuiFlexContainer--spacingXxl {
+  margin: -20px;
+}
+.vuiFlexContainer--spacingXxl > .vuiFlexItem {
+  margin: 20px;
+}
+
+.vuiFlexItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.vuiFlexItem--truncate {
+  min-width: 40px;
+}
+
+.vuiFlexItem--alignItemsBaseline {
+  align-items: baseline;
+}
+
+.vuiFlexItem--alignItemsCenter {
+  align-items: center;
+}
+
+.vuiFlexItem--alignItemsEnd {
+  align-items: end;
+}
+
+.vuiFlexItem--alignItemsStart {
+  align-items: start;
+}
+
+.vuiFlexItem--alignItemsStretch {
+  align-items: stretch;
+}
+
+.vuiFlexItem--flexGrow0 {
+  flex-grow: 0;
+}
+
+.vuiFlexItem--flexGrow1 {
+  flex-grow: 1;
+}
+
+.vuiFlexItem--flexGrow2 {
+  flex-grow: 2;
+}
+
+.vuiFlexItem--flexGrow3 {
+  flex-grow: 3;
+}
+
+.vuiFlexItem--flexGrow4 {
+  flex-grow: 4;
+}
+
+.vuiFlexItem--flexGrow5 {
+  flex-grow: 5;
+}
+
+.vuiFlexItem--flexGrow6 {
+  flex-grow: 6;
+}
+
+.vuiFlexItem--flexGrow7 {
+  flex-grow: 7;
+}
+
+.vuiFlexItem--flexGrow8 {
+  flex-grow: 8;
+}
+
+.vuiFlexItem--flexGrow9 {
+  flex-grow: 9;
+}
+
+.vuiFlexItem--flexGrow10 {
+  flex-grow: 10;
+}
+
+.vuiFlexItem--flexGrowNone {
+  flex-basis: auto;
+  flex-grow: 0;
+}
+
+.vuiFlexItem--flexShrink0 {
+  flex-shrink: 0;
+}
+
+.vuiFlexItem--flexShrink1 {
+  flex-shrink: 1;
+}
+
+.vuiFlexItem--flexShrink2 {
+  flex-shrink: 2;
+}
+
+.vuiFlexItem--flexShrink3 {
+  flex-shrink: 3;
+}
+
+.vuiFlexItem--flexShrink4 {
+  flex-shrink: 4;
+}
+
+.vuiFlexItem--flexShrink5 {
+  flex-shrink: 5;
+}
+
+.vuiFlexItem--flexShrink6 {
+  flex-shrink: 6;
+}
+
+.vuiFlexItem--flexShrink7 {
+  flex-shrink: 7;
+}
+
+.vuiFlexItem--flexShrink8 {
+  flex-shrink: 8;
+}
+
+.vuiFlexItem--flexShrink9 {
+  flex-shrink: 9;
+}
+
+.vuiFlexItem--flexShrink10 {
+  flex-shrink: 10;
+}
+
+.vuiFlexItem--flexShrinkNone {
+  flex-basis: auto;
+  flex-shrink: 0;
+}
+
+.vuiFlexItem--auto {
+  flex-basis: auto;
+}
+
+.vuiFlexItem--content {
+  flex-basis: content;
+}
+
+.vuiFlexItem--fill {
+  flex-basis: fill;
+}
+
+.vuiFlexItem--maxContent {
+  flex-basis: max-content;
+}
+
+.vuiFlexItem--minContent {
+  flex-basis: min-content;
+}
+
+.vuiFlexItem--none {
+  flex-basis: 0;
+}
+
+.vuiScreenBlock {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vuiScreenBlock__mask {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.vuiSpinner--xs {
+  width: 16px;
+  height: 16px;
+}
+
+.vuiSpinner--s {
+  width: 24px;
+  height: 24px;
+}
+
+.vuiSpinner--m {
+  width: 32px;
+  height: 32px;
+}
+
+.vuiSpinner--l {
+  width: 48px;
+  height: 48px;
+}
+
+.vuiSpinner--xl {
+  width: 64px;
+  height: 64px;
+}
+
+.vuiSpinner--xxl {
+  width: 80px;
+  height: 80px;
+}
+
+.vuiSpinner--xxxl {
+  width: 100px;
+  height: 100px;
+}
+
+.vuiSpinner__animation {
+  width: 100%;
+  height: 100%;
+}
+
+.vuiTitle {
+  color: #2c313a;
+  margin-bottom: 0;
+}
+
+.vuiTitle--xxs {
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 400;
+  color: #2c313a;
+}
+
+.vuiTitle--xs {
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 600;
+  color: #2c313a;
+}
+
+.vuiTitle--s {
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 600;
+  color: #69707d;
+}
+
+.vuiTitle--m {
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #2c313a;
+}
+
+.vuiTitle--l {
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: 400;
+  color: #2c313a;
+}
+
+.vuiTitle--xl {
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 400;
+  color: #2c313a;
+}
+
+.vuiTitle--xxl {
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 600;
+  color: #2c313a;
+}
+
+.vuiTitle--left {
+  text-align: left;
+}
+
+.vuiTitle--center {
+  text-align: center;
+}
+
+.vuiTitle--right {
+  text-align: right;
+}
+
+.vuiText {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.vuiText ul {
+  list-style: disc;
+}
+.vuiText ol {
+  list-style: auto;
+}
+.vuiText ul,
+.vuiText ol {
+  margin-left: 16px;
+  margin-bottom: 8px;
+}
+.vuiText ul:last-child,
+.vuiText ol:last-child {
+  margin-bottom: 0;
+}
+.vuiText a {
+  color: rgb(38, 76, 214);
+}
+
+.vuiText--truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.vuiText--truncate * {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vuiText--xs {
+  color: #2c313a;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.vuiText--xs p {
+  font-size: 12px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+.vuiText--xs p:last-child {
+  margin-bottom: 0;
+}
+
+.vuiText--s {
+  color: #2c313a;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.vuiText--s p {
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+.vuiText--s p:last-child {
+  margin-bottom: 0;
+}
+
+.vuiText--m {
+  color: #2c313a;
+  font-size: 16px;
+  line-height: 1.4;
+}
+.vuiText--m p {
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+.vuiText--m p:last-child {
+  margin-bottom: 0;
+}
+
+.vuiText--l {
+  color: #2c313a;
+  font-size: 18px;
+  line-height: 1.4;
+}
+.vuiText--l p {
+  font-size: 18px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+.vuiText--l p:last-child {
+  margin-bottom: 0;
+}
+
+.vuiText--left {
+  text-align: left;
+}
+
+.vuiText--center {
+  text-align: center;
+}
+
+.vuiText--right {
+  text-align: right;
+}
+
+.vuiTextColor--accent {
+  color: #551edf !important;
+}
+
+.vuiTextColor--primary {
+  color: rgb(38, 76, 214) !important;
+}
+
+.vuiTextColor--success {
+  color: #04821f !important;
+}
+
+.vuiTextColor--warning {
+  color: #965a15 !important;
+}
+
+.vuiTextColor--danger {
+  color: #c41535 !important;
+}
+
+.vuiTextColor--subdued {
+  color: #69707d !important;
+}
+
+.vuiTextColor--neutral {
+  color: #2c313a !important;
+}
+
+.vuiFlexContainer {
+  display: flex;
+  align-items: stretch;
+}
+
+.vuiFlexContainer--fullWidth {
+  width: 100%;
+}
+
+.vuiFlexContainer--wrap {
+  flex-wrap: wrap;
+}
+
+.vuiFlexContainer--alignItemsBaseline {
+  align-items: baseline;
+}
+
+.vuiFlexContainer--alignItemsCenter {
+  align-items: center;
+}
+
+.vuiFlexContainer--alignItemsEnd {
+  align-items: end;
+}
+
+.vuiFlexContainer--alignItemsStart {
+  align-items: start;
+}
+
+.vuiFlexContainer--alignItemsStretch {
+  align-items: stretch;
+}
+
+.vuiFlexContainer--directionColumn {
+  flex-direction: column;
+}
+
+.vuiFlexContainer--directionColumnReverse {
+  flex-direction: column-reverse;
+}
+
+.vuiFlexContainer--directionRow {
+  flex-direction: row;
+}
+
+.vuiFlexContainer--directionRowReverse {
+  flex-direction: row-reverse;
+}
+
+.vuiFlexContainer--justifyContentCenter {
+  justify-content: center;
+}
+
+.vuiFlexContainer--justifyContentEnd {
+  justify-content: end;
+}
+
+.vuiFlexContainer--justifyContentStart {
+  justify-content: start;
+}
+
+.vuiFlexContainer--justifyContentSpaceAround {
+  justify-content: space-around;
+}
+
+.vuiFlexContainer--justifyContentSpaceBetween {
+  justify-content: space-between;
+}
+
+.vuiFlexContainer--justifyContentSpaceEvenly {
+  justify-content: space-evenly;
+}
+
+.vuiFlexContainer--spacingNone {
+  margin: 0;
+}
+.vuiFlexContainer--spacingNone > .vuiFlexItem {
+  margin: 0;
+}
+
+.vuiFlexContainer--spacingXxs {
+  margin: -2px;
+}
+.vuiFlexContainer--spacingXxs > .vuiFlexItem {
+  margin: 2px;
+}
+
+.vuiFlexContainer--spacingXs {
+  margin: -4px;
+}
+.vuiFlexContainer--spacingXs > .vuiFlexItem {
+  margin: 4px;
+}
+
+.vuiFlexContainer--spacingS {
+  margin: -6px;
+}
+.vuiFlexContainer--spacingS > .vuiFlexItem {
+  margin: 6px;
+}
+
+.vuiFlexContainer--spacingM {
+  margin: -8px;
+}
+.vuiFlexContainer--spacingM > .vuiFlexItem {
+  margin: 8px;
+}
+
+.vuiFlexContainer--spacingL {
+  margin: -12px;
+}
+.vuiFlexContainer--spacingL > .vuiFlexItem {
+  margin: 12px;
+}
+
+.vuiFlexContainer--spacingXl {
+  margin: -16px;
+}
+.vuiFlexContainer--spacingXl > .vuiFlexItem {
+  margin: 16px;
+}
+
+.vuiFlexContainer--spacingXxl {
+  margin: -20px;
+}
+.vuiFlexContainer--spacingXxl > .vuiFlexItem {
+  margin: 20px;
+}
+
+.vuiFlexItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.vuiFlexItem--truncate {
+  min-width: 40px;
+}
+
+.vuiFlexItem--alignItemsBaseline {
+  align-items: baseline;
+}
+
+.vuiFlexItem--alignItemsCenter {
+  align-items: center;
+}
+
+.vuiFlexItem--alignItemsEnd {
+  align-items: end;
+}
+
+.vuiFlexItem--alignItemsStart {
+  align-items: start;
+}
+
+.vuiFlexItem--alignItemsStretch {
+  align-items: stretch;
+}
+
+.vuiFlexItem--flexGrow0 {
+  flex-grow: 0;
+}
+
+.vuiFlexItem--flexGrow1 {
+  flex-grow: 1;
+}
+
+.vuiFlexItem--flexGrow2 {
+  flex-grow: 2;
+}
+
+.vuiFlexItem--flexGrow3 {
+  flex-grow: 3;
+}
+
+.vuiFlexItem--flexGrow4 {
+  flex-grow: 4;
+}
+
+.vuiFlexItem--flexGrow5 {
+  flex-grow: 5;
+}
+
+.vuiFlexItem--flexGrow6 {
+  flex-grow: 6;
+}
+
+.vuiFlexItem--flexGrow7 {
+  flex-grow: 7;
+}
+
+.vuiFlexItem--flexGrow8 {
+  flex-grow: 8;
+}
+
+.vuiFlexItem--flexGrow9 {
+  flex-grow: 9;
+}
+
+.vuiFlexItem--flexGrow10 {
+  flex-grow: 10;
+}
+
+.vuiFlexItem--flexGrowNone {
+  flex-basis: auto;
+  flex-grow: 0;
+}
+
+.vuiFlexItem--flexShrink0 {
+  flex-shrink: 0;
+}
+
+.vuiFlexItem--flexShrink1 {
+  flex-shrink: 1;
+}
+
+.vuiFlexItem--flexShrink2 {
+  flex-shrink: 2;
+}
+
+.vuiFlexItem--flexShrink3 {
+  flex-shrink: 3;
+}
+
+.vuiFlexItem--flexShrink4 {
+  flex-shrink: 4;
+}
+
+.vuiFlexItem--flexShrink5 {
+  flex-shrink: 5;
+}
+
+.vuiFlexItem--flexShrink6 {
+  flex-shrink: 6;
+}
+
+.vuiFlexItem--flexShrink7 {
+  flex-shrink: 7;
+}
+
+.vuiFlexItem--flexShrink8 {
+  flex-shrink: 8;
+}
+
+.vuiFlexItem--flexShrink9 {
+  flex-shrink: 9;
+}
+
+.vuiFlexItem--flexShrink10 {
+  flex-shrink: 10;
+}
+
+.vuiFlexItem--flexShrinkNone {
+  flex-basis: auto;
+  flex-shrink: 0;
+}
+
+.vuiFlexItem--auto {
+  flex-basis: auto;
+}
+
+.vuiFlexItem--content {
+  flex-basis: content;
+}
+
+.vuiFlexItem--fill {
+  flex-basis: fill;
+}
+
+.vuiFlexItem--maxContent {
+  flex-basis: max-content;
+}
+
+.vuiFlexItem--minContent {
+  flex-basis: min-content;
+}
+
+.vuiFlexItem--none {
+  flex-basis: 0;
+}
+
+.vuiScreenBlock {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vuiScreenBlock__mask {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.vuiSpinner--xs {
+  width: 16px;
+  height: 16px;
+}
+
+.vuiSpinner--s {
+  width: 24px;
+  height: 24px;
+}
+
+.vuiSpinner--m {
+  width: 32px;
+  height: 32px;
+}
+
+.vuiSpinner--l {
+  width: 48px;
+  height: 48px;
+}
+
+.vuiSpinner--xl {
+  width: 64px;
+  height: 64px;
+}
+
+.vuiSpinner--xxl {
+  width: 80px;
+  height: 80px;
+}
+
+.vuiSpinner--xxxl {
+  width: 100px;
+  height: 100px;
+}
+
+.vuiSpinner__animation {
+  width: 100%;
+  height: 100%;
+}
+
+.vuiTitle {
+  color: #2c313a;
+  margin-bottom: 0;
+}
+
+.vuiTitle--xxs {
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 400;
+  color: #2c313a;
+}
+
+.vuiTitle--xs {
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 600;
+  color: #2c313a;
+}
+
+.vuiTitle--s {
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 600;
+  color: #69707d;
+}
+
+.vuiTitle--m {
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #2c313a;
+}
+
+.vuiTitle--l {
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: 400;
+  color: #2c313a;
+}
+
+.vuiTitle--xl {
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 400;
+  color: #2c313a;
+}
+
+.vuiTitle--xxl {
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 600;
+  color: #2c313a;
+}
+
+.vuiTitle--left {
+  text-align: left;
+}
+
+.vuiTitle--center {
+  text-align: center;
+}
+
+.vuiTitle--right {
+  text-align: right;
+}
+
+.vuiText {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.vuiText ul {
+  list-style: disc;
+}
+.vuiText ol {
+  list-style: auto;
+}
+.vuiText ul,
+.vuiText ol {
+  margin-left: 16px;
+  margin-bottom: 8px;
+}
+.vuiText ul:last-child,
+.vuiText ol:last-child {
+  margin-bottom: 0;
+}
+.vuiText a {
+  color: rgb(38, 76, 214);
+}
+
+.vuiText--truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.vuiText--truncate * {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vuiText--xs {
+  color: #2c313a;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.vuiText--xs p {
+  font-size: 12px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+.vuiText--xs p:last-child {
+  margin-bottom: 0;
+}
+
+.vuiText--s {
+  color: #2c313a;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.vuiText--s p {
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+.vuiText--s p:last-child {
+  margin-bottom: 0;
+}
+
+.vuiText--m {
+  color: #2c313a;
+  font-size: 16px;
+  line-height: 1.4;
+}
+.vuiText--m p {
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+.vuiText--m p:last-child {
+  margin-bottom: 0;
+}
+
+.vuiText--l {
+  color: #2c313a;
+  font-size: 18px;
+  line-height: 1.4;
+}
+.vuiText--l p {
+  font-size: 18px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+.vuiText--l p:last-child {
+  margin-bottom: 0;
+}
+
+.vuiText--left {
+  text-align: left;
+}
+
+.vuiText--center {
+  text-align: center;
+}
+
+.vuiText--right {
+  text-align: right;
+}
+
+.vuiTextColor--accent {
+  color: #551edf !important;
+}
+
+.vuiTextColor--primary {
+  color: rgb(38, 76, 214) !important;
+}
+
+.vuiTextColor--success {
+  color: #04821f !important;
+}
+
+.vuiTextColor--warning {
+  color: #965a15 !important;
+}
+
+.vuiTextColor--danger {
+  color: #c41535 !important;
+}
+
+.vuiTextColor--subdued {
+  color: #69707d !important;
+}
+
+.vuiTextColor--neutral {
+  color: #2c313a !important;
+}
+
+body,
+textarea {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: none;
+  vertical-align: baseline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+a[href],
+button,
+[role=button] {
+  cursor: pointer;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+input {
+  margin: 0;
+  padding: 0;
+}
+
+input:disabled {
+  opacity: 1; /* required on iOS */
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+hr {
+  margin: 0;
+}
+
+fieldset {
+  min-inline-size: auto;
+}
+
+.vrsSearchForm {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.vrsSearchInput {
+  flex-grow: 1;
+  padding: 24px;
+  background-color: #ffffff;
+  border: none;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 0px 0px 0px, rgba(60, 64, 67, 0.15) 0px 0px 0px 0px;
+  outline-width: 1px;
+  outline-style: solid;
+  outline-color: transparent;
+  outline-offset: -1px;
+  font-size: 18px;
+  color: #2c313a;
+}
+
+.vrsSubmitButtonWrapper {
+  padding-right: 16px;
+}
+
+.vrsSubmitButton {
+  line-height: 0;
+  color: #69707d;
+  transition: all 0.2s;
+}
+.vrsSubmitButton:hover {
+  color: rgb(38, 76, 214);
+}
+
+.vrsSearchResult {
+  background-color: #ffffff;
+  display: block;
+  padding: 12px 24px 12px 24px;
+  text-decoration: none;
+  border-bottom: 1px solid #e3e4f3;
+}
+.vrsSearchResult:hover {
+  background-color: #f3f7fb;
+}
+.vrsSearchResult:last-of-type {
+  border-bottom: none;
+}
+
+.vrsSearchResult-isLink {
+  padding-left: 16px;
+  border-left: 12px solid #ffffff;
+}
+.vrsSearchResult-isLink:hover, .vrsSearchResult-isLink.isSelected {
+  border-left: 12px solid rgb(38, 76, 214);
+}
+.vrsSearchResult-isLink:hover .vrsSearchResultTitle, .vrsSearchResult-isLink.isSelected .vrsSearchResultTitle {
+  text-decoration: underline;
+}
+.vrsSearchResult-isLink .vrsSearchResultTitle {
+  color: rgb(38, 76, 214);
+}
+
+.vrsSearchResultTitle {
+  color: #2c313a;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 22px;
+  margin-bottom: 4px;
+}
+
+.vrsSearchResultSnippet {
+  color: #2c313a;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 0;
+}
+
+:host {
+  all: initial;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
 .vrsSearchModalContainer {
   position: fixed;
   top: 0;
@@ -33889,6 +35295,11 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     overflow-y: none !important;
   }
 }
+:host {
+  all: initial;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
 /**
  * A one-off reset for the button elements.
  */
@@ -33942,485 +35353,113 @@ button {
   font-size: 14px;
   background-color: rgb(217, 226, 255);
   color: rgb(38, 76, 214);
-}
-
-.vrsSearchModalContainer {
-  /* HTML5 display-role reset for older browsers */
-}
-.vrsSearchModalContainer body,
-.vrsSearchModalContainer textarea {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-}
-.vrsSearchModalContainer *,
-.vrsSearchModalContainer *:before,
-.vrsSearchModalContainer *:after {
-  box-sizing: border-box;
-}
-.vrsSearchModalContainer html,
-.vrsSearchModalContainer body,
-.vrsSearchModalContainer div,
-.vrsSearchModalContainer span,
-.vrsSearchModalContainer applet,
-.vrsSearchModalContainer object,
-.vrsSearchModalContainer iframe,
-.vrsSearchModalContainer h1,
-.vrsSearchModalContainer h2,
-.vrsSearchModalContainer h3,
-.vrsSearchModalContainer h4,
-.vrsSearchModalContainer h5,
-.vrsSearchModalContainer h6,
-.vrsSearchModalContainer p,
-.vrsSearchModalContainer blockquote,
-.vrsSearchModalContainer pre,
-.vrsSearchModalContainer a,
-.vrsSearchModalContainer abbr,
-.vrsSearchModalContainer acronym,
-.vrsSearchModalContainer address,
-.vrsSearchModalContainer big,
-.vrsSearchModalContainer cite,
-.vrsSearchModalContainer code,
-.vrsSearchModalContainer del,
-.vrsSearchModalContainer dfn,
-.vrsSearchModalContainer em,
-.vrsSearchModalContainer img,
-.vrsSearchModalContainer ins,
-.vrsSearchModalContainer kbd,
-.vrsSearchModalContainer q,
-.vrsSearchModalContainer s,
-.vrsSearchModalContainer samp,
-.vrsSearchModalContainer small,
-.vrsSearchModalContainer strike,
-.vrsSearchModalContainer strong,
-.vrsSearchModalContainer sub,
-.vrsSearchModalContainer sup,
-.vrsSearchModalContainer tt,
-.vrsSearchModalContainer var,
-.vrsSearchModalContainer b,
-.vrsSearchModalContainer u,
-.vrsSearchModalContainer i,
-.vrsSearchModalContainer center,
-.vrsSearchModalContainer dl,
-.vrsSearchModalContainer dt,
-.vrsSearchModalContainer dd,
-.vrsSearchModalContainer ol,
-.vrsSearchModalContainer ul,
-.vrsSearchModalContainer li,
-.vrsSearchModalContainer fieldset,
-.vrsSearchModalContainer form,
-.vrsSearchModalContainer label,
-.vrsSearchModalContainer legend,
-.vrsSearchModalContainer table,
-.vrsSearchModalContainer caption,
-.vrsSearchModalContainer tbody,
-.vrsSearchModalContainer tfoot,
-.vrsSearchModalContainer thead,
-.vrsSearchModalContainer tr,
-.vrsSearchModalContainer th,
-.vrsSearchModalContainer td,
-.vrsSearchModalContainer article,
-.vrsSearchModalContainer aside,
-.vrsSearchModalContainer canvas,
-.vrsSearchModalContainer details,
-.vrsSearchModalContainer embed,
-.vrsSearchModalContainer figure,
-.vrsSearchModalContainer figcaption,
-.vrsSearchModalContainer footer,
-.vrsSearchModalContainer header,
-.vrsSearchModalContainer hgroup,
-.vrsSearchModalContainer menu,
-.vrsSearchModalContainer nav,
-.vrsSearchModalContainer output,
-.vrsSearchModalContainer ruby,
-.vrsSearchModalContainer section,
-.vrsSearchModalContainer summary,
-.vrsSearchModalContainer time,
-.vrsSearchModalContainer mark,
-.vrsSearchModalContainer audio,
-.vrsSearchModalContainer video {
-  margin: 0;
-  padding: 0;
-  border: none;
-  vertical-align: baseline;
-}
-.vrsSearchModalContainer h1,
-.vrsSearchModalContainer h2,
-.vrsSearchModalContainer h3,
-.vrsSearchModalContainer h4,
-.vrsSearchModalContainer h5,
-.vrsSearchModalContainer h6,
-.vrsSearchModalContainer p {
-  font-family: inherit;
-  font-weight: inherit;
-  font-size: inherit;
-}
-.vrsSearchModalContainer article,
-.vrsSearchModalContainer aside,
-.vrsSearchModalContainer details,
-.vrsSearchModalContainer figcaption,
-.vrsSearchModalContainer figure,
-.vrsSearchModalContainer footer,
-.vrsSearchModalContainer header,
-.vrsSearchModalContainer hgroup,
-.vrsSearchModalContainer menu,
-.vrsSearchModalContainer nav,
-.vrsSearchModalContainer section {
-  display: block;
-}
-.vrsSearchModalContainer a[href],
-.vrsSearchModalContainer button,
-.vrsSearchModalContainer [role=button] {
-  cursor: pointer;
-}
-.vrsSearchModalContainer button {
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  color: inherit;
-  border-radius: 0;
-  font-size: inherit;
-}
-.vrsSearchModalContainer input {
-  margin: 0;
-  padding: 0;
-}
-.vrsSearchModalContainer input:disabled {
-  opacity: 1; /* required on iOS */
-}
-.vrsSearchModalContainer ol,
-.vrsSearchModalContainer ul {
-  list-style: none;
-}
-.vrsSearchModalContainer blockquote,
-.vrsSearchModalContainer q {
-  quotes: none;
-}
-.vrsSearchModalContainer blockquote:before,
-.vrsSearchModalContainer blockquote:after,
-.vrsSearchModalContainer q:before,
-.vrsSearchModalContainer q:after {
-  content: "";
-}
-.vrsSearchModalContainer table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-.vrsSearchModalContainer hr {
-  margin: 0;
-}
-.vrsSearchModalContainer fieldset {
-  min-inline-size: auto;
-}
-.vrsSearchModalContainer .vrsSearchForm {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-.vrsSearchModalContainer .vrsSearchInput {
-  flex-grow: 1;
-  padding: 24px;
-  background-color: #ffffff;
-  border: none;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 0px 0px 0px, rgba(60, 64, 67, 0.15) 0px 0px 0px 0px;
-  outline-width: 1px;
-  outline-style: solid;
-  outline-color: transparent;
-  outline-offset: -1px;
-  font-size: 18px;
-  color: #2c313a;
-}
-.vrsSearchModalContainer .vrsSubmitButtonWrapper {
-  padding-right: 16px;
-}
-.vrsSearchModalContainer .vrsSubmitButton {
-  line-height: 0;
-  color: #69707d;
-  transition: all 0.2s;
-}
-.vrsSearchModalContainer .vrsSubmitButton:hover {
-  color: rgb(38, 76, 214);
-}
-.vrsSearchModalContainer .vrsSearchResult {
-  background-color: #ffffff;
-  display: block;
-  padding: 12px 24px 12px 24px;
-  text-decoration: none;
-  border-bottom: 1px solid #e3e4f3;
-}
-.vrsSearchModalContainer .vrsSearchResult:hover {
-  background-color: #f3f7fb;
-}
-.vrsSearchModalContainer .vrsSearchResult:last-of-type {
-  border-bottom: none;
-}
-.vrsSearchModalContainer .vrsSearchResult-isLink {
-  padding-left: 16px;
-  border-left: 12px solid #ffffff;
-}
-.vrsSearchModalContainer .vrsSearchResult-isLink:hover, .vrsSearchModalContainer .vrsSearchResult-isLink.isSelected {
-  border-left: 12px solid rgb(38, 76, 214);
-}
-.vrsSearchModalContainer .vrsSearchResult-isLink:hover .vrsSearchResultTitle, .vrsSearchModalContainer .vrsSearchResult-isLink.isSelected .vrsSearchResultTitle {
-  text-decoration: underline;
-}
-.vrsSearchModalContainer .vrsSearchResult-isLink .vrsSearchResultTitle {
-  color: rgb(38, 76, 214);
-}
-.vrsSearchModalContainer .vrsSearchResultTitle {
-  color: #2c313a;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 22px;
-  margin-bottom: 4px;
-}
-.vrsSearchModalContainer .vrsSearchResultSnippet {
-  color: #2c313a;
-  font-size: 14px;
-  line-height: 20px;
-  margin-bottom: 0;
-}
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL1VzZXJzL2RlcnlrL2NvZGUvcmVhY3Qtc2VhcmNoL3NyYyIsInNvdXJjZXMiOlsidnVpL2NvbXBvbmVudHMvZmxleC9fZmxleENvbnRhaW5lci5zY3NzIiwidnVpL2NvbXBvbmVudHMvZmxleC9fZmxleEl0ZW0uc2NzcyIsInZ1aS9jb21wb25lbnRzL3NjcmVlbkJsb2NrL19pbmRleC5zY3NzIiwidnVpL3N0eWxlVXRpbHMvX2RlcHRoLnNjc3MiLCJ2dWkvY29tcG9uZW50cy9zcGlubmVyL19pbmRleC5zY3NzIiwidnVpL2NvbXBvbmVudHMvdHlwb2dyYXBoeS9fdGl0bGUuc2NzcyIsInZ1aS9zdHlsZVV0aWxzL19jb2xvcnMuc2NzcyIsInZ1aS9jb21wb25lbnRzL3R5cG9ncmFwaHkvX3RleHQuc2NzcyIsInZ1aS9zdHlsZVV0aWxzL19zaXplcy5zY3NzIiwidnVpL3N0eWxlVXRpbHMvX21peGlucy5zY3NzIiwidnVpL2NvbXBvbmVudHMvdHlwb2dyYXBoeS9fdGV4dENvbG9yLnNjc3MiLCJzZWFyY2hNb2RhbC5zY3NzIiwiX2luZGV4LnNjc3MiLCJ2dWkvc3R5bGVVdGlscy9fdHlwb2dyYXBoeS5zY3NzIiwidnVpL19yZXNldC5zY3NzIiwic2VhcmNoSW5wdXQuc2NzcyIsInZ1aS9zdHlsZVV0aWxzL19zaGFkb3dzLnNjc3MiLCJzZWFyY2hSZXN1bHQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFO0VBQ0E7OztBQUdGO0VBQ0U7OztBQUdGO0VBQ0U7OztBQWFBO0VBQ0UsYUFWUzs7O0FBU1g7RUFDRSxhQVZTOzs7QUFTWDtFQUNFLGFBVlM7OztBQVNYO0VBQ0UsYUFWUzs7O0FBU1g7RUFDRSxhQVZTOzs7QUF1Qlg7RUFDRSxnQkFUUTs7O0FBUVY7RUFDRSxnQkFUUTs7O0FBUVY7RUFDRSxnQkFUUTs7O0FBUVY7RUFDRSxnQkFUUTs7O0FBd0JWO0VBQ0UsaUJBWGE7OztBQVVmO0VBQ0UsaUJBWGE7OztBQVVmO0VBQ0UsaUJB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O0FBRUE7RUFDRTs7QUFJSjtFQUNFLE9YNUJXOztBV2dDZjtFQUNFLE9YaEJpQjtFV2lCakI7RUFDQTtFQUNBO0VBQ0EsZVRwQ1E7O0FTdUNWO0VBQ0UsT1h4QmlCO0VXeUJqQjtFQUNBO0VBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIudnVpRmxleENvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBzdHJldGNoO1xufVxuXG4udnVpRmxleENvbnRhaW5lci0tZnVsbFdpZHRoIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi52dWlGbGV4Q29udGFpbmVyLS13cmFwIHtcbiAgZmxleC13cmFwOiB3cmFwO1xufVxuXG4vLyBhbGlnbkl0ZW1zXG4kYWxpZ25JdGVtczogKFxuICBhbGlnbkl0ZW1zQmFzZWxpbmU6IGJhc2VsaW5lLFxuICBhbGlnbkl0ZW1zQ2VudGVyOiBjZW50ZXIsXG4gIGFsaWduSXRlbXNFbmQ6IGVuZCxcbiAgYWxpZ25JdGVtc1N0YXJ0OiBzdGFydCxcbiAgYWxpZ25JdGVtc1N0cmV0Y2g6IHN0cmV0Y2hcbik7XG5cbkBlYWNoICRhbGlnbkl0ZW1zTmFtZSwgJGFsaWduSXRlbXNWYWx1ZSBpbiAkYWxpZ25JdGVtcyB7XG4gIC52dWlGbGV4Q29udGFpbmVyLS0jeyRhbGlnbkl0ZW1zTmFtZX0ge1xuICAgIGFsaWduLWl0ZW1zOiAkYWxpZ25JdGVtc1ZhbHVlO1xuICB9XG59XG5cbi8vIGRpcmVjdGlvblxuJGRpcmVjdGlvbjogKFxuICBkaXJlY3Rpb25Db2x1bW46IGNvbHVtbixcbiAgZGlyZWN0aW9uQ29sdW1uUmV2ZXJzZTogY29sdW1uLXJldmVyc2UsXG4gIGRpcmVjdGlvblJvdzogcm93LFxuICBkaXJlY3Rpb25Sb3dSZXZlcnNlOiByb3ctcmV2ZXJzZVxuKTtcblxuQGVhY2ggJGRpcmVjdGlvbk5hbWUsICRkaXJlY3Rpb25WYWx1ZSBpbiAkZGlyZWN0aW9uIHtcbiAgLnZ1aUZsZXhDb250YWluZXItLSN7JGRpcmVjdGlvbk5hbWV9IHtcbiAgICBmbGV4LWRpcmVjdGlvbjogJGRpcmVjdGlvblZhbHVlO1xuICB9XG59XG5cbi8vIGp1c3RpZnlDb250ZW50XG4kanVzdGlmeUNvbnRlbnQ6IChcbiAganVzdGlmeUNvbnRlbnRDZW50ZXI6IGNlbnRlcixcbiAganVzdGlmeUNvbnRlbnRFbmQ6IGVuZCxcbiAganVzdGlmeUNvbnRlbnRTdGFydDogc3RhcnQsXG4gIGp1c3RpZnlDb250ZW50U3BhY2VBcm91bmQ6IHNwYWNlLWFyb3VuZCxcbiAganVzdGlmeUNvbnRlbnRTcGFjZUJldHdlZW46IHNwYWNlLWJldHdlZW4sXG4gIGp1c3RpZnlDb250ZW50U3BhY2VFdmVubHk6IHNwYWNlLWV2ZW5seVxuKTtcblxuQGVhY2ggJGp1c3RpZnlDb250ZW50TmFtZSwgJGp1c3RpZnlDb250ZW50VmFsdWUgaW4gJGp1c3RpZnlDb250ZW50IHtcbiAgLnZ1aUZsZXhDb250YWluZXItLSN7JGp1c3RpZnlDb250ZW50TmFtZX0ge1xuICAgIGp1c3RpZnktY29udGVudDogJGp1c3RpZnlDb250ZW50VmFsdWU7XG4gIH1cbn1cblxuLy8gc3BhY2luZ1xuJHNwYWNpbmc6IChcbiAgc3BhY2luZ05vbmU6IDAsXG4gIHNwYWNpbmdYeHM6ICRzaXplWHhzLFxuICBzcGFjaW5nWHM6ICRzaXplWHMsXG4gIHNwYWNpbmdTOiAkc2l6ZVMsXG4gIHNwYWNpbmdNOiAkc2l6ZU0sXG4gIHNwYWNpbmdMOiAkc2l6ZUwsXG4gIHNwYWNpbmdYbDogJHNpemVYbCxcbiAgc3BhY2luZ1h4bDogJHNpemVYeGxcbik7XG5cbkBlYWNoICRzcGFjaW5nTmFtZSwgJHNwYWNpbmdWYWx1ZSBpbiAkc3BhY2luZyB7XG4gIC52dWlGbGV4Q29udGFpbmVyLS0jeyRzcGFjaW5nTmFtZX0ge1xuICAgIG1hcmdpbjogLSRzcGFjaW5nVmFsdWUgKiAwLjU7XG5cbiAgICAmID4gLnZ1aUZsZXhJdGVtIHtcbiAgICAgIG1hcmdpbjogJHNwYWNpbmdWYWx1ZSAqIDAuNTtcbiAgICB9XG4gIH1cbn1cbiIsIi52dWlGbGV4SXRlbSB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIGFsaWduLWl0ZW1zOiBmbGV4LXN0YXJ0O1xufVxuXG4udnVpRmxleEl0ZW0tLXRydW5jYXRlIHtcbiAgbWluLXdpZHRoOiA0MHB4O1xufVxuXG4vLyBhbGlnbkl0ZW1zXG4kYWxpZ25JdGVtczogKFxuICBhbGlnbkl0ZW1zQmFzZWxpbmU6IGJhc2VsaW5lLFxuICBhbGlnbkl0ZW1zQ2VudGVyOiBjZW50ZXIsXG4gIGFsaWduSXRlbXNFbmQ6IGVuZCxcbiAgYWxpZ25JdGVtc1N0YXJ0OiBzdGFydCxcbiAgYWxpZ25JdGVtc1N0cmV0Y2g6IHN0cmV0Y2hcbik7XG5cbkBlYWNoICRhbGlnbkl0ZW1zTmFtZSwgJGFsaWduSXRlbXNWYWx1ZSBpbiAkYWxpZ25JdGVtcyB7XG4gIC52dWlGbGV4SXRlbS0tI3skYWxpZ25JdGVtc05hbWV9IHtcbiAgICBhbGlnbi1pdGVtczogJGFsaWduSXRlbXNWYWx1ZTtcbiAgfVxufVxuXG4vLyBHcm93XG5AZm9yICRpIGZyb20gMCB0aHJvdWdoIDEwIHtcbiAgLnZ1aUZsZXhJdGVtLS1mbGV4R3JvdyN7JGl9IHtcbiAgICBmbGV4LWdyb3c6ICRpO1xuICB9XG59XG5cbi52dWlGbGV4SXRlbS0tZmxleEdyb3dOb25lIHtcbiAgZmxleC1iYXNpczogYXV0bztcbiAgZmxleC1ncm93OiAwO1xufVxuXG4vLyBTaHJpbmtcbkBmb3IgJGkgZnJvbSAwIHRocm91Z2ggMTAge1xuICAudnVpRmxleEl0ZW0tLWZsZXhTaHJpbmsjeyRpfSB7XG4gICAgZmxleC1zaHJpbms6ICRpO1xuICB9XG59XG5cbi52dWlGbGV4SXRlbS0tZmxleFNocmlua05vbmUge1xuICBmbGV4LWJhc2lzOiBhdXRvO1xuICBmbGV4LXNocmluazogMDtcbn1cblxuLy8gQmFzaXNcbiRiYXNpczogKFxuICBhdXRvOiBhdXRvLFxuICBjb250ZW50OiBjb250ZW50LFxuICBmaWxsOiBmaWxsLFxuICBtYXhDb250ZW50OiBtYXgtY29udGVudCxcbiAgbWluQ29udGVudDogbWluLWNvbnRlbnQsXG4gIG5vbmU6IDBcbik7XG5cbkBlYWNoICRiYXNpc05hbWUsICRiYXNpc1ZhbHVlIGluICRiYXNpcyB7XG4gIC52dWlGbGV4SXRlbS0tI3skYmFzaXNOYW1lfSB7XG4gICAgZmxleC1iYXNpczogJGJhc2lzVmFsdWU7XG4gIH1cbn1cbiIsIi52dWlTY3JlZW5CbG9jayB7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgdG9wOiAwO1xuICBsZWZ0OiAwO1xuICByaWdodDogMDtcbiAgYm90dG9tOiAwO1xuICB6LWluZGV4OiAkc2NyZWVuQmxvY2taSW5kZXg7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xufVxuXG4udnVpU2NyZWVuQmxvY2tfX21hc2sge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudGl6ZSgkY29sb3JGdWxsU2hhZGUsIDAuNCk7XG59XG4iLCIkYXBwSGVhZGVyWkluZGV4OiA4O1xuJGNoYXRaSW5kZXg6IDk7XG4kc2NyZWVuQmxvY2taSW5kZXg6IDEwO1xuJGRyYXdlclpJbmRleDogMTE7XG4kbW9kYWxaSW5kZXg6IDEyO1xuLy8gRW5hYmxlIHBvcG92ZXJzIHRvIGJlIHBsYWNlZCBpbnNpZGUgb2YgbW9kYWxzIGFuZCBkcmF3ZXJzLlxuJHBvcG92ZXJaSW5kZXg6IDEzO1xuJG5vdGlmaWNhdGlvbnNaSW5kZXg6IDEwMDA7XG4iLCIkc2l6ZTogKFxuICB4czogJHNpemVYcyAqIDIsXG4gIHM6ICRzaXplUyAqIDIsXG4gIG06ICRzaXplTSAqIDIsXG4gIGw6ICRzaXplTCAqIDIsXG4gIHhsOiAkc2l6ZVhsICogMixcbiAgeHhsOiAkc2l6ZVh4bCAqIDIsXG4gIHh4eGw6ICRzaXplWHhsICogMi41XG4pO1xuXG5AZWFjaCAkc2l6ZU5hbWUsICRzaXplVmFsdWUgaW4gJHNpemUge1xuICAudnVpU3Bpbm5lci0tI3skc2l6ZU5hbWV9IHtcbiAgICB3aWR0aDogJHNpemVWYWx1ZTtcbiAgICBoZWlnaHQ6ICRzaXplVmFsdWU7XG4gIH1cbn1cblxuLnZ1aVNwaW5uZXJfX2FuaW1hdGlvbiB7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG59XG4iLCJAdXNlIFwic2FzczptYXBcIjtcblxuLnZ1aVRpdGxlIHtcbiAgY29sb3I6ICRjb2xvclRleHQ7XG4gIG1hcmdpbi1ib3R0b206IDA7XG59XG5cbiRzaXplOiAoXG4gIHh4czogKFxuICAgIHNpemU6ICRmb250U2l6ZVNtYWxsLFxuICAgIGxpbmUtaGVpZ2h0OiAxLjQsXG4gICAgd2VpZ2h0OiAkZm9udFdlaWdodE5vcm1hbCxcbiAgICBjb2xvcjogJGNvbG9yVGV4dFxuICApLFxuICB4czogKFxuICAgIHNpemU6ICRsYWJlbEZvbnRTaXplLFxuICAgIGxpbmUtaGVpZ2h0OiAxLjQsXG4gICAgd2VpZ2h0OiAkbGFiZWxGb250V2VpZ2h0LFxuICAgIGNvbG9yOiAkbGFiZWxDb2xvclxuICApLFxuICBzOiAoXG4gICAgc2l6ZTogJGZvbnRTaXplTGFyZ2UsXG4gICAgbGluZS1oZWlnaHQ6IDEuMyxcbiAgICB3ZWlnaHQ6ICRmb250V2VpZ2h0Qm9sZCxcbiAgICBjb2xvcjogJGNvbG9yU3ViZHVlZFxuICApLFxuICBtOiAoXG4gICAgc2l6ZTogJGZvbnRTaXplWExhcmdlLFxuICAgIHdlaWdodDogJGZvbnRXZWlnaHRCb2xkLFxuICAgIGxpbmUtaGVpZ2h0OiAxLjIsXG4gICAgY29sb3I6ICRjb2xvclRleHRcbiAgKSxcbiAgbDogKFxuICAgIHNpemU6ICRmb250U2l6ZVh4TGFyZ2UsXG4gICAgd2VpZ2h0OiAkZm9udFdlaWdodE5vcm1hbCxcbiAgICBsaW5lLWhlaWdodDogMS4xLFxuICAgIGNvbG9yOiAkY29sb3JUZXh0XG4gICksXG4gIHhsOiAoXG4gICAgc2l6ZTogJGZvbnRTaXplWHh4TGFyZ2UsXG4gICAgd2VpZ2h0OiAkZm9udFdlaWdodE5vcm1hbCxcbiAgICBsaW5lLWhlaWdodDogMSxcbiAgICBjb2xvcjogJGNvbG9yVGV4dFxuICApLFxuICB4eGw6IChcbiAgICBzaXplOiAkZm9udFNpemVYeHhMYXJnZSxcbiAgICBsaW5lLWhlaWdodDogMSxcbiAgICB3ZWlnaHQ6ICRmb250V2VpZ2h0Qm9sZCxcbiAgICBjb2xvcjogJGNvbG9yVGV4dFxuICApXG4pO1xuXG5AZWFjaCAkc2l6ZU5hbWUsICRzaXplVmFsdWUgaW4gJHNpemUge1xuICAudnVpVGl0bGUtLSN7JHNpemVOYW1lfSB7XG4gICAgZm9udC1zaXplOiAje21hcC5nZXQoJHNpemVWYWx1ZSwgXCJzaXplXCIpfTtcbiAgICBsaW5lLWhlaWdodDogI3ttYXAuZ2V0KCRzaXplVmFsdWUsIFwic2l6ZVwiKX07XG4gICAgZm9udC13ZWlnaHQ6ICN7bWFwLmdldCgkc2l6ZVZhbHVlLCBcIndlaWdodFwiKX07XG4gICAgY29sb3I6ICN7bWFwLmdldCgkc2l6ZVZhbHVlLCBcImNvbG9yXCIpfTtcbiAgfVxufVxuXG4kYWxpZ246IGxlZnQsIGNlbnRlciwgcmlnaHQ7XG5cbkBlYWNoICRhbGlnblZhbHVlIGluICRhbGlnbiB7XG4gIC52dWlUaXRsZS0tI3skYWxpZ25WYWx1ZX0ge1xuICAgIHRleHQtYWxpZ246ICN7JGFsaWduVmFsdWV9O1xuICB9XG59XG4iLCIvLyBTZW1hbnRpYyBjb2xvcnNcbiRjb2xvckFjY2VudDogIzU1MWVkZiAhZGVmYXVsdDtcbiRjb2xvclByaW1hcnk6IHJnYigzOCwgNzYsIDIxNCkgIWRlZmF1bHQ7XG4kY29sb3JTdWNjZXNzOiAjMDQ4MjFmICFkZWZhdWx0O1xuJGNvbG9yV2FybmluZzogIzk2NWExNSAhZGVmYXVsdDtcbiRjb2xvckRhbmdlcjogI2M0MTUzNSAhZGVmYXVsdDtcblxuLy8gU2VtYW50aWMgc2hhZGVzXG4kY29sb3JBY2NlbnRMaWdodFNoYWRlOiAjZWFkZmZmICFkZWZhdWx0O1xuJGNvbG9yUHJpbWFyeUxpZ2h0U2hhZGU6IHJnYigyMTcsIDIyNiwgMjU1KSAhZGVmYXVsdDtcbiRjb2xvclN1Y2Nlc3NMaWdodFNoYWRlOiAjZTlmMmU5ICFkZWZhdWx0O1xuJGNvbG9yV2FybmluZ0xpZ2h0U2hhZGU6ICNmNGVlZTggIWRlZmF1bHQ7XG4kY29sb3JEYW5nZXJMaWdodFNoYWRlOiAjZmFlOWViICFkZWZhdWx0O1xuXG4vLyBOZXV0cmFsIGNvbG9yc1xuJGNvbG9yRW1wdHlTaGFkZTogI2ZmZmZmZiAhZGVmYXVsdDtcbiRjb2xvckxpZ2h0U2hhZGU6ICNmM2Y3ZmIgIWRlZmF1bHQ7XG4kY29sb3JNZWRpdW1TaGFkZTogI2NiY2RkZSAhZGVmYXVsdDtcbiRjb2xvckRhcmtTaGFkZTogIzY5NzA3ZCAhZGVmYXVsdDtcbiRjb2xvckRhcmtlclNoYWRlOiAjMmMzMTNhICFkZWZhdWx0O1xuJGNvbG9yRnVsbFNoYWRlOiAjMDAwICFkZWZhdWx0O1xuIiwiLnZ1aVRleHQge1xuICBvdmVyZmxvdy13cmFwOiBicmVhay13b3JkO1xuICB3b3JkLWJyZWFrOiBicmVhay13b3JkO1xuXG4gIHVsIHtcbiAgICBsaXN0LXN0eWxlOiBkaXNjO1xuICB9XG5cbiAgb2wge1xuICAgIGxpc3Qtc3R5bGU6IGF1dG87XG4gIH1cblxuICB1bCxcbiAgb2wge1xuICAgIG1hcmdpbi1sZWZ0OiAkc2l6ZU07XG4gICAgbWFyZ2luLWJvdHRvbTogJHNpemVYcztcblxuICAgICY6bGFzdC1jaGlsZCB7XG4gICAgICBtYXJnaW4tYm90dG9tOiAwO1xuICAgIH1cbiAgfVxuXG4gIGEge1xuICAgIGNvbG9yOiAkY29sb3JQcmltYXJ5O1xuICB9XG59XG5cbi52dWlUZXh0LS10cnVuY2F0ZSB7XG4gIEBpbmNsdWRlIHRydW5jYXRlVGV4dDtcbn1cblxuQG1peGluIGRlZmluZVRleHRTdHlsZXMoJGZvbnRTaXplKSB7XG4gIGNvbG9yOiAkY29sb3JUZXh0O1xuICBmb250LXNpemU6ICRmb250U2l6ZTtcbiAgbGluZS1oZWlnaHQ6IDEuNDtcblxuICBwIHtcbiAgICBmb250LXNpemU6ICRmb250U2l6ZTtcbiAgICBsaW5lLWhlaWdodDogMS40O1xuICAgIG1hcmdpbi1ib3R0b206ICRzaXplWHM7XG5cbiAgICAmOmxhc3QtY2hpbGQge1xuICAgICAgbWFyZ2luLWJvdHRvbTogMDtcbiAgICB9XG4gIH1cbn1cblxuJHNpemU6IChcbiAgeHM6ICRmb250U2l6ZVNtYWxsLFxuICBzOiAkZm9udFNpemVTdGFuZGFyZCxcbiAgbTogJGZvbnRTaXplTWVkaXVtLFxuICBsOiAkZm9udFNpemVMYXJnZVxuKTtcblxuQGVhY2ggJHNpemVOYW1lLCAkZm9udFNpemUgaW4gJHNpemUge1xuICAudnVpVGV4dC0tI3skc2l6ZU5hbWV9IHtcbiAgICBAaW5jbHVkZSBkZWZpbmVUZXh0U3R5bGVzKCRmb250U2l6ZSk7XG4gIH1cbn1cblxuJGFsaWduOiBsZWZ0LCBjZW50ZXIsIHJpZ2h0O1xuXG5AZWFjaCAkYWxpZ25WYWx1ZSBpbiAkYWxpZ24ge1xuICAudnVpVGV4dC0tI3skYWxpZ25WYWx1ZX0ge1xuICAgIHRleHQtYWxpZ246ICN7JGFsaWduVmFsdWV9O1xuICB9XG59XG4iLCIkc2l6ZTogMTZweCAhZGVmYXVsdDtcblxuJHNpemVYeHhzOiAycHggIWRlZmF1bHQ7IC8vICRzaXplICogMC4xMjVcbiRzaXplWHhzOiA0cHggIWRlZmF1bHQ7IC8vICRzaXplICogMC4yNVxuJHNpemVYczogOHB4ICFkZWZhdWx0OyAvLyAkc2l6ZSAqIDAuNVxuJHNpemVTOiAxMnB4ICFkZWZhdWx0OyAvLyAkc2l6ZSAqIDAuNzVcbiRzaXplTTogJHNpemUgIWRlZmF1bHQ7IC8vICRzaXplICogMVxuJHNpemVMOiAyNHB4ICFkZWZhdWx0OyAvLyAkc2l6ZSAqIDEuNVxuJHNpemVYbDogMzJweCAhZGVmYXVsdDsgLy8gJHNpemUgKiAyXG4kc2l6ZVh4bDogNDBweCAhZGVmYXVsdDsgLy8gJHNpemUgKiAyLjVcbiIsIkBtaXhpbiB0cnVuY2F0ZVRleHQge1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcbiAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcblxuICAmICoge1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG4gICAgdGV4dC1vdmVyZmxvdzogZWxsaXBzaXM7XG4gICAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcbiAgfVxufVxuIiwiJGNvbG9yOiAoXG4gIGFjY2VudDogJGNvbG9yQWNjZW50LFxuICBwcmltYXJ5OiAkY29sb3JQcmltYXJ5LFxuICBzdWNjZXNzOiAkY29sb3JTdWNjZXNzLFxuICB3YXJuaW5nOiAkY29sb3JXYXJuaW5nLFxuICBkYW5nZXI6ICRjb2xvckRhbmdlcixcbiAgc3ViZHVlZDogJGNvbG9yU3ViZHVlZCxcbiAgbmV1dHJhbDogJGNvbG9yVGV4dFxuKTtcblxuQGVhY2ggJGNvbG9yTmFtZSwgJGNvbG9yVmFsdWUgaW4gJGNvbG9yIHtcbiAgLnZ1aVRleHRDb2xvci0tI3skY29sb3JOYW1lfSB7XG4gICAgY29sb3I6ICRjb2xvclZhbHVlICFpbXBvcnRhbnQ7XG4gIH1cbn1cbiIsIiRtb2RhbFBhZGRpbmc6IDZ2aDtcblxuLnZyc1NlYXJjaE1vZGFsQ29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICB0b3A6IDA7XG4gIGxlZnQ6IDA7XG4gIHJpZ2h0OiAwO1xuICBib3R0b206IDA7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBhbGlnbi1pdGVtczogZmxleC1zdGFydDtcbiAgYW5pbWF0aW9uOiBtb2RhbEluIDAuMnMgY3ViaWMtYmV6aWVyKDAsIDEsIDEsIDEpO1xuICBwb2ludGVyLWV2ZW50czogbm9uZTtcblxuICAudnJzU2VhcmNoTW9kYWwge1xuICAgIG1hcmdpbi10b3A6ICRtb2RhbFBhZGRpbmc7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogJGNvbG9yRW1wdHlTaGFkZTtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgbWF4LXdpZHRoOiA3MjBweDtcbiAgICBtYXgtaGVpZ2h0OiBjYWxjKDEwMHZoIC0gKCRtb2RhbFBhZGRpbmcgKiAyKSk7XG4gICAgei1pbmRleDogJG1vZGFsWkluZGV4O1xuICAgIHBvaW50ZXItZXZlbnRzOiBhbGw7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogJGNvbG9yRW1wdHlTaGFkZTtcbiAgICBib3gtc2hhZG93OiByZ2JhKDUwLCA1MCwgOTMsIDAuMjUpIDBweCA2cHggMTJweCAtMnB4LCByZ2JhKDAsIDAsIDAsIDAuMykgMHB4IDNweCA3cHggLTNweDtcbiAgICBib3JkZXItcmFkaXVzOiAkc2l6ZVhzO1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG4gIH1cblxuICAudnJzU2VhcmNoTW9kYWxSZXN1bHRzIHtcbiAgICBib3JkZXItdG9wOiAxcHggc29saWQgJGJvcmRlckNvbG9yO1xuICAgIG92ZXJmbG93LXk6IGF1dG87XG4gIH1cbn1cblxuQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA3NDBweCkge1xuICAudnJzU2VhcmNoTW9kYWxDb250YWluZXIge1xuICAgIG92ZXJmbG93LXk6IGF1dG87XG5cbiAgICAudnJzU2VhcmNoTW9kYWwge1xuICAgICAgbWFyZ2luLXRvcDogMCAhaW1wb3J0YW50O1xuICAgICAgbWF4LXdpZHRoOiAxMDB2dyAhaW1wb3J0YW50O1xuICAgICAgbWF4LWhlaWdodDogbm9uZSAhaW1wb3J0YW50O1xuICAgICAgYm9yZGVyLXJhZGl1czogMCAhaW1wb3J0YW50O1xuICAgICAgb3ZlcmZsb3c6IGluaXRpYWwgIWltcG9ydGFudDtcbiAgICB9XG5cbiAgICAudnJzU2VhcmNoTW9kYWxSZXN1bHRzIHtcbiAgICAgIG92ZXJmbG93LXk6IG5vbmUgIWltcG9ydGFudDtcbiAgICB9XG4gIH1cbn1cbiIsIkBpbXBvcnQgXCIuL3Z1aS9jb21wb25lbnRzL2luZGV4XCI7XG5AaW1wb3J0IFwiLi9zZWFyY2hNb2RhbFwiO1xuXG4vKipcbiAqIEEgb25lLW9mZiByZXNldCBmb3IgdGhlIGJ1dHRvbiBlbGVtZW50cy5cbiAqL1xuYnV0dG9uIHtcbiAgYmFja2dyb3VuZDogbm9uZTtcbiAgYm9yZGVyOiBub25lO1xuICBwYWRkaW5nOiAwO1xuICBtYXJnaW46IDA7XG4gIGNvbG9yOiBpbmhlcml0O1xuICBib3JkZXItcmFkaXVzOiAwO1xuICBmb250LXNpemU6IGluaGVyaXQ7XG59XG5cbi52cnNTdHlsZVdyYXBwZXIge1xuICBmb250LWZhbWlseTogLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCBcIlNlZ29lIFVJXCIsIFwiUm9ib3RvXCIsIFwiT3h5Z2VuXCIsIFwiVWJ1bnR1XCIsIFwiQ2FudGFyZWxsXCIsIFwiRmlyYSBTYW5zXCIsXG4gICAgXCJEcm9pZCBTYW5zXCIsIFwiSGVsdmV0aWNhIE5ldWVcIiwgc2Fucy1zZXJpZjtcbn1cblxuLnZyc1NlYXJjaEJ1dHRvbiB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIHdpZHRoOiAxMDAlO1xuICBib3gtc2hhZG93OiByZ2JhKDUwLCA1MCwgOTMsIDAuMjUpIDBweCAwIDAgMCwgcmdiYSgwLCAwLCAwLCAwLjE2KSAwcHggMXB4IDRweDtcbiAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcbiAgYm9yZGVyLXJhZGl1czogJHNpemVYeHM7XG4gIGRpc3BsYXk6IGlubGluZS1mbGV4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBmb250LXdlaWdodDogNTAwO1xuICBsaW5lLWhlaWdodDogMTtcbiAgYm9yZGVyOiAxcHggc29saWQgJGJvcmRlckNvbG9yO1xuICBjb2xvcjogJGNvbG9yVGV4dDtcbiAgYmFja2dyb3VuZC1jb2xvcjogJGNvbG9yRW1wdHlTaGFkZTtcbiAgZm9udC1zaXplOiAkZm9udFNpemVNZWRpdW07XG4gIHBhZGRpbmc6ICRzaXplWHMgMXB4ICRzaXplWHMgJHNpemVTO1xuICBoZWlnaHQ6IDM0cHg7XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgdHJhbnNpdGlvbjogYm94LXNoYWRvdyAkdHJhbnNpdGlvblNwZWVkLCBib3JkZXItY29sb3IgJHRyYW5zaXRpb25TcGVlZDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcblxuICAmOmhvdmVyIHtcbiAgICBib3JkZXItY29sb3I6ICRjb2xvclByaW1hcnk7XG4gICAgYm94LXNoYWRvdzogcmdiYSg1MCwgNTAsIDkzLCAwLjI1KSAwcHggNnB4IDEycHggLTJweCwgcmdiYSgwLCAwLCAwLCAwLjMpIDBweCAzcHggN3B4IC0zcHg7XG4gICAgei1pbmRleDogMTtcbiAgfVxufVxuXG4udnJzU2VhcmNoQnV0dG9uX19pbm5lciB7XG4gIGZsZXgtZ3JvdzogMTtcbn1cblxuLnZyc1NlYXJjaEJ1dHRvblNob3J0Y3V0IHtcbiAgcGFkZGluZzogJHNpemVYcztcbiAgYm9yZGVyLXJhZGl1czogJHNpemVYeHhzO1xuICBmb250LXNpemU6ICRmb250U2l6ZVN0YW5kYXJkO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAkY29sb3JQcmltYXJ5TGlnaHRTaGFkZTtcbiAgY29sb3I6ICRjb2xvclByaW1hcnk7XG59XG5cbi52cnNTZWFyY2hNb2RhbENvbnRhaW5lciB7XG4gIEBpbXBvcnQgXCIuL3Z1aS9fcmVzZXRcIjtcbiAgQGltcG9ydCBcIi4vc2VhcmNoSW5wdXRcIjtcbiAgQGltcG9ydCBcIi4vc2VhcmNoUmVzdWx0XCI7XG59XG4iLCJAdXNlIFwic2FzczptYXBcIjtcblxuJGZvbnRTaXplU21hbGw6IDEycHg7XG4kZm9udFNpemVTdGFuZGFyZDogMTRweDtcbiRmb250U2l6ZU1lZGl1bTogMTZweDtcbiRmb250U2l6ZUxhcmdlOiAxOHB4O1xuJGZvbnRTaXplWExhcmdlOiAyNHB4O1xuJGZvbnRTaXplWHhMYXJnZTogMzBweDtcbiRmb250U2l6ZVh4eExhcmdlOiA0MHB4O1xuXG4kY29sb3JUZXh0OiAkY29sb3JEYXJrZXJTaGFkZTtcbiRjb2xvclN1YmR1ZWQ6ICRjb2xvckRhcmtTaGFkZTtcblxuJGZvbnRXZWlnaHROb3JtYWw6IDQwMDtcbiRmb250V2VpZ2h0Qm9sZDogNjAwO1xuXG4kbGFiZWxGb250U2l6ZTogJGZvbnRTaXplU3RhbmRhcmQ7XG4kbGFiZWxGb250V2VpZ2h0OiAkZm9udFdlaWdodEJvbGQ7XG4kbGFiZWxDb2xvcjogJGNvbG9yVGV4dDtcbiIsImJvZHksXG50ZXh0YXJlYSB7XG4gIGZvbnQtZmFtaWx5OiAtYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsIFwiU2Vnb2UgVUlcIiwgXCJSb2JvdG9cIiwgXCJPeHlnZW5cIiwgXCJVYnVudHVcIiwgXCJDYW50YXJlbGxcIiwgXCJGaXJhIFNhbnNcIixcbiAgICBcIkRyb2lkIFNhbnNcIiwgXCJIZWx2ZXRpY2EgTmV1ZVwiLCBzYW5zLXNlcmlmO1xufVxuXG4vLyBBZGFwdGVkIGZyb20gRXJpYyBNZXllcidzIHJlc2V0IChodHRwOi8vbWV5ZXJ3ZWIuY29tL2VyaWMvdG9vbHMvY3NzL3Jlc2V0LywgdjIuMCB8IDIwMTEwMTI2KS4gKi9cblxuKixcbio6YmVmb3JlLFxuKjphZnRlciB7XG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG59XG5cbmh0bWwsXG5ib2R5LFxuZGl2LFxuc3BhbixcbmFwcGxldCxcbm9iamVjdCxcbmlmcmFtZSxcbmgxLFxuaDIsXG5oMyxcbmg0LFxuaDUsXG5oNixcbnAsXG5ibG9ja3F1b3RlLFxucHJlLFxuYSxcbmFiYnIsXG5hY3JvbnltLFxuYWRkcmVzcyxcbmJpZyxcbmNpdGUsXG5jb2RlLFxuZGVsLFxuZGZuLFxuZW0sXG5pbWcsXG5pbnMsXG5rYmQsXG5xLFxucyxcbnNhbXAsXG5zbWFsbCxcbnN0cmlrZSxcbnN0cm9uZyxcbnN1YixcbnN1cCxcbnR0LFxudmFyLFxuYixcbnUsXG5pLFxuY2VudGVyLFxuZGwsXG5kdCxcbmRkLFxub2wsXG51bCxcbmxpLFxuZmllbGRzZXQsXG5mb3JtLFxubGFiZWwsXG5sZWdlbmQsXG50YWJsZSxcbmNhcHRpb24sXG50Ym9keSxcbnRmb290LFxudGhlYWQsXG50cixcbnRoLFxudGQsXG5hcnRpY2xlLFxuYXNpZGUsXG5jYW52YXMsXG5kZXRhaWxzLFxuZW1iZWQsXG5maWd1cmUsXG5maWdjYXB0aW9uLFxuZm9vdGVyLFxuaGVhZGVyLFxuaGdyb3VwLFxubWVudSxcbm5hdixcbm91dHB1dCxcbnJ1YnksXG5zZWN0aW9uLFxuc3VtbWFyeSxcbnRpbWUsXG5tYXJrLFxuYXVkaW8sXG52aWRlbyB7XG4gIG1hcmdpbjogMDtcbiAgcGFkZGluZzogMDtcbiAgYm9yZGVyOiBub25lO1xuICB2ZXJ0aWNhbC1hbGlnbjogYmFzZWxpbmU7XG59XG5cbmgxLFxuaDIsXG5oMyxcbmg0LFxuaDUsXG5oNixcbnAge1xuICBmb250LWZhbWlseTogaW5oZXJpdDtcbiAgZm9udC13ZWlnaHQ6IGluaGVyaXQ7XG4gIGZvbnQtc2l6ZTogaW5oZXJpdDtcbn1cblxuLyogSFRNTDUgZGlzcGxheS1yb2xlIHJlc2V0IGZvciBvbGRlciBicm93c2VycyAqL1xuYXJ0aWNsZSxcbmFzaWRlLFxuZGV0YWlscyxcbmZpZ2NhcHRpb24sXG5maWd1cmUsXG5mb290ZXIsXG5oZWFkZXIsXG5oZ3JvdXAsXG5tZW51LFxubmF2LFxuc2VjdGlvbiB7XG4gIGRpc3BsYXk6IGJsb2NrO1xufVxuXG5hW2hyZWZdLFxuYnV0dG9uLFxuW3JvbGU9XCJidXR0b25cIl0ge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbmJ1dHRvbiB7XG4gIGJhY2tncm91bmQ6IG5vbmU7XG4gIGJvcmRlcjogbm9uZTtcbiAgcGFkZGluZzogMDtcbiAgbWFyZ2luOiAwO1xuICBjb2xvcjogaW5oZXJpdDtcbiAgYm9yZGVyLXJhZGl1czogMDtcbiAgZm9udC1zaXplOiBpbmhlcml0O1xufVxuXG5pbnB1dCB7XG4gIG1hcmdpbjogMDtcbiAgcGFkZGluZzogMDtcbn1cblxuaW5wdXQ6ZGlzYWJsZWQge1xuICBvcGFjaXR5OiAxOyAvKiByZXF1aXJlZCBvbiBpT1MgKi9cbn1cblxub2wsXG51bCB7XG4gIGxpc3Qtc3R5bGU6IG5vbmU7XG59XG5cbmJsb2NrcXVvdGUsXG5xIHtcbiAgcXVvdGVzOiBub25lO1xufVxuXG5ibG9ja3F1b3RlOmJlZm9yZSxcbmJsb2NrcXVvdGU6YWZ0ZXIsXG5xOmJlZm9yZSxcbnE6YWZ0ZXIge1xuICBjb250ZW50OiBcIlwiO1xufVxuXG50YWJsZSB7XG4gIGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7XG4gIGJvcmRlci1zcGFjaW5nOiAwO1xufVxuXG5ociB7XG4gIG1hcmdpbjogMDtcbn1cblxuZmllbGRzZXQge1xuICBtaW4taW5saW5lLXNpemU6IGF1dG87XG59XG4iLCIudnJzU2VhcmNoRm9ybSB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgZGlzcGxheTogZmxleDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn1cblxuLnZyc1NlYXJjaElucHV0IHtcbiAgZmxleC1ncm93OiAxO1xuICBwYWRkaW5nOiAkc2l6ZUw7XG4gIGJhY2tncm91bmQtY29sb3I6ICRjb2xvckVtcHR5U2hhZGU7XG4gIGJvcmRlcjogbm9uZTtcbiAgYm94LXNoYWRvdzogJHNoYWRvd1NtYWxsU3RhcnQ7XG4gIG91dGxpbmUtd2lkdGg6IDFweDtcbiAgb3V0bGluZS1zdHlsZTogc29saWQ7XG4gIG91dGxpbmUtY29sb3I6IHRyYW5zcGFyZW50O1xuICBvdXRsaW5lLW9mZnNldDogLTFweDtcbiAgZm9udC1zaXplOiAkZm9udFNpemVMYXJnZTtcbiAgY29sb3I6ICRjb2xvclRleHQ7XG59XG5cbi52cnNTdWJtaXRCdXR0b25XcmFwcGVyIHtcbiAgcGFkZGluZy1yaWdodDogJHNpemVNO1xufVxuXG4udnJzU3VibWl0QnV0dG9uIHtcbiAgbGluZS1oZWlnaHQ6IDA7IC8vIFRPRE86IFNob3VsZCB0aGlzIGJlIGFwcGxpZWQgdG8gYWxsIGJ1dHRvbnM/XG4gIGNvbG9yOiAkY29sb3JEYXJrU2hhZGU7XG4gIHRyYW5zaXRpb246IGFsbCAkdHJhbnNpdGlvblNwZWVkO1xuXG4gICY6aG92ZXIge1xuICAgIGNvbG9yOiAkY29sb3JQcmltYXJ5O1xuICB9XG59XG4iLCIkc2hhZG93U21hbGxTdGFydDogcmdiYSg2MCwgNjQsIDY3LCAwLjMpIDBweCAwcHggMHB4IDBweCwgcmdiYSg2MCwgNjQsIDY3LCAwLjE1KSAwcHggMHB4IDBweCAwcHg7XG4kc2hhZG93U21hbGxFbmQ6IHJnYmEoNjAsIDY0LCA2NywgMC4zKSAwcHggMXB4IDJweCAwcHgsIHJnYmEoNjAsIDY0LCA2NywgMC4xNSkgMHB4IDJweCA2cHggMnB4O1xuIiwiLnZyc1NlYXJjaFJlc3VsdCB7XG4gIGJhY2tncm91bmQtY29sb3I6ICRjb2xvckVtcHR5U2hhZGU7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBwYWRkaW5nOiAkc2l6ZVMgJHNpemVMICRzaXplUyAkc2l6ZUw7XG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICRib3JkZXJDb2xvckxpZ2h0O1xuXG4gICY6aG92ZXIge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICRjb2xvckxpZ2h0U2hhZGU7XG4gIH1cblxuICAmOmxhc3Qtb2YtdHlwZSB7XG4gICAgYm9yZGVyLWJvdHRvbTogbm9uZTtcbiAgfVxufVxuXG4udnJzU2VhcmNoUmVzdWx0LWlzTGluayB7XG4gIHBhZGRpbmctbGVmdDogJHNpemVNO1xuICBib3JkZXItbGVmdDogJHNpemVTIHNvbGlkICRjb2xvckVtcHR5U2hhZGU7XG5cbiAgJjpob3ZlcixcbiAgJi5pc1NlbGVjdGVkIHtcbiAgICBib3JkZXItbGVmdDogJHNpemVTIHNvbGlkICRjb2xvclByaW1hcnk7XG5cbiAgICAudnJzU2VhcmNoUmVzdWx0VGl0bGUge1xuICAgICAgdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7XG4gICAgfVxuICB9XG5cbiAgLnZyc1NlYXJjaFJlc3VsdFRpdGxlIHtcbiAgICBjb2xvcjogJGNvbG9yUHJpbWFyeTtcbiAgfVxufVxuXG4udnJzU2VhcmNoUmVzdWx0VGl0bGUge1xuICBjb2xvcjogJGNvbG9yRGFya2VyU2hhZGU7XG4gIGZvbnQtc2l6ZTogMTRweDtcbiAgZm9udC13ZWlnaHQ6IDcwMDtcbiAgbGluZS1oZWlnaHQ6IDIycHg7XG4gIG1hcmdpbi1ib3R0b206ICRzaXplWHhzO1xufVxuXG4udnJzU2VhcmNoUmVzdWx0U25pcHBldCB7XG4gIGNvbG9yOiAkY29sb3JEYXJrZXJTaGFkZTtcbiAgZm9udC1zaXplOiAxNHB4O1xuICBsaW5lLWhlaWdodDogMjBweDtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbn1cbiJdfQ== */`;
-  document.head.appendChild(document.createElement("style")).appendChild(document.createTextNode(css));
-
-  // src/SearchInput.tsx
-  var import_jsx_runtime9 = __toESM(require_jsx_runtime());
-  var SearchInput = ({ value, onChange, placeholder, autoFocus, onSubmit, ...rest }) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-      "input",
-      {
-        className: "vrsSearchInput",
-        type: "text",
-        autoComplete: "off",
-        autoCapitalize: "off",
-        spellCheck: "false",
-        autoFocus,
-        placeholder,
-        value,
-        onChange,
-        ...rest
-      }
-    );
+}`;
+  var pe = (u) => {
+    var a = u, { value: t, onChange: e, placeholder: i, autoFocus: n, onSubmit: o } = a, r = S(a, ["value", "onChange", "placeholder", "autoFocus", "onSubmit"]);
+    return (0, import_jsx_runtime9.jsx)("input", v({ "data-testid": "searchInput", className: "vrsSearchInput", type: "text", autoComplete: "off", autoCapitalize: "off", spellCheck: "false", autoFocus: n, placeholder: i, value: t, onChange: e }, r));
   };
-
-  // src/index.tsx
-  var import_jsx_runtime10 = __toESM(require_jsx_runtime());
-  var getQueryParam = (urlParams, key) => {
-    const value = urlParams.get(key);
-    if (value)
-      return decodeURIComponent(value);
-    return void 0;
+  var st = (t, e) => {
+    let i = t.get(e);
+    if (i)
+      return decodeURIComponent(i);
   };
-  var ReactSearch = ({
-    customerId,
-    apiKey,
-    corpusId,
-    apiUrl,
-    historySize = 10,
-    placeholder = "Search",
-    isDeeplinkable = false,
-    openResultsInNewTab = false
-  }) => {
-    const searchId = (0, import_react12.useMemo)(() => (0, import_uuid_by_string.default)(`${customerId}-${corpusId}-${apiKey}`), [customerId, corpusId, apiKey]);
-    const { addPreviousSearch } = useSearchHistory(searchId, historySize);
-    const { fetchSearchResults, isLoading } = useSearch(customerId, corpusId, apiKey, apiUrl);
-    const [selectedResultIndex, setSelectedResultIndex] = (0, import_react12.useState)(null);
-    const [searchResults, setSearchResults] = (0, import_react12.useState)([]);
-    const [isOpen, setIsOpen] = (0, import_react12.useState)(false);
-    const [searchValue, setSearchValue] = (0, import_react12.useState)("");
-    const buttonRef = (0, import_react12.useRef)(null);
-    const selectedResultRef = (0, import_react12.useRef)(null);
-    const searchCount = (0, import_react12.useRef)(0);
-    (0, import_react12.useEffect)(() => {
-      const queryParams = new URLSearchParams(window.location.search);
-      const deeplinkedSearch = getQueryParam(queryParams, "search");
-      if (deeplinkedSearch) {
-        setIsOpen(true);
-        setSearchValue(deeplinkedSearch);
-        sendSearchQuery(deeplinkedSearch);
-      }
+  var ut = ({ customerId: t, apiKey: e, corpusId: i, apiUrl: n, historySize: o = 10, placeholder: r = "Search", isDeeplinkable: u = false, openResultsInNewTab: a = false }) => {
+    let c = (0, import_react7.useMemo)(() => (0, import_uuid_by_string.default)(`${t}-${i}-${e}`), [t, i, e]), { addPreviousSearch: s } = xe(c, o), { fetchSearchResults: m, isLoading: b } = oe(t, i, e, n), [d, w] = (0, import_react7.useState)(null), [f, C] = (0, import_react7.useState)([]), [j, N] = (0, import_react7.useState)(false), [k, X] = (0, import_react7.useState)(""), he = (0, import_react7.useRef)(null), y = (0, import_react7.useRef)(null), J = (0, import_react7.useRef)(0);
+    (0, import_react7.useEffect)(() => {
+      let x = new URLSearchParams(window.location.search), p = st(x, "search");
+      p && (N(true), X(p), E(p));
     }, []);
-    const sendSearchQuery = async (query) => {
-      if (query.length === 0) {
+    let E = (x) => L(void 0, null, function* () {
+      if (x.length === 0)
         return;
+      if (u) {
+        let M = new URLSearchParams(window.location.search);
+        M.set("search", x), history.replaceState(null, "", "?" + M.toString());
       }
-      if (isDeeplinkable) {
-        const queryParams = new URLSearchParams(window.location.search);
-        queryParams.set("search", query);
-        history.replaceState(null, "", "?" + queryParams.toString());
-      }
-      addPreviousSearch(query);
-      const searchId2 = ++searchCount.current;
-      const results = await fetchSearchResults(query);
-      if (searchId2 === searchCount.current) {
-        setSearchResults(results);
-        setSelectedResultIndex(null);
-        selectedResultRef.current = null;
-      }
-    };
-    (0, import_react12.useEffect)(() => {
-      const timeoutId = setTimeout(() => {
-        sendSearchQuery(searchValue);
-      }, 500);
-      return () => clearTimeout(timeoutId);
-    }, [searchValue]);
-    const onChange = (evt) => {
-      const currentQuery = evt.target.value;
-      setSearchValue(currentQuery);
-      if (currentQuery.length === 0) {
-        resetResults();
-      }
-    };
-    const onKeyDown = (0, import_react12.useCallback)(
-      (evt) => {
-        const key = evt.key;
-        if (key === "Enter") {
-          evt.preventDefault();
-          if (selectedResultIndex !== null) {
-            window.open(searchResults[selectedResultIndex].url, openResultsInNewTab ? "_blank" : "_self");
-          } else {
-            sendSearchQuery(searchValue);
-          }
-        }
-        if (searchResults.length === 0) {
-          return;
-        }
-        if (key === "ArrowDown") {
-          setSelectedResultIndex((prevValue) => {
-            return prevValue === null || prevValue === searchResults.length - 1 ? 0 : prevValue + 1;
-          });
-        }
-        if (key === "ArrowUp") {
-          setSelectedResultIndex((prevValue) => {
-            return prevValue === null || prevValue === 0 ? searchResults.length - 1 : prevValue - 1;
-          });
-        }
-      },
-      [searchResults, selectedResultIndex]
-    );
-    const resetResults = () => {
-      setSearchResults([]);
-      setSelectedResultIndex(null);
-      selectedResultRef.current = null;
-    };
-    const closeModalAndResetResults = () => {
-      setIsOpen(false);
-      setSearchValue("");
-      resetResults();
-      if (isDeeplinkable) {
-        const queryParams = new URLSearchParams(window.location.search);
-        queryParams.delete("search");
-        history.replaceState(null, "", "?" + queryParams.toString());
-      }
-    };
-    const resultsList = searchResults.length === 0 ? null : searchResults.map((searchResult, index) => {
-      const {
-        snippet: { pre, text, post }
-      } = searchResult;
-      return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { ref: selectedResultIndex === index ? selectedResultRef : void 0, children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-        SearchResult,
-        {
-          searchResult,
-          isSelected: selectedResultIndex === index,
-          opensInNewTab: openResultsInNewTab
-        }
-      ) }, `${pre}${text}${post}`);
+      s(x);
+      let p = ++J.current, h = yield m(x);
+      p === J.current && (C(h), w(null), y.current = null);
     });
-    (0, import_react12.useEffect)(() => {
-      if (selectedResultRef.current) {
-        selectedResultRef.current.scrollIntoView({
-          behavior: "instant",
-          block: "nearest"
-        });
+    (0, import_react7.useEffect)(() => {
+      let x = setTimeout(() => {
+        E(k);
+      }, 500);
+      return () => clearTimeout(x);
+    }, [k]);
+    let ve = (x) => {
+      let p = x.target.value;
+      X(p), p.length === 0 && Q();
+    }, ge = (0, import_react7.useCallback)((x) => {
+      let p = x.key;
+      p === "Enter" && (x.preventDefault(), d !== null ? window.open(f[d].url, a ? "_blank" : "_self") : E(k)), f.length !== 0 && (p === "ArrowDown" && w((h) => h === null || h === f.length - 1 ? 0 : h + 1), p === "ArrowUp" && w((h) => h === null || h === 0 ? f.length - 1 : h - 1));
+    }, [f, d]), Q = () => {
+      C([]), w(null), y.current = null;
+    }, Se = () => {
+      if (N(false), X(""), Q(), u) {
+        let x = new URLSearchParams(window.location.search);
+        x.delete("search"), history.replaceState(null, "", "?" + x.toString());
       }
-    }, [selectedResultRef.current]);
-    (0, import_react12.useEffect)(() => {
-      const openSearchOnKeyStroke = (e) => {
-        if (e.key === "k" && e.ctrlKey) {
-          setIsOpen(true);
-        }
+    }, Y = f.length === 0 ? null : f.map((x, p) => {
+      let { snippet: { pre: h, text: M, post: be } } = x;
+      return (0, import_jsx_runtime10.jsx)("div", { ref: d === p ? y : void 0, children: (0, import_jsx_runtime10.jsx)(le, { searchResult: x, isSelected: d === p, opensInNewTab: a }) }, `${h}${M}${be}`);
+    });
+    return (0, import_react7.useEffect)(() => {
+      y.current && y.current.scrollIntoView({ behavior: "instant", block: "nearest" });
+    }, [y.current]), (0, import_react7.useEffect)(() => {
+      let x = (p) => {
+        p.key === "k" && p.ctrlKey && N(true);
       };
-      document.addEventListener("keyup", openSearchOnKeyStroke);
-      return () => {
-        document.removeEventListener("keyup", openSearchOnKeyStroke);
+      return document.addEventListener("keyup", x), () => {
+        document.removeEventListener("keyup", x);
       };
-    }, []);
-    return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "vrsStyleWrapper", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { ref: buttonRef, children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("button", { className: "vrsSearchButton", onClick: () => setIsOpen(true), children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
-        VuiFlexContainer,
-        {
-          alignItems: "center",
-          spacing: "none",
-          justifyContent: "spaceBetween",
-          className: "vrsSearchButton__inner",
-          children: [
-            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(VuiFlexItem, { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(VuiFlexContainer, { alignItems: "center", spacing: "xs", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(VuiFlexItem, { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(SearchIcon, {}) }),
-              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(VuiFlexItem, { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(VuiText, { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { children: "Search" }) }) })
-            ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "vrsSearchButtonShortcut", children: "Ctrl + K" })
-          ]
-        }
-      ) }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(SearchModal, { isOpen, onClose: closeModalAndResetResults, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("form", { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "vrsSearchForm", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(SearchInput, { value: searchValue, onChange, onKeyDown, placeholder }),
-          isLoading ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "vrsSubmitButtonWrapper", children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(VuiSpinner, { size: "xs" }) }) : /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "vrsSubmitButtonWrapper", children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-            "button",
-            {
-              className: "vrsSubmitButton",
-              onClick: (e) => {
-                e.preventDefault();
-                sendSearchQuery(searchValue);
-              },
-              children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(SearchIcon, {})
-            }
-          ) })
-        ] }) }),
-        resultsList && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "vrsSearchModalResults", children: resultsList })
-      ] })
-    ] }) });
+    }, []), (0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: (0, import_jsx_runtime10.jsxs)("div", { className: "vrsStyleWrapper", children: [(0, import_jsx_runtime10.jsx)("div", { ref: he, children: (0, import_jsx_runtime10.jsx)("button", { className: "vrsSearchButton", onClick: () => N(true), children: (0, import_jsx_runtime10.jsxs)(P, { alignItems: "center", spacing: "none", justifyContent: "spaceBetween", className: "vrsSearchButton__inner", children: [(0, import_jsx_runtime10.jsx)(R, { children: (0, import_jsx_runtime10.jsxs)(P, { alignItems: "center", spacing: "xs", children: [(0, import_jsx_runtime10.jsx)(R, { children: (0, import_jsx_runtime10.jsx)(me, {}) }), (0, import_jsx_runtime10.jsx)(R, { children: (0, import_jsx_runtime10.jsx)(V, { children: (0, import_jsx_runtime10.jsx)("div", { children: "Search" }) }) })] }) }), (0, import_jsx_runtime10.jsx)("div", { className: "vrsSearchButtonShortcut", children: "Ctrl + K" })] }) }) }), (0, import_jsx_runtime10.jsxs)(ce, { isOpen: j, onClose: Se, children: [(0, import_jsx_runtime10.jsx)("form", { children: (0, import_jsx_runtime10.jsxs)("div", { className: "vrsSearchForm", children: [(0, import_jsx_runtime10.jsx)(pe, { value: k, onChange: ve, onKeyDown: ge, placeholder: r }), b ? (0, import_jsx_runtime10.jsx)("div", { className: "vrsSubmitButtonWrapper", children: (0, import_jsx_runtime10.jsx)(O, { size: "xs" }) }) : (0, import_jsx_runtime10.jsx)("div", { className: "vrsSubmitButtonWrapper", children: (0, import_jsx_runtime10.jsx)("button", { className: "vrsSubmitButton", onClick: (x) => {
+      x.preventDefault(), E(k);
+    }, children: (0, import_jsx_runtime10.jsx)(me, {}) }) })] }) }), Y && (0, import_jsx_runtime10.jsx)("div", { className: "vrsSearchModalResults", children: Y })] })] }) });
   };
-  var SearchIcon = () => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
-    "svg",
-    {
-      xmlns: "http://www.w3.org/2000/svg",
-      xmlnsXlink: "http://www.w3.org/1999/xlink",
-      fill: "currentColor",
-      height: "17px",
-      width: "17px",
-      version: "1.1",
-      viewBox: "-24.52 -24.52 539.44 539.44",
-      xmlSpace: "preserve",
-      stroke: "currentColor",
-      strokeWidth: "12",
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("g", { id: "SVGRepo_bgCarrier", strokeWidth: "0" }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("g", { id: "SVGRepo_tracerCarrier", strokeLinecap: "round", strokeLinejoin: "round" }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("g", { id: "SVGRepo_iconCarrier", children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("g", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("path", { d: "M484.1,454.796l-110.5-110.6c29.8-36.3,47.6-82.8,47.6-133.4c0-116.3-94.3-210.6-210.6-210.6S0,94.496,0,210.796 s94.3,210.6,210.6,210.6c50.8,0,97.4-18,133.8-48l110.5,110.5c12.9,11.8,25,4.2,29.2,0C492.5,475.596,492.5,463.096,484.1,454.796z M41.1,210.796c0-93.6,75.9-169.5,169.5-169.5s169.6,75.9,169.6,169.5s-75.9,169.5-169.5,169.5S41.1,304.396,41.1,210.796z" }),
-          " "
-        ] }) })
-      ]
+  var me = () => (0, import_jsx_runtime10.jsx)("div", { children: (0, import_jsx_runtime10.jsxs)("svg", { xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink", fill: "currentColor", height: "17px", width: "17px", version: "1.1", viewBox: "-24.52 -24.52 539.44 539.44", xmlSpace: "preserve", stroke: "currentColor", strokeWidth: "12", children: [(0, import_jsx_runtime10.jsx)("g", { id: "SVGRepo_bgCarrier", strokeWidth: "0" }), (0, import_jsx_runtime10.jsx)("g", { id: "SVGRepo_tracerCarrier", strokeLinecap: "round", strokeLinejoin: "round" }), (0, import_jsx_runtime10.jsx)("g", { id: "SVGRepo_iconCarrier", children: (0, import_jsx_runtime10.jsxs)("g", { children: [(0, import_jsx_runtime10.jsx)("path", { d: "M484.1,454.796l-110.5-110.6c29.8-36.3,47.6-82.8,47.6-133.4c0-116.3-94.3-210.6-210.6-210.6S0,94.496,0,210.796 s94.3,210.6,210.6,210.6c50.8,0,97.4-18,133.8-48l110.5,110.5c12.9,11.8,25,4.2,29.2,0C492.5,475.596,492.5,463.096,484.1,454.796z M41.1,210.796c0-93.6,75.9-169.5,169.5-169.5s169.6,75.9,169.6,169.5s-75.9,169.5-169.5,169.5S41.1,304.396,41.1,210.796z" }), " "] }) })] }) });
+  var Z = class extends HTMLElement {
+    static get observedAttributes() {
+      return ["customerid", "corpusid", "apikey", "placeholder", "isdeeplinkable", "openresultsinnewtab"];
     }
-  ) });
+    constructor() {
+      super(), this.sr = this.attachShadow({ mode: "open" });
+      try {
+        this.sheet = new CSSStyleSheet(), this.sheet.replaceSync(K), this.sr.adoptedStyleSheets = [this.sheet];
+      } catch (e) {
+        let i = document.createElement("style");
+        i.innerText = K, this.sr.appendChild(i);
+      }
+      this.mountPoint = document.createElement("div"), this.sr.appendChild(this.mountPoint);
+    }
+    connectedCallback() {
+      var a, c, s, m;
+      let e = (a = this.getAttribute("customerId")) != null ? a : "", i = (c = this.getAttribute("corpusId")) != null ? c : "", n = (s = this.getAttribute("apiKey")) != null ? s : "", o = (m = this.getAttribute("placeholder")) != null ? m : void 0, r = this.getAttribute("isdeeplinkable") === "true", u = this.getAttribute("openresultsinnewtab") === "true";
+      fe.render((0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: (0, import_jsx_runtime10.jsx)(ut, { customerId: e, corpusId: i, apiKey: n, placeholder: o, isDeeplinkable: r, openResultsInNewTab: u }) }), this.mountPoint);
+    }
+    attributeChangedCallback() {
+      this.connectedCallback();
+    }
+  };
+  window.customElements.get("react-search") || window.customElements.define("react-search", Z);
+  var Zi = (t) => (0, import_jsx_runtime10.jsx)("react-search", v({}, t));
 
-  // docs/src/ui/components/flex/FlexContainer.tsx
+  // src/ui/components/flex/FlexContainer.tsx
   var import_classnames7 = __toESM(require_classnames());
   var import_jsx_runtime11 = __toESM(require_jsx_runtime());
-  var alignItemsToClassNameMap3 = {
+  var alignItemsToClassNameMap = {
     baseline: "vuiFlexContainer--alignItemsBaseline",
     center: "vuiFlexContainer--alignItemsCenter",
     end: "vuiFlexContainer--alignItemsEnd",
     start: "vuiFlexContainer--alignItemsStart",
     stretch: "vuiFlexContainer--alignItemsStretch"
   };
-  var directionToClassNameMap2 = {
+  var directionToClassNameMap = {
     column: "vuiFlexContainer--directionColumn",
     columnReverse: "vuiFlexContainer--directionColumnReverse",
     row: "vuiFlexContainer--directionRow",
     rowReverse: "vuiFlexContainer--directionRowReverse"
   };
-  var justifyContentToClassNameMap2 = {
+  var justifyContentToClassNameMap = {
     center: "vuiFlexContainer--justifyContentCenter",
     end: "vuiFlexContainer--justifyContentEnd",
     start: "vuiFlexContainer--justifyContentStart",
@@ -34428,7 +35467,7 @@ button {
     spaceBetween: "vuiFlexContainer--justifyContentSpaceBetween",
     spaceEvenly: "vuiFlexContainer--justifyContentSpaceEvenly"
   };
-  var spacingToClassNameMap2 = {
+  var spacingToClassNameMap = {
     none: "vuiFlexContainer--spacingNone",
     xxs: "vuiFlexContainer--spacingXxs",
     xs: "vuiFlexContainer--spacingXs",
@@ -34438,7 +35477,7 @@ button {
     xl: "vuiFlexContainer--spacingXl",
     xxl: "vuiFlexContainer--spacingXxl"
   };
-  var VuiFlexContainer2 = ({
+  var VuiFlexContainer = ({
     children,
     alignItems = "stretch",
     direction = "row",
@@ -34452,10 +35491,10 @@ button {
     const classes = (0, import_classnames7.default)(
       className,
       "vuiFlexContainer",
-      alignItemsToClassNameMap3[alignItems],
-      directionToClassNameMap2[direction],
-      justifyContentToClassNameMap2[justifyContent],
-      spacingToClassNameMap2[spacing],
+      alignItemsToClassNameMap[alignItems],
+      directionToClassNameMap[direction],
+      justifyContentToClassNameMap[justifyContent],
+      spacingToClassNameMap[spacing],
       {
         "vuiFlexContainer--wrap": wrap,
         "vuiFlexContainer--fullWidth": fullWidth
@@ -34464,17 +35503,17 @@ button {
     return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: classes, ...rest, children });
   };
 
-  // docs/src/ui/components/flex/FlexItem.tsx
+  // src/ui/components/flex/FlexItem.tsx
   var import_classnames8 = __toESM(require_classnames());
   var import_jsx_runtime12 = __toESM(require_jsx_runtime());
-  var alignItemsToClassNameMap4 = {
+  var alignItemsToClassNameMap2 = {
     baseline: "vuiFlexItem--alignItemsBaseline",
     center: "vuiFlexItem--alignItemsCenter",
     end: "vuiFlexItem--alignItemsEnd",
     start: "vuiFlexItem--alignItemsStart",
     stretch: "vuiFlexItem--alignItemsStretch"
   };
-  var VuiFlexItem2 = ({
+  var VuiFlexItem = ({
     children,
     grow,
     shrink,
@@ -34489,7 +35528,7 @@ button {
     const classes = (0, import_classnames8.default)(
       "vuiFlexItem",
       `vuiFlexItem--${basis}`,
-      alignItemsToClassNameMap4[alignItems],
+      alignItemsToClassNameMap2[alignItems],
       {
         [`vuiFlexItem--flexGrow${grow}`]: typeof grow === "number",
         "vuiFlexItem--flexGrowNone": isGrowNone,
@@ -34502,7 +35541,7 @@ button {
     return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: classes, ...rest, children });
   };
 
-  // docs/src/ui/components/icon/Icon.tsx
+  // src/ui/components/icon/Icon.tsx
   var import_classnames9 = __toESM(require_classnames());
   var import_react13 = __toESM(require_react());
   var import_jsx_runtime13 = __toESM(require_jsx_runtime());
@@ -34528,7 +35567,7 @@ button {
     return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(IconContext.Provider, { value: { className: innerClasses }, children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: classes, ...rest, children: icon }) });
   };
 
-  // docs/src/ui/utils/createId.ts
+  // src/ui/utils/createId.ts
   var id = 0;
   var createId = () => {
     if (id === Number.MAX_SAFE_INTEGER) {
@@ -34539,20 +35578,20 @@ button {
     return id.toString();
   };
 
-  // docs/src/ui/components/accordion/Accordion.tsx
+  // src/ui/components/accordion/Accordion.tsx
   var import_jsx_runtime14 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/horizontalRule/HorizontalRule.tsx
+  // src/ui/components/horizontalRule/HorizontalRule.tsx
   var import_jsx_runtime15 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/popover/Popover.tsx
+  // src/ui/components/popover/Popover.tsx
   var import_react15 = __toESM(require_react());
   var import_classnames10 = __toESM(require_classnames());
 
-  // docs/src/ui/components/portal/Portal.tsx
+  // src/ui/components/portal/Portal.tsx
   var import_react14 = __toESM(require_react());
   var import_react_dom2 = __toESM(require_react_dom());
-  var VuiPortal2 = ({ children }) => {
+  var VuiPortal = ({ children }) => {
     const portalRef = (0, import_react14.useRef)(null);
     (0, import_react14.useEffect)(() => {
       portalRef.current = document.createElement("div");
@@ -34566,10 +35605,10 @@ button {
     return (0, import_react_dom2.createPortal)(children, portalRef.current);
   };
 
-  // docs/src/ui/components/popover/Popover.tsx
+  // src/ui/components/popover/Popover.tsx
   var import_jsx_runtime16 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/spacer/Spacer.tsx
+  // src/ui/components/spacer/Spacer.tsx
   var import_classnames11 = __toESM(require_classnames());
   var import_jsx_runtime17 = __toESM(require_jsx_runtime());
   var VuiSpacer = ({ size = "m" }) => {
@@ -34577,10 +35616,10 @@ button {
     return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: classes });
   };
 
-  // docs/src/ui/components/accountMenu/AccountMenu.tsx
+  // src/ui/components/accountMenu/AccountMenu.tsx
   var import_jsx_runtime18 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/app/AppContent.tsx
+  // src/ui/components/app/AppContent.tsx
   var import_classnames12 = __toESM(require_classnames());
   var import_jsx_runtime19 = __toESM(require_jsx_runtime());
   var paddingToClassNameMap = {
@@ -34603,35 +35642,35 @@ button {
     return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", { className: classes, ...rest, children });
   };
 
-  // docs/src/ui/components/app/AppHeader.tsx
+  // src/ui/components/app/AppHeader.tsx
   var import_jsx_runtime20 = __toESM(require_jsx_runtime());
   var VuiAppHeader = ({ left, right, ...rest }) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: "vuiAppHeader", ...rest, children: /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(VuiFlexContainer2, { className: "vuiAppHeader__inner", justifyContent: "spaceBetween", alignItems: "center", children: [
-      Boolean(left) && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(VuiFlexItem2, { grow: false, shrink: false, children: left }),
-      Boolean(right) && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(VuiFlexItem2, { grow: false, shrink: false, children: right })
+    return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: "vuiAppHeader", ...rest, children: /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(VuiFlexContainer, { className: "vuiAppHeader__inner", justifyContent: "spaceBetween", alignItems: "center", children: [
+      Boolean(left) && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(VuiFlexItem, { grow: false, shrink: false, children: left }),
+      Boolean(right) && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(VuiFlexItem, { grow: false, shrink: false, children: right })
     ] }) });
   };
 
-  // docs/src/ui/components/app/AppLayout.tsx
+  // src/ui/components/app/AppLayout.tsx
   var import_react20 = __toESM(require_react());
   var import_classnames16 = __toESM(require_classnames());
 
-  // docs/src/ui/components/app/appSideNav/AppSideNav.tsx
+  // src/ui/components/app/appSideNav/AppSideNav.tsx
   var import_react19 = __toESM(require_react());
   var import_classnames15 = __toESM(require_classnames());
 
-  // docs/src/ui/components/button/IconButton.tsx
+  // src/ui/components/button/IconButton.tsx
   var import_classnames13 = __toESM(require_classnames());
   var import_react17 = __toESM(require_react());
 
-  // node_modules/react-router-dom/dist/index.js
-  var React20 = __toESM(require_react());
+  // ../node_modules/react-router-dom/dist/index.js
+  var React19 = __toESM(require_react());
   var ReactDOM = __toESM(require_react_dom());
 
-  // node_modules/react-router/dist/index.js
-  var React19 = __toESM(require_react());
+  // ../node_modules/react-router/dist/index.js
+  var React18 = __toESM(require_react());
 
-  // node_modules/@remix-run/router/dist/router.js
+  // ../node_modules/@remix-run/router/dist/router.js
   function _extends3() {
     _extends3 = Object.assign ? Object.assign.bind() : function(target) {
       for (var i = 1; i < arguments.length; i++) {
@@ -34767,7 +35806,7 @@ button {
     }
     warning(path === "*" || !path.endsWith("*") || path.endsWith("/*"), 'Route path "' + path + '" will be treated as if it were ' + ('"' + path.replace(/\*$/, "/*") + '" because the `*` character must ') + "always follow a `/` in the pattern. To get rid of this warning, " + ('please change the route path to "' + path.replace(/\*$/, "/*") + '".'));
     let params = [];
-    let regexpSource = "^" + path.replace(/\/*\*?$/, "").replace(/^\/*/, "/").replace(/[\\.*+^${}|()[\]]/g, "\\$&").replace(/\/:([\w-]+)(\?)?/g, (_, paramName, isOptional) => {
+    let regexpSource = "^" + path.replace(/\/*\*?$/, "").replace(/^\/*/, "/").replace(/[\\.*+^${}|()[\]]/g, "\\$&").replace(/\/:([\w-]+)(\?)?/g, (_2, paramName, isOptional) => {
       params.push({
         paramName,
         isOptional: isOptional != null
@@ -34898,7 +35937,7 @@ button {
   var validRequestMethods = new Set(validRequestMethodsArr);
   var UNSAFE_DEFERRED_SYMBOL = Symbol("deferred");
 
-  // node_modules/react-router/dist/index.js
+  // ../node_modules/react-router/dist/index.js
   function _extends4() {
     _extends4 = Object.assign ? Object.assign.bind() : function(target) {
       for (var i = 1; i < arguments.length; i++) {
@@ -34913,27 +35952,27 @@ button {
     };
     return _extends4.apply(this, arguments);
   }
-  var DataRouterContext = /* @__PURE__ */ React19.createContext(null);
+  var DataRouterContext = /* @__PURE__ */ React18.createContext(null);
   if (true) {
     DataRouterContext.displayName = "DataRouter";
   }
-  var DataRouterStateContext = /* @__PURE__ */ React19.createContext(null);
+  var DataRouterStateContext = /* @__PURE__ */ React18.createContext(null);
   if (true) {
     DataRouterStateContext.displayName = "DataRouterState";
   }
-  var AwaitContext = /* @__PURE__ */ React19.createContext(null);
+  var AwaitContext = /* @__PURE__ */ React18.createContext(null);
   if (true) {
     AwaitContext.displayName = "Await";
   }
-  var NavigationContext = /* @__PURE__ */ React19.createContext(null);
+  var NavigationContext = /* @__PURE__ */ React18.createContext(null);
   if (true) {
     NavigationContext.displayName = "Navigation";
   }
-  var LocationContext = /* @__PURE__ */ React19.createContext(null);
+  var LocationContext = /* @__PURE__ */ React18.createContext(null);
   if (true) {
     LocationContext.displayName = "Location";
   }
-  var RouteContext = /* @__PURE__ */ React19.createContext({
+  var RouteContext = /* @__PURE__ */ React18.createContext({
     outlet: null,
     matches: [],
     isDataRoute: false
@@ -34941,7 +35980,7 @@ button {
   if (true) {
     RouteContext.displayName = "Route";
   }
-  var RouteErrorContext = /* @__PURE__ */ React19.createContext(null);
+  var RouteErrorContext = /* @__PURE__ */ React18.createContext(null);
   if (true) {
     RouteErrorContext.displayName = "RouteError";
   }
@@ -34958,7 +35997,7 @@ button {
     let {
       basename,
       navigator: navigator2
-    } = React19.useContext(NavigationContext);
+    } = React18.useContext(NavigationContext);
     let {
       hash,
       pathname,
@@ -34977,7 +36016,7 @@ button {
     });
   }
   function useInRouterContext() {
-    return React19.useContext(LocationContext) != null;
+    return React18.useContext(LocationContext) != null;
   }
   function useLocation() {
     !useInRouterContext() ? true ? invariant(
@@ -34986,19 +36025,19 @@ button {
       // router loaded. We can help them understand how to avoid that.
       "useLocation() may be used only in the context of a <Router> component."
     ) : invariant(false) : void 0;
-    return React19.useContext(LocationContext).location;
+    return React18.useContext(LocationContext).location;
   }
   var navigateEffectWarning = "You should call navigate() in a React.useEffect(), not when your component is first rendered.";
   function useIsomorphicLayoutEffect(cb) {
-    let isStatic = React19.useContext(NavigationContext).static;
+    let isStatic = React18.useContext(NavigationContext).static;
     if (!isStatic) {
-      React19.useLayoutEffect(cb);
+      React18.useLayoutEffect(cb);
     }
   }
   function useNavigate() {
     let {
       isDataRoute
-    } = React19.useContext(RouteContext);
+    } = React18.useContext(RouteContext);
     return isDataRoute ? useNavigateStable() : useNavigateUnstable();
   }
   function useNavigateUnstable() {
@@ -35008,24 +36047,24 @@ button {
       // router loaded. We can help them understand how to avoid that.
       "useNavigate() may be used only in the context of a <Router> component."
     ) : invariant(false) : void 0;
-    let dataRouterContext = React19.useContext(DataRouterContext);
+    let dataRouterContext = React18.useContext(DataRouterContext);
     let {
       basename,
       future,
       navigator: navigator2
-    } = React19.useContext(NavigationContext);
+    } = React18.useContext(NavigationContext);
     let {
       matches
-    } = React19.useContext(RouteContext);
+    } = React18.useContext(RouteContext);
     let {
       pathname: locationPathname
     } = useLocation();
     let routePathnamesJson = JSON.stringify(getResolveToMatches(matches, future.v7_relativeSplatPath));
-    let activeRef = React19.useRef(false);
+    let activeRef = React18.useRef(false);
     useIsomorphicLayoutEffect(() => {
       activeRef.current = true;
     });
-    let navigate = React19.useCallback(function(to, options) {
+    let navigate = React18.useCallback(function(to, options) {
       if (options === void 0) {
         options = {};
       }
@@ -35050,15 +36089,15 @@ button {
     } = _temp2 === void 0 ? {} : _temp2;
     let {
       future
-    } = React19.useContext(NavigationContext);
+    } = React18.useContext(NavigationContext);
     let {
       matches
-    } = React19.useContext(RouteContext);
+    } = React18.useContext(RouteContext);
     let {
       pathname: locationPathname
     } = useLocation();
     let routePathnamesJson = JSON.stringify(getResolveToMatches(matches, future.v7_relativeSplatPath));
-    return React19.useMemo(() => resolveTo(to, JSON.parse(routePathnamesJson), locationPathname, relative === "path"), [to, routePathnamesJson, locationPathname, relative]);
+    return React18.useMemo(() => resolveTo(to, JSON.parse(routePathnamesJson), locationPathname, relative === "path"), [to, routePathnamesJson, locationPathname, relative]);
   }
   var DataRouterHook = /* @__PURE__ */ function(DataRouterHook3) {
     DataRouterHook3["UseBlocker"] = "useBlocker";
@@ -35083,17 +36122,17 @@ button {
     return hookName + " must be used within a data router.  See https://reactrouter.com/routers/picking-a-router.";
   }
   function useDataRouterContext(hookName) {
-    let ctx = React19.useContext(DataRouterContext);
+    let ctx = React18.useContext(DataRouterContext);
     !ctx ? true ? invariant(false, getDataRouterConsoleError(hookName)) : invariant(false) : void 0;
     return ctx;
   }
   function useDataRouterState(hookName) {
-    let state = React19.useContext(DataRouterStateContext);
+    let state = React18.useContext(DataRouterStateContext);
     !state ? true ? invariant(false, getDataRouterConsoleError(hookName)) : invariant(false) : void 0;
     return state;
   }
   function useRouteContext(hookName) {
-    let route = React19.useContext(RouteContext);
+    let route = React18.useContext(RouteContext);
     !route ? true ? invariant(false, getDataRouterConsoleError(hookName)) : invariant(false) : void 0;
     return route;
   }
@@ -35115,18 +36154,18 @@ button {
       matches,
       loaderData
     } = useDataRouterState(DataRouterStateHook.UseMatches);
-    return React19.useMemo(() => matches.map((m) => convertRouteMatchToUiMatch(m, loaderData)), [matches, loaderData]);
+    return React18.useMemo(() => matches.map((m) => convertRouteMatchToUiMatch(m, loaderData)), [matches, loaderData]);
   }
   function useNavigateStable() {
     let {
       router
     } = useDataRouterContext(DataRouterHook.UseNavigateStable);
     let id2 = useCurrentRouteId(DataRouterStateHook.UseNavigateStable);
-    let activeRef = React19.useRef(false);
+    let activeRef = React18.useRef(false);
     useIsomorphicLayoutEffect(() => {
       activeRef.current = true;
     });
-    let navigate = React19.useCallback(function(to, options) {
+    let navigate = React18.useCallback(function(to, options) {
       if (options === void 0) {
         options = {};
       }
@@ -35144,7 +36183,7 @@ button {
     return navigate;
   }
   var START_TRANSITION = "startTransition";
-  var startTransitionImpl = React19[START_TRANSITION];
+  var startTransitionImpl = React18[START_TRANSITION];
   function Router(_ref5) {
     let {
       basename: basenameProp = "/",
@@ -35157,7 +36196,7 @@ button {
     } = _ref5;
     !!useInRouterContext() ? true ? invariant(false, "You cannot render a <Router> inside another <Router>. You should never have more than one in your app.") : invariant(false) : void 0;
     let basename = basenameProp.replace(/^\/*/, "/");
-    let navigationContext = React19.useMemo(() => ({
+    let navigationContext = React18.useMemo(() => ({
       basename,
       navigator: navigator2,
       static: staticProp,
@@ -35175,7 +36214,7 @@ button {
       state = null,
       key = "default"
     } = locationProp;
-    let locationContext = React19.useMemo(() => {
+    let locationContext = React18.useMemo(() => {
       let trailingPathname = stripBasename(pathname, basename);
       if (trailingPathname == null) {
         return null;
@@ -35195,9 +36234,9 @@ button {
     if (locationContext == null) {
       return null;
     }
-    return /* @__PURE__ */ React19.createElement(NavigationContext.Provider, {
+    return /* @__PURE__ */ React18.createElement(NavigationContext.Provider, {
       value: navigationContext
-    }, /* @__PURE__ */ React19.createElement(LocationContext.Provider, {
+    }, /* @__PURE__ */ React18.createElement(LocationContext.Provider, {
       children,
       value: locationContext
     }));
@@ -35205,7 +36244,7 @@ button {
   var neverSettledPromise = new Promise(() => {
   });
 
-  // node_modules/react-router-dom/dist/index.js
+  // ../node_modules/react-router-dom/dist/index.js
   function _extends5() {
     _extends5 = Object.assign ? Object.assign.bind() : function(target) {
       for (var i = 1; i < arguments.length; i++) {
@@ -35339,22 +36378,22 @@ button {
   var _excluded2 = ["onClick", "relative", "reloadDocument", "replace", "state", "target", "to", "preventScrollReset", "unstable_viewTransition"];
   var _excluded22 = ["aria-current", "caseSensitive", "className", "end", "style", "to", "unstable_viewTransition", "children"];
   var _excluded3 = ["fetcherKey", "navigate", "reloadDocument", "replace", "state", "method", "action", "onSubmit", "relative", "preventScrollReset", "unstable_viewTransition"];
-  var ViewTransitionContext = /* @__PURE__ */ React20.createContext({
+  var ViewTransitionContext = /* @__PURE__ */ React19.createContext({
     isTransitioning: false
   });
   if (true) {
     ViewTransitionContext.displayName = "ViewTransition";
   }
-  var FetchersContext = /* @__PURE__ */ React20.createContext(/* @__PURE__ */ new Map());
+  var FetchersContext = /* @__PURE__ */ React19.createContext(/* @__PURE__ */ new Map());
   if (true) {
     FetchersContext.displayName = "Fetchers";
   }
   var START_TRANSITION2 = "startTransition";
-  var startTransitionImpl2 = React20[START_TRANSITION2];
+  var startTransitionImpl2 = React19[START_TRANSITION2];
   var FLUSH_SYNC = "flushSync";
   var flushSyncImpl = ReactDOM[FLUSH_SYNC];
   var USE_ID = "useId";
-  var useIdImpl = React20[USE_ID];
+  var useIdImpl = React19[USE_ID];
   function HistoryRouter(_ref6) {
     let {
       basename,
@@ -35362,18 +36401,18 @@ button {
       future,
       history: history2
     } = _ref6;
-    let [state, setStateImpl] = React20.useState({
+    let [state, setStateImpl] = React19.useState({
       action: history2.action,
       location: history2.location
     });
     let {
       v7_startTransition
     } = future || {};
-    let setState = React20.useCallback((newState) => {
+    let setState = React19.useCallback((newState) => {
       v7_startTransition && startTransitionImpl2 ? startTransitionImpl2(() => setStateImpl(newState)) : setStateImpl(newState);
     }, [setStateImpl, v7_startTransition]);
-    React20.useLayoutEffect(() => history2.listen(setState), [history2, setState]);
-    return /* @__PURE__ */ React20.createElement(Router, {
+    React19.useLayoutEffect(() => history2.listen(setState), [history2, setState]);
+    return /* @__PURE__ */ React19.createElement(Router, {
       basename,
       children,
       location: state.location,
@@ -35387,7 +36426,7 @@ button {
   }
   var isBrowser = typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined";
   var ABSOLUTE_URL_REGEX = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;
-  var Link = /* @__PURE__ */ React20.forwardRef(function LinkWithRef(_ref7, ref) {
+  var Link = /* @__PURE__ */ React19.forwardRef(function LinkWithRef(_ref7, ref) {
     let {
       onClick,
       relative,
@@ -35401,7 +36440,7 @@ button {
     } = _ref7, rest = _objectWithoutPropertiesLoose2(_ref7, _excluded2);
     let {
       basename
-    } = React20.useContext(NavigationContext);
+    } = React19.useContext(NavigationContext);
     let absoluteHref;
     let isExternal = false;
     if (typeof to === "string" && ABSOLUTE_URL_REGEX.test(to)) {
@@ -35441,7 +36480,7 @@ button {
     }
     return (
       // eslint-disable-next-line jsx-a11y/anchor-has-content
-      /* @__PURE__ */ React20.createElement("a", _extends5({}, rest, {
+      /* @__PURE__ */ React19.createElement("a", _extends5({}, rest, {
         href: absoluteHref || href,
         onClick: isExternal || reloadDocument ? onClick : handleClick,
         ref,
@@ -35452,7 +36491,7 @@ button {
   if (true) {
     Link.displayName = "Link";
   }
-  var NavLink = /* @__PURE__ */ React20.forwardRef(function NavLinkWithRef(_ref8, ref) {
+  var NavLink = /* @__PURE__ */ React19.forwardRef(function NavLinkWithRef(_ref8, ref) {
     let {
       "aria-current": ariaCurrentProp = "page",
       caseSensitive = false,
@@ -35467,10 +36506,10 @@ button {
       relative: rest.relative
     });
     let location = useLocation();
-    let routerState = React20.useContext(DataRouterStateContext);
+    let routerState = React19.useContext(DataRouterStateContext);
     let {
       navigator: navigator2
-    } = React20.useContext(NavigationContext);
+    } = React19.useContext(NavigationContext);
     let isTransitioning = routerState != null && // Conditional usage is OK here because the usage of a data router is static
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useViewTransitionState(path) && unstable_viewTransition === true;
@@ -35498,7 +36537,7 @@ button {
       className = [classNameProp, isActive ? "active" : null, isPending ? "pending" : null, isTransitioning ? "transitioning" : null].filter(Boolean).join(" ");
     }
     let style = typeof styleProp === "function" ? styleProp(renderProps) : styleProp;
-    return /* @__PURE__ */ React20.createElement(Link, _extends5({}, rest, {
+    return /* @__PURE__ */ React19.createElement(Link, _extends5({}, rest, {
       "aria-current": ariaCurrent,
       className,
       ref,
@@ -35510,7 +36549,7 @@ button {
   if (true) {
     NavLink.displayName = "NavLink";
   }
-  var Form = /* @__PURE__ */ React20.forwardRef((_ref9, forwardedRef) => {
+  var Form = /* @__PURE__ */ React19.forwardRef((_ref9, forwardedRef) => {
     let {
       fetcherKey,
       navigate,
@@ -35547,7 +36586,7 @@ button {
         unstable_viewTransition
       });
     };
-    return /* @__PURE__ */ React20.createElement("form", _extends5({
+    return /* @__PURE__ */ React19.createElement("form", _extends5({
       ref: forwardedRef,
       method: formMethod,
       action: formAction,
@@ -35589,12 +36628,12 @@ button {
     return hookName + " must be used within a data router.  See https://reactrouter.com/routers/picking-a-router.";
   }
   function useDataRouterContext2(hookName) {
-    let ctx = React20.useContext(DataRouterContext);
+    let ctx = React19.useContext(DataRouterContext);
     !ctx ? true ? invariant(false, getDataRouterConsoleError2(hookName)) : invariant(false) : void 0;
     return ctx;
   }
   function useDataRouterState2(hookName) {
-    let state = React20.useContext(DataRouterStateContext);
+    let state = React19.useContext(DataRouterStateContext);
     !state ? true ? invariant(false, getDataRouterConsoleError2(hookName)) : invariant(false) : void 0;
     return state;
   }
@@ -35612,7 +36651,7 @@ button {
     let path = useResolvedPath(to, {
       relative
     });
-    return React20.useCallback((event) => {
+    return React19.useCallback((event) => {
       if (shouldProcessLinkClick(event, target)) {
         event.preventDefault();
         let replace = replaceProp !== void 0 ? replaceProp : createPath(location) === createPath(path);
@@ -35639,9 +36678,9 @@ button {
     } = useDataRouterContext2(DataRouterHook2.UseSubmit);
     let {
       basename
-    } = React20.useContext(NavigationContext);
+    } = React19.useContext(NavigationContext);
     let currentRouteId = useRouteId();
-    return React20.useCallback(function(target, options) {
+    return React19.useCallback(function(target, options) {
       if (options === void 0) {
         options = {};
       }
@@ -35685,8 +36724,8 @@ button {
     } = _temp2 === void 0 ? {} : _temp2;
     let {
       basename
-    } = React20.useContext(NavigationContext);
-    let routeContext = React20.useContext(RouteContext);
+    } = React19.useContext(NavigationContext);
+    let routeContext = React19.useContext(RouteContext);
     !routeContext ? true ? invariant(false, "useFormAction must be used inside a RouteContext") : invariant(false) : void 0;
     let [match] = routeContext.matches.slice(-1);
     let path = _extends5({}, useResolvedPath(action ? action : ".", {
@@ -35725,17 +36764,17 @@ button {
     } = useDataRouterState2(DataRouterStateHook2.UseScrollRestoration);
     let {
       basename
-    } = React20.useContext(NavigationContext);
+    } = React19.useContext(NavigationContext);
     let location = useLocation();
     let matches = useMatches();
     let navigation = useNavigation();
-    React20.useEffect(() => {
+    React19.useEffect(() => {
       window.history.scrollRestoration = "manual";
       return () => {
         window.history.scrollRestoration = "auto";
       };
     }, []);
-    usePageHide(React20.useCallback(() => {
+    usePageHide(React19.useCallback(() => {
       if (navigation.state === "idle") {
         let key = (getKey ? getKey(location, matches) : null) || location.key;
         savedScrollPositions[key] = window.scrollY;
@@ -35748,7 +36787,7 @@ button {
       window.history.scrollRestoration = "auto";
     }, [storageKey, getKey, navigation.state, location, matches]));
     if (typeof document !== "undefined") {
-      React20.useLayoutEffect(() => {
+      React19.useLayoutEffect(() => {
         try {
           let sessionPositions = sessionStorage.getItem(storageKey || SCROLL_RESTORATION_STORAGE_KEY);
           if (sessionPositions) {
@@ -35757,7 +36796,7 @@ button {
         } catch (e) {
         }
       }, [storageKey]);
-      React20.useLayoutEffect(() => {
+      React19.useLayoutEffect(() => {
         let getKeyWithoutBasename = getKey && basename !== "/" ? (location2, matches2) => getKey(
           // Strip the basename to match useLocation()
           _extends5({}, location2, {
@@ -35768,7 +36807,7 @@ button {
         let disableScrollRestoration = router == null ? void 0 : router.enableScrollRestoration(savedScrollPositions, () => window.scrollY, getKeyWithoutBasename);
         return () => disableScrollRestoration && disableScrollRestoration();
       }, [router, basename, getKey]);
-      React20.useLayoutEffect(() => {
+      React19.useLayoutEffect(() => {
         if (restoreScrollPosition === false) {
           return;
         }
@@ -35794,7 +36833,7 @@ button {
     let {
       capture
     } = options || {};
-    React20.useEffect(() => {
+    React19.useEffect(() => {
       let opts = capture != null ? {
         capture
       } : void 0;
@@ -35808,7 +36847,7 @@ button {
     if (opts === void 0) {
       opts = {};
     }
-    let vtContext = React20.useContext(ViewTransitionContext);
+    let vtContext = React19.useContext(ViewTransitionContext);
     !(vtContext != null) ? true ? invariant(false, "`unstable_useViewTransitionState` must be used within `react-router-dom`'s `RouterProvider`.  Did you accidentally import `RouterProvider` from `react-router`?") : invariant(false) : void 0;
     let {
       basename
@@ -35824,7 +36863,7 @@ button {
     return matchPath(path.pathname, nextPath) != null || matchPath(path.pathname, currentPath) != null;
   }
 
-  // docs/src/ui/utils/getTrackingProps.ts
+  // src/ui/utils/getTrackingProps.ts
   var getTrackingProps = (track) => {
     if (track) {
       return {
@@ -35843,7 +36882,7 @@ button {
     };
   };
 
-  // docs/src/ui/components/button/createButtonIcon.ts
+  // src/ui/components/button/createButtonIcon.ts
   var import_react16 = __toESM(require_react());
   var sizeToIconSizeMap = {
     xs: "xs",
@@ -35867,7 +36906,7 @@ button {
     }) : null;
   };
 
-  // docs/src/ui/components/button/IconButton.tsx
+  // src/ui/components/button/IconButton.tsx
   var import_jsx_runtime21 = (
     // @ts-expect-error HTMLAnchorElement is not HTMLButtonElement.
     __toESM(require_jsx_runtime())
@@ -35906,7 +36945,7 @@ button {
     }
   );
 
-  // docs/src/ui/components/app/appSideNav/AppSideNavLink.tsx
+  // src/ui/components/app/appSideNav/AppSideNavLink.tsx
   var import_classnames14 = __toESM(require_classnames());
   var import_jsx_runtime22 = __toESM(require_jsx_runtime());
   var VuiAppSideNavLink = ({ path, name, iconBefore, iconAfter, isActive, className, ...rest }) => {
@@ -35918,15 +36957,15 @@ button {
       },
       className
     );
-    const content = iconBefore || iconAfter ? /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(VuiFlexContainer2, { alignItems: "center", spacing: "xxs", children: [
-      iconBefore && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(VuiFlexItem2, { grow: false, shrink: false, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(VuiIcon, { size: "s", children: iconBefore }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(VuiFlexItem2, { grow: false, shrink: false, children: name }),
-      iconAfter && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(VuiFlexItem2, { grow: false, shrink: false, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(VuiIcon, { size: "s", children: iconAfter }) })
+    const content = iconBefore || iconAfter ? /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(VuiFlexContainer, { alignItems: "center", spacing: "xxs", children: [
+      iconBefore && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(VuiFlexItem, { grow: false, shrink: false, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(VuiIcon, { size: "s", children: iconBefore }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(VuiFlexItem, { grow: false, shrink: false, children: name }),
+      iconAfter && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(VuiFlexItem, { grow: false, shrink: false, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(VuiIcon, { size: "s", children: iconAfter }) })
     ] }) : name;
     return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Link, { className: classes, to: path ?? "/", ...rest, children: content });
   };
 
-  // docs/src/ui/components/app/appSideNav/AppSideNavSections.tsx
+  // src/ui/components/app/appSideNav/AppSideNavSections.tsx
   var import_jsx_runtime23 = __toESM(require_jsx_runtime());
   var buildSections = (sections) => {
     return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "vuiAppSideNavSections", children: sections.map(({ name, pages }) => {
@@ -35941,7 +36980,7 @@ button {
     ] }, name);
   };
 
-  // docs/src/ui/components/app/appSideNav/AppSideNavTree.tsx
+  // src/ui/components/app/appSideNav/AppSideNavTree.tsx
   var import_react18 = __toESM(require_react());
   var import_jsx_runtime24 = __toESM(require_jsx_runtime());
   var buildTree = (items) => {
@@ -36010,7 +37049,7 @@ button {
     ] });
   };
 
-  // docs/src/ui/components/app/appSideNav/AppSideNav.tsx
+  // src/ui/components/app/appSideNav/AppSideNav.tsx
   var import_jsx_runtime25 = __toESM(require_jsx_runtime());
   var buildSideNavItems = (items) => {
     return isTree(items) ? buildTree(items) : buildSections(items);
@@ -36059,9 +37098,9 @@ button {
             setIsTouched(true);
             setIsCollapsed(true);
           },
-          children: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(VuiFlexContainer2, { alignItems: "center", spacing: "xxs", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(VuiFlexItem2, { shrink: false, grow: false, children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(VuiIcon, { children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(BiChevronLeft, {}) }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(VuiFlexItem2, { shrink: false, grow: false, children: "Collapse nav" })
+          children: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(VuiFlexContainer, { alignItems: "center", spacing: "xxs", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(VuiFlexItem, { shrink: false, grow: false, children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(VuiIcon, { children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(BiChevronLeft, {}) }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(VuiFlexItem, { shrink: false, grow: false, children: "Collapse nav" })
           ] })
         }
       ) }),
@@ -36072,7 +37111,7 @@ button {
     ] }) });
   };
 
-  // docs/src/ui/components/app/AppLayout.tsx
+  // src/ui/components/app/AppLayout.tsx
   var import_jsx_runtime26 = __toESM(require_jsx_runtime());
   var VuiAppLayout = (0, import_react20.forwardRef)(
     ({ children, navItems, navContent, full }, ref) => {
@@ -36086,15 +37125,15 @@ button {
     }
   );
 
-  // docs/src/ui/components/badge/Badge.tsx
+  // src/ui/components/badge/Badge.tsx
   var import_classnames17 = __toESM(require_classnames());
   var import_jsx_runtime27 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/button/ButtonPrimary.tsx
+  // src/ui/components/button/ButtonPrimary.tsx
   var import_react22 = __toESM(require_react());
   var import_classnames19 = __toESM(require_classnames());
 
-  // docs/src/ui/components/button/BaseButton.tsx
+  // src/ui/components/button/BaseButton.tsx
   var import_react21 = __toESM(require_react());
   var import_classnames18 = __toESM(require_classnames());
   var import_jsx_runtime28 = __toESM(require_jsx_runtime());
@@ -36176,7 +37215,7 @@ button {
     }
   );
 
-  // docs/src/ui/components/button/ButtonPrimary.tsx
+  // src/ui/components/button/ButtonPrimary.tsx
   var import_jsx_runtime29 = __toESM(require_jsx_runtime());
   var colorToIconColorMap = {
     accent: "empty",
@@ -36197,7 +37236,7 @@ button {
     }
   );
 
-  // docs/src/ui/components/button/ButtonSecondary.tsx
+  // src/ui/components/button/ButtonSecondary.tsx
   var import_react23 = __toESM(require_react());
   var import_classnames20 = __toESM(require_classnames());
   var import_jsx_runtime30 = __toESM(require_jsx_runtime());
@@ -36221,7 +37260,7 @@ button {
     }
   );
 
-  // docs/src/ui/components/button/ButtonTertiary.tsx
+  // src/ui/components/button/ButtonTertiary.tsx
   var import_react24 = __toESM(require_react());
   var import_classnames21 = __toESM(require_classnames());
   var import_jsx_runtime31 = __toESM(require_jsx_runtime());
@@ -36245,13 +37284,13 @@ button {
     }
   );
 
-  // docs/src/ui/components/callout/Callout.tsx
+  // src/ui/components/callout/Callout.tsx
   var import_classnames25 = __toESM(require_classnames());
 
-  // docs/src/ui/components/typography/Title.tsx
+  // src/ui/components/typography/Title.tsx
   var import_classnames22 = __toESM(require_classnames());
   var import_react25 = __toESM(require_react());
-  var VuiTitle2 = ({ children, className, size, align, ...rest }) => {
+  var VuiTitle = ({ children, className, size, align, ...rest }) => {
     return (0, import_react25.cloneElement)(children, {
       className: (0, import_classnames22.default)(
         "vuiTitle",
@@ -36266,18 +37305,18 @@ button {
     });
   };
 
-  // docs/src/ui/components/typography/TextColor.tsx
+  // src/ui/components/typography/TextColor.tsx
   var import_classnames23 = __toESM(require_classnames());
   var import_jsx_runtime32 = __toESM(require_jsx_runtime());
-  var VuiTextColor2 = ({ children, color, className }) => {
+  var VuiTextColor = ({ children, color, className }) => {
     const classes = (0, import_classnames23.default)(className, "vuiTextColor", `vuiTextColor--${color}`);
     return /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("span", { className: classes, children });
   };
 
-  // docs/src/ui/components/typography/Text.tsx
+  // src/ui/components/typography/Text.tsx
   var import_classnames24 = __toESM(require_classnames());
   var import_jsx_runtime33 = __toESM(require_jsx_runtime());
-  var VuiText2 = ({ children, className, id: id2, truncate, size = "s", align, ...rest }) => {
+  var VuiText = ({ children, className, id: id2, truncate, size = "s", align, ...rest }) => {
     const classes = (0, import_classnames24.default)(
       "vuiText",
       `vuiText--${size}`,
@@ -36292,21 +37331,21 @@ button {
     return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: classes, id: id2, ...rest, children });
   };
 
-  // docs/src/ui/components/callout/Callout.tsx
+  // src/ui/components/callout/Callout.tsx
   var import_jsx_runtime34 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/card/Card.tsx
+  // src/ui/components/card/Card.tsx
   var import_classnames26 = __toESM(require_classnames());
   var import_jsx_runtime35 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/chat/Chat.tsx
+  // src/ui/components/chat/Chat.tsx
   var import_react32 = __toESM(require_react());
   var import_classnames36 = __toESM(require_classnames());
 
-  // docs/src/ui/components/form/checkbox/Checkbox.tsx
+  // src/ui/components/form/checkbox/Checkbox.tsx
   var import_jsx_runtime36 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/form/label/Label.tsx
+  // src/ui/components/form/label/Label.tsx
   var import_classnames27 = __toESM(require_classnames());
   var import_jsx_runtime37 = __toESM(require_jsx_runtime());
   var VuiLabel = ({ className, labelFor, children, ...rest }) => {
@@ -36314,7 +37353,7 @@ button {
     return /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("label", { className: classes, htmlFor: labelFor, ...rest, children });
   };
 
-  // docs/src/ui/components/form/input/NumberInput.tsx
+  // src/ui/components/form/input/NumberInput.tsx
   var import_classnames28 = __toESM(require_classnames());
   var import_react26 = __toESM(require_react());
   var import_jsx_runtime38 = __toESM(require_jsx_runtime());
@@ -36372,10 +37411,10 @@ button {
     }
   );
 
-  // docs/src/ui/components/form/radioButton/RadioButton.tsx
+  // src/ui/components/form/radioButton/RadioButton.tsx
   var import_jsx_runtime39 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/form/select/Select.tsx
+  // src/ui/components/form/select/Select.tsx
   var import_classnames29 = __toESM(require_classnames());
   var import_react27 = __toESM(require_react());
   var import_jsx_runtime40 = __toESM(require_jsx_runtime());
@@ -36405,13 +37444,13 @@ button {
     }
   );
 
-  // docs/src/ui/components/form/superRadioGroup/SuperRadioButton.tsx
+  // src/ui/components/form/superRadioGroup/SuperRadioButton.tsx
   var import_jsx_runtime41 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/form/superRadioGroup/SuperRadioGroup.tsx
+  // src/ui/components/form/superRadioGroup/SuperRadioGroup.tsx
   var import_jsx_runtime42 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/form/input/TextInput.tsx
+  // src/ui/components/form/input/TextInput.tsx
   var import_classnames30 = __toESM(require_classnames());
   var import_react29 = __toESM(require_react());
   var import_jsx_runtime43 = __toESM(require_jsx_runtime());
@@ -36468,7 +37507,7 @@ button {
     }
   );
 
-  // docs/src/ui/components/form/textArea/TextArea.tsx
+  // src/ui/components/form/textArea/TextArea.tsx
   var import_react30 = __toESM(require_react());
   var import_classnames31 = __toESM(require_classnames());
   var import_jsx_runtime44 = __toESM(require_jsx_runtime());
@@ -36497,14 +37536,14 @@ button {
     }
   );
 
-  // docs/src/ui/components/chat/ChatPanel.tsx
+  // src/ui/components/chat/ChatPanel.tsx
   var import_jsx_runtime45 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/chat/ChatSearchResult.tsx
+  // src/ui/components/chat/ChatSearchResult.tsx
   var import_react31 = __toESM(require_react());
   var import_classnames33 = __toESM(require_classnames());
 
-  // docs/src/ui/components/link/Link.tsx
+  // src/ui/components/link/Link.tsx
   var import_classnames32 = __toESM(require_classnames());
   var import_jsx_runtime46 = __toESM(require_jsx_runtime());
   var VuiLink = ({ children, href, target, onClick, className, track, isAnchor, ...rest }) => {
@@ -36521,7 +37560,7 @@ button {
     return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(Link, { className: (0, import_classnames32.default)("vuiLink", className), to: href, onClick, ...props, children });
   };
 
-  // docs/src/ui/components/chat/ChatSearchResult.tsx
+  // src/ui/components/chat/ChatSearchResult.tsx
   var import_jsx_runtime47 = __toESM(require_jsx_runtime());
   var highlightUrl = (url, text) => `${url}#:~:text=${text}`;
   var VuiChatSearchResult = (0, import_react31.forwardRef)(
@@ -36534,9 +37573,9 @@ button {
       } = result;
       const classes = (0, import_classnames33.default)("vuiChatSearchResult", "fs-mask", className);
       return /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)("div", { className: classes, ref, ...rest, children: [
-        (title || url) && /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(VuiText2, { children: url ? /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(VuiLink, { href: highlightUrl(url, text), target: "_blank", children: /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("p", { children: title ?? url }) }) : /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("p", { children: title }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(VuiText2, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)("p", { children: [
-          date && /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)(VuiTextColor2, { color: "subdued", children: [
+        (title || url) && /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(VuiText, { children: url ? /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(VuiLink, { href: highlightUrl(url, text), target: "_blank", children: /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("p", { children: title ?? url }) }) : /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("p", { children: title }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(VuiText, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)("p", { children: [
+          date && /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)(VuiTextColor, { color: "subdued", children: [
             date,
             " \u2014 "
           ] }),
@@ -36550,28 +37589,28 @@ button {
     }
   );
 
-  // docs/src/ui/components/chat/ChatInspector.tsx
+  // src/ui/components/chat/ChatInspector.tsx
   var import_jsx_runtime48 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/chat/ChatTurn.tsx
+  // src/ui/components/chat/ChatTurn.tsx
   var import_classnames35 = __toESM(require_classnames());
 
-  // docs/src/ui/components/spinner/Spinner.tsx
+  // src/ui/components/spinner/Spinner.tsx
   var import_classnames34 = __toESM(require_classnames());
   var import_jsx_runtime49 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/chat/ChatTurn.tsx
+  // src/ui/components/chat/ChatTurn.tsx
   var import_jsx_runtime50 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/chat/Chat.tsx
+  // src/ui/components/chat/Chat.tsx
   var import_jsx_runtime51 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/code/Code.tsx
+  // src/ui/components/code/Code.tsx
   var import_react33 = __toESM(require_react());
   var import_prismjs = __toESM(require_prism());
 
-  // node_modules/prismjs/themes/prism.css
-  var css2 = `/**
+  // ../node_modules/prismjs/themes/prism.css
+  var css = `/**
  * prism.js default theme for JavaScript, CSS and HTML
  * Based on dabblet (http://dabblet.com)
  * @author Lea Verou
@@ -36712,9 +37751,9 @@ pre[class*="language-"] {
 	cursor: help;
 }
 `;
-  document.head.appendChild(document.createElement("style")).appendChild(document.createTextNode(css2));
+  document.head.appendChild(document.createElement("style")).appendChild(document.createTextNode(css));
 
-  // node_modules/prismjs/components/prism-json.js
+  // ../node_modules/prismjs/components/prism-json.js
   Prism.languages.json = {
     "property": {
       pattern: /(^|[^\\])"(?:\\.|[^\\"\r\n])*"(?=\s*:)/,
@@ -36741,7 +37780,7 @@ pre[class*="language-"] {
   };
   Prism.languages.webmanifest = Prism.languages.json;
 
-  // node_modules/prismjs/components/prism-javascript.js
+  // ../node_modules/prismjs/components/prism-javascript.js
   Prism.languages.javascript = Prism.languages.extend("clike", {
     "class-name": [
       Prism.languages.clike["class-name"],
@@ -36883,7 +37922,7 @@ pre[class*="language-"] {
   }
   Prism.languages.js = Prism.languages.javascript;
 
-  // node_modules/prismjs/components/prism-typescript.js
+  // ../node_modules/prismjs/components/prism-typescript.js
   (function(Prism3) {
     Prism3.languages.typescript = Prism3.languages.extend("javascript", {
       "class-name": {
@@ -36936,7 +37975,7 @@ pre[class*="language-"] {
     Prism3.languages.ts = Prism3.languages.typescript;
   })(Prism);
 
-  // node_modules/prismjs/components/prism-bash.js
+  // ../node_modules/prismjs/components/prism-bash.js
   (function(Prism3) {
     var envVars = "\\b(?:BASH|BASHOPTS|BASH_ALIASES|BASH_ARGC|BASH_ARGV|BASH_CMDS|BASH_COMPLETION_COMPAT_DIR|BASH_LINENO|BASH_REMATCH|BASH_SOURCE|BASH_VERSINFO|BASH_VERSION|COLORTERM|COLUMNS|COMP_WORDBREAKS|DBUS_SESSION_BUS_ADDRESS|DEFAULTS_PATH|DESKTOP_SESSION|DIRSTACK|DISPLAY|EUID|GDMSESSION|GDM_LANG|GNOME_KEYRING_CONTROL|GNOME_KEYRING_PID|GPG_AGENT_INFO|GROUPS|HISTCONTROL|HISTFILE|HISTFILESIZE|HISTSIZE|HOME|HOSTNAME|HOSTTYPE|IFS|INSTANCE|JOB|LANG|LANGUAGE|LC_ADDRESS|LC_ALL|LC_IDENTIFICATION|LC_MEASUREMENT|LC_MONETARY|LC_NAME|LC_NUMERIC|LC_PAPER|LC_TELEPHONE|LC_TIME|LESSCLOSE|LESSOPEN|LINES|LOGNAME|LS_COLORS|MACHTYPE|MAILCHECK|MANDATORY_PATH|NO_AT_BRIDGE|OLDPWD|OPTERR|OPTIND|ORBIT_SOCKETDIR|OSTYPE|PAPERSIZE|PATH|PIPESTATUS|PPID|PS1|PS2|PS3|PS4|PWD|RANDOM|REPLY|SECONDS|SELINUX_INIT|SESSION|SESSIONTYPE|SESSION_MANAGER|SHELL|SHELLOPTS|SHLVL|SSH_AUTH_SOCK|TERM|UID|UPSTART_EVENTS|UPSTART_INSTANCE|UPSTART_JOB|UPSTART_SESSION|USER|WINDOWID|XAUTHORITY|XDG_CONFIG_DIRS|XDG_CURRENT_DESKTOP|XDG_DATA_DIRS|XDG_GREETER_DATA_DIR|XDG_MENU_PREFIX|XDG_RUNTIME_DIR|XDG_SEAT|XDG_SEAT_PATH|XDG_SESSION_DESKTOP|XDG_SESSION_ID|XDG_SESSION_PATH|XDG_SESSION_TYPE|XDG_VTNR|XMODIFIERS)\\b";
     var commandAfterHeredoc = {
@@ -37164,13 +38203,13 @@ pre[class*="language-"] {
     Prism3.languages.shell = Prism3.languages.bash;
   })(Prism);
 
-  // node_modules/prismjs/components/prism-jsx.js
+  // ../node_modules/prismjs/components/prism-jsx.js
   (function(Prism3) {
     var javascript = Prism3.util.clone(Prism3.languages.javascript);
     var space = /(?:\s|\/\/.*(?!.)|\/\*(?:[^*]|\*(?!\/))\*\/)/.source;
     var braces = /(?:\{(?:\{(?:\{[^{}]*\}|[^{}])*\}|[^{}])*\})/.source;
     var spread = /(?:\{<S>*\.{3}(?:[^{}]|<BRACES>)*\})/.source;
-    function re(source, flags) {
+    function re2(source, flags) {
       source = source.replace(/<S>/g, function() {
         return space;
       }).replace(/<BRACES>/g, function() {
@@ -37180,9 +38219,9 @@ pre[class*="language-"] {
       });
       return RegExp(source, flags);
     }
-    spread = re(spread).source;
+    spread = re2(spread).source;
     Prism3.languages.jsx = Prism3.languages.extend("markup", javascript);
-    Prism3.languages.jsx.tag.pattern = re(
+    Prism3.languages.jsx.tag.pattern = re2(
       /<\/?(?:[\w.:-]+(?:<S>+(?:[\w.:$-]+(?:=(?:"(?:\\[\s\S]|[^\\"])*"|'(?:\\[\s\S]|[^\\'])*'|[^\s{'"/>=]+|<BRACES>))?|<SPREAD>))*<S>*\/?)?>/.source
     );
     Prism3.languages.jsx.tag.inside["tag"].pattern = /^<\/?[^\s>\/]*/;
@@ -37191,14 +38230,14 @@ pre[class*="language-"] {
     Prism3.languages.jsx.tag.inside["comment"] = javascript["comment"];
     Prism3.languages.insertBefore("inside", "attr-name", {
       "spread": {
-        pattern: re(/<SPREAD>/.source),
+        pattern: re2(/<SPREAD>/.source),
         inside: Prism3.languages.jsx
       }
     }, Prism3.languages.jsx.tag);
     Prism3.languages.insertBefore("inside", "special-attr", {
       "script": {
         // Allow for two levels of nesting
-        pattern: re(/=<BRACES>/.source),
+        pattern: re2(/=<BRACES>/.source),
         alias: "language-javascript",
         inside: {
           "script-punctuation": {
@@ -37277,7 +38316,7 @@ pre[class*="language-"] {
     });
   })(Prism);
 
-  // node_modules/prismjs/components/prism-tsx.js
+  // ../node_modules/prismjs/components/prism-tsx.js
   (function(Prism3) {
     var typescript = Prism3.util.clone(Prism3.languages.typescript);
     Prism3.languages.tsx = Prism3.languages.extend("jsx", typescript);
@@ -37288,7 +38327,7 @@ pre[class*="language-"] {
     tag.lookbehind = true;
   })(Prism);
 
-  // docs/src/ui/components/code/Code.tsx
+  // src/ui/components/code/Code.tsx
   var import_classnames37 = __toESM(require_classnames());
   var import_jsx_runtime52 = __toESM(require_jsx_runtime());
   var VuiCode = ({ onCopy, language = "none", fullHeight, children = "", ...rest }) => {
@@ -37322,40 +38361,40 @@ pre[class*="language-"] {
     ] });
   };
 
-  // docs/src/ui/components/copyButton/CopyButton.tsx
+  // src/ui/components/copyButton/CopyButton.tsx
   var import_react35 = __toESM(require_react());
 
-  // docs/src/ui/components/optionsList/OptionsList.tsx
+  // src/ui/components/optionsList/OptionsList.tsx
   var import_classnames39 = __toESM(require_classnames());
 
-  // docs/src/ui/components/optionsList/OptionsListItem.tsx
+  // src/ui/components/optionsList/OptionsListItem.tsx
   var import_react34 = __toESM(require_react());
   var import_classnames38 = __toESM(require_classnames());
   var import_jsx_runtime53 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/optionsList/OptionsList.tsx
+  // src/ui/components/optionsList/OptionsList.tsx
   var import_jsx_runtime54 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/optionsButton/OptionsButton.tsx
+  // src/ui/components/optionsButton/OptionsButton.tsx
   var import_jsx_runtime55 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/copyButton/CopyButton.tsx
+  // src/ui/components/copyButton/CopyButton.tsx
   var import_jsx_runtime56 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/drawer/Drawer.tsx
+  // src/ui/components/drawer/Drawer.tsx
   var import_react36 = __toESM(require_react());
   var import_classnames40 = __toESM(require_classnames());
 
-  // docs/src/ui/components/screenBlock/ScreenBlock.tsx
+  // src/ui/components/screenBlock/ScreenBlock.tsx
   var import_jsx_runtime57 = __toESM(require_jsx_runtime());
-  var VuiScreenBlock2 = ({ onClick, children }) => {
+  var VuiScreenBlock = ({ onClick, children }) => {
     return /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)("div", { className: "vuiScreenBlock", children: [
       children,
       /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("div", { className: "vuiScreenBlock__mask", onClick })
     ] });
   };
 
-  // docs/src/ui/components/drawer/Drawer.tsx
+  // src/ui/components/drawer/Drawer.tsx
   var import_jsx_runtime58 = __toESM(require_jsx_runtime());
   var VuiDrawer = ({ className, color = "primary", title, children, isOpen, onClose, ...rest }) => {
     const returnFocusElRef = (0, import_react36.useRef)(null);
@@ -37373,7 +38412,7 @@ pre[class*="language-"] {
       }, 0);
     };
     const classes = (0, import_classnames40.default)("vuiDrawer", `vuiDrawer--${color}`, className);
-    return /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(VuiPortal2, { children: isOpen && /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(VuiScreenBlock2, { children: /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(VuiPortal, { children: isOpen && /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(VuiScreenBlock, { children: /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(
       FocusOn2,
       {
         onEscapeKey: onCloseDelayed,
@@ -37381,9 +38420,9 @@ pre[class*="language-"] {
         returnFocus: false,
         autoFocus: isOpen,
         children: /* @__PURE__ */ (0, import_jsx_runtime58.jsxs)("div", { className: classes, ...rest, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("div", { className: "vuiDrawerHeader", children: /* @__PURE__ */ (0, import_jsx_runtime58.jsxs)(VuiFlexContainer2, { justifyContent: "spaceBetween", alignItems: "center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(VuiFlexItem2, { grow: false, children: title }),
-            onClose && /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(VuiFlexItem2, { children: /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("div", { className: "vuiDrawerHeader", children: /* @__PURE__ */ (0, import_jsx_runtime58.jsxs)(VuiFlexContainer, { justifyContent: "spaceBetween", alignItems: "center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(VuiFlexItem, { grow: false, children: title }),
+            onClose && /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(VuiFlexItem, { children: /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(
               VuiIconButton,
               {
                 "data-testid": "drawerCloseButton",
@@ -37399,7 +38438,7 @@ pre[class*="language-"] {
     ) }) });
   };
 
-  // docs/src/ui/components/formGroup/FormGroup.tsx
+  // src/ui/components/formGroup/FormGroup.tsx
   var import_react37 = __toESM(require_react());
   var import_jsx_runtime59 = __toESM(require_jsx_runtime());
   var VuiFormGroup = ({ children, labelFor, helpText, label, errors, isRequired }) => {
@@ -37413,7 +38452,7 @@ pre[class*="language-"] {
       errorMessageIds.push(id2);
       return /* @__PURE__ */ (0, import_jsx_runtime59.jsxs)(import_jsx_runtime59.Fragment, { children: [
         index > 0 && /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(VuiSpacer, { size: "xs" }),
-        /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(VuiText2, { size: "xs", id: id2, children: /* @__PURE__ */ (0, import_jsx_runtime59.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(VuiTextColor2, { color: "danger", children: error }) }) }, error)
+        /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(VuiText, { size: "xs", id: id2, children: /* @__PURE__ */ (0, import_jsx_runtime59.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(VuiTextColor, { color: "danger", children: error }) }) }, error)
       ] });
     });
     if (helpText) {
@@ -37436,60 +38475,60 @@ pre[class*="language-"] {
       /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(VuiSpacer, { size: "xs" }),
       content,
       (helpText || errorMessages) && /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(VuiSpacer, { size: "xs" }),
-      helpText && /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(VuiText2, { size: "xs", id: ariaDescribedByLabel, children: /* @__PURE__ */ (0, import_jsx_runtime59.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(VuiTextColor2, { color: "subdued", children: helpText }) }) }),
+      helpText && /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(VuiText, { size: "xs", id: ariaDescribedByLabel, children: /* @__PURE__ */ (0, import_jsx_runtime59.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(VuiTextColor, { color: "subdued", children: helpText }) }) }),
       errorMessages
     ] });
   };
 
-  // docs/src/ui/components/grid/Grid.tsx
+  // src/ui/components/grid/Grid.tsx
   var import_classnames41 = __toESM(require_classnames());
   var import_jsx_runtime60 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/infoTable/InfoTable.tsx
+  // src/ui/components/infoTable/InfoTable.tsx
   var import_classnames42 = __toESM(require_classnames());
   var import_jsx_runtime61 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/list/List.tsx
+  // src/ui/components/list/List.tsx
   var import_classnames43 = __toESM(require_classnames());
   var import_react38 = __toESM(require_react());
   var import_jsx_runtime62 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/menu/Menu.tsx
+  // src/ui/components/menu/Menu.tsx
   var import_jsx_runtime63 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/menu/MenuItem.tsx
+  // src/ui/components/menu/MenuItem.tsx
   var import_classnames44 = __toESM(require_classnames());
   var import_jsx_runtime64 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/modal/Modal.tsx
+  // src/ui/components/modal/Modal.tsx
   var import_react39 = __toESM(require_react());
   var import_classnames45 = __toESM(require_classnames());
   var import_jsx_runtime65 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/notification/Notifications.tsx
+  // src/ui/components/notification/Notifications.tsx
   var import_classnames47 = __toESM(require_classnames());
 
-  // docs/src/ui/components/notification/Notification.tsx
+  // src/ui/components/notification/Notification.tsx
   var import_classnames46 = __toESM(require_classnames());
   var import_jsx_runtime66 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/notification/Notifications.tsx
+  // src/ui/components/notification/Notifications.tsx
   var import_react40 = __toESM(require_react());
   var import_jsx_runtime67 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/progressBar/ProgressBar.tsx
+  // src/ui/components/progressBar/ProgressBar.tsx
   var import_classnames48 = __toESM(require_classnames());
   var import_jsx_runtime68 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/prompt/Prompt.tsx
+  // src/ui/components/prompt/Prompt.tsx
   var import_classnames49 = __toESM(require_classnames());
   var import_jsx_runtime69 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/searchInput/SearchInput.tsx
+  // src/ui/components/searchInput/SearchInput.tsx
   var import_classnames50 = __toESM(require_classnames());
   var import_jsx_runtime70 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/searchResult/SearchResult.tsx
+  // src/ui/components/searchResult/SearchResult.tsx
   var import_react41 = __toESM(require_react());
   var import_classnames51 = __toESM(require_classnames());
   var import_jsx_runtime71 = __toESM(require_jsx_runtime());
@@ -37510,13 +38549,13 @@ pre[class*="language-"] {
       const hasUrl = url && url.trim().length > 0;
       return /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)("div", { className: classes, ref, ...rest, children: [
         /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("div", { "data-testid": `searchResultCitation-${position}`, className: positionClasses, children: position }),
-        (hasTitle || hasUrl) && /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(VuiTitle2, { size: "s", children: hasUrl ? /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(VuiLink, { href: highlightUrl2(url, text), target: "_blank", children: /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("h3", { children: hasTitle ? title : url }) }) : /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("h3", { children: title }) }),
+        (hasTitle || hasUrl) && /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(VuiTitle, { size: "s", children: hasUrl ? /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(VuiLink, { href: highlightUrl2(url, text), target: "_blank", children: /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("h3", { children: hasTitle ? title : url }) }) : /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("h3", { children: title }) }),
         subTitle && /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)(import_jsx_runtime71.Fragment, { children: [
           title && /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(VuiSpacer, { size: "xs" }),
           subTitle
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(VuiText2, { ...snippetProps, size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)("p", { children: [
-          date && /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)(VuiTextColor2, { color: "subdued", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(VuiText, { ...snippetProps, size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)("p", { children: [
+          date && /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)(VuiTextColor, { color: "subdued", children: [
             date,
             " \u2014 "
           ] }),
@@ -37534,11 +38573,11 @@ pre[class*="language-"] {
     }
   );
 
-  // docs/src/ui/components/searchSelect/SearchSelect.tsx
+  // src/ui/components/searchSelect/SearchSelect.tsx
   var import_react42 = __toESM(require_react());
   var import_jsx_runtime72 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/toggle/Toggle.tsx
+  // src/ui/components/toggle/Toggle.tsx
   var import_jsx_runtime73 = __toESM(require_jsx_runtime());
   var VuiToggle = ({ id: id2, checked, onChange, label, ...rest }) => {
     let labelId;
@@ -37547,8 +38586,8 @@ pre[class*="language-"] {
       labelId = createId();
       inputProps["aria-labelledby"] = labelId;
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime73.jsxs)(VuiFlexContainer2, { alignItems: "center", spacing: "s", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(VuiFlexItem2, { grow: false, children: /* @__PURE__ */ (0, import_jsx_runtime73.jsxs)("label", { className: "vuiToggle", children: [
+    return /* @__PURE__ */ (0, import_jsx_runtime73.jsxs)(VuiFlexContainer, { alignItems: "center", spacing: "s", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(VuiFlexItem, { grow: false, children: /* @__PURE__ */ (0, import_jsx_runtime73.jsxs)("label", { className: "vuiToggle", children: [
         /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(
           "input",
           {
@@ -37563,69 +38602,69 @@ pre[class*="language-"] {
         ),
         /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("span", { className: "vuiToggle__button" })
       ] }) }),
-      label && /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(VuiFlexItem2, { grow: false, children: /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("div", { id: labelId, children: label }) })
+      label && /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(VuiFlexItem, { grow: false, children: /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("div", { id: labelId, children: label }) })
     ] });
   };
 
-  // docs/src/ui/components/setting/Setting.tsx
+  // src/ui/components/setting/Setting.tsx
   var import_jsx_runtime74 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/summary/Summary.tsx
+  // src/ui/components/summary/Summary.tsx
   var import_classnames52 = __toESM(require_classnames());
   var import_jsx_runtime75 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/summary/SummaryCitation.tsx
+  // src/ui/components/summary/SummaryCitation.tsx
   var import_classnames53 = __toESM(require_classnames());
   var import_jsx_runtime76 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/table/Table.tsx
+  // src/ui/components/table/Table.tsx
   var import_react45 = __toESM(require_react());
   var import_classnames55 = __toESM(require_classnames());
   var import_lodash = __toESM(require_lodash());
 
-  // docs/src/ui/components/table/TableRowActions.tsx
+  // src/ui/components/table/TableRowActions.tsx
   var import_react43 = __toESM(require_react());
   var import_jsx_runtime77 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/table/TableCell.tsx
+  // src/ui/components/table/TableCell.tsx
   var import_jsx_runtime78 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/table/TableHeaderCell.tsx
+  // src/ui/components/table/TableHeaderCell.tsx
   var import_jsx_runtime79 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/table/TablePagination.tsx
+  // src/ui/components/table/TablePagination.tsx
   var import_classnames54 = __toESM(require_classnames());
   var import_jsx_runtime80 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/table/TablePager.tsx
+  // src/ui/components/table/TablePager.tsx
   var import_jsx_runtime81 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/table/TableBulkActions.tsx
+  // src/ui/components/table/TableBulkActions.tsx
   var import_react44 = __toESM(require_react());
   var import_jsx_runtime82 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/table/TableContent.tsx
+  // src/ui/components/table/TableContent.tsx
   var import_jsx_runtime83 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/table/Table.tsx
+  // src/ui/components/table/Table.tsx
   var import_jsx_runtime84 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/tabs/Tab.tsx
+  // src/ui/components/tabs/Tab.tsx
   var import_classnames56 = __toESM(require_classnames());
   var import_jsx_runtime85 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/tabs/Tabs.tsx
+  // src/ui/components/tabs/Tabs.tsx
   var import_classnames57 = __toESM(require_classnames());
   var import_jsx_runtime86 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/tabs/TabbedRoutes.tsx
+  // src/ui/components/tabs/TabbedRoutes.tsx
   var import_jsx_runtime87 = __toESM(require_jsx_runtime());
 
-  // docs/src/ui/components/topicButton/TopicButton.tsx
+  // src/ui/components/topicButton/TopicButton.tsx
   var import_classnames58 = __toESM(require_classnames());
   var import_jsx_runtime88 = __toESM(require_jsx_runtime());
 
-  // docs/src/components/HeaderLogo.tsx
+  // src/components/HeaderLogo.tsx
   var import_jsx_runtime89 = __toESM(require_jsx_runtime());
   var HeaderLogo = () => /* @__PURE__ */ (0, import_jsx_runtime89.jsxs)("svg", { width: "28", viewBox: "0 0 109 94", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [
     /* @__PURE__ */ (0, import_jsx_runtime89.jsx)("mask", { id: "mask0_1_53", maskUnits: "userSpaceOnUse", x: "0", y: "0", width: "109", height: "94", children: /* @__PURE__ */ (0, import_jsx_runtime89.jsx)(
@@ -37652,7 +38691,7 @@ pre[class*="language-"] {
     ] })
   ] });
 
-  // docs/src/components/ConfigurationDrawer.tsx
+  // src/components/ConfigurationDrawer.tsx
   var import_jsx_runtime90 = __toESM(require_jsx_runtime());
   var ConfigurationDrawer = ({
     isOpen,
@@ -37676,11 +38715,11 @@ pre[class*="language-"] {
         color: "primary",
         isOpen,
         onClose: () => setIsOpen(false),
-        title: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiTitle2, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("h2", { children: "Search configuration" }) }),
+        title: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiTitle, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("h2", { children: "Search configuration" }) }),
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiTitle2, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("h3", { className: "header", children: "Connect to Vectara data" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiTitle, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("h3", { className: "header", children: "Connect to Vectara data" }) }),
           /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiSpacer, { size: "s" }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiText2, { children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiLink, { isAnchor: true, href: "https://github.com/vectara/react-search?tab=readme-ov-file#set-up-your-search-data", children: "How to set up your Vectara data" }) }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiText, { children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiLink, { isAnchor: true, href: "https://github.com/vectara/react-search?tab=readme-ov-file#set-up-your-search-data", children: "How to set up your Vectara data" }) }) }),
           /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiSpacer, { size: "s" }),
           /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiFormGroup, { label: "Customer ID", labelFor: "customerId", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiTextInput, { value: customerId, onChange: onUpdateCustomerId }) }),
           /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiSpacer, { size: "xs" }),
@@ -37688,11 +38727,11 @@ pre[class*="language-"] {
           /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiSpacer, { size: "xs" }),
           /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiFormGroup, { label: "API key", labelFor: "apiKey", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiTextInput, { value: apiKey, onChange: onUpdateApiKey, fullWidth: true }) }),
           /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiSpacer, { size: "l" }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiTitle2, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("h3", { className: "header", children: "Customize appearance" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiTitle, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("h3", { className: "header", children: "Customize appearance" }) }),
           /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiSpacer, { size: "s" }),
           /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiFormGroup, { label: "Placeholder text", labelFor: "placeholderText", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiTextInput, { value: placeholder, onChange: onUpdatePlaceholder, fullWidth: true }) }),
           /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiSpacer, { size: "l" }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiTitle2, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("h3", { className: "header", children: "Customize behavior" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiTitle, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("h3", { className: "header", children: "Customize behavior" }) }),
           /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiSpacer, { size: "s" }),
           /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiFormGroup, { label: "Allow deeplinking", labelFor: "isDeepLinkable", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiToggle, { checked: isDeeplinkable, onChange: onUpdateIsDeeplinkable, id: "isDeeplinkable" }) }),
           /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiSpacer, { size: "xs" }),
@@ -37704,8 +38743,8 @@ pre[class*="language-"] {
     );
   };
 
-  // docs/src/ui/_index.scss
-  var css3 = `body,
+  // src/ui/_index.scss
+  var css2 = `body,
 textarea {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
@@ -40772,22 +41811,20 @@ fieldset {
 
 .vuiTextColor--neutral {
   color: #2c313a !important;
-}
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL1VzZXJzL2RlcnlrL2NvZGUvcmVhY3Qtc2VhcmNoL2RvY3Mvc3JjL3VpIiwic291cmNlcyI6WyJfcmVzZXQuc2NzcyIsImNvbXBvbmVudHMvYWNjb3JkaW9uL19pbmRleC5zY3NzIiwic3R5bGVVdGlscy9fdHlwb2dyYXBoeS5zY3NzIiwic3R5bGVVdGlscy9fY29sb3JzLnNjc3MiLCJjb21wb25lbnRzL2FwcC9hcHBDb250ZW50LnNjc3MiLCJjb21wb25lbnRzL2FwcC9hcHBIZWFkZXIuc2NzcyIsInN0eWxlVXRpbHMvX2FwcC5zY3NzIiwic3R5bGVVdGlscy9fZGVwdGguc2NzcyIsImNvbXBvbmVudHMvYXBwL2FwcExheW91dC5zY3NzIiwiY29tcG9uZW50cy9hcHAvYXBwU2lkZU5hdi9hcHBTaWRlTmF2LnNjc3MiLCJjb21wb25lbnRzL2FwcC9hcHBTaWRlTmF2L19pbmRleC5zY3NzIiwic3R5bGVVdGlscy9fc2l6ZXMuc2NzcyIsInN0eWxlVXRpbHMvX21peGlucy5zY3NzIiwiY29tcG9uZW50cy9hcHAvYXBwU2lkZU5hdi9hcHBTaWRlTmF2U2VjdGlvbnMuc2NzcyIsImNvbXBvbmVudHMvYXBwL2FwcFNpZGVOYXYvYXBwU2lkZU5hdlRyZWUuc2NzcyIsImNvbXBvbmVudHMvYWNjb3VudE1lbnUvX2luZGV4LnNjc3MiLCJjb21wb25lbnRzL2JhZGdlL19pbmRleC5zY3NzIiwiY29tcG9uZW50cy9idXR0b24vYmFzZUJ1dHRvbi5zY3NzIiwic3R5bGVVdGlscy9fc2hhZG93cy5zY3NzIiwiY29tcG9uZW50cy9idXR0b24vYnV0dG9uUHJpbWFyeS5zY3NzIiwiY29tcG9uZW50cy9idXR0b24vYnV0dG9uU2Vjb25kYXJ5LnNjc3MiLCJjb21wb25lbnRzL2J1dHRvbi9idXR0b25UZXJ0aWFyeS5zY3NzIiwiY29tcG9uZW50cy9idXR0b24vaWNvbkJ1dHRvbi5zY3NzIiwiY29tcG9uZW50cy9jYWxsb3V0L19pbmRleC5zY3NzIiwiY29tcG9uZW50cy9jYXJkL19pbmRleC5zY3NzIiwiY29tcG9uZW50cy9jaGF0L2NoYXRUdXJuLnNjc3MiLCJjb21wb25lbnRzL2NoYXQvX2luZGV4LnNjc3MiLCJjb21wb25lbnRzL2NvZGUvX2luZGV4LnNjc3MiLCJjb21wb25lbnRzL2RyYXdlci9faW5kZXguc2NzcyIsImNvbXBvbmVudHMvZmxleC9fZmxleENvbnRhaW5lci5zY3NzIiwiY29tcG9uZW50cy9mbGV4L19mbGV4SXRlbS5zY3NzIiwiY29tcG9uZW50cy9mb3JtL2NoZWNrYm94L19pbmRleC5zY3NzIiwiY29tcG9uZW50cy9mb3JtL2lucHV0L19pbmRleC5zY3NzIiwiY29tcG9uZW50cy9mb3JtL2xhYmVsL19pbmRleC5zY3NzIiwiY29tcG9uZW50cy9mb3JtL3JhZGlvQnV0dG9uL19pbmRleC5zY3NzIiwiY29tcG9uZW50cy9mb3JtL3NlbGVjdC9faW5kZXguc2NzcyIsImNvbXBvbmVudHMvZm9ybS9zdXBlclJhZGlvR3JvdXAvX2luZGV4LnNjc3MiLCJjb21wb25lbnRzL2Zvcm0vdGV4dEFyZWEvX2luZGV4LnNjc3MiLCJjb21wb25lbnRzL2dyaWQvX2luZGV4LnNjc3MiLCJjb21wb25lbnRzL2hvcml6b250YWxSdWxlL19pbmRleC5zY3NzIiwiY29tcG9uZW50cy9pY29uL19pbmRleC5zY3NzIiwiY29tcG9uZW50cy9pbmZvVGFibGUvX2luZGV4LnNjc3MiLCJjb21wb25lbnRzL2xpbmsvX2luZGV4LnNjc3MiLCJjb21wb25lbnRzL2xpc3QvX2luZGV4LnNjc3MiLCJjb21wb25lbnRzL21lbnUvX2luZGV4LnNjc3MiLCJjb21wb25lbnRzL21vZGFsL19pbmRleC5zY3NzIiwiY29tcG9uZW50cy9ub3RpZmljYXRpb24vX2luZGV4LnNjc3MiLCJjb21wb25lbnRzL29wdGlvbnNCdXR0b24vX2luZGV4LnNjc3MiLCJjb21wb25lbnRzL29wdGlvbnNMaXN0L19pbmRleC5zY3NzIiwiY29tcG9uZW50cy9wb3BvdmVyL19pbmRleC5zY3NzIiwiY29tcG9uZW50cy9wcm9ncmVzc0Jhci9faW5kZXguc2NzcyIsImNvbXBvbmVudHMvcHJvbXB0L19pbmRleC5zY3NzIiwiY29tcG9uZW50cy9zY3JlZW5CbG9jay9faW5kZXguc2NzcyIsImNvbXBvbmVudHMvc2VhcmNoSW5wdXQvX2luZGV4LnNjc3MiLCJjb21wb25lbnRzL3NlYXJjaFJlc3VsdC9faW5kZXguc2NzcyIsImNvbXBvbmVudHMvc2VhcmNoU2VsZWN0L19pbmRleC5zY3NzIiwiY29tcG9uZW50cy9zcGFjZXIvX2luZGV4LnNjc3MiLCJjb21wb25lbnRzL3NwaW5uZXIvX2luZGV4LnNjc3MiLCJjb21wb25lbnRzL3N1bW1hcnkvX2luZGV4LnNjc3MiLCJjb21wb25lbnRzL3RhYmxlL19pbmRleC5zY3NzIiwiY29tcG9uZW50cy90YWJzL19pbmRleC5zY3NzIiwiY29tcG9uZW50cy90b2dnbGUvX2luZGV4LnNjc3MiLCJzdHlsZVV0aWxzL19hbmltYXRpb24uc2NzcyIsImNvbXBvbmVudHMvdG9waWNCdXR0b24vX2luZGV4LnNjc3MiLCJjb21wb25lbnRzL3R5cG9ncmFwaHkvX3RpdGxlLnNjc3MiLCJjb21wb25lbnRzL3R5cG9ncmFwaHkvX3RleHQuc2NzcyIsImNvbXBvbmVudHMvdHlwb2dyYXBoeS9fdGV4dENvbG9yLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFBQTtFQUVFOzs7QUFNRjtBQUFBO0FBQUE7RUFHRTs7O0FBR0Y7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0VBaUZFO0VBQ0E7RUFDQTtFQUNBOzs7QUFHRjtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtFQU9FO0VBQ0E7RUFDQTs7O0FBR0Y7QUFDQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0VBV0U7OztBQUdGO0FBQUE7QUFBQTtFQUdFOzs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOzs7QUFHRjtFQUNFO0VBQ0E7OztBQUdGO0VBQ0U7OztBQUdGO0FBQUE7RUFFRTs7O0FBR0Y7QUFBQTtFQUVFOzs7QUFHRjtBQUFBO0FBQUE7QUFBQTtFQUlFOzs7QUFHRjtFQUNFO0VBQ0E7OztBQUdGO0VBQ0U7OztBQUdGO0VBQ0U7OztBQ3BMRjtFQUNFLFdDRWlCO0VERGpCO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0Esa0JFUWM7OztBRkpsQjtFQUNFOzs7QUdYRjtFQUNFO0VBQ0E7OztBQUdGO0VBQ0U7OztBQWNBO0VBQ0U7OztBQURGO0VBQ0U7OztBQURGO0VBQ0U7OztBQURGO0VBQ0U7OztBQURGO0VBQ0U7OztBQURGO0VBQ0U7OztBQ3ZCSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0EsUUNMZ0I7RURNaEIsa0JGVWdCO0VFVGhCO0VBQ0EsU0VSZ0I7RUZTaEI7OztBQUdGO0VBQ0U7OztBR2JGO0VBQ0U7RUFDQTtFQUNBLGFGSGdCO0VFSWhCOzs7QUFHRjtFQUNFOzs7QUFHRjtFQUNFO0VBQ0E7RUFDQTs7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBOzs7QUN0QkY7RUFDRSxPQ0RnQjtFREVoQjtFQUNBO0VBQ0E7OztBQUdGO0VBRUUsT0NUZ0I7RURVaEI7RUFDQTtFQUNBOzs7QUFHRjtFQUNFO0VBQ0E7OztBQUdGO0VBQ0U7RUFDQTs7O0FBR0Y7RUFDRSxPQ3pCeUI7RUQyQnpCO0VBQ0E7O0FBRUE7RUFDRSxjRWhDRzs7O0FGb0NQO0VBQ0U7RUFDQSxPTnBCZTtFTXFCZixXUHBDaUI7RU9xQ2pCO0VBQ0E7RUFDQTtFQUNBLGVFM0NLOztBRjZDTDtFQUNFLE9ONUNXO0VNNkNYOzs7QUFJSjtFQUNFO0VBR0E7OztBQUdGO0VHekRFO0VBQ0E7RUFDQTtFRkVBO0VBQ0EsT1BhaUI7RU9aakIsV1JKaUI7RVFLakI7RUFDQTtFQUNBLGFBUnNCO0VBU3RCLGdCQVRzQjtFRDJEdEI7O0FHeERBO0VBQ0U7RUFDQTtFQUNBOztBSHVERjtFQUNFLE9OOURXO0VNK0RYOzs7QUFJSjtFQUNFLGtCTjdEdUI7RU04RHZCLGVFdkVLOzs7QUVBUDtFQUNFLFlGTU07OztBRUZOO0VBQ0UsWUZGSzs7O0FFTVQ7RUFDRSxZRkpNOzs7QUVPUjtFQUNFLE9WSWlCO0VVSGpCLGFYRmU7RVdHZixXWGRpQjs7O0FXaUJuQjtFQUNFLFlGaEJNOztBRW1CSjtFQUNFOztBQUdGO0VBQ0U7OztBQzdCTjtFQUNFOzs7QUFHRjtFQUNFOzs7QUFHRjtFQUNFO0VBQ0E7RUFDQTs7O0FBR0Y7RUFFRTs7O0FBR0Y7RUpkRTtFQUNBLE9QYWlCO0VPWmpCLFdSSmlCO0VRS2pCO0VBQ0E7RUFDQSxhQVJzQjtFQVN0QixnQkFUc0I7RUltQnRCLFdabkJjO0VZb0JkLGFaUmU7RVlTZixPWExlOzs7QVlsQmpCO0VBQ0U7OztBQUdGO0VBQ0U7RUFDQTtFQUNBLGtCWlNnQjs7O0FZTmxCO0VBQ0UsV2JUYztFYVVkLGFiRWU7RWFEZixPWk1pQjs7O0FZSG5CO0VBQ0UsV2JkaUI7RWFlakIsT1pDaUI7RVlBakIsWUpoQlE7OztBS0RWO0VBQ0U7RUFDQSxXZEZjO0VjR2Q7RUFDQTtFQUNBLGVMRk07RUtHTjtFQUNBO0VBQ0E7OztBQUdGO0VBQ0U7OztBQXNDQTtFQUNFO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7O0FBUko7RUFDRTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7OztBQVJKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOzs7QUFSSjtFQUNFO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7O0FBUko7RUFDRTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7OztBQVJKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOzs7QUM1RE47RUFFRTs7O0FBR0Y7RUFDRTs7QUFFQTtFQUNFOzs7QUFJSjtFQUNFOzs7QUFHRjtFQUNFO0VBQ0EsZU5oQlE7RU1pQlI7RUFDQTtFQUNBO0VBQ0EsWUN2QmlCO0VEd0JqQjtFQUNBO0VBQ0E7OztBQUdGO0VBQ0U7OztBQUdGO0VBQ0U7OztBQUdGO0VBQ0U7OztBQUdGO0FBQUE7RUFFRTtFQUNBOzs7QUFHRjtFQUNFOzs7QUFJQTtFQUNFLGNOakRLOzs7QU1xRFQ7RUFDRTs7QUFFQTtFQUNFLGFOekRLO0VNMERMOzs7QUFJSjtFQUNFOzs7QUFJRjtFQUNFLFdmckVpQjtFZXNFakI7RUFDQTs7O0FBR0Y7RUFDRSxXZjNFaUI7RWU0RWpCO0VBQ0E7OztBQUdGO0VBQ0UsV2ZoRmU7RWVpRmY7RUFDQTs7O0FBR0Y7RUFDRSxXZnRGZTtFZXVGZjtFQUNBOzs7QUV6RkE7RUFDRSxZREhhOzs7QUN3Q2Y7RUFDRTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7O0FBTko7RUFDRTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7O0FBTko7RUFDRTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7O0FBTko7RUFDRTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7O0FBTko7RUFDRTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7O0FBTko7RUFDRTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7O0FBTko7RUFDRTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7O0FDNUNKO0VBQ0UsWUZIYTs7O0FFT2pCO0VBQ0Usa0JqQk1nQjs7O0FpQjhCaEI7RUFDRTtFQUNBOztBQUVBO0VBQ0U7OztBQUxKO0VBQ0U7RUFDQTs7QUFFQTtFQUNFOzs7QUFMSjtFQUNFO0VBQ0E7O0FBRUE7RUFDRTs7O0FBTEo7RUFDRTtFQUNBOztBQUVBO0VBQ0U7OztBQUxKO0VBQ0U7RUFDQTs7QUFFQTtFQUNFOzs7QUFMSjtFQUNFO0VBQ0E7O0FBRUE7RUFDRTs7O0FBTEo7RUFDRTtFQUNBOztBQUVBO0VBQ0U7OztBQ2hETjtFQUNFLGNWQ087RVVBUDs7QUFFQTtFQUNFOzs7QUFJSjtFQUNFOzs7QUFvQ0E7RUFDRTs7QUFFQTtFQUNFOzs7QUFKSjtFQUNFOztBQUVBO0VBQ0U7OztBQUpKO0VBQ0U7O0FBRUE7RUFDRTs7O0FBSko7RUFDRTs7QUFFQTtFQUNFOzs7QUFKSjtFQUNFOztBQUVBO0VBQ0U7OztBQUpKO0VBQ0U7O0FBRUE7RUFDRTs7O0FBSko7RUFDRTs7QUFFQTtFQUNFOzs7QUNwRE47RUFDRTtFQUNBLGVYQ1E7RVdBUjtFQUNBOzs7QUFlQTtFQUNFLE9BWkk7RUFhSjtFQUNBOztBQUVBO0VBQ0U7OztBQU5KO0VBQ0UsT0FaSTtFQWFKO0VBQ0E7O0FBRUE7RUFDRTs7O0FBTko7RUFDRSxPQVpJO0VBYUo7RUFDQTs7QUFFQTtFQUNFOzs7QUFOSjtFQUNFLE9BWkk7RUFhSjtFQUNBOztBQUVBO0VBQ0U7OztBQU5KO0VBQ0UsT0FaSTtFQWFKO0VBQ0E7O0FBRUE7RUFDRTs7O0FBTko7RUFDRSxPQVpJO0VBYUo7RUFDQTs7QUFFQTtFQUNFOzs7QUFOSjtFQUNFLE9BWkk7RUFhSjtFQUNBOztBQUVBO0VBQ0U7OztBQU1OO0VBQ0UsU1g3QlE7RVc4QlI7OztBQUdGO0VBQ0U7RUFDQTs7O0FBR0Y7RUFDRSxTWHRDTztFV3VDUDs7O0FDekNGO0VBQ0U7OztBQUdGO0VBQ0UsU1pQSzs7QVlTTDtFQUNFOzs7QUFJSjtFQUNFLFNaVk07O0FZWU47RUFDRTs7O0FBMkJGO0VBQ0U7OztBQURGO0VBQ0U7OztBQURGO0VBQ0U7OztBQURGO0VBQ0U7OztBQURGO0VBQ0U7OztBQURGO0VBQ0U7OztBQzlDSjtFQUNFO0VBQ0E7RUFDQSxrQnJCWWdCO0VxQlhoQjtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7OztBQUlBO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTs7O0FBR0Y7RUFDRTtFQUNBOztBQUVBO0FBQUE7QUFBQTtFQUdFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTs7QUFFQTtBQUFBO0FBQUE7RUFHRTtFQUNBOzs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBOzs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTs7O0FBSUE7QUFBQTtFQUVFOztBQUdGO0VBQ0U7OztBQUtGO0FBQUE7RUFFRTs7QUFHRjtFQUNFOzs7QUFLRjtBQUFBO0VBRUU7O0FBR0Y7RUFDRTs7O0FBSUo7RUFDRTs7QUFFQTtFQUNFLGtCckJuR29COztBcUJzR3RCO0VBQ0UsWXJCdkdvQjs7O0FzQlJ4QjtFQUNFO0VBQ0E7RUFDQTtFQUNBLGtCdEJXZ0I7RXNCVmhCO0VBQ0EsY2RIUTtFY0lSOztBQUVBO0VBQ0U7RUFDQTtFQUNBLE1kVE07OztBY2FWO0VBQ0U7OztBQUdGO0VBQ0UsT3RCcEJZO0VzQnFCWixhdkJSZTtFdUJTZixXdkJwQmlCO0V1QnFCakIsZWRwQk87OztBY3VCVDtFQUNFLE90QnZCWTs7O0FzQjBCZDtFQUNFOzs7QUFHRjtFQUNFLE90QmhCZTs7O0F1QmZqQjtBQUFBO0VBRUU7RUFDQSxPZkxRO0VlTVIsUWZOUTtFZU9SLFNuQlRXOzs7QW1CWWI7QUFBQTtFQUlFO0VBR0E7OztBQUdGO0VBQ0U7RUFDQSxXeEJ0QmlCO0V3QnVCakIsT3ZCUGlCO0V1QlFqQixrQnZCbEJ1QjtFdUJtQnZCO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTtJQUNFOztFQUdGO0lBQ0U7O0VBR0Y7SUFDRTs7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBLGVmdERPO0VldURQO0VBQ0E7RUFDQSxrQnZCN0NnQjs7QXVCK0NoQjtFQUNFO0lBQ0UsUWY5REk7SWUrREo7O0VBR0Y7SUFDRTs7O0FBSUo7RUFDRTtJQUNFLE9mekVJO0llMEVKO0lBQ0E7Ozs7QUFLTjtFQUNFLFFmakZRO0Vla0ZSOztBQUVBO0VBQ0U7OztBQUlKO0VBQ0U7RUFDQTtFQUNBOztBQUVBO0VBQ0U7OztBQUlKO0VBQ0U7RUFDQSxXeEJyR2lCO0V3QnNHakIsT3ZCdEZpQjtFdUJ1RmpCLGtCdkJqR3VCO0V1QmtHdkI7RUFFQTs7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7OztBQUdGO0VBQ0U7RUFDQSxXeEJySGlCO0V3QnNIakIsT3ZCckdlOzs7QXVCd0dqQjtFQUNFLFd4QjFIaUI7OztBd0I2SG5CO0VBQ0UsU2Y1SE07OztBZStIUjtFQUNFO0VBQ0E7OztBQUdGO0VBQ0U7RUFDQTtFQUNBLEtmeklRO0VlMElSLE1mMUlRO0VlMklSLE9mM0lRO0VlNElSLFFmNUlRO0VlNklSO0VBQ0E7RUFDQSxrQnZCbklnQjtFdUJvSWhCO0VBQ0E7OztBQ3BKRjtFQUNFO0VBQ0E7RUFDQTs7O0FBR0Y7RUFDRTs7O0FBR0Y7RUFDRTtFQUNBLE9oQlRRO0VnQlVSLEtoQlZROzs7QWdCYVY7RUFDRTtFQUNBO0VBQ0E7OztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0Esa0J4QlZnQjtFd0JXaEIsT3hCUmlCO0V3QlNqQjtFQUNBO0VBQ0E7RUFDQTs7O0FDM0JGO0VBQ0U7SUFDRTs7RUFHRjtJQUNFOzs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0EsV0FwQlk7RUFxQlosa0J6QlJnQjtFeUJTaEI7RUFDQSxTckJ0QmE7RXFCdUJiOzs7QUFHRjtFQUNFOzs7QUFHRjtFQUNFO0VBQ0E7OztBQUdGO0VBQ0U7OztBQWlCRTtFQUNFO0VBQ0E7OztBQUZGO0VBQ0U7RUFDQTs7O0FDMUROO0VBQ0U7RUFDQTs7O0FBR0Y7RUFDRTs7O0FBR0Y7RUFDRTs7O0FBYUE7RUFDRSxhQVZTOzs7QUFTWDtFQUNFLGFBVlM7OztBQVNYO0VBQ0UsYUFWUzs7O0FBU1g7RUFDRSxhQVZTOzs7QUFTWDtFQUNFLGFBVlM7OztBQXVCWDtFQUNFLGdCQVRROzs7QUFRVjtFQUNFLGdCQVRROzs7QUFRVjtFQUNFLGdCQVRROzs7QUFRVjtFQUNFLGdCQVRROzs7QUF3QlY7RUFDRSxpQkFYYTs7O0FBVWY7RUFDRSxpQkFYYTs7O0FBVWY7RUFDRSxpQkFYYTs7O0FBVWY7RUFDRSxpQkFYYTs7O0FBVWY7RUFDRSxpQkFYYTs7O0FBVWY7RUFDRSxpQkFYYTs7O0FBNEJmO0VBQ0U7O0FBRUE7RUFDRTs7O0FBSko7RUFDRTs7QUFFQTtFQUNFOzs7QUFKSjtFQUNFOztBQUVBO0VBQ0U7OztBQUpKO0VBQ0U7O0FBRUE7RUFDRTs7O0FBSko7RUFDRTs7QUFFQTtFQUNFOzs7QUFKSjtFQUNFOztBQUVBO0VBQ0U7OztBQUpKO0VBQ0U7O0FBRUE7RUFDRTs7O0FBSko7RUFDRTs7QUFFQTtFQUNFOzs7QUMzRU47RUFDRTtFQUNBO0VBQ0E7OztBQUdGO0VBQ0U7OztBQWFBO0VBQ0UsYUFWUzs7O0FBU1g7RUFDRSxhQVZTOzs7QUFTWDtFQUNFLGFBVlM7OztBQVNYO0VBQ0UsYUFWUzs7O0FBU1g7RUFDRSxhQVZTOzs7QUFnQlg7RUFDRSxXQUZTOzs7QUFDWDtFQUNFLFdBRlM7OztBQUNYO0VBQ0UsV0FGUzs7O0FBQ1g7RUFDRSxXQUZTOzs7QUFDWDtFQUNFLFdBRlM7OztBQUNYO0VBQ0UsV0FGUzs7O0FBQ1g7RUFDRSxXQUZTOzs7QUFDWDtFQUNFLFdBRlM7OztBQUNYO0VBQ0UsV0FGUzs7O0FBQ1g7RUFDRSxXQUZTOzs7QUFDWDtFQUNFLFdBRlM7OztBQU1iO0VBQ0U7RUFDQTs7O0FBS0E7RUFDRSxhQUZTOzs7QUFDWDtFQUNFLGFBRlM7OztBQUNYO0VBQ0UsYUFGUzs7O0FBQ1g7RUFDRSxhQUZTOzs7QUFDWDtFQUNFLGFBRlM7OztBQUNYO0VBQ0UsYUFGUzs7O0FBQ1g7RUFDRSxhQUZTOzs7QUFDWDtFQUNFLGFBRlM7OztBQUNYO0VBQ0UsYUFGUzs7O0FBQ1g7RUFDRSxhQUZTOzs7QUFDWDtFQUNFLGFBRlM7OztBQU1iO0VBQ0U7RUFDQTs7O0FBY0E7RUFDRSxZQVhJOzs7QUFVTjtFQUNFLFlBWEk7OztBQVVOO0VBQ0UsWUFYSTs7O0FBVU47RUFDRSxZQVhJOzs7QUFVTjtFQUNFLFlBWEk7OztBQVVOO0VBQ0UsWUFYSTs7O0FDbERSO0VBQ0UsVzdCRWlCOzs7QThCSG5CO0VBQ0U7RUFDQSxlckJDUTtFcUJBUjtFQUNBLGtCN0JXZ0I7OztBNkJSbEI7RUFDRTtFQUNBLFc5Qk5pQjs7O0E4QlNuQjtFQUNFO0VBQ0EsVzlCVGM7OztBOEJZaEI7RUFDRTs7O0FBR0Y7RUFDRSxjN0JqQlk7OztBOEJMZDtFQUNFLFcvQkVpQjtFK0JEakIsYS9CWWU7RStCWGYsTzlCZ0JpQjs7O0ErQm5CbkI7RUFDRSxXaENFaUI7OztBaUNIbkI7RUFDRTtFQUNBO0VBQ0E7O0FBRUE7RUFDRSxrQmhDU2M7RWdDUmQ7RUFDQSxleEJMTTtFd0JNTjtFQUNBLE9oQ1VhO0VnQ1RiOzs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7OztBQUlBO0VBQ0U7RUFDQSxXakN2QmU7RWlDd0JmOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQSxXakNqQ1k7RWlDa0NaOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0UsY2hDNUNVOzs7QWlDTGQ7RUFDRTtFQUNBLEt6QkVPOzs7QXlCQ1Q7RUFDRTtFQUNBO0VBQ0EsZXpCSk87RXlCS1A7RUFDQTtFQUNBO0VBQ0E7RUFDQSx1QmpDTWlCO0VpQ0xqQjtFQUNBLGtCakNDZ0I7O0FpQ0NoQjtFQUNFO0VBQ0E7RUFDQSxrQmpDWHFCOzs7QWtDVHpCO0VBQ0U7RUFDQSxlMUJDUTtFMEJBUjtFQUNBO0VBQ0E7RUFDQTtFQUNBLFduQ0ppQjtFbUNLakIsUzFCSE07OztBMEJNUjtFQUNFOzs7QUNaRjtFQUNFO0VBQ0E7OztBQUdGO0VBQ0U7OztBQWVBO0VBQ0UsWUFaTTtFQWFOLFNBYk07OztBQVdSO0VBQ0UsWUFaTTtFQWFOLFNBYk07OztBQVdSO0VBQ0UsWUFaTTtFQWFOLFNBYk07OztBQVdSO0VBQ0UsWUFaTTtFQWFOLFNBYk07OztBQVdSO0VBQ0UsWUFaTTtFQWFOLFNBYk07OztBQVdSO0VBQ0UsWUFaTTtFQWFOLFNBYk07OztBQVdSO0VBQ0UsWUFaTTtFQWFOLFNBYk07OztBQWlCVjtFQUNFOzs7QUFHRjtFQUNFOzs7QUFHRjtFQUNFOzs7QUFHRjtFQUNFO0lBQ0U7OztBQUlKO0VBQ0U7QUFBQTtJQUVFOzs7QUM5Q0o7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBOzs7QUE2QkE7RUFDRTs7O0FBREY7RUFDRTs7O0FBREY7RUFDRTs7O0FBREY7RUFDRTs7O0FBREY7RUFDRTs7O0FBREY7RUFDRTs7O0FBREY7RUFDRTs7O0FDckNKO0VBRUU7OztBQUdGO0VBQ0U7OztBQWVBO0VBQ0U7OztBQURGO0VBQ0U7OztBQURGO0VBQ0U7OztBQURGO0VBQ0U7OztBQURGO0VBQ0U7OztBQURGO0VBQ0U7OztBQURGO0VBQ0U7OztBQURGO0VBQ0U7OztBQ3RCSjtFQUNFO0VBQ0E7RUFDQTs7QUFFQTtFQUNFLGtCdENVYztFc0NUZDs7QUFHRjtFQUNFOztBQUdGO0VBQ0UsV3ZDYlk7RXVDY1osYXZDRmE7RXVDR2I7RUFDQTs7QUFHRjtFQUNFLFd2Q25CZTtFdUNvQmY7OztBQUtGO0VBQ0U7OztBQUtGO0VBQ0U7OztBQUtGO0VBQ0U7OztBQUlKO0VBQ0Usa0J0QzlCZ0I7RXNDK0JoQjs7O0FBR0Y7RUFDRSxrQnRDbkNnQjs7O0F1Q2hCbEI7RUFDRTtFQUNBOztBQUVBO0VBQ0U7OztBQUlKO0VBQ0U7OztBQ1ZGO0VBQ0U7RUFDQTtFQUNBLGVoQ0lNO0VnQ0hOLGtCeENZZ0I7RXdDWGhCLE94Q2FlO0V3Q1pmLGF6Q1FlO0V5Q1BmO0VBQ0E7OztBQUdGO0VBQ0UsT2hDWks7RWdDYUwsUWhDYks7RWdDY0wsU2hDZEs7RWdDZUwsV3pDWGU7OztBeUNjakI7RUFDRSxPaENkTTtFZ0NlTixRaENmTTtFZ0NnQk4sU2hDaEJNO0VnQ2lCTixXekNwQmM7OztBeUN1QmhCO0VBQ0Usa0J4Q2xCc0I7RXdDbUJ0QixPeEMxQlk7OztBeUNEZDtFQUNFO0VBQ0EsZWpDRU87OztBaUNDVDtFQUNFOzs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQSxZMUJmaUI7RTBCZ0JqQjtFQUNBLHVCekNFaUI7RXlDRGpCOztBQUVBO0VBQ0UsWTFCcEJhO0UwQnFCYjtFQUNBLHVCekNKZTs7O0EwQ2ZuQjtFQUNFO0lBQ0U7SUFDQTs7RUFHRjtJQUNFO0lBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7OztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0EsV0EvQlc7RUFnQ1g7RUFDQSxrQjFDcEJnQjtFMENxQmhCO0VBQ0EsU3RDakNZO0VzQ2tDWjs7O0FBR0Y7RUFDRSxTbEMxQ0s7OztBa0M2Q1A7RUFDRTtFQUNBOzs7QUFHRjtFQUNFOzs7QUFpQkU7RUFDRTtFQUNBOzs7QUFGRjtFQUNFO0VBQ0E7OztBQ3RFTjtFQUNFO0VBQ0E7RUFDQTtFQUNBLFN2Q0dvQjtFdUNGcEI7OztBQUdGO0VBQ0UsU25DTlE7RW1DT1IsMkJuQ1ZLO0VtQ1dMOzs7QUFJQTtFQUNFLDJCbkNaSzs7O0FtQ2dCVDtFQUNFOzs7QUFHRjtFQUNFO0VBQ0E7RUFDQSxlbkN0Qk07RW1DdUJOLFNuQ3ZCTTtFbUN3Qk4sVzVDMUJpQjtFNEMyQmpCLE8zQ1hpQjtFMkNZakI7RUFDQTtFQUNBLGtCM0NsQmdCOzs7QTJDcUJsQjtFQUNFO0VBQ0E7RUFDQTs7O0FBR0Y7RUFDRTtFQUNBOzs7QUFHRjtFQUNFO0VBQ0E7OztBQUdGO0VBQ0U7SUFDRTtJQUNBOztFQUdGO0lBQ0U7SUFDQTs7RUFHRjtJQUNFOzs7QUFJSjtFQUNFO0lBQ0U7SUFDQTs7RUFHRjtJQUNFO0lBQ0E7O0VBR0Y7SUFDRTs7O0FBSUo7RUFDRTtJQUNFO0lBQ0E7O0VBR0Y7SUFDRTtJQUNBOztFQUdGO0lBQ0U7OztBQ2hHSjtFQUNFO0VBQ0E7RUFDQTs7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7OztBQWNBO0VBQ0UsbUJBWGlCOzs7QUFVbkI7RUFDRSxtQkFYaUI7OztBQVVuQjtFQUNFLG1CQVhpQjs7O0FBVW5CO0VBQ0UsbUJBWGlCOzs7QUFVbkI7RUFDRSxtQkFYaUI7OztBQVVuQjtFQUNFLG1CQVhpQjs7O0FBeUJuQjtFQUNFLG1CQVhrQjs7O0FBVXBCO0VBQ0UsbUJBWGtCOzs7QUFVcEI7RUFDRSxtQkFYa0I7OztBQVVwQjtFQUNFLG1CQVhrQjs7O0FBVXBCO0VBQ0UsbUJBWGtCOzs7QUFVcEI7RUFDRSxtQkFYa0I7OztBQzFCdEI7RUFDRTtFQUNBO0VBQ0EsVzlDRmlCOzs7QThDS25CO0VBQ0U7RUFDQTs7O0FBSUE7RUFDRTs7O0FBS0Y7RUFDRTs7O0FBS0Y7RUFDRTs7O0FBSUo7RUFDRSxrQjdDakJnQjtFNkNrQmhCOztBQUVBO0VBQ0U7OztBQWlDRjtFQUNFOztBQUVBO0VBQ0U7RUFDQTs7O0FBTEo7RUFDRTs7QUFFQTtFQUNFO0VBQ0E7OztBQUxKO0VBQ0U7O0FBRUE7RUFDRTtFQUNBOzs7QUFMSjtFQUNFOztBQUVBO0VBQ0U7RUFDQTs7O0FBTEo7RUFDRTs7QUFFQTtFQUNFO0VBQ0E7OztBQUxKO0VBQ0U7O0FBRUE7RUFDRTtFQUNBOzs7QUMxRU47RUFDRTtFQUNBLGtCOUNhZ0I7RThDWmhCO0VBQ0EsUzFDRWM7RTBDRGQ7OztBQUdGO0VBQ0U7OztBQUdGO0VBQ0U7RUFDQTtFQUNBLGEvQ0RlO0UrQ0VmLFcvQ2JpQjtFK0NjakIsTzlDRWlCOzs7QThDQ25CO0VBQ0U7OztBQUdGO0VBQ0UsU3RDcEJNOzs7QXVDSFI7RUFDRTtFQUNBLGV2Q0RRO0V1Q0VSO0VBQ0E7OztBQUdGO0FBQUE7QUFBQTtFQUdFO0VBQ0E7RUFDQTs7O0FBR0Y7RUFDRTtFQUNBLGtCL0NIZ0I7RStDSWhCOzs7QUFHRjtFQUNFO0VBQ0E7OztBQUdGO0VBQ0U7RUFDQSxldkMzQlE7RXVDNEJSOzs7QUEyQkU7RUFDRTs7O0FBREY7RUFDRTs7O0FBREY7RUFDRTs7O0FBREY7RUFDRTs7O0FBREY7RUFDRTs7O0FBREY7RUFDRTs7O0FDekROO0VBQ0U7RUFDQSxleENKSztFd0NLTDtFQUNBOzs7QUFJQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0Esa0JoRFJjO0VnRFNkOzs7QUFLRjtFQUNFLGtCaER2Qm9CO0VnRHdCcEIsT2hEL0JVOzs7QWdEZ0RaO0VBQ0U7RUFDQTs7O0FBRkY7RUFDRTtFQUNBOzs7QUFlRjtFQUNFLFNBWE07OztBQVVSO0VBQ0UsU0FYTTs7O0FBVVI7RUFDRSxTQVhNOzs7QUFVUjtFQUNFLFNBWE07OztBQVVSO0VBQ0UsU0FYTTs7O0FBVVI7RUFDRSxTQVhNOzs7QUN4RFY7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0EsUzdDSmtCO0U2Q0tsQjtFQUNBO0VBQ0E7OztBQUdGO0VBQ0U7RUFDQTtFQUNBOzs7QUNmRjtFQUNFO0VBQ0E7RUFDQTs7O0FBR0Y7RUFDRTtFQUNBLGtCbERPZ0I7RWtETmhCO0VBQ0EsZTFDTk87RTBDT1AsWW5DWGlCO0VtQ1lqQjtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQSxZbkNuQmE7OztBbUN1QmpCO0VBQ0U7RUFDQSxPMUNyQk07RTBDc0JOO0VBQ0EsT2xEVmU7RWtEV2Y7O0FBRUE7RUFDRSxPbEQvQlU7OztBa0RvQ1o7RUFDRTtFQUNBLFduRHBDZTs7O0FtRHlDakI7RUFDRTtFQUNBLFduRHpDWTs7O0FvRExoQjtFQUNFOztBQUVBO0VBQ0UsWTNDR0k7OztBMkNDUjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0EsUzNDVE87RTJDVVAsT25ESWU7RW1ESGY7RUFDQTtFQUNBO0VBQ0E7RUFDQSxlM0NmTztFMkNnQlA7RUFDQTs7O0FBR0Y7RUFDRSxrQm5EdkJhO0VtRHdCYixPbkRYZ0I7RW1EWWhCOzs7QUMzQkY7RUFDRSxrQnBEZWdCO0VvRGRoQixTNUNGSztFNENHTDtFQUNBLGFyRFVlO0VxRFRmLFdyREZpQjtFcURHakIsT3BEYWlCOzs7QW9EVm5CO0VBQ0U7RUFDQTs7O0FDWEY7RUFDRTs7O0FBZUE7RUFDRSxRQWJHOzs7QUFZTDtFQUNFLFFBYkc7OztBQVlMO0VBQ0UsUUFiRzs7O0FBWUw7RUFDRSxRQWJHOzs7QUFZTDtFQUNFLFFBYkc7OztBQVlMO0VBQ0UsUUFiRzs7O0FBWUw7RUFDRSxRQWJHOzs7QUFZTDtFQUNFLFFBYkc7OztBQ09MO0VBQ0UsT0FaRztFQWFILFFBYkc7OztBQVdMO0VBQ0UsT0FaRztFQWFILFFBYkc7OztBQVdMO0VBQ0UsT0FaRztFQWFILFFBYkc7OztBQVdMO0VBQ0UsT0FaRztFQWFILFFBYkc7OztBQVdMO0VBQ0UsT0FaRztFQWFILFFBYkc7OztBQVdMO0VBQ0UsT0FaRztFQWFILFFBYkc7OztBQVdMO0VBQ0UsT0FaRztFQWFILFFBYkc7OztBQWlCUDtFQUNFO0VBQ0E7OztBQ25CRjtFQUNFLFd4REdlOzs7QXdEQWpCO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQSxrQnZET2dCO0V1RE5oQixPdkRRZTtFdURQZjtFQUNBLFd4RFZjO0V3RFdkLGUvQ1ZRO0UrQ1dSO0VBQ0E7RUFDQTs7QUFFQTtFQUNFLE92RGpCVztFdURrQlgsa0J2RFhxQjtFdURZckI7OztBQUlKO0VBQ0Usa0J2RHhCYTtFdUR5QmIsT3ZEWmdCOzs7QXdEZmxCO0VBQ0U7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7O0FBRUE7RUFFRSxrQnhER1k7O0F3REFkO0VBQ0U7O0FBSUo7RUFDRSxXekRuQmU7RXlEb0JmLGF6RFRhO0V5RFViLFNoRHJCTTs7QWdEd0JSO0VBQ0UsV3pEekJlO0V5RDBCZixTaEQxQk07RWdEMkJOO0VBQ0E7OztBQUlKO0VBQ0U7OztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7OztBQUdGO0VBQ0U7RUFDQTs7O0FBR0Y7RUFDRTs7O0FBR0Y7RUFDRTs7O0FBR0Y7RUFDRTs7O0FBR0Y7RUFDRTs7O0FBR0Y7RUFDRTs7O0FDcEVGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7OztBQUlBO0VBQ0U7RUFDQSxXMURQZTs7O0EwRFlqQjtFQUNFO0VBQ0EsVzFEYmE7OztBMERpQmpCO0VBQ0U7RUFDQTs7O0FBR0Y7RUFDRTtFQUNBOzs7QUFHRjtFQUNFO0VBQ0E7RUFDQSxPekRoQmU7RXlEaUJmO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBRUUsT3pEdkJlO0V5RHdCZjs7QUFHRjtFQUNFLGtCekQvQmM7O0F5RGtDaEI7RUFDRSxPekRoQ2U7RXlEaUNmOzs7QUMvQ0o7RUFDRTtFQUNBO0VBQ0EsT0FSWTtFQVNaLFFBUmE7OztBQVdmO0VBQ0U7RUFDQTtFQUNBOztBQUVBO0VBQ0Usa0IxRGhCVzs7QTBEbUJiO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBLGtCMURyQmlCO0UwRHNCakIsWUN2Q2dCO0VEd0NoQixlQXJDVztFQXNDWDs7QUFFQTtFQUNFO0VBQ0E7RUFDQSxRQTNDUztFQTRDVCxPQTVDUztFQTZDVCxNQTlDVztFQStDWCxRQS9DVztFQWdEWCxrQjFEbkNjO0UwRG9DZCxZQ25EYztFRG9EZDs7O0FFcERKO0VBQ0U7RUFDQTtFQUNBLGtCNURZZ0I7RTREWGhCO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTs7O0FBSUo7RUFDRTs7O0FDakJGO0VBQ0UsTzdEZ0JpQjtFNkRmakI7OztBQWlEQTtFQUNFO0VBQ0E7RUFDQTtFQUNBOzs7QUFKRjtFQUNFO0VBQ0E7RUFDQTtFQUNBOzs7QUFKRjtFQUNFO0VBQ0E7RUFDQTtFQUNBOzs7QUFKRjtFQUNFO0VBQ0E7RUFDQTtFQUNBOzs7QUFKRjtFQUNFO0VBQ0E7RUFDQTtFQUNBOzs7QUFKRjtFQUNFO0VBQ0E7RUFDQTtFQUNBOzs7QUFKRjtFQUNFO0VBQ0E7RUFDQTtFQUNBOzs7QUFPRjtFQUNFOzs7QUFERjtFQUNFOzs7QUFERjtFQUNFOzs7QUNqRUo7RUFDRTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFFQTtFQUNFOztBQUlKO0VBQ0U7O0FBR0Y7RUFDRTs7QUFHRjtBQUFBO0VBRUUsYXREdkJHO0VzRHdCSCxldERwQks7O0FzRHNCTDtBQUFBO0VBQ0U7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7O0FBRUE7RUFDRSxrQjlEckJZO0U4RHNCWjs7QUFHRjtFQUNFOztBQUdGO0VBQ0UsVy9ENUNVO0UrRDZDVixhL0RqQ1c7RStEa0NYO0VBQ0E7O0FBR0Y7RUFDRSxXL0RsRGE7RStEbURiO0VBQ0E7OztBQUtOO0VyRDNERTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7OztBcUQ0R0Y7RUFuREEsTzlEOUNpQjtFOEQrQ2pCLFdBMENLO0VBekNMOztBQUVBO0VBQ0UsV0FzQ0c7RUFyQ0g7RUFDQSxldERwRUs7O0FzRHNFTDtFQUNFOztBQUlKO0VBQ0U7RUFDQTtFQUNBLGEvRHBFYTtFK0RxRWIsZXREL0VLOztBc0RrRlA7RUFDRTtFQUNBO0VBQ0EsZXREckZLOztBc0R3RlA7RUFDRTtFQUNBO0VBQ0EsYS9EakZhO0UrRGtGYixldEQ1Rks7RXNENkZMLE85RC9FYTs7QThEa0ZmO0VBQ0UsV0FPRztFQU5IO0VBQ0EsYS9EekZhO0UrRDBGYixldERwR0s7OztBc0RnSFA7RUFuREEsTzlEOUNpQjtFOEQrQ2pCLFdBMENLO0VBekNMOztBQUVBO0VBQ0UsV0FzQ0c7RUFyQ0g7RUFDQSxldERwRUs7O0FzRHNFTDtFQUNFOztBQUlKO0VBQ0U7RUFDQTtFQUNBLGEvRHBFYTtFK0RxRWIsZXREL0VLOztBc0RrRlA7RUFDRTtFQUNBO0VBQ0EsZXREckZLOztBc0R3RlA7RUFDRTtFQUNBO0VBQ0EsYS9EakZhO0UrRGtGYixldEQ1Rks7RXNENkZMLE85RC9FYTs7QThEa0ZmO0VBQ0UsV0FPRztFQU5IO0VBQ0EsYS9EekZhO0UrRDBGYixldERwR0s7OztBc0RnSFA7RUFuREEsTzlEOUNpQjtFOEQrQ2pCLFdBMENLO0VBekNMOztBQUVBO0VBQ0UsV0FzQ0c7RUFyQ0g7RUFDQSxldERwRUs7O0FzRHNFTDtFQUNFOztBQUlKO0VBQ0U7RUFDQTtFQUNBLGEvRHBFYTtFK0RxRWIsZXREL0VLOztBc0RrRlA7RUFDRTtFQUNBO0VBQ0EsZXREckZLOztBc0R3RlA7RUFDRTtFQUNBO0VBQ0EsYS9EakZhO0UrRGtGYixldEQ1Rks7RXNENkZMLE85RC9FYTs7QThEa0ZmO0VBQ0UsV0FPRztFQU5IO0VBQ0EsYS9EekZhO0UrRDBGYixldERwR0s7OztBc0RnSFA7RUFuREEsTzlEOUNpQjtFOEQrQ2pCLFdBMENLO0VBekNMOztBQUVBO0VBQ0UsV0FzQ0c7RUFyQ0g7RUFDQSxldERwRUs7O0FzRHNFTDtFQUNFOztBQUlKO0VBQ0U7RUFDQTtFQUNBLGEvRHBFYTtFK0RxRWIsZXREL0VLOztBc0RrRlA7RUFDRTtFQUNBO0VBQ0EsZXREckZLOztBc0R3RlA7RUFDRTtFQUNBO0VBQ0EsYS9EakZhO0UrRGtGYixldEQ1Rks7RXNENkZMLE85RC9FYTs7QThEa0ZmO0VBQ0UsV0FPRztFQU5IO0VBQ0EsYS9EekZhO0UrRDBGYixldERwR0s7OztBc0R3SFA7RUFDRTs7O0FBREY7RUFDRTs7O0FBREY7RUFDRTs7O0FDbEhGO0VBQ0U7OztBQURGO0VBQ0U7OztBQURGO0VBQ0U7OztBQURGO0VBQ0U7OztBQURGO0VBQ0U7OztBQURGO0VBQ0U7OztBQURGO0VBQ0UiLCJzb3VyY2VzQ29udGVudCI6WyJib2R5LFxudGV4dGFyZWEge1xuICBmb250LWZhbWlseTogLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCBcIlNlZ29lIFVJXCIsIFwiUm9ib3RvXCIsIFwiT3h5Z2VuXCIsIFwiVWJ1bnR1XCIsIFwiQ2FudGFyZWxsXCIsIFwiRmlyYSBTYW5zXCIsXG4gICAgXCJEcm9pZCBTYW5zXCIsIFwiSGVsdmV0aWNhIE5ldWVcIiwgc2Fucy1zZXJpZjtcbn1cblxuLy8gQWRhcHRlZCBmcm9tIEVyaWMgTWV5ZXIncyByZXNldCAoaHR0cDovL21leWVyd2ViLmNvbS9lcmljL3Rvb2xzL2Nzcy9yZXNldC8sIHYyLjAgfCAyMDExMDEyNikuICovXG5cbiosXG4qOmJlZm9yZSxcbio6YWZ0ZXIge1xuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xufVxuXG5odG1sLFxuYm9keSxcbmRpdixcbnNwYW4sXG5hcHBsZXQsXG5vYmplY3QsXG5pZnJhbWUsXG5oMSxcbmgyLFxuaDMsXG5oNCxcbmg1LFxuaDYsXG5wLFxuYmxvY2txdW90ZSxcbnByZSxcbmEsXG5hYmJyLFxuYWNyb255bSxcbmFkZHJlc3MsXG5iaWcsXG5jaXRlLFxuY29kZSxcbmRlbCxcbmRmbixcbmVtLFxuaW1nLFxuaW5zLFxua2JkLFxucSxcbnMsXG5zYW1wLFxuc21hbGwsXG5zdHJpa2UsXG5zdHJvbmcsXG5zdWIsXG5zdXAsXG50dCxcbnZhcixcbmIsXG51LFxuaSxcbmNlbnRlcixcbmRsLFxuZHQsXG5kZCxcbm9sLFxudWwsXG5saSxcbmZpZWxkc2V0LFxuZm9ybSxcbmxhYmVsLFxubGVnZW5kLFxudGFibGUsXG5jYXB0aW9uLFxudGJvZHksXG50Zm9vdCxcbnRoZWFkLFxudHIsXG50aCxcbnRkLFxuYXJ0aWNsZSxcbmFzaWRlLFxuY2FudmFzLFxuZGV0YWlscyxcbmVtYmVkLFxuZmlndXJlLFxuZmlnY2FwdGlvbixcbmZvb3RlcixcbmhlYWRlcixcbmhncm91cCxcbm1lbnUsXG5uYXYsXG5vdXRwdXQsXG5ydWJ5LFxuc2VjdGlvbixcbnN1bW1hcnksXG50aW1lLFxubWFyayxcbmF1ZGlvLFxudmlkZW8ge1xuICBtYXJnaW46IDA7XG4gIHBhZGRpbmc6IDA7XG4gIGJvcmRlcjogbm9uZTtcbiAgdmVydGljYWwtYWxpZ246IGJhc2VsaW5lO1xufVxuXG5oMSxcbmgyLFxuaDMsXG5oNCxcbmg1LFxuaDYsXG5wIHtcbiAgZm9udC1mYW1pbHk6IGluaGVyaXQ7XG4gIGZvbnQtd2VpZ2h0OiBpbmhlcml0O1xuICBmb250LXNpemU6IGluaGVyaXQ7XG59XG5cbi8qIEhUTUw1IGRpc3BsYXktcm9sZSByZXNldCBmb3Igb2xkZXIgYnJvd3NlcnMgKi9cbmFydGljbGUsXG5hc2lkZSxcbmRldGFpbHMsXG5maWdjYXB0aW9uLFxuZmlndXJlLFxuZm9vdGVyLFxuaGVhZGVyLFxuaGdyb3VwLFxubWVudSxcbm5hdixcbnNlY3Rpb24ge1xuICBkaXNwbGF5OiBibG9jaztcbn1cblxuYVtocmVmXSxcbmJ1dHRvbixcbltyb2xlPVwiYnV0dG9uXCJdIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG5idXR0b24ge1xuICBiYWNrZ3JvdW5kOiBub25lO1xuICBib3JkZXI6IG5vbmU7XG4gIHBhZGRpbmc6IDA7XG4gIG1hcmdpbjogMDtcbiAgY29sb3I6IGluaGVyaXQ7XG4gIGJvcmRlci1yYWRpdXM6IDA7XG4gIGZvbnQtc2l6ZTogaW5oZXJpdDtcbn1cblxuaW5wdXQge1xuICBtYXJnaW46IDA7XG4gIHBhZGRpbmc6IDA7XG59XG5cbmlucHV0OmRpc2FibGVkIHtcbiAgb3BhY2l0eTogMTsgLyogcmVxdWlyZWQgb24gaU9TICovXG59XG5cbm9sLFxudWwge1xuICBsaXN0LXN0eWxlOiBub25lO1xufVxuXG5ibG9ja3F1b3RlLFxucSB7XG4gIHF1b3Rlczogbm9uZTtcbn1cblxuYmxvY2txdW90ZTpiZWZvcmUsXG5ibG9ja3F1b3RlOmFmdGVyLFxucTpiZWZvcmUsXG5xOmFmdGVyIHtcbiAgY29udGVudDogXCJcIjtcbn1cblxudGFibGUge1xuICBib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlO1xuICBib3JkZXItc3BhY2luZzogMDtcbn1cblxuaHIge1xuICBtYXJnaW46IDA7XG59XG5cbmZpZWxkc2V0IHtcbiAgbWluLWlubGluZS1zaXplOiBhdXRvO1xufVxuIiwiLnZ1aUFjY29yZGlvbkhlYWRlciB7XG4gIGZvbnQtc2l6ZTogJGZvbnRTaXplU3RhbmRhcmQ7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAkYm9yZGVyQ29sb3I7XG4gIHdpZHRoOiAxMDAlO1xuICBwYWRkaW5nOiAkc2l6ZVhzIDA7XG5cbiAgJjpob3ZlciB7XG4gICAgdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogJGNvbG9yTGlnaHRTaGFkZTtcbiAgfVxufVxuXG4udnVpQWNjb3JkaW9uSGVhZGVyX190aXRsZSB7XG4gIHRleHQtYWxpZ246IGxlZnQ7XG59XG4iLCJAdXNlIFwic2FzczptYXBcIjtcblxuJGZvbnRTaXplU21hbGw6IDEycHg7XG4kZm9udFNpemVTdGFuZGFyZDogMTRweDtcbiRmb250U2l6ZU1lZGl1bTogMTZweDtcbiRmb250U2l6ZUxhcmdlOiAxOHB4O1xuJGZvbnRTaXplWExhcmdlOiAyNHB4O1xuJGZvbnRTaXplWHhMYXJnZTogMzBweDtcbiRmb250U2l6ZVh4eExhcmdlOiA0MHB4O1xuXG4kY29sb3JUZXh0OiAkY29sb3JEYXJrZXJTaGFkZTtcbiRjb2xvclN1YmR1ZWQ6ICRjb2xvckRhcmtTaGFkZTtcblxuJGZvbnRXZWlnaHROb3JtYWw6IDQwMDtcbiRmb250V2VpZ2h0Qm9sZDogNjAwO1xuXG4kbGFiZWxGb250U2l6ZTogJGZvbnRTaXplU3RhbmRhcmQ7XG4kbGFiZWxGb250V2VpZ2h0OiAkZm9udFdlaWdodEJvbGQ7XG4kbGFiZWxDb2xvcjogJGNvbG9yVGV4dDtcbiIsIi8vIFNlbWFudGljIGNvbG9yc1xuJGNvbG9yQWNjZW50OiAjNTUxZWRmICFkZWZhdWx0O1xuJGNvbG9yUHJpbWFyeTogcmdiKDM4LCA3NiwgMjE0KSAhZGVmYXVsdDtcbiRjb2xvclN1Y2Nlc3M6ICMwNDgyMWYgIWRlZmF1bHQ7XG4kY29sb3JXYXJuaW5nOiAjOTY1YTE1ICFkZWZhdWx0O1xuJGNvbG9yRGFuZ2VyOiAjYzQxNTM1ICFkZWZhdWx0O1xuXG4vLyBTZW1hbnRpYyBzaGFkZXNcbiRjb2xvckFjY2VudExpZ2h0U2hhZGU6ICNlYWRmZmYgIWRlZmF1bHQ7XG4kY29sb3JQcmltYXJ5TGlnaHRTaGFkZTogcmdiKDIxNywgMjI2LCAyNTUpICFkZWZhdWx0O1xuJGNvbG9yU3VjY2Vzc0xpZ2h0U2hhZGU6ICNlOWYyZTkgIWRlZmF1bHQ7XG4kY29sb3JXYXJuaW5nTGlnaHRTaGFkZTogI2Y0ZWVlOCAhZGVmYXVsdDtcbiRjb2xvckRhbmdlckxpZ2h0U2hhZGU6ICNmYWU5ZWIgIWRlZmF1bHQ7XG5cbi8vIE5ldXRyYWwgY29sb3JzXG4kY29sb3JFbXB0eVNoYWRlOiAjZmZmZmZmICFkZWZhdWx0O1xuJGNvbG9yTGlnaHRTaGFkZTogI2YzZjdmYiAhZGVmYXVsdDtcbiRjb2xvck1lZGl1bVNoYWRlOiAjY2JjZGRlICFkZWZhdWx0O1xuJGNvbG9yRGFya1NoYWRlOiAjNjk3MDdkICFkZWZhdWx0O1xuJGNvbG9yRGFya2VyU2hhZGU6ICMyYzMxM2EgIWRlZmF1bHQ7XG4kY29sb3JGdWxsU2hhZGU6ICMwMDAgIWRlZmF1bHQ7XG4iLCJAdXNlIFwic2FzczptYXBcIjtcblxuLnZ1aUFwcENvbnRlbnQge1xuICB3aWR0aDogMTAwJTtcbiAgbWF4LXdpZHRoOiAxMjAwcHg7XG59XG5cbi52dWlBcHBDb250ZW50LS1mdWxsV2lkdGgge1xuICBtYXgtd2lkdGg6IDEwMCU7XG59XG5cbi8vIFBhZGRpbmdcbiRwYWRkaW5nOiAoXG4gIE5vbmU6IDAsXG4gIFhzOiAkc2l6ZVhzICRzaXplWHMgKiAxLjI1LFxuICBTOiAkc2l6ZVMgJHNpemVTICogMS4yNSxcbiAgTTogJHNpemVNICRzaXplTSAqIDEuMjUsXG4gIEw6ICRzaXplTCAkc2l6ZUwgKiAxLjI1LFxuICBYbDogJHNpemVYbCAkc2l6ZVhsICogMS4yNVxuKTtcblxuQGVhY2ggJHBhZGRpbmdOYW1lLCAkcGFkZGluZ1ZhbHVlIGluICRwYWRkaW5nIHtcbiAgLnZ1aUFwcENvbnRlbnQtLXBhZGRpbmcjeyRwYWRkaW5nTmFtZX0ge1xuICAgIHBhZGRpbmc6ICN7JHBhZGRpbmdWYWx1ZX07XG4gIH1cbn1cbiIsIi52dWlBcHBIZWFkZXIge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIHdpZHRoOiAxMDB2dztcbiAgaGVpZ2h0OiAkYXBwSGVhZGVySGVpZ2h0O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAkY29sb3JMaWdodFNoYWRlO1xuICBwYWRkaW5nOiAkc2l6ZVhzICRzaXplTTtcbiAgei1pbmRleDogJGFwcEhlYWRlclpJbmRleDtcbiAgYm94LXNoYWRvdzogcmdiYSg1MCwgNTAsIDkzLCAwLjI1KSAwcHggMnB4IDVweCAtMXB4LCByZ2JhKDAsIDAsIDAsIDAuMykgMHB4IDFweCAzcHggLTFweDtcbn1cblxuLnZ1aUFwcEhlYWRlcl9faW5uZXIge1xuICBmbGV4LWdyb3c6IDE7XG59XG4iLCIkYXBwSGVhZGVySGVpZ2h0OiA0NnB4O1xuIiwiJGFwcEhlYWRlclpJbmRleDogODtcbiRjaGF0WkluZGV4OiA5O1xuJHNjcmVlbkJsb2NrWkluZGV4OiAxMDtcbiRkcmF3ZXJaSW5kZXg6IDExO1xuJG1vZGFsWkluZGV4OiAxMjtcbi8vIEVuYWJsZSBwb3BvdmVycyB0byBiZSBwbGFjZWQgaW5zaWRlIG9mIG1vZGFscyBhbmQgZHJhd2Vycy5cbiRwb3BvdmVyWkluZGV4OiAxMztcbiRub3RpZmljYXRpb25zWkluZGV4OiAxMDAwO1xuIiwiLnZ1aUFwcExheW91dCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XG4gIHBhZGRpbmctdG9wOiAkYXBwSGVhZGVySGVpZ2h0O1xuICBoZWlnaHQ6IDEwMHZoO1xufVxuXG4udnVpQXBwTGF5b3V0LS1mdWxsIHtcbiAgcGFkZGluZy10b3A6IDA7XG59XG5cbi52dWlBcHBMYXlvdXRfX3NpZGVOYXYge1xuICBib3JkZXItcmlnaHQ6IDFweCBzb2xpZCAkY29sb3JNZWRpdW1TaGFkZTtcbiAgZmxleC1zaHJpbms6IDA7XG4gIG92ZXJmbG93LXk6IGF1dG87XG59XG5cbi52dWlBcHBMYXlvdXRfX2NvbnRlbnQge1xuICBmbGV4LWdyb3c6IDE7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIG92ZXJmbG93LXk6IGF1dG87XG59XG4iLCIudnVpQXBwU2lkZU5hdiB7XG4gIHdpZHRoOiAkYXBwU2lkZU5hdldpZHRoO1xuICBvdmVyZmxvdy14OiBoaWRkZW47XG4gIHRyYW5zaXRpb246IGFsbCAkdHJhbnNpdGlvblNwZWVkO1xuICBsaW5lLWhlaWdodDogMTtcbn1cblxuLnZ1aUFwcFNpZGVOYXZfX2lubmVyIHtcbiAgLy8gUHJldmVudCBjb250ZW50IGZyb20gYmVpbmcgc3F1aXNoZWQgYXMgbmF2IGNvbGxhcHNlcy5cbiAgd2lkdGg6ICRhcHBTaWRlTmF2V2lkdGg7XG4gIHBhZGRpbmc6IDI4cHggMzJweCAzMnB4IDMzcHg7XG4gIG1hcmdpbi1ib3R0b206ICRzaXplWHhsICogNDtcbiAgdHJhbnNpdGlvbjogYWxsICR0cmFuc2l0aW9uU3BlZWQ7XG59XG5cbi52dWlBcHBTaWRlTmF2Q29udGVudCB7XG4gIG9wYWNpdHk6IDE7XG4gIHRyYW5zaXRpb246IGFsbCAkdHJhbnNpdGlvblNwZWVkO1xufVxuXG4udnVpQXBwU2lkZU5hdkNvbnRlbnQtaXNIaWRkZW4ge1xuICBwb2ludGVyLWV2ZW50czogbm9uZTtcbiAgb3BhY2l0eTogMDtcbn1cblxuLnZ1aUFwcFNpZGVOYXYtaXNDb2xsYXBzZWQge1xuICB3aWR0aDogJGFwcFNpZGVOYXZXaWR0aENvbGxhcHNlZDtcbiAgLy8gU3RvcCBzY3JvbGxpbmcuXG4gIGhlaWdodDogMTAwJTtcbiAgb3ZlcmZsb3cteTogaGlkZGVuO1xuXG4gIC52dWlBcHBTaWRlTmF2X19pbm5lciB7XG4gICAgcGFkZGluZy1sZWZ0OiAkc2l6ZU07XG4gIH1cbn1cblxuLnZ1aUFwcFNpZGVOYXZDb2xsYXBzZUJ1dHRvbiB7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBjb2xvcjogJGNvbG9yU3ViZHVlZDtcbiAgZm9udC1zaXplOiAkZm9udFNpemVTdGFuZGFyZDtcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICBwYWRkaW5nOiAwICRzaXplTTtcbiAgbWFyZ2luLWxlZnQ6IC0kc2l6ZVh4bDtcbiAgbWFyZ2luLWJvdHRvbTogJHNpemVNO1xuXG4gICY6aG92ZXIge1xuICAgIGNvbG9yOiAkY29sb3JQcmltYXJ5O1xuICAgIHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lO1xuICB9XG59XG5cbi52dWlBcHBTaWRlTmF2RXhwYW5kQnV0dG9uIHtcbiAgbWFyZ2luLXRvcDogLSRzaXplWHhzO1xuICAvLyBFbnN1cmUgdGhlIGNvbnRlbnQgYmVsb3cgdGhlIGV4cGFuZC9jb2xsYXBzZSBidXR0b24gcmVtYWluc1xuICAvLyBhdCB0aGUgc2FtZSB2ZXJ0aWNhbCBwb3NpdGlvbiB3aGVuIGNvbGxhcHNlZCBhbmQgZXhwYW5kZWQuXG4gIG1hcmdpbi1ib3R0b206IDZweDtcbn1cblxuLnZ1aUFwcFNpZGVOYXZMaW5rIHtcbiAgQGluY2x1ZGUgdHJ1bmNhdGVUZXh0O1xuICBAaW5jbHVkZSBhcHBTaWRlTmF2SXRlbTtcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuXG4gICY6aG92ZXIge1xuICAgIGNvbG9yOiAkY29sb3JQcmltYXJ5O1xuICAgIHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lO1xuICB9XG59XG5cbi52dWlBcHBTaWRlTmF2TGluay0tYWN0aXZlIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogJGNvbG9yUHJpbWFyeUxpZ2h0U2hhZGU7XG4gIGJvcmRlci1yYWRpdXM6ICRzaXplTTtcbn1cbiIsIiRhcHBTaWRlTmF2V2lkdGg6IDI0MHB4O1xuJGFwcFNpZGVOYXZXaWR0aENvbGxhcHNlZDogNjBweDtcbiRhcHBTaWRlTmF2TGlua1NwYWNpbmc6ICRzaXplWHhzICsgMnB4O1xuXG5AbWl4aW4gYXBwU2lkZU5hdkl0ZW0ge1xuICBkaXNwbGF5OiBibG9jaztcbiAgY29sb3I6ICRjb2xvclRleHQ7XG4gIGZvbnQtc2l6ZTogJGZvbnRTaXplU3RhbmRhcmQ7XG4gIHBhZGRpbmc6IDAgJHNpemVNO1xuICBtYXJnaW4tbGVmdDogLSRzaXplTTtcbiAgcGFkZGluZy10b3A6ICRhcHBTaWRlTmF2TGlua1NwYWNpbmc7XG4gIHBhZGRpbmctYm90dG9tOiAkYXBwU2lkZU5hdkxpbmtTcGFjaW5nO1xufVxuXG5AaW1wb3J0IFwiLi9hcHBTaWRlTmF2XCI7XG5AaW1wb3J0IFwiLi9hcHBTaWRlTmF2U2VjdGlvbnNcIjtcbkBpbXBvcnQgXCIuL2FwcFNpZGVOYXZUcmVlXCI7XG4iLCIkc2l6ZTogMTZweCAhZGVmYXVsdDtcblxuJHNpemVYeHhzOiAycHggIWRlZmF1bHQ7IC8vICRzaXplICogMC4xMjVcbiRzaXplWHhzOiA0cHggIWRlZmF1bHQ7IC8vICRzaXplICogMC4yNVxuJHNpemVYczogOHB4ICFkZWZhdWx0OyAvLyAkc2l6ZSAqIDAuNVxuJHNpemVTOiAxMnB4ICFkZWZhdWx0OyAvLyAkc2l6ZSAqIDAuNzVcbiRzaXplTTogJHNpemUgIWRlZmF1bHQ7IC8vICRzaXplICogMVxuJHNpemVMOiAyNHB4ICFkZWZhdWx0OyAvLyAkc2l6ZSAqIDEuNVxuJHNpemVYbDogMzJweCAhZGVmYXVsdDsgLy8gJHNpemUgKiAyXG4kc2l6ZVh4bDogNDBweCAhZGVmYXVsdDsgLy8gJHNpemUgKiAyLjVcbiIsIkBtaXhpbiB0cnVuY2F0ZVRleHQge1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcbiAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcblxuICAmICoge1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG4gICAgdGV4dC1vdmVyZmxvdzogZWxsaXBzaXM7XG4gICAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcbiAgfVxufVxuIiwiLnZ1aUFwcFNpZGVOYXZTZWN0aW9ucyB7XG4gIG1hcmdpbi10b3A6ICRzaXplTDtcbn1cblxuLnZ1aUFwcFNpZGVOYXZDb250ZW50LWlzSGlkZGVuIHtcbiAgLnZ1aUFwcFNpZGVOYXZTZWN0aW9ucyB7XG4gICAgbWFyZ2luLXRvcDogJHNpemVYcztcbiAgfVxufVxuXG4udnVpQXBwU2lkZU5hdlNlY3Rpb24gKyAudnVpQXBwU2lkZU5hdlNlY3Rpb24ge1xuICBtYXJnaW4tdG9wOiAkc2l6ZUw7XG59XG5cbi52dWlBcHBTaWRlTmF2U2VjdGlvbl9fdGl0bGUge1xuICBjb2xvcjogJGNvbG9yVGV4dDtcbiAgZm9udC13ZWlnaHQ6ICRmb250V2VpZ2h0Qm9sZDtcbiAgZm9udC1zaXplOiAkZm9udFNpemVTdGFuZGFyZDtcbn1cblxuLnZ1aUFwcFNpZGVOYXZTZWN0aW9uX19pdGVtcyB7XG4gIG1hcmdpbi10b3A6ICRzaXplUztcblxuICAmID4gLnZ1aUFwcFNpZGVOYXZMaW5rIHtcbiAgICAmOmZpcnN0LWNoaWxkIHtcbiAgICAgIG1hcmdpbi10b3A6IC0kYXBwU2lkZU5hdkxpbmtTcGFjaW5nO1xuICAgIH1cblxuICAgICY6bGFzdC1jaGlsZCB7XG4gICAgICBtYXJnaW4tYm90dG9tOiAtJGFwcFNpZGVOYXZMaW5rU3BhY2luZztcbiAgICB9XG4gIH1cbn1cbiIsIi52dWlBcHBTaWRlTmF2VHJlZSB7XG4gIG1hcmdpbi10b3A6IC0kc2l6ZVh4cztcbn1cblxuLnZ1aUFwcFNpZGVOYXZUcmVlU2VjdGlvbiB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbn1cblxuLnZ1aUFwcFNpZGVOYXZUcmVlVG9nZ2xlQnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDA7XG4gIHJpZ2h0OiAtMzBweDtcbn1cblxuLnZ1aUFwcFNpZGVOYXZUcmVlQ2hpbGRyZW4ge1xuICAvLyBTaXplZCB0byBtYXRjaCB0aGUgd2lkdGggb2YgdGhlIGljb25zLlxuICBtYXJnaW4tbGVmdDogMjBweDtcbn1cblxuLnZ1aUFwcFNpZGVOYXZUcmVlU2VjdGlvbl9fc3ViVGl0bGUge1xuICBAaW5jbHVkZSBhcHBTaWRlTmF2SXRlbTtcbiAgZm9udC1zaXplOiAkZm9udFNpemVTbWFsbDtcbiAgZm9udC13ZWlnaHQ6ICRmb250V2VpZ2h0Qm9sZDtcbiAgY29sb3I6ICRjb2xvckRhcmtTaGFkZTtcbn1cbiIsIi52dWlBY2NvdW50TWVudSB7XG4gIG1pbi13aWR0aDogMjYwcHg7XG59XG5cbi52dWlBY2NvdW5yTWVudUhlYWRlciB7XG4gIHBhZGRpbmc6ICRzaXplUztcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICRib3JkZXJDb2xvckxpZ2h0O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAkY29sb3JMaWdodFNoYWRlO1xufVxuXG4udnVpQWNjb3VudE1lbnVIZWFkZXJJdGVtX190aXRsZSB7XG4gIGZvbnQtc2l6ZTogJGZvbnRTaXplU21hbGw7XG4gIGZvbnQtd2VpZ2h0OiAkZm9udFdlaWdodEJvbGQ7XG4gIGNvbG9yOiAkY29sb3JEYXJrZXJTaGFkZTtcbn1cblxuLnZ1aUFjY291bnRNZW51SGVhZGVySXRlbV9fdmFsdWUge1xuICBmb250LXNpemU6ICRmb250U2l6ZVN0YW5kYXJkO1xuICBjb2xvcjogJGNvbG9yRGFya2VyU2hhZGU7XG4gIG1hcmdpbi10b3A6ICRzaXplWHhzO1xufVxuIiwiQHVzZSBcInNhc3M6bWFwXCI7XG5cbi52dWlCYWRnZSB7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgZm9udC1zaXplOiAkZm9udFNpemVTbWFsbDtcbiAgbGluZS1oZWlnaHQ6IDE7XG4gIHBhZGRpbmc6ICRzaXplWHhzICRzaXplWHM7XG4gIGJvcmRlci1yYWRpdXM6ICRzaXplUztcbiAgZm9udC1mYW1pbHk6IGluaGVyaXQ7XG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7XG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbn1cblxuLnZ1aUJhZGdlLS1jbGlja2FibGUge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi8vIENvbG9yXG4kY29sb3I6IChcbiAgYWNjZW50OiAoXG4gICAgXCJjb2xvclwiOiAkY29sb3JBY2NlbnQsXG4gICAgXCJiYWNrZ3JvdW5kLWNvbG9yXCI6IHRyYW5zcGFyZW50aXplKCRjb2xvckFjY2VudCwgMC45KSxcbiAgICBcImJvcmRlci1jb2xvclwiOiB0cmFuc3BhcmVudGl6ZSgkY29sb3JBY2NlbnQsIDAuOSlcbiAgKSxcbiAgcHJpbWFyeTogKFxuICAgIFwiY29sb3JcIjogJGNvbG9yUHJpbWFyeSxcbiAgICBcImJhY2tncm91bmQtY29sb3JcIjogdHJhbnNwYXJlbnRpemUoJGNvbG9yUHJpbWFyeSwgMC45KSxcbiAgICBcImJvcmRlci1jb2xvclwiOiB0cmFuc3BhcmVudGl6ZSgkY29sb3JQcmltYXJ5LCAwLjkpXG4gICksXG4gIHN1Y2Nlc3M6IChcbiAgICBcImNvbG9yXCI6ICRjb2xvclN1Y2Nlc3MsXG4gICAgXCJiYWNrZ3JvdW5kLWNvbG9yXCI6IHRyYW5zcGFyZW50aXplKCRjb2xvclN1Y2Nlc3MsIDAuOSksXG4gICAgXCJib3JkZXItY29sb3JcIjogdHJhbnNwYXJlbnRpemUoJGNvbG9yU3VjY2VzcywgMC45KVxuICApLFxuICB3YXJuaW5nOiAoXG4gICAgXCJjb2xvclwiOiAkY29sb3JXYXJuaW5nLFxuICAgIFwiYmFja2dyb3VuZC1jb2xvclwiOiB0cmFuc3BhcmVudGl6ZSgkY29sb3JXYXJuaW5nLCAwLjkpLFxuICAgIFwiYm9yZGVyLWNvbG9yXCI6IHRyYW5zcGFyZW50aXplKCRjb2xvcldhcm5pbmcsIDAuOSlcbiAgKSxcbiAgZGFuZ2VyOiAoXG4gICAgXCJjb2xvclwiOiAkY29sb3JEYW5nZXIsXG4gICAgXCJiYWNrZ3JvdW5kLWNvbG9yXCI6IHRyYW5zcGFyZW50aXplKCRjb2xvckRhbmdlciwgMC45KSxcbiAgICBcImJvcmRlci1jb2xvclwiOiB0cmFuc3BhcmVudGl6ZSgkY29sb3JEYW5nZXIsIDAuOSlcbiAgKSxcbiAgbmV1dHJhbDogKFxuICAgIFwiY29sb3JcIjogJGNvbG9yVGV4dCxcbiAgICBcImJhY2tncm91bmQtY29sb3JcIjogJGNvbG9yTGlnaHRTaGFkZSxcbiAgICBcImJvcmRlci1jb2xvclwiOiB0cmFuc3BhcmVudGl6ZSgkY29sb3JUZXh0LCAwLjkpXG4gIClcbik7XG5cbkBlYWNoICRjb2xvck5hbWUsICRjb2xvclZhbHVlIGluICRjb2xvciB7XG4gIC52dWlCYWRnZS0tI3skY29sb3JOYW1lfSB7XG4gICAgY29sb3I6ICN7bWFwLmdldCgkY29sb3JWYWx1ZSwgXCJjb2xvclwiKX0gIWltcG9ydGFudDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAje21hcC5nZXQoJGNvbG9yVmFsdWUsIFwiYmFja2dyb3VuZC1jb2xvclwiKX07XG4gICAgYm9yZGVyOiAxcHggc29saWQgI3ttYXAuZ2V0KCRjb2xvclZhbHVlLCBcImJvcmRlci1jb2xvclwiKX07XG4gICAgdHJhbnNpdGlvbjogYWxsICR0cmFuc2l0aW9uU3BlZWQ7XG5cbiAgICAmLnZ1aUJhZGdlLS1jbGlja2FibGU6aG92ZXIge1xuICAgICAgYm9yZGVyLWNvbG9yOiAje21hcC5nZXQoJGNvbG9yVmFsdWUsIFwiY29sb3JcIil9O1xuICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICAgIH1cbiAgfVxufVxuIiwiLnZ1aUJhc2VCdXR0b25JY29uQ29udGFpbmVyIHtcbiAgLy8gRW5zdXJlcyBjdXN0b20gaWNvbnMgYW5kIHZlcnRpY2FsbHkgY2VudGVyZWQuXG4gIGxpbmUtaGVpZ2h0OiAwO1xufVxuXG4udnVpQmFzZUJ1dHRvbkxpbmtXcmFwcGVyIHtcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuXG4gICY6aG92ZXIge1xuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgfVxufVxuXG4udnVpQmFzZUJ1dHRvbkxpbmtXcmFwcGVyLS1mdWxsV2lkdGgge1xuICB3aWR0aDogMTAwJTtcbn1cblxuLnZ1aUJhc2VCdXR0b24ge1xuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xuICBib3JkZXItcmFkaXVzOiAkc2l6ZVh4cztcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIGJveC1zaGFkb3c6ICRzaGFkb3dTbWFsbFN0YXJ0O1xuICB0cmFuc2l0aW9uOiBhbGwgJHRyYW5zaXRpb25TcGVlZDtcbiAgbGluZS1oZWlnaHQ6IDE7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLnZ1aUJhc2VCdXR0b24tLWFsaWduTGVmdCB7XG4gIGp1c3RpZnktY29udGVudDogZmxleC1zdGFydDtcbn1cblxuLnZ1aUJhc2VCdXR0b24tLWFsaWduQ2VudGVyIHtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG59XG5cbi52dWlCYXNlQnV0dG9uLS1hbGlnblJpZ2h0IHtcbiAganVzdGlmeS1jb250ZW50OiBmbGV4LWVuZDtcbn1cblxuLnZ1aUJhc2VCdXR0b24taXNJbmVydCxcbi52dWlCYXNlQnV0dG9uLWlzRGlzYWJsZWQge1xuICBjdXJzb3I6IGRlZmF1bHQ7XG4gIHBvaW50ZXItZXZlbnRzOiBub25lO1xufVxuXG4udnVpQmFzZUJ1dHRvbi1pc0Rpc2FibGVkIHtcbiAgb3BhY2l0eTogMC41O1xufVxuXG4udnVpQmFzZUJ1dHRvbi0tbGVmdCB7XG4gIC52dWlCYXNlQnV0dG9uSWNvbkNvbnRhaW5lciB7XG4gICAgbWFyZ2luLXJpZ2h0OiAkc2l6ZVhzO1xuICB9XG59XG5cbi52dWlCYXNlQnV0dG9uLS1yaWdodCB7XG4gIGZsZXgtZGlyZWN0aW9uOiByb3ctcmV2ZXJzZTtcblxuICAudnVpQmFzZUJ1dHRvbkljb25Db250YWluZXIge1xuICAgIG1hcmdpbi1sZWZ0OiAkc2l6ZVhzO1xuICAgIG1hcmdpbi1yaWdodDogMDtcbiAgfVxufVxuXG4udnVpQmFzZUJ1dHRvbi0tZnVsbFdpZHRoIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi8vIFNpemVcbi52dWlCYXNlQnV0dG9uLS14cyB7XG4gIGZvbnQtc2l6ZTogJGZvbnRTaXplU3RhbmRhcmQ7XG4gIHBhZGRpbmc6ICRzaXplWHhzICRzaXplWHM7XG4gIGhlaWdodDogMjRweDtcbn1cblxuLnZ1aUJhc2VCdXR0b24tLXMge1xuICBmb250LXNpemU6ICRmb250U2l6ZVN0YW5kYXJkO1xuICBwYWRkaW5nOiAkc2l6ZVhzICogMC43NSAkc2l6ZVhzO1xuICBoZWlnaHQ6IDI4cHg7XG59XG5cbi52dWlCYXNlQnV0dG9uLS1tIHtcbiAgZm9udC1zaXplOiAkZm9udFNpemVNZWRpdW07XG4gIHBhZGRpbmc6ICRzaXplWHMgJHNpemU7XG4gIGhlaWdodDogMzRweDtcbn1cblxuLnZ1aUJhc2VCdXR0b24tLWwge1xuICBmb250LXNpemU6ICRmb250U2l6ZU1lZGl1bTtcbiAgcGFkZGluZzogJHNpemVTICRzaXplTDtcbiAgaGVpZ2h0OiA0N3B4O1xufVxuIiwiJHNoYWRvd1NtYWxsU3RhcnQ6IHJnYmEoNjAsIDY0LCA2NywgMC4zKSAwcHggMHB4IDBweCAwcHgsIHJnYmEoNjAsIDY0LCA2NywgMC4xNSkgMHB4IDBweCAwcHggMHB4O1xuJHNoYWRvd1NtYWxsRW5kOiByZ2JhKDYwLCA2NCwgNjcsIDAuMykgMHB4IDFweCAycHggMHB4LCByZ2JhKDYwLCA2NCwgNjcsIDAuMTUpIDBweCAycHggNnB4IDJweDtcbiIsIkB1c2UgXCJzYXNzOm1hcFwiO1xuXG4udnVpQnV0dG9uUHJpbWFyeSB7XG4gICY6aG92ZXIge1xuICAgIGJveC1zaGFkb3c6ICRzaGFkb3dTbWFsbEVuZDtcbiAgfVxufVxuXG4vLyBDb2xvclxuJGNvbG9yOiAoXG4gIGFjY2VudDogKFxuICAgIFwiY29sb3JcIjogI2ZmZmZmZixcbiAgICBcImJhY2tncm91bmQtY29sb3JcIjogJGNvbG9yQWNjZW50XG4gICksXG4gIHByaW1hcnk6IChcbiAgICBcImNvbG9yXCI6ICNmZmZmZmYsXG4gICAgXCJiYWNrZ3JvdW5kLWNvbG9yXCI6ICRjb2xvclByaW1hcnlcbiAgKSxcbiAgc3VjY2VzczogKFxuICAgIFwiY29sb3JcIjogI2ZmZmZmZixcbiAgICBcImJhY2tncm91bmQtY29sb3JcIjogJGNvbG9yU3VjY2Vzc1xuICApLFxuICBkYW5nZXI6IChcbiAgICBcImNvbG9yXCI6ICNmZmZmZmYsXG4gICAgXCJiYWNrZ3JvdW5kLWNvbG9yXCI6ICRjb2xvckRhbmdlclxuICApLFxuICB3YXJuaW5nOiAoXG4gICAgXCJjb2xvclwiOiAjZmZmZmZmLFxuICAgIFwiYmFja2dyb3VuZC1jb2xvclwiOiAkY29sb3JXYXJuaW5nXG4gICksXG4gIG5ldXRyYWw6IChcbiAgICBcImNvbG9yXCI6ICRjb2xvclRleHQsXG4gICAgXCJiYWNrZ3JvdW5kLWNvbG9yXCI6IHRyYW5zcGFyZW50aXplKCRjb2xvclRleHQsIDAuOSlcbiAgKSxcbiAgc3ViZHVlZDogKFxuICAgIFwiY29sb3JcIjogJGNvbG9yU3ViZHVlZCxcbiAgICBcImJhY2tncm91bmQtY29sb3JcIjogdHJhbnNwYXJlbnRpemUoJGNvbG9yU3ViZHVlZCwgMC45KVxuICApXG4pO1xuXG5AZWFjaCAkY29sb3JOYW1lLCAkY29sb3JWYWx1ZSBpbiAkY29sb3Ige1xuICAudnVpQnV0dG9uUHJpbWFyeS0tI3skY29sb3JOYW1lfSB7XG4gICAgY29sb3I6ICN7bWFwLmdldCgkY29sb3JWYWx1ZSwgXCJjb2xvclwiKX07XG4gICAgYmFja2dyb3VuZC1jb2xvcjogI3ttYXAuZ2V0KCRjb2xvclZhbHVlLCBcImJhY2tncm91bmQtY29sb3JcIil9O1xuICAgIGJvcmRlcjogMXB4IHNvbGlkICN7bWFwLmdldCgkY29sb3JWYWx1ZSwgXCJiYWNrZ3JvdW5kLWNvbG9yXCIpfTtcblxuICAgICYudnVpQnV0dG9uUHJpbWFyeS1pc1NlbGVjdGVkIHtcbiAgICAgIGJveC1zaGFkb3c6IGluc2V0IHJnYmEoNTAsIDUwLCA5MywgMC4yNSkgMHB4IDZweCA4cHggLTJweCwgaW5zZXQgcmdiYSgwLCAwLCAwLCAwLjMpIDBweCAzcHggNHB4IC0zcHg7XG4gICAgfVxuICB9XG59XG4iLCJAdXNlIFwic2FzczptYXBcIjtcblxuLnZ1aUJ1dHRvblNlY29uZGFyeSB7XG4gICY6aG92ZXIge1xuICAgIGJveC1zaGFkb3c6ICRzaGFkb3dTbWFsbEVuZDtcbiAgfVxufVxuXG4udnVpQnV0dG9uU2Vjb25kYXJ5LS1zb2xpZCB7XG4gIGJhY2tncm91bmQtY29sb3I6ICRjb2xvckVtcHR5U2hhZGU7XG59XG5cbi8vIENvbG9yXG4kY29sb3I6IChcbiAgYWNjZW50OiAoXG4gICAgXCJib3JkZXItY29sb3JcIjogdHJhbnNwYXJlbnRpemUoJGNvbG9yQWNjZW50LCAwLjUpLFxuICAgIFwiY29sb3JcIjogJGNvbG9yQWNjZW50XG4gICksXG4gIHByaW1hcnk6IChcbiAgICBcImJvcmRlci1jb2xvclwiOiB0cmFuc3BhcmVudGl6ZSgkY29sb3JQcmltYXJ5LCAwLjUpLFxuICAgIFwiY29sb3JcIjogJGNvbG9yUHJpbWFyeVxuICApLFxuICBzdWNjZXNzOiAoXG4gICAgXCJib3JkZXItY29sb3JcIjogdHJhbnNwYXJlbnRpemUoJGNvbG9yU3VjY2VzcywgMC41KSxcbiAgICBcImNvbG9yXCI6ICRjb2xvclN1Y2Nlc3NcbiAgKSxcbiAgZGFuZ2VyOiAoXG4gICAgXCJib3JkZXItY29sb3JcIjogdHJhbnNwYXJlbnRpemUoJGNvbG9yRGFuZ2VyLCAwLjUpLFxuICAgIFwiY29sb3JcIjogJGNvbG9yRGFuZ2VyXG4gICksXG4gIHdhcm5pbmc6IChcbiAgICBcImJvcmRlci1jb2xvclwiOiB0cmFuc3BhcmVudGl6ZSgkY29sb3JXYXJuaW5nLCAwLjUpLFxuICAgIFwiY29sb3JcIjogJGNvbG9yV2FybmluZ1xuICApLFxuICBuZXV0cmFsOiAoXG4gICAgXCJib3JkZXItY29sb3JcIjogJGJvcmRlckNvbG9yLFxuICAgIFwiY29sb3JcIjogJGNvbG9yVGV4dFxuICApLFxuICBzdWJkdWVkOiAoXG4gICAgXCJib3JkZXItY29sb3JcIjogJGJvcmRlckNvbG9yTGlnaHQsXG4gICAgXCJjb2xvclwiOiAkY29sb3JTdWJkdWVkXG4gIClcbik7XG5cbkBlYWNoICRjb2xvck5hbWUsICRjb2xvclZhbHVlIGluICRjb2xvciB7XG4gIC52dWlCdXR0b25TZWNvbmRhcnktLSN7JGNvbG9yTmFtZX0ge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkICN7bWFwLmdldCgkY29sb3JWYWx1ZSwgXCJib3JkZXItY29sb3JcIil9O1xuICAgIGNvbG9yOiAje21hcC5nZXQoJGNvbG9yVmFsdWUsIFwiY29sb3JcIil9O1xuXG4gICAgJi52dWlCdXR0b25TZWNvbmRhcnktaXNTZWxlY3RlZCB7XG4gICAgICBib3gtc2hhZG93OiBpbnNldCByZ2JhKDAsIDAsIDAsIDAuMSkgMHB4IDJweCAycHg7XG4gICAgfVxuICB9XG59XG4iLCJAdXNlIFwic2FzczptYXBcIjtcblxuLnZ1aUJ1dHRvblRlcnRpYXJ5IHtcbiAgcGFkZGluZy1sZWZ0OiAkc2l6ZVhzO1xuICBwYWRkaW5nLXJpZ2h0OiAkc2l6ZVhzO1xuXG4gICY6aG92ZXIge1xuICAgIHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lO1xuICB9XG59XG5cbi52dWlCdXR0b25UZXJ0aWFyeS1ub1BhZGRpbmcge1xuICBwYWRkaW5nOiAwO1xufVxuXG4vLyBDb2xvclxuJGNvbG9yOiAoXG4gIGFjY2VudDogKFxuICAgIFwiY29sb3JcIjogJGNvbG9yQWNjZW50LFxuICAgIFwic2VsZWN0ZWQtY29sb3JcIjogdHJhbnNwYXJlbnRpemUoJGNvbG9yQWNjZW50LCAwLjkpXG4gICksXG4gIHByaW1hcnk6IChcbiAgICBcImNvbG9yXCI6ICRjb2xvclByaW1hcnksXG4gICAgXCJzZWxlY3RlZC1jb2xvclwiOiB0cmFuc3BhcmVudGl6ZSgkY29sb3JQcmltYXJ5LCAwLjkpXG4gICksXG4gIHN1Y2Nlc3M6IChcbiAgICBcImNvbG9yXCI6ICRjb2xvclN1Y2Nlc3MsXG4gICAgXCJzZWxlY3RlZC1jb2xvclwiOiB0cmFuc3BhcmVudGl6ZSgkY29sb3JTdWNjZXNzLCAwLjkpXG4gICksXG4gIGRhbmdlcjogKFxuICAgIFwiY29sb3JcIjogJGNvbG9yRGFuZ2VyLFxuICAgIFwic2VsZWN0ZWQtY29sb3JcIjogdHJhbnNwYXJlbnRpemUoJGNvbG9yRGFuZ2VyLCAwLjkpXG4gICksXG4gIHdhcm5pbmc6IChcbiAgICBcImNvbG9yXCI6ICRjb2xvcldhcm5pbmcsXG4gICAgXCJzZWxlY3RlZC1jb2xvclwiOiB0cmFuc3BhcmVudGl6ZSgkY29sb3JXYXJuaW5nLCAwLjkpXG4gICksXG4gIG5ldXRyYWw6IChcbiAgICBcImNvbG9yXCI6ICRjb2xvclRleHQsXG4gICAgXCJzZWxlY3RlZC1jb2xvclwiOiB0cmFuc3BhcmVudGl6ZSgkY29sb3JUZXh0LCAwLjkpXG4gICksXG4gIHN1YmR1ZWQ6IChcbiAgICBcImNvbG9yXCI6ICRjb2xvclN1YmR1ZWQsXG4gICAgXCJzZWxlY3RlZC1jb2xvclwiOiB0cmFuc3BhcmVudGl6ZSgkY29sb3JTdWJkdWVkLCAwLjkpXG4gIClcbik7XG5cbkBlYWNoICRjb2xvck5hbWUsICRjb2xvclZhbHVlIGluICRjb2xvciB7XG4gIC52dWlCdXR0b25UZXJ0aWFyeS0tI3skY29sb3JOYW1lfSB7XG4gICAgY29sb3I6ICN7bWFwLmdldCgkY29sb3JWYWx1ZSwgXCJjb2xvclwiKX07XG5cbiAgICAmLnZ1aUJ1dHRvblRlcnRpYXJ5LWlzU2VsZWN0ZWQge1xuICAgICAgYmFja2dyb3VuZC1jb2xvcjogI3ttYXAuZ2V0KCRjb2xvclZhbHVlLCBcInNlbGVjdGVkLWNvbG9yXCIpfTtcbiAgICB9XG4gIH1cbn1cbiIsIi52dWlJY29uQnV0dG9uIHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBib3JkZXItcmFkaXVzOiAkc2l6ZVh4cztcbiAgcGFkZGluZzogJHNpemVYeHM7XG4gIGxpbmUtaGVpZ2h0OiAxO1xufVxuXG4vLyBDb2xvclxuJGNvbG9yOiAoXG4gIGFjY2VudDogJGNvbG9yQWNjZW50LFxuICBwcmltYXJ5OiAkY29sb3JQcmltYXJ5LFxuICBzdWNjZXNzOiAkY29sb3JTdWNjZXNzLFxuICB3YXJuaW5nOiAkY29sb3JXYXJuaW5nLFxuICBkYW5nZXI6ICRjb2xvckRhbmdlcixcbiAgbmV1dHJhbDogJGNvbG9yVGV4dCxcbiAgc3ViZHVlZDogJGNvbG9yU3ViZHVlZFxuKTtcblxuQGVhY2ggJGNvbG9yTmFtZSwgJGNvbG9yVmFsdWUgaW4gJGNvbG9yIHtcbiAgLnZ1aUljb25CdXR0b24tLSN7JGNvbG9yTmFtZX0ge1xuICAgIGNvbG9yOiAkY29sb3JWYWx1ZTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudGl6ZSgkY29sb3I6ICRjb2xvclZhbHVlLCAkYW1vdW50OiAxKTtcbiAgICB0cmFuc2l0aW9uOiBhbGwgJHRyYW5zaXRpb25TcGVlZDtcblxuICAgICY6aG92ZXIge1xuICAgICAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnRpemUoJGNvbG9yOiAkY29sb3JWYWx1ZSwgJGFtb3VudDogMC45KTtcbiAgICB9XG4gIH1cbn1cblxuLy8gU2l6ZVxuLnZ1aUljb25CdXR0b24tLXhzIHtcbiAgcGFkZGluZzogJHNpemVYeHM7XG4gIGhlaWdodDogMjRweDtcbn1cblxuLnZ1aUljb25CdXR0b24tLXMge1xuICBwYWRkaW5nOiAkc2l6ZVhzICogMC43NTtcbiAgaGVpZ2h0OiAyOHB4O1xufVxuXG4udnVpSWNvbkJ1dHRvbi0tbSB7XG4gIHBhZGRpbmc6ICRzaXplWHM7XG4gIGhlaWdodDogMzRweDtcbn1cbiIsIkB1c2UgXCJzYXNzOm1hcFwiO1xuXG4udnVpQ2FsbG91dCB7XG4gIHdpZHRoOiAxMDAlO1xufVxuXG4udnVpQ2FsbG91dC0tbSB7XG4gIHBhZGRpbmc6ICRzaXplTTtcblxuICAudnVpQ2FsbG91dF9fY2xvc2VCdXR0b24ge1xuICAgIG1hcmdpbjogLSRzaXplTSAqIDAuNTtcbiAgfVxufVxuXG4udnVpQ2FsbG91dC0tcyB7XG4gIHBhZGRpbmc6ICRzaXplUztcblxuICAudnVpQ2FsbG91dF9fY2xvc2VCdXR0b24ge1xuICAgIG1hcmdpbjogLSRzaXplUyAqIDAuNTtcbiAgfVxufVxuXG4vLyBDb2xvclxuJGNvbG9yOiAoXG4gIGFjY2VudDogKFxuICAgIFwiYmFja2dyb3VuZC1jb2xvclwiOiB0cmFuc3BhcmVudGl6ZSgkY29sb3JBY2NlbnQsIDAuOSlcbiAgKSxcbiAgcHJpbWFyeTogKFxuICAgIFwiYmFja2dyb3VuZC1jb2xvclwiOiAkY29sb3JQcmltYXJ5TGlnaHRTaGFkZVxuICApLFxuICBzdWNjZXNzOiAoXG4gICAgXCJiYWNrZ3JvdW5kLWNvbG9yXCI6IHRyYW5zcGFyZW50aXplKCRjb2xvclN1Y2Nlc3MsIDAuOSlcbiAgKSxcbiAgd2FybmluZzogKFxuICAgIFwiYmFja2dyb3VuZC1jb2xvclwiOiB0cmFuc3BhcmVudGl6ZSgkY29sb3JXYXJuaW5nLCAwLjkpXG4gICksXG4gIGRhbmdlcjogKFxuICAgIFwiYmFja2dyb3VuZC1jb2xvclwiOiAkY29sb3JEYW5nZXJMaWdodFNoYWRlXG4gICksXG4gIG5ldXRyYWw6IChcbiAgICBcImJhY2tncm91bmQtY29sb3JcIjogJGNvbG9yTGlnaHRTaGFkZVxuICApXG4pO1xuXG5AZWFjaCAkY29sb3JOYW1lLCAkY29sb3JWYWx1ZSBpbiAkY29sb3Ige1xuICAudnVpQ2FsbG91dC0tI3skY29sb3JOYW1lfSB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogI3ttYXAuZ2V0KCRjb2xvclZhbHVlLCBcImJhY2tncm91bmQtY29sb3JcIil9O1xuICB9XG59XG4iLCIudnVpQ2FyZCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIGJhY2tncm91bmQtY29sb3I6ICRjb2xvckVtcHR5U2hhZGU7XG4gIGJvcmRlci1yYWRpdXM6ICRzaXplWHM7XG4gIGJveC1zaGFkb3c6IHJnYmEoNTAsIDUwLCA5MywgMC4yNSkgMHB4IDAgMCAwLCByZ2JhKDAsIDAsIDAsIDAuMTYpIDBweCAxcHggNHB4O1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xuICB0cmFuc2l0aW9uOiBib3gtc2hhZG93ICR0cmFuc2l0aW9uU3BlZWQ7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG5cbi52dWlDYXJkLS1pbnRlcmFjdGl2ZSB7XG4gICY6aG92ZXIge1xuICAgIGJveC1zaGFkb3c6IHJnYmEoNTAsIDUwLCA5MywgMC4yNSkgMHB4IDZweCAxMnB4IC0ycHgsIHJnYmEoMCwgMCwgMCwgMC4zKSAwcHggM3B4IDdweCAtM3B4O1xuICAgIHotaW5kZXg6IDE7XG4gIH1cbn1cblxuLnZ1aUNhcmQtLXVuZ3JvdXBlZCB7XG4gIGhlaWdodDogYXV0bztcbn1cblxuLnZ1aUNhcmQtLWNlbnRlciB7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcblxuICAudnVpQ2FyZF9faGVhZGVyLFxuICAudnVpQ2FyZF9fYm9keSxcbiAgLnZ1aUNhcmRfX2Zvb3RlciB7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIH1cbn1cblxuLnZ1aUNhcmQtLWxlZnQge1xuICBhbGlnbi1pdGVtczogZmxleC1zdGFydDtcbiAgdGV4dC1hbGlnbjogbGVmdDtcblxuICAudnVpQ2FyZF9faGVhZGVyLFxuICAudnVpQ2FyZF9fYm9keSxcbiAgLnZ1aUNhcmRfX2Zvb3RlciB7XG4gICAgYWxpZ24taXRlbXM6IGZsZXgtc3RhcnQ7XG4gICAgdGV4dC1hbGlnbjogbGVmdDtcbiAgfVxufVxuXG4udnVpQ2FyZF9faGVhZGVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgd2lkdGg6IDEwMCU7XG4gIHBhZGRpbmc6ICRzaXplTSAkc2l6ZUw7XG59XG5cbi52dWlDYXJkX19ib2R5IHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgd2lkdGg6IDEwMCU7XG4gIGJvcmRlci10b3A6IDFweCBzb2xpZCAkYm9yZGVyQ29sb3JMaWdodDtcbiAgcGFkZGluZzogJHNpemVNICRzaXplTDtcbiAgZmxleC1ncm93OiAxO1xufVxuXG4udnVpQ2FyZF9fZm9vdGVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgd2lkdGg6IDEwMCU7XG4gIHBhZGRpbmc6IDAgJHNpemVMICRzaXplTTtcbn1cblxuLnZ1aUNhcmQtLXMge1xuICAudnVpQ2FyZF9faGVhZGVyLFxuICAudnVpQ2FyZF9fYm9keSB7XG4gICAgcGFkZGluZzogJHNpemVNICRzaXplTDtcbiAgfVxuXG4gIC52dWlDYXJkX19mb290ZXIge1xuICAgIHBhZGRpbmc6IDAgJHNpemVMICRzaXplTTtcbiAgfVxufVxuXG4udnVpQ2FyZC0tbSB7XG4gIC52dWlDYXJkX19oZWFkZXIsXG4gIC52dWlDYXJkX19ib2R5IHtcbiAgICBwYWRkaW5nOiAkc2l6ZUwgJHNpemVYbDtcbiAgfVxuXG4gIC52dWlDYXJkX19mb290ZXIge1xuICAgIHBhZGRpbmc6IDAgJHNpemVYbCAkc2l6ZUw7XG4gIH1cbn1cblxuLnZ1aUNhcmQtLWwge1xuICAudnVpQ2FyZF9faGVhZGVyLFxuICAudnVpQ2FyZF9fYm9keSB7XG4gICAgcGFkZGluZzogJHNpemVYbCAkc2l6ZVh4bDtcbiAgfVxuXG4gIC52dWlDYXJkX19mb290ZXIge1xuICAgIHBhZGRpbmc6IDAgJHNpemVYeGwgJHNpemVYbDtcbiAgfVxufVxuXG4udnVpQ2FyZC0taGlnaGxpZ2h0IHtcbiAgYm9yZGVyOiAycHggc29saWQgJGNvbG9yQWNjZW50O1xuXG4gIC52dWlDYXJkX19oZWFkZXIge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICRjb2xvckFjY2VudExpZ2h0U2hhZGU7XG4gIH1cblxuICAudnVpQ2FyZF9fYm9keSB7XG4gICAgYm9yZGVyLXRvcDogJGNvbG9yQWNjZW50TGlnaHRTaGFkZTtcbiAgfVxufVxuIiwiLnZ1aUNoYXRUdXJuIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBsZWZ0OiAwO1xuICBib3gtc2hhZG93OiByZ2JhKDUwLCA1MCwgOTMsIDAuMjUpIDBweCAwIDAgMCwgcmdiYSgwLCAwLCAwLCAwLjE2KSAwcHggMXB4IDRweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogJGNvbG9yRW1wdHlTaGFkZTtcbiAgcGFkZGluZzogJHNpemVMICRzaXplUyAkc2l6ZUwgJHNpemVMO1xuICBtYXJnaW4tcmlnaHQ6ICRzaXplWHhzO1xuICB0cmFuc2l0aW9uOiBhbGwgJHRyYW5zaXRpb25TcGVlZDtcblxuICAmOmhvdmVyIHtcbiAgICBib3gtc2hhZG93OiByZ2JhKDUwLCA1MCwgOTMsIDAuMjUpIDBweCA2cHggMTJweCAtMnB4LCByZ2JhKDAsIDAsIDAsIDAuMykgMHB4IDNweCA3cHggLTNweDtcbiAgICB6LWluZGV4OiAxO1xuICAgIGxlZnQ6ICRzaXplWHhzO1xuICB9XG59XG5cbi52dWlDaGF0VHVybiArIC52dWlDaGF0VHVybiB7XG4gIG1hcmdpbi10b3A6IDFweDtcbn1cblxuLnZ1aUNoYXRRdWVzdGlvbiB7XG4gIGNvbG9yOiAkY29sb3JBY2NlbnQ7XG4gIGZvbnQtd2VpZ2h0OiAkZm9udFdlaWdodEJvbGQ7XG4gIGZvbnQtc2l6ZTogJGZvbnRTaXplU3RhbmRhcmQ7XG4gIG1hcmdpbi1ib3R0b206ICRzaXplWHM7XG59XG5cbi52dWlDaGF0UXVlc3Rpb24tLWVycm9yIHtcbiAgY29sb3I6ICRjb2xvckRhbmdlcjtcbn1cblxuLnZ1aUNoYXRfX2luc3BlY3RCdXR0b24ge1xuICBtYXJnaW4tdG9wOiAtJHNpemVYeHM7XG59XG5cbi52dWlDaGF0QW5zd2VyIHtcbiAgY29sb3I6ICRjb2xvckZ1bGxTaGFkZTtcbn1cbiIsIkBpbXBvcnQgXCJjaGF0VHVyblwiO1xuXG4kbWluQ2hhdEhlaWdodDogNjAwcHg7XG4kbWluQ2hhdFdpZHRoOiA2MDBweDtcblxuLnZ1aUNoYXRCdXR0b24sXG4udnVpQ2hhdCB7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgcmlnaHQ6ICRzaXplWHhzO1xuICBib3R0b206ICRzaXplWHhzO1xuICB6LWluZGV4OiAkY2hhdFpJbmRleDtcbn1cblxuLnZ1aUNoYXRCdXR0b24taXNIaWRkZW4sXG4udnVpQ2hhdC0tY2xvc2VkIHtcbiAgLy8gSWYgd2UgdXNlZCBkaXNwbGF5OiBub25lLCB0aGVuIHRoZSBidXR0b24ncyBhbmltYXRpb24gd291bGQgcGxheSBldmVyeVxuICAvLyB0aW1lIHRoZSBidXR0b24gaXMgc2hvd24uXG4gIHZpc2liaWxpdHk6IGhpZGRlbjtcbiAgLy8gRm9yIHNvbWUgcmVhc29uIHRoZSBidXR0b25zIGluc2lkZSB0aGUgaGVhZGVyIGFyZSB2aXNpYmxlIGZvciBhbiBleHRyYSBmcmFtZVxuICAvLyBhZnRlciBjbG9zaW5nIHRoZSBjaGF0LiBUaGlzIGZpeGVzIHRoYXQgZmxpY2tlci5cbiAgb3BhY2l0eTogMDtcbn1cblxuLnZ1aUNoYXRCdXR0b24ge1xuICBwYWRkaW5nOiAkc2l6ZVhzICRzaXplUztcbiAgZm9udC1zaXplOiAkZm9udFNpemVTdGFuZGFyZDtcbiAgY29sb3I6ICRjb2xvclRleHQ7XG4gIGJhY2tncm91bmQtY29sb3I6ICRjb2xvclByaW1hcnlMaWdodFNoYWRlO1xuICBib3JkZXI6IDFweCBzb2xpZCAkYm9yZGVyQ29sb3I7XG4gIGJveC1zaGFkb3c6IHJnYmEoNTAsIDUwLCA5MywgMC4yNSkgMHB4IDJweCA1cHggLTFweCwgcmdiYSgwLCAwLCAwLCAwLjMpIDBweCAxcHggM3B4IC0xcHg7XG4gIHRyYW5zaXRpb246IGFsbCAkdHJhbnNpdGlvblNwZWVkO1xuICBhbmltYXRpb246IHBvcFVwIDAuNHMgY3ViaWMtYmV6aWVyKDAuNSwgMCwgMC41LCAxKSAxO1xuXG4gICY6aG92ZXIge1xuICAgIGJveC1zaGFkb3c6IHJnYmEoNTAsIDUwLCA5MywgMC4yNSkgMHB4IDZweCAxMnB4IC0ycHgsIHJnYmEoMCwgMCwgMCwgMC4zKSAwcHggM3B4IDdweCAtM3B4O1xuICAgIHRyYW5zbGF0ZTogdHJhbnNsYXRlWSgtMjBweCk7XG4gIH1cbn1cblxuQGtleWZyYW1lcyBwb3BVcCB7XG4gIDAlIHtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoNDBweCk7XG4gIH1cblxuICA1MCUge1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgtMTBweCk7XG4gIH1cblxuICAxMDAlIHtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMCk7XG4gIH1cbn1cblxuLnZ1aUNoYXQge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICB3aWR0aDogMTAwJTtcbiAgbWF4LXdpZHRoOiA0MjBweDtcbiAgYm9yZGVyLXJhZGl1czogJHNpemVYcztcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgYm9yZGVyOiAxcHggc29saWQgJGJvcmRlckNvbG9yO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAkY29sb3JMaWdodFNoYWRlO1xuXG4gIEBtZWRpYSBzY3JlZW4gYW5kIChtYXgtaGVpZ2h0OiAkbWluQ2hhdEhlaWdodCkge1xuICAgICYge1xuICAgICAgYm90dG9tOiAkc2l6ZVh4cztcbiAgICAgIGhlaWdodDogY2FsYygxMDB2aCAtIDIgKiAjeyRzaXplWHhzfSk7XG4gICAgfVxuXG4gICAgLnZ1aUNoYXRfX2NvbnZlcnNhdGlvbiB7XG4gICAgICBtYXgtaGVpZ2h0OiAxMDAlO1xuICAgIH1cbiAgfVxuXG4gIEBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6ICRtaW5DaGF0V2lkdGgpIHtcbiAgICAmIHtcbiAgICAgIHJpZ2h0OiAkc2l6ZVh4cztcbiAgICAgIHdpZHRoOiBjYWxjKDEwMHZ3IC0gMiAqICN7JHNpemVYeHN9KTtcbiAgICAgIG1heC13aWR0aDogMTAwJSAhaW1wb3J0YW50O1xuICAgIH1cbiAgfVxufVxuXG4udnVpQ2hhdC0tdGFsbCB7XG4gIGJvdHRvbTogJHNpemVYeHM7XG4gIGhlaWdodDogY2FsYygxMDB2aCAtIDIgKiAjeyRzaXplWHhzfSk7XG5cbiAgLnZ1aUNoYXRfX2NvbnZlcnNhdGlvbiB7XG4gICAgbWF4LWhlaWdodDogMTAwJTtcbiAgfVxufVxuXG4udnVpQ2hhdC0tZnVsbFNjcmVlbiB7XG4gIGhlaWdodDogY2FsYygxMDB2aCAtIDIgKiAjeyRzaXplWHhzfSk7XG4gIHdpZHRoOiBjYWxjKDEwMHZ3IC0gMiAqICN7JHNpemVYeHN9KTtcbiAgbWF4LXdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XG5cbiAgLnZ1aUNoYXRfX2NvbnZlcnNhdGlvbiB7XG4gICAgbWF4LWhlaWdodDogMTAwJTtcbiAgfVxufVxuXG4udnVpQ2hhdF9faGVhZGVyIHtcbiAgcGFkZGluZzogJHNpemVYcyAkc2l6ZVM7XG4gIGZvbnQtc2l6ZTogJGZvbnRTaXplU3RhbmRhcmQ7XG4gIGNvbG9yOiAkY29sb3JUZXh0O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAkY29sb3JQcmltYXJ5TGlnaHRTaGFkZTtcbiAgYm94LXNoYWRvdzogcmdiYSg1MCwgNTAsIDkzLCAwLjI1KSAwcHggMnB4IDVweCAtMXB4LCByZ2JhKDAsIDAsIDAsIDAuMykgMHB4IDFweCAzcHggLTFweDtcbiAgLy8gRW5zdXJlIHNoYWRvdyBvdmVybGFwcyBvbiB0b3Agb2YgY29udmVyc2F0aW9uLlxuICB6LWluZGV4OiAyO1xufVxuXG4udnVpQ2hhdF9fY29udmVyc2F0aW9uIHtcbiAgZmxleC1ncm93OiAxO1xuICBtYXgtaGVpZ2h0OiA0MDBweDtcbiAgb3ZlcmZsb3cteTogYXV0bztcbn1cblxuLnZ1aUNoYXRfX2ludHJvZHVjdGlvbiB7XG4gIHBhZGRpbmc6ICRzaXplTSAkc2l6ZUwgMDtcbiAgZm9udC1zaXplOiAkZm9udFNpemVTdGFuZGFyZDtcbiAgY29sb3I6ICRjb2xvckZ1bGxTaGFkZTtcbn1cblxuLnZ1aUNoYXRfX3R1cm5zIHtcbiAgZm9udC1zaXplOiAkZm9udFNpemVTdGFuZGFyZDtcbn1cblxuLnZ1aUNoYXRfX2NvbnZlcnNhdGlvbkFjdGlvbnMge1xuICBwYWRkaW5nOiAkc2l6ZVM7XG59XG5cbi52dWlDaGF0X19pbnB1dCB7XG4gIGJvcmRlci10b3A6IDFweCBzb2xpZCAkYm9yZGVyQ29sb3JMaWdodDtcbiAgcGFkZGluZzogJHNpemVYcyAkc2l6ZVM7XG59XG5cbi52dWlDaGF0UGFuZWwge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHotaW5kZXg6IDU7XG4gIHRvcDogJHNpemVYeHM7XG4gIGxlZnQ6ICRzaXplWHhzO1xuICByaWdodDogJHNpemVYeHM7XG4gIGJvdHRvbTogJHNpemVYeHM7XG4gIHBhZGRpbmc6ICRzaXplWHhzICRzaXplUztcbiAgb3ZlcmZsb3cteTogYXV0bztcbiAgYmFja2dyb3VuZC1jb2xvcjogJGNvbG9yRW1wdHlTaGFkZTtcbiAgYm9yZGVyOiAxcHggc29saWQgJGJvcmRlckNvbG9yO1xuICBib3gtc2hhZG93OiByZ2JhKDUwLCA1MCwgOTMsIDAuMjUpIDBweCAycHggNXB4IC0xcHgsIHJnYmEoMCwgMCwgMCwgMC4zKSAwcHggMXB4IDNweCAtMXB4O1xufVxuIiwiLnZ1aUNvZGVDb250YWluZXIge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGJvcmRlci1sZWZ0OiAkc2l6ZVh4cyBzb2xpZCAkY29sb3JNZWRpdW1TaGFkZTtcbiAgbWF4LWhlaWdodDogNDgwcHg7XG59XG5cbi52dWlDb2RlQ29udGFpbmVyLS1mdWxsSGVpZ2h0IHtcbiAgbWF4LWhlaWdodDogMTAwJTtcbn1cblxuLnZ1aUNvZGVDb3B5QnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICByaWdodDogJHNpemVYeHM7XG4gIHRvcDogJHNpemVYeHM7XG59XG5cbi52dWlDb2RlUHJlIHtcbiAgcGFkZGluZzogMCAhaW1wb3J0YW50O1xuICBtYXJnaW46IDAgIWltcG9ydGFudDtcbiAgbWF4LWhlaWdodDogaW5oZXJpdDtcbn1cblxuLnZ1aUNvZGUge1xuICBkaXNwbGF5OiBibG9jaztcbiAgd2lkdGg6IDEwMCU7XG4gIHBhZGRpbmc6ICRzaXplTSAkc2l6ZUw7XG4gIGJhY2tncm91bmQtY29sb3I6ICRjb2xvckxpZ2h0U2hhZGU7XG4gIGNvbG9yOiAkY29sb3JUZXh0O1xuICBmb250LWZhbWlseTogXCJSb2JvdG8gTW9ub1wiLCBtb25vc3BhY2U7XG4gIHdvcmQtd3JhcDogYnJlYWstd29yZDtcbiAgd2hpdGUtc3BhY2U6IHByZS13cmFwO1xuICBmb250LXNpemU6ICRmb250U2l6ZVNtYWxsICFpbXBvcnRhbnQ7XG59XG4iLCJAdXNlIFwic2FzczptYXBcIjtcblxuJGRyYXdlcldpZHRoOiA2ODBweDtcblxuQGtleWZyYW1lcyBkcmF3ZXJJbiB7XG4gIDAlIHtcbiAgICByaWdodDogLSRkcmF3ZXJXaWR0aDtcbiAgfVxuXG4gIDEwMCUge1xuICAgIHJpZ2h0OiAwO1xuICB9XG59XG5cbi52dWlEcmF3ZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIHRvcDogMDtcbiAgcmlnaHQ6IDA7XG4gIGJvdHRvbTogMDtcbiAgd2lkdGg6IDEwMCU7XG4gIG1heC13aWR0aDogJGRyYXdlcldpZHRoO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAkY29sb3JFbXB0eVNoYWRlO1xuICBib3JkZXItbGVmdDogMXB4IHNvbGlkICRib3JkZXJDb2xvcjtcbiAgei1pbmRleDogJGRyYXdlclpJbmRleDtcbiAgYW5pbWF0aW9uOiBkcmF3ZXJJbiAkdHJhbnNpdGlvblNwZWVkIGN1YmljLWJlemllcigwLCAxLCAwLCAxKTtcbn1cblxuLnZ1aURyYXdlckhlYWRlciB7XG4gIHBhZGRpbmc6ICRzaXplTCAkc2l6ZUw7XG59XG5cbi52dWlEcmF3ZXJDb250ZW50IHtcbiAgb3ZlcmZsb3cteTogYXV0bztcbiAgb3ZlcnNjcm9sbC1iZWhhdmlvcjogY29udGFpbjtcbn1cblxuLnZ1aURyYXdlckNvbnRlbnRfX2lubmVyIHtcbiAgcGFkZGluZzogJHNpemVMICRzaXplTDtcbn1cblxuLy8gQ29sb3JcbiRjb2xvcjogKFxuICBwcmltYXJ5OiAoXG4gICAgXCJiYWNrZ3JvdW5kLWNvbG9yXCI6ICRjb2xvclByaW1hcnlMaWdodFNoYWRlLFxuICAgIFwiY29sb3JcIjogJGNvbG9yVGV4dFxuICApLFxuICBkYW5nZXI6IChcbiAgICBcImJhY2tncm91bmQtY29sb3JcIjogJGNvbG9yRGFuZ2VyTGlnaHRTaGFkZSxcbiAgICBcImNvbG9yXCI6ICRjb2xvckRhbmdlclxuICApXG4pO1xuXG5AZWFjaCAkY29sb3JOYW1lLCAkY29sb3JWYWx1ZSBpbiAkY29sb3Ige1xuICAudnVpRHJhd2VyLS0jeyRjb2xvck5hbWV9IHtcbiAgICAudnVpRHJhd2VySGVhZGVyIHtcbiAgICAgIGJhY2tncm91bmQtY29sb3I6ICN7bWFwLmdldCgkY29sb3JWYWx1ZSwgXCJiYWNrZ3JvdW5kLWNvbG9yXCIpfTtcbiAgICAgIGNvbG9yOiAje21hcC5nZXQoJGNvbG9yVmFsdWUsIFwiY29sb3JcIil9O1xuICAgIH1cbiAgfVxufVxuIiwiLnZ1aUZsZXhDb250YWluZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1pdGVtczogc3RyZXRjaDtcbn1cblxuLnZ1aUZsZXhDb250YWluZXItLWZ1bGxXaWR0aCB7XG4gIHdpZHRoOiAxMDAlO1xufVxuXG4udnVpRmxleENvbnRhaW5lci0td3JhcCB7XG4gIGZsZXgtd3JhcDogd3JhcDtcbn1cblxuLy8gYWxpZ25JdGVtc1xuJGFsaWduSXRlbXM6IChcbiAgYWxpZ25JdGVtc0Jhc2VsaW5lOiBiYXNlbGluZSxcbiAgYWxpZ25JdGVtc0NlbnRlcjogY2VudGVyLFxuICBhbGlnbkl0ZW1zRW5kOiBlbmQsXG4gIGFsaWduSXRlbXNTdGFydDogc3RhcnQsXG4gIGFsaWduSXRlbXNTdHJldGNoOiBzdHJldGNoXG4pO1xuXG5AZWFjaCAkYWxpZ25JdGVtc05hbWUsICRhbGlnbkl0ZW1zVmFsdWUgaW4gJGFsaWduSXRlbXMge1xuICAudnVpRmxleENvbnRhaW5lci0tI3skYWxpZ25JdGVtc05hbWV9IHtcbiAgICBhbGlnbi1pdGVtczogJGFsaWduSXRlbXNWYWx1ZTtcbiAgfVxufVxuXG4vLyBkaXJlY3Rpb25cbiRkaXJlY3Rpb246IChcbiAgZGlyZWN0aW9uQ29sdW1uOiBjb2x1bW4sXG4gIGRpcmVjdGlvbkNvbHVtblJldmVyc2U6IGNvbHVtbi1yZXZlcnNlLFxuICBkaXJlY3Rpb25Sb3c6IHJvdyxcbiAgZGlyZWN0aW9uUm93UmV2ZXJzZTogcm93LXJldmVyc2Vcbik7XG5cbkBlYWNoICRkaXJlY3Rpb25OYW1lLCAkZGlyZWN0aW9uVmFsdWUgaW4gJGRpcmVjdGlvbiB7XG4gIC52dWlGbGV4Q29udGFpbmVyLS0jeyRkaXJlY3Rpb25OYW1lfSB7XG4gICAgZmxleC1kaXJlY3Rpb246ICRkaXJlY3Rpb25WYWx1ZTtcbiAgfVxufVxuXG4vLyBqdXN0aWZ5Q29udGVudFxuJGp1c3RpZnlDb250ZW50OiAoXG4gIGp1c3RpZnlDb250ZW50Q2VudGVyOiBjZW50ZXIsXG4gIGp1c3RpZnlDb250ZW50RW5kOiBlbmQsXG4gIGp1c3RpZnlDb250ZW50U3RhcnQ6IHN0YXJ0LFxuICBqdXN0aWZ5Q29udGVudFNwYWNlQXJvdW5kOiBzcGFjZS1hcm91bmQsXG4gIGp1c3RpZnlDb250ZW50U3BhY2VCZXR3ZWVuOiBzcGFjZS1iZXR3ZWVuLFxuICBqdXN0aWZ5Q29udGVudFNwYWNlRXZlbmx5OiBzcGFjZS1ldmVubHlcbik7XG5cbkBlYWNoICRqdXN0aWZ5Q29udGVudE5hbWUsICRqdXN0aWZ5Q29udGVudFZhbHVlIGluICRqdXN0aWZ5Q29udGVudCB7XG4gIC52dWlGbGV4Q29udGFpbmVyLS0jeyRqdXN0aWZ5Q29udGVudE5hbWV9IHtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6ICRqdXN0aWZ5Q29udGVudFZhbHVlO1xuICB9XG59XG5cbi8vIHNwYWNpbmdcbiRzcGFjaW5nOiAoXG4gIHNwYWNpbmdOb25lOiAwLFxuICBzcGFjaW5nWHhzOiAkc2l6ZVh4cyxcbiAgc3BhY2luZ1hzOiAkc2l6ZVhzLFxuICBzcGFjaW5nUzogJHNpemVTLFxuICBzcGFjaW5nTTogJHNpemVNLFxuICBzcGFjaW5nTDogJHNpemVMLFxuICBzcGFjaW5nWGw6ICRzaXplWGwsXG4gIHNwYWNpbmdYeGw6ICRzaXplWHhsXG4pO1xuXG5AZWFjaCAkc3BhY2luZ05hbWUsICRzcGFjaW5nVmFsdWUgaW4gJHNwYWNpbmcge1xuICAudnVpRmxleENvbnRhaW5lci0tI3skc3BhY2luZ05hbWV9IHtcbiAgICBtYXJnaW46IC0kc3BhY2luZ1ZhbHVlICogMC41O1xuXG4gICAgJiA+IC52dWlGbGV4SXRlbSB7XG4gICAgICBtYXJnaW46ICRzcGFjaW5nVmFsdWUgKiAwLjU7XG4gICAgfVxuICB9XG59XG4iLCIudnVpRmxleEl0ZW0ge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICBhbGlnbi1pdGVtczogZmxleC1zdGFydDtcbn1cblxuLnZ1aUZsZXhJdGVtLS10cnVuY2F0ZSB7XG4gIG1pbi13aWR0aDogNDBweDtcbn1cblxuLy8gYWxpZ25JdGVtc1xuJGFsaWduSXRlbXM6IChcbiAgYWxpZ25JdGVtc0Jhc2VsaW5lOiBiYXNlbGluZSxcbiAgYWxpZ25JdGVtc0NlbnRlcjogY2VudGVyLFxuICBhbGlnbkl0ZW1zRW5kOiBlbmQsXG4gIGFsaWduSXRlbXNTdGFydDogc3RhcnQsXG4gIGFsaWduSXRlbXNTdHJldGNoOiBzdHJldGNoXG4pO1xuXG5AZWFjaCAkYWxpZ25JdGVtc05hbWUsICRhbGlnbkl0ZW1zVmFsdWUgaW4gJGFsaWduSXRlbXMge1xuICAudnVpRmxleEl0ZW0tLSN7JGFsaWduSXRlbXNOYW1lfSB7XG4gICAgYWxpZ24taXRlbXM6ICRhbGlnbkl0ZW1zVmFsdWU7XG4gIH1cbn1cblxuLy8gR3Jvd1xuQGZvciAkaSBmcm9tIDAgdGhyb3VnaCAxMCB7XG4gIC52dWlGbGV4SXRlbS0tZmxleEdyb3cjeyRpfSB7XG4gICAgZmxleC1ncm93OiAkaTtcbiAgfVxufVxuXG4udnVpRmxleEl0ZW0tLWZsZXhHcm93Tm9uZSB7XG4gIGZsZXgtYmFzaXM6IGF1dG87XG4gIGZsZXgtZ3JvdzogMDtcbn1cblxuLy8gU2hyaW5rXG5AZm9yICRpIGZyb20gMCB0aHJvdWdoIDEwIHtcbiAgLnZ1aUZsZXhJdGVtLS1mbGV4U2hyaW5rI3skaX0ge1xuICAgIGZsZXgtc2hyaW5rOiAkaTtcbiAgfVxufVxuXG4udnVpRmxleEl0ZW0tLWZsZXhTaHJpbmtOb25lIHtcbiAgZmxleC1iYXNpczogYXV0bztcbiAgZmxleC1zaHJpbms6IDA7XG59XG5cbi8vIEJhc2lzXG4kYmFzaXM6IChcbiAgYXV0bzogYXV0byxcbiAgY29udGVudDogY29udGVudCxcbiAgZmlsbDogZmlsbCxcbiAgbWF4Q29udGVudDogbWF4LWNvbnRlbnQsXG4gIG1pbkNvbnRlbnQ6IG1pbi1jb250ZW50LFxuICBub25lOiAwXG4pO1xuXG5AZWFjaCAkYmFzaXNOYW1lLCAkYmFzaXNWYWx1ZSBpbiAkYmFzaXMge1xuICAudnVpRmxleEl0ZW0tLSN7JGJhc2lzTmFtZX0ge1xuICAgIGZsZXgtYmFzaXM6ICRiYXNpc1ZhbHVlO1xuICB9XG59XG4iLCIudnVpQ2hlY2tib3hMYWJlbCB7XG4gIGZvbnQtc2l6ZTogJGZvbnRTaXplU3RhbmRhcmQ7XG59XG4iLCIudnVpSW5wdXQge1xuICBhcHBlYXJhbmNlOiBub25lO1xuICBib3JkZXItcmFkaXVzOiAkc2l6ZVh4cztcbiAgYm9yZGVyOiAxcHggc29saWQgJGNvbG9yTWVkaXVtU2hhZGU7XG4gIGJhY2tncm91bmQtY29sb3I6ICRjb2xvckVtcHR5U2hhZGU7XG59XG5cbi52dWlJbnB1dC0tbSB7XG4gIHBhZGRpbmc6ICRzaXplWHMgJHNpemU7XG4gIGZvbnQtc2l6ZTogJGZvbnRTaXplU3RhbmRhcmQ7XG59XG5cbi52dWlJbnB1dC0tbCB7XG4gIHBhZGRpbmc6ICRzaXplUyAkc2l6ZU07XG4gIGZvbnQtc2l6ZTogJGZvbnRTaXplTGFyZ2U7XG59XG5cbi52dWlJbnB1dC0tZnVsbFdpZHRoIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi52dWlJbnB1dC1pc0ludmFsaWQge1xuICBib3JkZXItY29sb3I6ICRjb2xvckRhbmdlcjtcbn1cbiIsIi52dWlMYWJlbCB7XG4gIGZvbnQtc2l6ZTogJGxhYmVsRm9udFNpemU7XG4gIGZvbnQtd2VpZ2h0OiAkbGFiZWxGb250V2VpZ2h0O1xuICBjb2xvcjogJGxhYmVsQ29sb3I7XG59XG4iLCIudnVpUmFkaW9CdXR0b25MYWJlbCB7XG4gIGZvbnQtc2l6ZTogJGZvbnRTaXplU3RhbmRhcmQ7XG59XG4iLCIudnVpU2VsZWN0IHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBtYXgtd2lkdGg6ICRzaXplTCAqIDEwO1xuICB3aWR0aDogMTAwJTtcblxuICBzZWxlY3Qge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICRjb2xvckVtcHR5U2hhZGU7XG4gICAgYXBwZWFyYW5jZTogbm9uZTtcbiAgICBib3JkZXItcmFkaXVzOiAkc2l6ZVh4cztcbiAgICBib3JkZXI6IDFweCBzb2xpZCAkY29sb3JNZWRpdW1TaGFkZTtcbiAgICBjb2xvcjogJGNvbG9yRnVsbFNoYWRlO1xuICAgIHdpZHRoOiAxMDAlO1xuICB9XG59XG5cbi52dWlTZWxlY3RfX2NhcmV0IHtcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgYm90dG9tOiAwO1xuICBsZWZ0OiBhdXRvO1xuICByaWdodDogMTJweDtcbn1cblxuLnZ1aVNlbGVjdC0tbSB7XG4gIHNlbGVjdCB7XG4gICAgcGFkZGluZzogJHNpemVYcyAkc2l6ZTtcbiAgICBmb250LXNpemU6ICRmb250U2l6ZVN0YW5kYXJkO1xuICAgIHBhZGRpbmctcmlnaHQ6IDMycHg7XG4gIH1cblxuICAudnVpU2VsZWN0X19jYXJldCB7XG4gICAgdG9wOiBjYWxjKDUwJSAtIDEwcHgpO1xuICB9XG59XG5cbi52dWlTZWxlY3QtLWwge1xuICBzZWxlY3Qge1xuICAgIHBhZGRpbmc6ICRzaXplUyAkc2l6ZU07XG4gICAgZm9udC1zaXplOiAkZm9udFNpemVMYXJnZTtcbiAgICBwYWRkaW5nLXJpZ2h0OiA0OHB4O1xuICB9XG5cbiAgLnZ1aVNlbGVjdF9fY2FyZXQge1xuICAgIHRvcDogY2FsYyg1MCUgLSAxNHB4KTtcbiAgfVxufVxuXG4udnVpU2VsZWN0LWlzSW52YWxpZCB7XG4gIHNlbGVjdCB7XG4gICAgYm9yZGVyLWNvbG9yOiAkY29sb3JEYW5nZXI7XG4gIH1cbn1cbiIsIi52dWlTdXBlclJhZGlvR3JvdXAge1xuICBkaXNwbGF5OiBncmlkO1xuICBnYXA6ICRzaXplWHM7XG59XG5cbi52dWlTdXBlclJhZGlvQnV0dG9uIHtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHdpZHRoOiAxMDAlO1xuICBib3JkZXItcmFkaXVzOiAkc2l6ZVhzO1xuICBwYWRkaW5nOiAkc2l6ZVMgJHNpemVMO1xuICBjdXJzb3I6IHBvaW50ZXI7XG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgdHJhbnNpdGlvbjogYWxsICR0cmFuc2l0aW9uU3BlZWQ7XG4gIHRleHQtZGVjb3JhdGlvbi1jb2xvcjogJGNvbG9yVGV4dDtcbiAgdGV4dC1hbGlnbjogbGVmdDtcbiAgYmFja2dyb3VuZC1jb2xvcjogJGNvbG9yTGlnaHRTaGFkZTtcblxuICAmOmhvdmVyIHtcbiAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTtcbiAgICB0ZXh0LWRlY29yYXRpb24tY29sb3I6ICRjb2xvclRleHQ7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogJGNvbG9yUHJpbWFyeUxpZ2h0U2hhZGU7XG4gIH1cbn1cbiIsIi52dWlUZXh0QXJlYSB7XG4gIGFwcGVhcmFuY2U6IG5vbmU7XG4gIGJvcmRlci1yYWRpdXM6ICRzaXplWHhzO1xuICBib3JkZXI6IDFweCBzb2xpZCAkY29sb3JNZWRpdW1TaGFkZTtcbiAgbWF4LXdpZHRoOiAxMDAlO1xuICByZXNpemU6IG5vbmU7XG4gIG1pbi1oZWlnaHQ6IDgwcHg7XG4gIGZvbnQtc2l6ZTogJGZvbnRTaXplU3RhbmRhcmQ7XG4gIHBhZGRpbmc6ICRzaXplUztcbn1cblxuLnZ1aVRleHRBcmVhLS1mdWxsV2lkdGgge1xuICB3aWR0aDogMTAwJTtcbn1cbiIsIi52dWlHcmlkQ29udGFpbmVyIHtcbiAgY29udGFpbmVyLXR5cGU6IGlubGluZS1zaXplO1xuICB3aWR0aDogMTAwJTtcbn1cblxuLnZ1aUdyaWQge1xuICBkaXNwbGF5OiBncmlkO1xufVxuXG4vLyBzcGFjaW5nXG4kc3BhY2luZzogKFxuICB4c3M6ICRzaXplWHhzLFxuICB4czogJHNpemVYcyxcbiAgczogJHNpemVTLFxuICBtOiAkc2l6ZU0sXG4gIGw6ICRzaXplTCxcbiAgeGw6ICRzaXplWGwsXG4gIHh4bDogJHNpemVYeGxcbik7XG5cbkBlYWNoICRzcGFjaW5nTmFtZSwgJHNwYWNpbmdWYWx1ZSBpbiAkc3BhY2luZyB7XG4gIC52dWlHcmlkLS0jeyRzcGFjaW5nTmFtZX0ge1xuICAgIGNvbHVtbi1nYXA6ICRzcGFjaW5nVmFsdWU7XG4gICAgcm93LWdhcDogJHNwYWNpbmdWYWx1ZTtcbiAgfVxufVxuXG4udnVpR3JpZC0tY29sdW1uczEge1xuICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IDFmcjtcbn1cblxuLnZ1aUdyaWQtLWNvbHVtbnMyIHtcbiAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiAxZnIgMWZyO1xufVxuXG4udnVpR3JpZC0tY29sdW1uczMge1xuICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IDFmciAxZnIgMWZyO1xufVxuXG5AY29udGFpbmVyICh3aWR0aCA8IDgwMHB4KSB7XG4gIC52dWlHcmlkLS1jb2x1bW5zMyB7XG4gICAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiAxZnIgMWZyO1xuICB9XG59XG5cbkBjb250YWluZXIgKHdpZHRoIDwgNTAwcHgpIHtcbiAgLnZ1aUdyaWQtLWNvbHVtbnMyLFxuICAudnVpR3JpZC0tY29sdW1uczMge1xuICAgIGdyaWQtdGVtcGxhdGUtY29sdW1uczogMWZyO1xuICB9XG59XG4iLCJAdXNlIFwic2FzczptYXBcIjtcblxuLnZ1aUhvcml6b250YWxSdWxlIHtcbiAgYm9yZGVyLXRvcDogbm9uZTtcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XG4gIGJvcmRlci1yaWdodDogbm9uZTtcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkO1xuICB3aWR0aDogMTAwJTtcbn1cblxuLy8gQ29sb3JcbiRjb2xvcjogKFxuICBhY2NlbnQ6IChcbiAgICBcImJvcmRlci1jb2xvclwiOiAkY29sb3JBY2NlbnRcbiAgKSxcbiAgcHJpbWFyeTogKFxuICAgIFwiYm9yZGVyLWNvbG9yXCI6ICRjb2xvclByaW1hcnlcbiAgKSxcbiAgc3VjY2VzczogKFxuICAgIFwiYm9yZGVyLWNvbG9yXCI6ICRjb2xvclN1Y2Nlc3NcbiAgKSxcbiAgZGFuZ2VyOiAoXG4gICAgXCJib3JkZXItY29sb3JcIjogJGNvbG9yRGFuZ2VyXG4gICksXG4gIHdhcm5pbmc6IChcbiAgICBcImJvcmRlci1jb2xvclwiOiAkY29sb3JXYXJuaW5nXG4gICksXG4gIG5ldXRyYWw6IChcbiAgICBcImJvcmRlci1jb2xvclwiOiAkYm9yZGVyQ29sb3JcbiAgKSxcbiAgc3ViZHVlZDogKFxuICAgIFwiYm9yZGVyLWNvbG9yXCI6ICRib3JkZXJDb2xvckxpZ2h0XG4gIClcbik7XG5cbkBlYWNoICRjb2xvck5hbWUsICRjb2xvclZhbHVlIGluICRjb2xvciB7XG4gIC52dWlIb3Jpem9udGFsUnVsZS0tI3skY29sb3JOYW1lfSB7XG4gICAgYm9yZGVyLWJvdHRvbS1jb2xvcjogI3ttYXAuZ2V0KCRjb2xvclZhbHVlLCBcImJvcmRlci1jb2xvclwiKX07XG4gIH1cbn1cbiIsIi52dWlJY29uIHtcbiAgLy8gUmVtb3ZlIGV4dHJhIHNwYWNlIGF0IGJvdHRvbSBvZiBpY29uLlxuICBsaW5lLWhlaWdodDogMDtcbn1cblxuLnZ1aUljb24tLWlubGluZSB7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbn1cblxuJGNvbG9yczogKFxuICBhY2NlbnQ6ICRjb2xvckFjY2VudCxcbiAgcHJpbWFyeTogJGNvbG9yUHJpbWFyeSxcbiAgc3VjY2VzczogJGNvbG9yU3VjY2VzcyxcbiAgd2FybmluZzogJGNvbG9yV2FybmluZyxcbiAgZGFuZ2VyOiAkY29sb3JEYW5nZXIsXG4gIHN1YmR1ZWQ6ICRjb2xvclN1YmR1ZWQsXG4gIG5ldXRyYWw6ICRjb2xvclRleHQsXG4gIGVtcHR5OiAjZmZmZmZmXG4pO1xuXG5AZWFjaCAkY29sb3JOYW1lLCAkY29sb3JWYWx1ZSBpbiAkY29sb3JzIHtcbiAgLnZ1aUljb24tLSN7JGNvbG9yTmFtZX0ge1xuICAgIGNvbG9yOiAkY29sb3JWYWx1ZSAhaW1wb3J0YW50O1xuICB9XG59XG4iLCIudnVpSW5mb1RhYmxlIHtcbiAgd2lkdGg6IDEwMCU7XG4gIHRhYmxlLWxheW91dDogZml4ZWQ7XG4gIGJvcmRlcjogMXB4IHNvbGlkICRib3JkZXJDb2xvckxpZ2h0O1xuXG4gIHRoZWFkIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAkY29sb3JMaWdodFNoYWRlO1xuICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAkYm9yZGVyQ29sb3JMaWdodDtcbiAgfVxuXG4gIHRib2R5IHRyIHtcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgJGJvcmRlckNvbG9yTGlnaHQ7XG4gIH1cblxuICB0aCB7XG4gICAgZm9udC1zaXplOiAkZm9udFNpemVTbWFsbDtcbiAgICBmb250LXdlaWdodDogJGZvbnRXZWlnaHRCb2xkO1xuICAgIHBhZGRpbmc6ICRzaXplWHMgJHNpemVTO1xuICAgIHRleHQtYWxpZ246IGxlZnQ7XG4gIH1cblxuICB0ZCB7XG4gICAgZm9udC1zaXplOiAkZm9udFNpemVTdGFuZGFyZDtcbiAgICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xuICB9XG59XG5cbi52dWlJbmZvVGFibGUtLXBhZGRpbmdYeHMge1xuICB0ZCB7XG4gICAgcGFkZGluZzogJHNpemVYeHMgJHNpemVTO1xuICB9XG59XG5cbi52dWlJbmZvVGFibGUtLXBhZGRpbmdYcyB7XG4gIHRkIHtcbiAgICBwYWRkaW5nOiAkc2l6ZVhzICRzaXplUztcbiAgfVxufVxuXG4udnVpSW5mb1RhYmxlLS1wYWRkaW5nUyB7XG4gIHRkIHtcbiAgICBwYWRkaW5nOiAkc2l6ZVMgJHNpemVTO1xuICB9XG59XG5cbi52dWlJbmZvVGFibGVSb3ctLXNlY3Rpb25IZWFkZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAkY29sb3JMaWdodFNoYWRlO1xuICBib3JkZXItYm90dG9tOiBub25lICFpbXBvcnRhbnQ7XG59XG5cbi52dWlJbmZvVGFibGVSb3ctLWZvb3RlciB7XG4gIGJhY2tncm91bmQtY29sb3I6ICRjb2xvckxpZ2h0U2hhZGU7XG59XG4iLCIudnVpTGluayB7XG4gIGNvbG9yOiAkY29sb3JQcmltYXJ5ICFpbXBvcnRhbnQ7XG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcblxuICAmOmhvdmVyIHtcbiAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTtcbiAgfVxufVxuXG4udnVpTGluay0tYnV0dG9uIHtcbiAgZGlzcGxheTogaW5saW5lO1xufVxuIiwiLnZ1aUxpc3ROdW1iZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICBib3JkZXItcmFkaXVzOiAkc2l6ZUw7XG4gIGJhY2tncm91bmQtY29sb3I6ICRjb2xvckxpZ2h0U2hhZGU7XG4gIGNvbG9yOiAkY29sb3JTdWJkdWVkO1xuICBmb250LXdlaWdodDogJGZvbnRXZWlnaHRCb2xkO1xuICBsaW5lLWhlaWdodDogMDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn1cblxuLnZ1aUxpc3ROdW1iZXItLW0ge1xuICB3aWR0aDogJHNpemVNO1xuICBoZWlnaHQ6ICRzaXplTTtcbiAgcGFkZGluZzogJHNpemVNO1xuICBmb250LXNpemU6ICRmb250U2l6ZU1lZGl1bTtcbn1cblxuLnZ1aUxpc3ROdW1iZXItLXMge1xuICB3aWR0aDogJHNpemVTO1xuICBoZWlnaHQ6ICRzaXplUztcbiAgcGFkZGluZzogJHNpemVTO1xuICBmb250LXNpemU6ICRmb250U2l6ZVNtYWxsO1xufVxuXG4udnVpTGlzdE51bWJlci1pc0NvbXBsZXRlIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogJGNvbG9yQWNjZW50TGlnaHRTaGFkZTtcbiAgY29sb3I6ICRjb2xvckFjY2VudDtcbn1cbiIsIi52dWlNZW51IHtcbiAgYm9yZGVyOiAxcHggc29saWQgJGJvcmRlckNvbG9yO1xuICBib3JkZXItcmFkaXVzOiAkc2l6ZVhzO1xufVxuXG4udnVpTWVudUl0ZW0gKyAudnVpTWVudUl0ZW0ge1xuICBib3JkZXItdG9wOiAxcHggc29saWQgJGJvcmRlckNvbG9yO1xufVxuXG4udnVpTWVudUl0ZW0ge1xuICBkaXNwbGF5OiBibG9jaztcbiAgd2lkdGg6IDEwMCU7XG4gIHBhZGRpbmc6ICRzaXplUyAkc2l6ZUw7XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICBib3gtc2hhZG93OiAkc2hhZG93U21hbGxTdGFydDtcbiAgdHJhbnNpdGlvbjogYWxsICR0cmFuc2l0aW9uU3BlZWQ7XG4gIHRleHQtZGVjb3JhdGlvbi1jb2xvcjogJGNvbG9yVGV4dDtcbiAgdGV4dC1hbGlnbjogbGVmdDtcblxuICAmOmhvdmVyIHtcbiAgICBib3gtc2hhZG93OiAkc2hhZG93U21hbGxFbmQ7XG4gICAgdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7XG4gICAgdGV4dC1kZWNvcmF0aW9uLWNvbG9yOiAkY29sb3JUZXh0O1xuICB9XG59XG4iLCJAdXNlIFwic2FzczptYXBcIjtcblxuJG1vZGFsV2lkdGg6IDUwMHB4O1xuXG5Aa2V5ZnJhbWVzIG1vZGFsSW4ge1xuICAwJSB7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKDQwcHgpO1xuICAgIG9wYWNpdHk6IDA7XG4gIH1cblxuICAxMDAlIHtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoMCk7XG4gICAgb3BhY2l0eTogMTtcbiAgfVxufVxuXG4udnVpTW9kYWxDb250YWluZXIge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIHRvcDogMDtcbiAgbGVmdDogMDtcbiAgcmlnaHQ6IDA7XG4gIGJvdHRvbTogMDtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGFuaW1hdGlvbjogbW9kYWxJbiAkdHJhbnNpdGlvblNwZWVkIGN1YmljLWJlemllcigwLCAxLCAxLCAxKTtcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XG59XG5cbi52dWlNb2RhbCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIHdpZHRoOiAxMDAlO1xuICBtYXgtd2lkdGg6ICRtb2RhbFdpZHRoO1xuICBtYXgtaGVpZ2h0OiBjYWxjKDEwMHZoIC0gMjAwcHgpO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAkY29sb3JFbXB0eVNoYWRlO1xuICBib3JkZXI6IDFweCBzb2xpZCAkYm9yZGVyQ29sb3I7XG4gIHotaW5kZXg6ICRtb2RhbFpJbmRleDtcbiAgcG9pbnRlci1ldmVudHM6IGFsbDtcbn1cblxuLnZ1aU1vZGFsSGVhZGVyIHtcbiAgcGFkZGluZzogJHNpemVNO1xufVxuXG4udnVpTW9kYWxDb250ZW50IHtcbiAgb3ZlcmZsb3cteTogYXV0bztcbiAgb3ZlcnNjcm9sbC1iZWhhdmlvcjogY29udGFpbjtcbn1cblxuLnZ1aU1vZGFsQ29udGVudF9faW5uZXIge1xuICBwYWRkaW5nOiAkc2l6ZUwgJHNpemVNICRzaXplWHhsO1xufVxuXG4vLyBDb2xvclxuJGNvbG9yOiAoXG4gIHByaW1hcnk6IChcbiAgICBcImJhY2tncm91bmQtY29sb3JcIjogJGNvbG9yUHJpbWFyeUxpZ2h0U2hhZGUsXG4gICAgXCJjb2xvclwiOiAkY29sb3JUZXh0XG4gICksXG4gIGRhbmdlcjogKFxuICAgIFwiYmFja2dyb3VuZC1jb2xvclwiOiAkY29sb3JEYW5nZXJMaWdodFNoYWRlLFxuICAgIFwiY29sb3JcIjogJGNvbG9yRGFuZ2VyXG4gIClcbik7XG5cbkBlYWNoICRjb2xvck5hbWUsICRjb2xvclZhbHVlIGluICRjb2xvciB7XG4gIC52dWlNb2RhbC0tI3skY29sb3JOYW1lfSB7XG4gICAgLnZ1aU1vZGFsSGVhZGVyIHtcbiAgICAgIGJhY2tncm91bmQtY29sb3I6ICN7bWFwLmdldCgkY29sb3JWYWx1ZSwgXCJiYWNrZ3JvdW5kLWNvbG9yXCIpfTtcbiAgICAgIGNvbG9yOiAje21hcC5nZXQoJGNvbG9yVmFsdWUsIFwiY29sb3JcIil9O1xuICAgIH1cbiAgfVxufVxuIiwiLnZ1aU5vdGlmaWNhdGlvbkxpc3Qge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIHRvcDogMDtcbiAgcmlnaHQ6IDA7XG4gIHotaW5kZXg6ICRub3RpZmljYXRpb25zWkluZGV4O1xuICBhbmltYXRpb246IHBvcFRvcCAwLjRzIGN1YmljLWJlemllcigwLjUsIDAsIDAuNSwgMSkgMTtcbn1cblxuLnZ1aU5vdGlmaWNhdGlvbkxpc3RfX25vdGlmaWNhdGlvbnMge1xuICBwYWRkaW5nOiAkc2l6ZVh4cztcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogJHNpemVNO1xuICB0cmFuc2l0aW9uOiBhbGwgJHRyYW5zaXRpb25TcGVlZDtcbn1cblxuLnZ1aU5vdGlmaWNhdGlvbkxpc3QtLWhhc01hbnkge1xuICAudnVpTm90aWZpY2F0aW9uTGlzdF9fbm90aWZpY2F0aW9ucyB7XG4gICAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogJHNpemVYcztcbiAgfVxufVxuXG4udnVpTm90aWZpY2F0aW9uQ29udGFpbmVyIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xufVxuXG4udnVpTm90aWZpY2F0aW9uIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB6LWluZGV4OiAxO1xuICBib3JkZXItcmFkaXVzOiAkc2l6ZVM7XG4gIHBhZGRpbmc6ICRzaXplUztcbiAgZm9udC1zaXplOiAkZm9udFNpemVTdGFuZGFyZDtcbiAgY29sb3I6ICRjb2xvclRleHQ7XG4gIHdpZHRoOiA0MjBweDtcbiAgYm94LXNoYWRvdzogcmdiYSg1MCwgNTAsIDkzLCAwLjI1KSAwcHggMCAwIDAsIHJnYmEoMCwgMCwgMCwgMC4xNikgMHB4IDFweCA0cHg7XG4gIGJhY2tncm91bmQtY29sb3I6ICRjb2xvckVtcHR5U2hhZGU7XG59XG5cbi52dWlOb3RpZmljYXRpb25QbGFjZWhvbGRlciB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgei1pbmRleDogMDtcbiAgYm90dG9tOiAwO1xufVxuXG4udnVpTm90aWZpY2F0aW9uUGxhY2Vob2xkZXIxLWlzVmlzaWJsZSB7XG4gIGJvdHRvbTogLSRzaXplWHhzO1xuICBhbmltYXRpb246IHBvcEJvdHRvbTEgMC4ycyBjdWJpYy1iZXppZXIoMC41LCAwLCAwLjUsIDEpIDE7XG59XG5cbi52dWlOb3RpZmljYXRpb25QbGFjZWhvbGRlcjItaXNWaXNpYmxlIHtcbiAgYm90dG9tOiAtJHNpemVYeHMgKiAxLjc1O1xuICBhbmltYXRpb246IHBvcEJvdHRvbTIgMC4ycyBjdWJpYy1iZXppZXIoMC41LCAwLCAwLjUsIDEpIDE7XG59XG5cbkBrZXlmcmFtZXMgcG9wVG9wIHtcbiAgMCUge1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgtMTAwJSk7XG4gICAgb3BhY2l0eTogMDtcbiAgfVxuXG4gIDUwJSB7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDEwcHgpO1xuICAgIG9wYWNpdHk6IDE7XG4gIH1cblxuICAxMDAlIHtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoMCk7XG4gIH1cbn1cblxuQGtleWZyYW1lcyBwb3BCb3R0b20xIHtcbiAgMCUge1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgwKTtcbiAgICBvcGFjaXR5OiAwO1xuICB9XG5cbiAgNTAlIHtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMnB4KTtcbiAgICBvcGFjaXR5OiAxO1xuICB9XG5cbiAgMTAwJSB7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDApO1xuICB9XG59XG5cbkBrZXlmcmFtZXMgcG9wQm90dG9tMiB7XG4gIDAlIHtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMCk7XG4gICAgb3BhY2l0eTogMDtcbiAgfVxuXG4gIDUwJSB7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDh4KTtcbiAgICBvcGFjaXR5OiAxO1xuICB9XG5cbiAgMTAwJSB7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDApO1xuICB9XG59XG4iLCIudnVpT3B0aW9uc0J1dHRvbkxlZnQge1xuICBib3JkZXItdG9wLXJpZ2h0LXJhZGl1czogMDtcbiAgYm9yZGVyLWJvdHRvbS1yaWdodC1yYWRpdXM6IDA7XG4gIGJvcmRlci1yaWdodDogbm9uZTtcbn1cblxuLnZ1aU9wdGlvbnNCdXR0b25SaWdodCB7XG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDA7XG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDA7XG4gIGJvcmRlci1sZWZ0OiAxcHggc29saWQ7XG59XG5cbi8vIENvbG9yXG4kY29sb3JQcmltYXJ5QnV0dG9uOiAoXG4gIGFjY2VudDogdHJhbnNwYXJlbnRpemUoJGNvbG9yRW1wdHlTaGFkZSwgMC41KSxcbiAgcHJpbWFyeTogdHJhbnNwYXJlbnRpemUoJGNvbG9yRW1wdHlTaGFkZSwgMC41KSxcbiAgc3VjY2VzczogdHJhbnNwYXJlbnRpemUoJGNvbG9yRW1wdHlTaGFkZSwgMC41KSxcbiAgZGFuZ2VyOiB0cmFuc3BhcmVudGl6ZSgkY29sb3JFbXB0eVNoYWRlLCAwLjUpLFxuICB3YXJuaW5nOiB0cmFuc3BhcmVudGl6ZSgkY29sb3JFbXB0eVNoYWRlLCAwLjUpLFxuICBuZXV0cmFsOiB0cmFuc3BhcmVudGl6ZSgkY29sb3JUZXh0LCAwLjgpXG4pO1xuXG5AZWFjaCAkY29sb3JOYW1lLCAkY29sb3JWYWx1ZSBpbiAkY29sb3JQcmltYXJ5QnV0dG9uIHtcbiAgLnZ1aUJ1dHRvblByaW1hcnkudnVpT3B0aW9uc0J1dHRvblJpZ2h0LS0jeyRjb2xvck5hbWV9IHtcbiAgICBib3JkZXItbGVmdC1jb2xvcjogJGNvbG9yVmFsdWU7XG4gIH1cbn1cblxuJGNvbG9TZWNvbmRhcnlCdXR0b246IChcbiAgYWNjZW50OiB0cmFuc3BhcmVudGl6ZSgkY29sb3JBY2NlbnQsIDAuNyksXG4gIHByaW1hcnk6IHRyYW5zcGFyZW50aXplKCRjb2xvclByaW1hcnksIDAuNyksXG4gIHN1Y2Nlc3M6IHRyYW5zcGFyZW50aXplKCRjb2xvclN1Y2Nlc3MsIDAuNyksXG4gIGRhbmdlcjogdHJhbnNwYXJlbnRpemUoJGNvbG9yRGFuZ2VyLCAwLjcpLFxuICB3YXJuaW5nOiB0cmFuc3BhcmVudGl6ZSgkY29sb3JXYXJuaW5nLCAwLjcpLFxuICBuZXV0cmFsOiB0cmFuc3BhcmVudGl6ZSgkY29sb3JUZXh0LCAwLjgpXG4pO1xuXG5AZWFjaCAkY29sb3JOYW1lLCAkY29sb3JWYWx1ZSBpbiAkY29sb1NlY29uZGFyeUJ1dHRvbiB7XG4gIC52dWlCdXR0b25TZWNvbmRhcnkudnVpT3B0aW9uc0J1dHRvblJpZ2h0LS0jeyRjb2xvck5hbWV9IHtcbiAgICBib3JkZXItbGVmdC1jb2xvcjogJGNvbG9yVmFsdWU7XG4gIH1cbn1cbiIsIkB1c2UgXCJzYXNzOm1hcFwiO1xuXG4udnVpT3B0aW9uc0xpc3Qge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICBmb250LXNpemU6ICRmb250U2l6ZVN0YW5kYXJkO1xufVxuXG4udnVpT3B0aW9uc0xpc3QtLXNjcm9sbGFibGUge1xuICBtYXgtaGVpZ2h0OiAyMjBweDtcbiAgb3ZlcmZsb3cteTogYXV0bztcbn1cblxuLnZ1aU9wdGlvbnNMaXN0LS1zIHtcbiAgLnZ1aU9wdGlvbnNMaXN0SXRlbSB7XG4gICAgcGFkZGluZzogKCRzaXplWHhzICsgMXB4KSAkc2l6ZVhzO1xuICB9XG59XG5cbi52dWlPcHRpb25zTGlzdC0tbSB7XG4gIC52dWlPcHRpb25zTGlzdEl0ZW0ge1xuICAgIHBhZGRpbmc6ICgkc2l6ZVh4cyArIDFweCkgJHNpemVTO1xuICB9XG59XG5cbi52dWlPcHRpb25zTGlzdC0tbCB7XG4gIC52dWlPcHRpb25zTGlzdEl0ZW0ge1xuICAgIHBhZGRpbmc6ICRzaXplWHMgJHNpemVTO1xuICB9XG59XG5cbi52dWlPcHRpb25zTGlzdEl0ZW0ge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAkY29sb3JFbXB0eVNoYWRlO1xuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG5cbiAgJjpob3ZlciB7XG4gICAgdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7XG4gIH1cbn1cblxuLy8gQ29sb3JcbiRjb2xvcjogKFxuICBhY2NlbnQ6IChcbiAgICBcImNvbG9yXCI6ICRjb2xvckFjY2VudCxcbiAgICBcInNlbGVjdGVkLWNvbG9yXCI6ICRjb2xvckFjY2VudExpZ2h0U2hhZGVcbiAgKSxcbiAgcHJpbWFyeTogKFxuICAgIFwiY29sb3JcIjogJGNvbG9yUHJpbWFyeSxcbiAgICBcInNlbGVjdGVkLWNvbG9yXCI6ICRjb2xvclByaW1hcnlMaWdodFNoYWRlXG4gICksXG4gIHN1Y2Nlc3M6IChcbiAgICBcImNvbG9yXCI6ICRjb2xvclN1Y2Nlc3MsXG4gICAgXCJzZWxlY3RlZC1jb2xvclwiOiAkY29sb3JTdWNjZXNzTGlnaHRTaGFkZVxuICApLFxuICBkYW5nZXI6IChcbiAgICBcImNvbG9yXCI6ICRjb2xvckRhbmdlcixcbiAgICBcInNlbGVjdGVkLWNvbG9yXCI6ICRjb2xvckRhbmdlckxpZ2h0U2hhZGVcbiAgKSxcbiAgd2FybmluZzogKFxuICAgIFwiY29sb3JcIjogJGNvbG9yV2FybmluZyxcbiAgICBcInNlbGVjdGVkLWNvbG9yXCI6ICRjb2xvcldhcm5pbmdMaWdodFNoYWRlXG4gICksXG4gIG5ldXRyYWw6IChcbiAgICBcImNvbG9yXCI6ICRjb2xvclRleHQsXG4gICAgXCJzZWxlY3RlZC1jb2xvclwiOiAkY29sb3JMaWdodFNoYWRlXG4gIClcbik7XG5cbkBlYWNoICRjb2xvck5hbWUsICRjb2xvclZhbHVlIGluICRjb2xvciB7XG4gIC52dWlPcHRpb25zTGlzdEl0ZW0tLSN7JGNvbG9yTmFtZX0ge1xuICAgIGNvbG9yOiAje21hcC5nZXQoJGNvbG9yVmFsdWUsIFwiY29sb3JcIil9O1xuXG4gICAgJjpob3ZlciB7XG4gICAgICBjb2xvcjogI3ttYXAuZ2V0KCRjb2xvclZhbHVlLCBcImNvbG9yXCIpfTtcbiAgICAgIGJhY2tncm91bmQtY29sb3I6ICN7bWFwLmdldCgkY29sb3JWYWx1ZSwgXCJzZWxlY3RlZC1jb2xvclwiKX07XG4gICAgfVxuICB9XG59XG4iLCIudnVpUG9wb3ZlciB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgYmFja2dyb3VuZC1jb2xvcjogJGNvbG9yRW1wdHlTaGFkZTtcbiAgYm9yZGVyOiAxcHggc29saWQgJGJvcmRlckNvbG9yO1xuICB6LWluZGV4OiAkcG9wb3ZlclpJbmRleDtcbiAgYm94LXNoYWRvdzogcmdiYSgwLCAwLCAwLCAwLjE2KSAwcHggMXB4IDRweDtcbn1cblxuLnZ1aU9wdGlvbnNMaXN0SXRlbV9fc2VsZWN0ZWQtLXVuc2VsZWN0ZWQge1xuICB2aXNpYmlsaXR5OiBoaWRkZW47XG59XG5cbi52dWlQb3BvdmVyVGl0bGUge1xuICBwYWRkaW5nOiAkc2l6ZVhzICRzaXplUztcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICRib3JkZXJDb2xvcjtcbiAgZm9udC13ZWlnaHQ6ICRmb250V2VpZ2h0Qm9sZDtcbiAgZm9udC1zaXplOiAkZm9udFNpemVTdGFuZGFyZDtcbiAgY29sb3I6ICRjb2xvckRhcmtlclNoYWRlO1xufVxuXG4udnVpUG9wb3ZlckNvbnRlbnQge1xuICBwYWRkaW5nOiAkc2l6ZVh4cyAwO1xufVxuXG4udnVpUG9wb3ZlckNvbnRlbnQtLXBhZGRpbmcge1xuICBwYWRkaW5nOiAkc2l6ZVM7XG59XG4iLCJAdXNlIFwic2FzczptYXBcIjtcblxuLnZ1aVByb2dyZXNzQmFyIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBib3JkZXItcmFkaXVzOiAkc2l6ZVh4cztcbiAgaGVpZ2h0OiAkc2l6ZVM7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG5cbi52dWlQcm9ncmVzc0Jhcl9fZW1wdHksXG4udnVpUHJvZ3Jlc3NCYXJfX2Jhcixcbi52dWlQcm9ncmVzc0Jhcl9fb3V0bGluZSB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbn1cblxuLnZ1aVByb2dyZXNzQmFyX19lbXB0eSB7XG4gIHotaW5kZXg6IDA7XG4gIGJhY2tncm91bmQtY29sb3I6ICRjb2xvckxpZ2h0U2hhZGU7XG4gIGJveC1zaGFkb3c6IGluc2V0IHJnYmEoMCwgMCwgMCwgMC4wNSkgMHB4IDJweCAycHg7XG59XG5cbi52dWlQcm9ncmVzc0Jhcl9fYmFyIHtcbiAgdHJhbnNpdGlvbjogYWxsICR0cmFuc2l0aW9uU3BlZWQ7XG4gIHotaW5kZXg6IDE7XG59XG5cbi52dWlQcm9ncmVzc0Jhcl9fb3V0bGluZSB7XG4gIHotaW5kZXg6IDI7XG4gIGJvcmRlci1yYWRpdXM6ICRzaXplWHhzO1xuICBib3gtc2hhZG93OiBpbnNldCAwIDAgMCAxcHggcmdiYSgjMDAwMDAwLCAwLjEpO1xufVxuXG4vLyBDb2xvclxuJGNvbG9yOiAoXG4gIGFjY2VudDogKFxuICAgIFwiYmFja2dyb3VuZC1jb2xvclwiOiAkY29sb3JBY2NlbnRcbiAgKSxcbiAgcHJpbWFyeTogKFxuICAgIFwiYmFja2dyb3VuZC1jb2xvclwiOiAkY29sb3JQcmltYXJ5XG4gICksXG4gIHN1Y2Nlc3M6IChcbiAgICBcImJhY2tncm91bmQtY29sb3JcIjogJGNvbG9yU3VjY2Vzc1xuICApLFxuICB3YXJuaW5nOiAoXG4gICAgXCJiYWNrZ3JvdW5kLWNvbG9yXCI6ICRjb2xvcldhcm5pbmdcbiAgKSxcbiAgZGFuZ2VyOiAoXG4gICAgXCJiYWNrZ3JvdW5kLWNvbG9yXCI6ICRjb2xvckRhbmdlclxuICApLFxuICBuZXV0cmFsOiAoXG4gICAgXCJiYWNrZ3JvdW5kLWNvbG9yXCI6ICRjb2xvckRhcmtTaGFkZVxuICApXG4pO1xuXG5AZWFjaCAkY29sb3JOYW1lLCAkY29sb3JWYWx1ZSBpbiAkY29sb3Ige1xuICAudnVpUHJvZ3Jlc3NCYXItLSN7JGNvbG9yTmFtZX0ge1xuICAgIC52dWlQcm9ncmVzc0Jhcl9fYmFyIHtcbiAgICAgIGJhY2tncm91bmQtY29sb3I6ICN7bWFwLmdldCgkY29sb3JWYWx1ZSwgXCJiYWNrZ3JvdW5kLWNvbG9yXCIpfTtcbiAgICB9XG4gIH1cbn1cbiIsIkB1c2UgXCJzYXNzOm1hcFwiO1xuXG4udnVpUHJvbXB0IHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBib3JkZXItcmFkaXVzOiAkc2l6ZU07XG4gIHRyYW5zaXRpb246IGFsbCAkdHJhbnNpdGlvblNwZWVkO1xuICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7XG59XG5cbi52dWlQcm9tcHQtLXNwZWVjaEJ1YmJsZSB7XG4gICY6OmFmdGVyIHtcbiAgICBjb250ZW50OiBcIlwiO1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICBib3R0b206IDA7XG4gICAgd2lkdGg6IDA7XG4gICAgaGVpZ2h0OiAwO1xuICAgIGxlZnQ6IDQ4cHg7XG4gICAgYm9yZGVyLXN0eWxlOiBzb2xpZDtcbiAgICBib3JkZXItbGVmdC1jb2xvcjogdHJhbnNwYXJlbnQ7XG4gICAgYm9yZGVyLXJpZ2h0LWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgICBib3JkZXItYm90dG9tLWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgICBib3JkZXItd2lkdGg6IDIwcHg7XG4gICAgbWFyZ2luLWxlZnQ6IC0yMHB4O1xuICAgIG1hcmdpbi1ib3R0b206IC0yMHB4O1xuICAgIGJvcmRlci10b3AtY29sb3I6ICRjb2xvckxpZ2h0U2hhZGU7XG4gICAgYm9yZGVyLWJvdHRvbTogMDtcbiAgfVxufVxuXG4udnVpUHJvbXB0LS1pbnRlcmFjdGl2ZSB7XG4gICY6aG92ZXIge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICRjb2xvckFjY2VudExpZ2h0U2hhZGU7XG4gICAgY29sb3I6ICRjb2xvckFjY2VudDtcbiAgfVxufVxuXG4vLyBDb2xvclxuJGNvbG9yOiAoXG4gIGRhbmdlcjogKFxuICAgIFwiY29sb3JcIjogJGNvbG9yRGFuZ2VyLFxuICAgIFwiYmFja2dyb3VuZC1jb2xvclwiOiAkY29sb3JEYW5nZXJMaWdodFNoYWRlXG4gICksXG4gIG5ldXRyYWw6IChcbiAgICBcImNvbG9yXCI6ICRjb2xvckRhcmtTaGFkZSxcbiAgICBcImJhY2tncm91bmQtY29sb3JcIjogJGNvbG9yTGlnaHRTaGFkZVxuICApXG4pO1xuXG5AZWFjaCAkY29sb3JOYW1lLCAkY29sb3JWYWx1ZSBpbiAkY29sb3Ige1xuICAudnVpUHJvbXB0LS0jeyRjb2xvck5hbWV9IHtcbiAgICBjb2xvcjogI3ttYXAuZ2V0KCRjb2xvclZhbHVlLCBcImNvbG9yXCIpfTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAje21hcC5nZXQoJGNvbG9yVmFsdWUsIFwiYmFja2dyb3VuZC1jb2xvclwiKX07XG4gIH1cbn1cblxuLy8gUGFkZGluZ1xuJHBhZGRpbmc6IChcbiAgcGFkZGluZ1hzOiAkc2l6ZVhzLFxuICBwYWRkaW5nUzogJHNpemVTLFxuICBwYWRkaW5nTTogJHNpemVNLFxuICBwYWRkaW5nTDogJHNpemVMLFxuICBwYWRkaW5nWGw6ICRzaXplWGwsXG4gIHBhZGRpbmdYeGw6ICRzaXplWGwgKiAyXG4pO1xuXG5AZWFjaCAkcGFkZGluZ05hbWUsICRwYWRkaW5nVmFsdWUgaW4gJHBhZGRpbmcge1xuICAudnVpUHJvbXB0LS0jeyRwYWRkaW5nTmFtZX0ge1xuICAgIHBhZGRpbmc6ICRwYWRkaW5nVmFsdWU7XG4gIH1cbn1cbiIsIi52dWlTY3JlZW5CbG9jayB7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgdG9wOiAwO1xuICBsZWZ0OiAwO1xuICByaWdodDogMDtcbiAgYm90dG9tOiAwO1xuICB6LWluZGV4OiAkc2NyZWVuQmxvY2taSW5kZXg7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xufVxuXG4udnVpU2NyZWVuQmxvY2tfX21hc2sge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudGl6ZSgkY29sb3JGdWxsU2hhZGUsIDAuNCk7XG59XG4iLCIudnVpU2VhcmNoSW5wdXQge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG59XG5cbi52dWlTZWFyY2hJbnB1dF9faW5wdXQge1xuICBmbGV4LWdyb3c6IDE7XG4gIGJhY2tncm91bmQtY29sb3I6ICRjb2xvckVtcHR5U2hhZGU7XG4gIGJvcmRlcjogMXB4IHNvbGlkICRjb2xvck1lZGl1bVNoYWRlO1xuICBib3JkZXItcmFkaXVzOiAkc2l6ZVhzO1xuICBib3gtc2hhZG93OiAkc2hhZG93U21hbGxTdGFydDtcbiAgdHJhbnNpdGlvbjogYWxsICR0cmFuc2l0aW9uU3BlZWQ7XG4gIG91dGxpbmUtd2lkdGg6IDFweCAhaW1wb3J0YW50O1xuICBvdXRsaW5lLXN0eWxlOiBzb2xpZDtcbiAgb3V0bGluZS1jb2xvcjogdHJhbnNwYXJlbnQ7XG4gIG91dGxpbmUtb2Zmc2V0OiAtMXB4ICFpbXBvcnRhbnQ7XG5cbiAgJjpmb2N1cy12aXNpYmxlIHtcbiAgICBvdXRsaW5lLWNvbG9yOiAkY29sb3JQcmltYXJ5ICFpbXBvcnRhbnQ7XG4gICAgYm94LXNoYWRvdzogJHNoYWRvd1NtYWxsRW5kO1xuICB9XG59XG5cbi52dWlTZWFyY2hJbnB1dF9fc3VibWl0QnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICByaWdodDogJHNpemVTO1xuICBsaW5lLWhlaWdodDogMDsgLy8gVE9ETzogU2hvdWxkIHRoaXMgYmUgYXBwbGllZCB0byBhbGwgYnV0dG9ucz9cbiAgY29sb3I6ICRjb2xvckRhcmtTaGFkZTtcbiAgdHJhbnNpdGlvbjogYWxsICR0cmFuc2l0aW9uU3BlZWQ7XG5cbiAgJjpob3ZlciB7XG4gICAgY29sb3I6ICRjb2xvckFjY2VudDtcbiAgfVxufVxuXG4udnVpU2VhcmNoSW5wdXQtLW0ge1xuICAudnVpU2VhcmNoSW5wdXRfX2lucHV0IHtcbiAgICBwYWRkaW5nOiAkc2l6ZVhzICRzaXplTTtcbiAgICBmb250LXNpemU6ICRmb250U2l6ZVN0YW5kYXJkO1xuICB9XG59XG5cbi52dWlTZWFyY2hJbnB1dC0tbCB7XG4gIC52dWlTZWFyY2hJbnB1dF9faW5wdXQge1xuICAgIHBhZGRpbmc6ICRzaXplUyAkc2l6ZU07XG4gICAgZm9udC1zaXplOiAkZm9udFNpemVMYXJnZTtcbiAgfVxufVxuIiwiLnZ1aVNlYXJjaFJlc3VsdCB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcblxuICAmICsgJiB7XG4gICAgbWFyZ2luLXRvcDogJHNpemVMO1xuICB9XG59XG5cbi52dWlTZWFyY2hSZXN1bHRQb3NpdGlvbiB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgbGVmdDogLTQycHg7XG4gIHRvcDogMDtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgcGFkZGluZzogJHNpemVYcztcbiAgY29sb3I6ICRjb2xvclN1YmR1ZWQ7XG4gIHBhZGRpbmc6IDRweCA4cHg7XG4gIHdpZHRoOiAzMHB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgYm9yZGVyLXJhZGl1czogJHNpemVYcztcbiAgaGVpZ2h0OiAyM3B4O1xuICB0cmFuc2l0aW9uOiBhbGwgJHRyYW5zaXRpb25TcGVlZDtcbn1cblxuLnZ1aVNlYXJjaFJlc3VsdFBvc2l0aW9uLS1zZWxlY3RlZCB7XG4gIGJhY2tncm91bmQtY29sb3I6ICRjb2xvclByaW1hcnk7XG4gIGNvbG9yOiAkY29sb3JFbXB0eVNoYWRlO1xuICBoZWlnaHQ6IDEwMCU7XG59XG4iLCIudnVpU2VhcmNoU2VsZWN0SGVhZGVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogJGNvbG9yTGlnaHRTaGFkZTtcbiAgcGFkZGluZzogJHNpemVNO1xuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgJGJvcmRlckNvbG9yO1xuICBmb250LXdlaWdodDogJGZvbnRXZWlnaHRCb2xkO1xuICBmb250LXNpemU6ICRmb250U2l6ZVN0YW5kYXJkO1xuICBjb2xvcjogJGNvbG9yRGFya2VyU2hhZGU7XG59XG5cbi52dWlTZWFyY2hTZWxlY3RfX3NlYXJjaCB7XG4gIHBhZGRpbmc6ICRzaXplWHhzICRzaXplWHM7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAkYm9yZGVyQ29sb3I7XG59XG4iLCIudnVpU3BhY2VyIHtcbiAgZmxleC1zaHJpbms6IDA7XG59XG5cbiRzaXplOiAoXG4gIHh4eHM6ICRzaXplWHh4cyxcbiAgeHhzOiAkc2l6ZVh4cyxcbiAgeHM6ICRzaXplWHMsXG4gIHM6ICRzaXplUyxcbiAgbTogJHNpemVNLFxuICBsOiAkc2l6ZUwsXG4gIHhsOiAkc2l6ZVhsLFxuICB4eGw6ICRzaXplWHhsXG4pO1xuXG5AZWFjaCAkc2l6ZU5hbWUsICRzaXplVmFsdWUgaW4gJHNpemUge1xuICAudnVpU3BhY2VyLS0jeyRzaXplTmFtZX0ge1xuICAgIGhlaWdodDogJHNpemVWYWx1ZTtcbiAgfVxufVxuIiwiJHNpemU6IChcbiAgeHM6ICRzaXplWHMgKiAyLFxuICBzOiAkc2l6ZVMgKiAyLFxuICBtOiAkc2l6ZU0gKiAyLFxuICBsOiAkc2l6ZUwgKiAyLFxuICB4bDogJHNpemVYbCAqIDIsXG4gIHh4bDogJHNpemVYeGwgKiAyLFxuICB4eHhsOiAkc2l6ZVh4bCAqIDIuNVxuKTtcblxuQGVhY2ggJHNpemVOYW1lLCAkc2l6ZVZhbHVlIGluICRzaXplIHtcbiAgLnZ1aVNwaW5uZXItLSN7JHNpemVOYW1lfSB7XG4gICAgd2lkdGg6ICRzaXplVmFsdWU7XG4gICAgaGVpZ2h0OiAkc2l6ZVZhbHVlO1xuICB9XG59XG5cbi52dWlTcGlubmVyX19hbmltYXRpb24ge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuIiwiLnZ1aVN1bW1hcnkge1xuICBmb250LXNpemU6ICRmb250U2l6ZU1lZGl1bTtcbn1cblxuLnZ1aVN1bW1hcnlDaXRhdGlvbiB7XG4gIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgdG9wOiAtMnB4O1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIGJhY2tncm91bmQtY29sb3I6ICRjb2xvckxpZ2h0U2hhZGU7XG4gIGNvbG9yOiAkY29sb3JEYXJrU2hhZGU7XG4gIHBhZGRpbmc6ICRzaXplWHh4cyAkc2l6ZVhzO1xuICBmb250LXNpemU6ICRmb250U2l6ZVNtYWxsO1xuICBib3JkZXItcmFkaXVzOiAkc2l6ZVh4cztcbiAgZm9udC13ZWlnaHQ6ICRmb250V2VpZ2h0Qm9sZDtcbiAgbGluZS1oZWlnaHQ6IDEuNDtcbiAgdHJhbnNpdGlvbjogYWxsICR0cmFuc2l0aW9uU3BlZWQ7XG5cbiAgJjpob3ZlciB7XG4gICAgY29sb3I6ICRjb2xvclByaW1hcnk7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogJGNvbG9yUHJpbWFyeUxpZ2h0U2hhZGU7XG4gICAgdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7XG4gIH1cbn1cblxuLnZ1aVN1bW1hcnlDaXRhdGlvbi1pc1NlbGVjdGVkIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogJGNvbG9yUHJpbWFyeTtcbiAgY29sb3I6ICRjb2xvckVtcHR5U2hhZGU7XG59XG4iLCIudnVpVGFibGUge1xuICB3aWR0aDogMTAwJTtcbiAgdGFibGUtbGF5b3V0OiBmaXhlZDtcblxuICB0aGVhZCB7XG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICRib3JkZXJDb2xvcjtcbiAgfVxuXG4gIHRib2R5IHRyIHtcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgJGJvcmRlckNvbG9yTGlnaHQ7XG5cbiAgICAmLnZ1aVRhYmxlUm93LWlzQmVpbmdBY3RlZFVwb24sXG4gICAgJjpub3QoLnZ1aVRhYmxlUm93LS1pbmVydCk6aG92ZXIge1xuICAgICAgYmFja2dyb3VuZC1jb2xvcjogJGNvbG9yTGlnaHRTaGFkZTtcbiAgICB9XG5cbiAgICAmOmxhc3QtY2hpbGQge1xuICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICRib3JkZXJDb2xvcjtcbiAgICB9XG4gIH1cblxuICB0aCB7XG4gICAgZm9udC1zaXplOiAkZm9udFNpemVTdGFuZGFyZDtcbiAgICBmb250LXdlaWdodDogJGZvbnRXZWlnaHRCb2xkO1xuICAgIHBhZGRpbmc6ICRzaXplWHhzO1xuICB9XG5cbiAgdGQge1xuICAgIGZvbnQtc2l6ZTogJGZvbnRTaXplU3RhbmRhcmQ7XG4gICAgcGFkZGluZzogJHNpemVYeHM7XG4gICAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcbiAgICB3b3JkLWJyZWFrOiBicmVhay13b3JkO1xuICB9XG59XG5cbi52dWlUYWJsZS0tZmx1aWQge1xuICB0YWJsZS1sYXlvdXQ6IGF1dG87XG59XG5cbi52dWlUYWJsZUNlbGwge1xuICBoZWlnaHQ6IDEwMCU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogZmxleC1zdGFydDtcbn1cblxuLnZ1aVRhYmxlQWN0aW9ucyB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogZmxleC1lbmQ7XG59XG5cbi52dWlUYWJsZU1hbnlQYWdlc1Rva2VuIHtcbiAgcGFkZGluZzogMCAkc2l6ZVhzO1xufVxuXG4udnVpVGFibGVNYW55UGFnZXNUb2tlbi1pc0Rpc2FibGVkIHtcbiAgb3BhY2l0eTogMC41O1xufVxuXG4udnVpVGFibGVIZWFkZXJTZWxlY3Qge1xuICB3aWR0aDogMzJweDtcbn1cblxuLnZ1aVRhYmxlSGVhZGVyQWN0aW9ucyB7XG4gIHdpZHRoOiA0MnB4O1xufVxuXG4udnVpVGFibGVDb250ZW50IHtcbiAgaGVpZ2h0OiA4MHB4O1xufVxuIiwiLnZ1aVRhYnMge1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgJGJvcmRlckNvbG9yO1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG59XG5cbi52dWlUYWJzLS1zIHtcbiAgLnZ1aVRhYiB7XG4gICAgcGFkZGluZzogJHNpemVYcyAkc2l6ZVM7XG4gICAgZm9udC1zaXplOiAkZm9udFNpemVTdGFuZGFyZDtcbiAgfVxufVxuXG4udnVpVGFicy0tbSB7XG4gIC52dWlUYWIge1xuICAgIHBhZGRpbmc6ICRzaXplWHMgJHNpemVNO1xuICAgIGZvbnQtc2l6ZTogJGZvbnRTaXplTWVkaXVtO1xuICB9XG59XG5cbi52dWlUYWJzX190YWJzIHtcbiAgZGlzcGxheTogZmxleDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn1cblxuLnZ1aVRhYnNfX2FwcGVuZGVkQ29udGVudCB7XG4gIGZsZXgtYmFzaXM6IGF1dG87XG4gIGZsZXgtZ3JvdzogMDtcbn1cblxuLnZ1aVRhYiB7XG4gIGZsZXgtZ3JvdzogMDtcbiAgZmxleC1zaHJpbms6IDA7XG4gIGNvbG9yOiAkY29sb3JTdWJkdWVkO1xuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG4gIHRyYW5zaXRpb246IGFsbCAkdHJhbnNpdGlvblNwZWVkO1xuICBib3gtc2hhZG93OiB0cmFuc3BhcmVudCAwcHggMXB4IDBweCwgdHJhbnNwYXJlbnQgMHB4IC0xcHggMHB4IGluc2V0O1xuICBjdXJzb3I6IHBvaW50ZXI7XG5cbiAgJjpob3ZlcixcbiAgJjphY3RpdmUge1xuICAgIGNvbG9yOiAkY29sb3JUZXh0O1xuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgfVxuXG4gICY6aG92ZXIge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICRjb2xvckxpZ2h0U2hhZGU7XG4gIH1cblxuICAmLnZ1aVRhYi1pc0FjdGl2ZSB7XG4gICAgY29sb3I6ICRjb2xvclRleHQ7XG4gICAgYm94LXNoYWRvdzogJGNvbG9yUHJpbWFyeSAwcHggMXB4IDBweCwgJGNvbG9yUHJpbWFyeSAwcHggLTFweCAwcHggaW5zZXQ7XG4gIH1cbn1cbiIsIiR0b2dnbGVXaWR0aDogJHNpemVMICogMS41O1xuJHRvZ2dsZUhlaWdodDogJHNpemVNICogMS4yNTtcbiRidXR0b25PZmZzZXQ6IDJweDtcbiRidXR0b25TaXplOiAkdG9nZ2xlSGVpZ2h0IC0gKCRidXR0b25PZmZzZXQgKiAyKTtcblxuLnZ1aVRvZ2dsZSB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB3aWR0aDogJHRvZ2dsZVdpZHRoO1xuICBoZWlnaHQ6ICR0b2dnbGVIZWlnaHQ7XG59XG5cbi52dWlUb2dnbGVfX2lucHV0IHtcbiAgb3BhY2l0eTogMDtcbiAgd2lkdGg6IDA7XG4gIGhlaWdodDogMDtcblxuICAmOmNoZWNrZWQgKyAudnVpVG9nZ2xlX19idXR0b24ge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICRjb2xvclByaW1hcnk7XG4gIH1cblxuICAmOmZvY3VzLXZpc2libGUgKyAudnVpVG9nZ2xlX19idXR0b24ge1xuICAgIG91dGxpbmU6IDJweCBzb2xpZCB0cmFuc3BhcmVudGl6ZSgkY29sb3JQcmltYXJ5LCAwLjI1KTtcbiAgICBvdXRsaW5lLW9mZnNldDogMnB4O1xuICB9XG5cbiAgJjpjaGVja2VkICsgLnZ1aVRvZ2dsZV9fYnV0dG9uOmJlZm9yZSB7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKCR0b2dnbGVXaWR0aCAtICRidXR0b25TaXplIC0gKCRidXR0b25PZmZzZXQgKiAyKSk7XG4gIH1cbn1cblxuLnZ1aVRvZ2dsZV9fYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBjdXJzb3I6IHBvaW50ZXI7XG4gIHRvcDogMDtcbiAgbGVmdDogMDtcbiAgcmlnaHQ6IDA7XG4gIGJvdHRvbTogMDtcbiAgYmFja2dyb3VuZC1jb2xvcjogJGNvbG9yTWVkaXVtU2hhZGU7XG4gIHRyYW5zaXRpb246ICR0cmFuc2l0aW9uU3BlZWQ7XG4gIGJvcmRlci1yYWRpdXM6ICRidXR0b25TaXplO1xuICBib3gtc2hhZG93OiBpbnNldCByZ2JhKDAsIDAsIDAsIDAuMSkgMHB4IDJweCAycHg7XG5cbiAgJjpiZWZvcmUge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICBjb250ZW50OiBcIlwiO1xuICAgIGhlaWdodDogJGJ1dHRvblNpemU7XG4gICAgd2lkdGg6ICRidXR0b25TaXplO1xuICAgIGxlZnQ6ICRidXR0b25PZmZzZXQ7XG4gICAgYm90dG9tOiAkYnV0dG9uT2Zmc2V0O1xuICAgIGJhY2tncm91bmQtY29sb3I6ICRjb2xvckVtcHR5U2hhZGU7XG4gICAgdHJhbnNpdGlvbjogJHRyYW5zaXRpb25TcGVlZDtcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XG4gIH1cbn1cbiIsIiR0cmFuc2l0aW9uU3BlZWQ6IDAuMnM7XG4iLCIudnVpVG9waWNCdXR0b24ge1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgYmFja2dyb3VuZC1jb2xvcjogJGNvbG9yRW1wdHlTaGFkZTtcbiAgYm9yZGVyLXJhZGl1czogJHNpemVYcztcbiAgYm94LXNoYWRvdzogcmdiYSg1MCwgNTAsIDkzLCAwLjI1KSAwcHggMCAwIDAsIHJnYmEoMCwgMCwgMCwgMC4xNikgMHB4IDFweCA0cHg7XG4gIHRyYW5zaXRpb246IGJveC1zaGFkb3cgJHRyYW5zaXRpb25TcGVlZCwgYm9yZGVyLWNvbG9yICR0cmFuc2l0aW9uU3BlZWQ7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIHBhZGRpbmc6ICRzaXplTSAkc2l6ZUw7XG4gIHRleHQtYWxpZ246IGxlZnQ7XG5cbiAgJjpob3ZlciB7XG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICAgIGJveC1zaGFkb3c6IHJnYmEoNTAsIDUwLCA5MywgMC4yNSkgMHB4IDZweCAxMnB4IC0ycHgsIHJnYmEoMCwgMCwgMCwgMC4zKSAwcHggM3B4IDdweCAtM3B4LCAkY29sb3JQcmltYXJ5IDAgMCAxcHggMXB4O1xuICAgIHotaW5kZXg6IDE7XG4gIH1cbn1cblxuLnZ1aVRvcGljQnV0dG9uLS1mdWxsV2lkdGgge1xuICB3aWR0aDogMTAwJTtcbn1cbiIsIkB1c2UgXCJzYXNzOm1hcFwiO1xuXG4udnVpVGl0bGUge1xuICBjb2xvcjogJGNvbG9yVGV4dDtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbn1cblxuJHNpemU6IChcbiAgeHhzOiAoXG4gICAgc2l6ZTogJGZvbnRTaXplU21hbGwsXG4gICAgbGluZS1oZWlnaHQ6IDEuNCxcbiAgICB3ZWlnaHQ6ICRmb250V2VpZ2h0Tm9ybWFsLFxuICAgIGNvbG9yOiAkY29sb3JUZXh0XG4gICksXG4gIHhzOiAoXG4gICAgc2l6ZTogJGxhYmVsRm9udFNpemUsXG4gICAgbGluZS1oZWlnaHQ6IDEuNCxcbiAgICB3ZWlnaHQ6ICRsYWJlbEZvbnRXZWlnaHQsXG4gICAgY29sb3I6ICRsYWJlbENvbG9yXG4gICksXG4gIHM6IChcbiAgICBzaXplOiAkZm9udFNpemVMYXJnZSxcbiAgICBsaW5lLWhlaWdodDogMS4zLFxuICAgIHdlaWdodDogJGZvbnRXZWlnaHRCb2xkLFxuICAgIGNvbG9yOiAkY29sb3JTdWJkdWVkXG4gICksXG4gIG06IChcbiAgICBzaXplOiAkZm9udFNpemVYTGFyZ2UsXG4gICAgd2VpZ2h0OiAkZm9udFdlaWdodEJvbGQsXG4gICAgbGluZS1oZWlnaHQ6IDEuMixcbiAgICBjb2xvcjogJGNvbG9yVGV4dFxuICApLFxuICBsOiAoXG4gICAgc2l6ZTogJGZvbnRTaXplWHhMYXJnZSxcbiAgICB3ZWlnaHQ6ICRmb250V2VpZ2h0Tm9ybWFsLFxuICAgIGxpbmUtaGVpZ2h0OiAxLjEsXG4gICAgY29sb3I6ICRjb2xvclRleHRcbiAgKSxcbiAgeGw6IChcbiAgICBzaXplOiAkZm9udFNpemVYeHhMYXJnZSxcbiAgICB3ZWlnaHQ6ICRmb250V2VpZ2h0Tm9ybWFsLFxuICAgIGxpbmUtaGVpZ2h0OiAxLFxuICAgIGNvbG9yOiAkY29sb3JUZXh0XG4gICksXG4gIHh4bDogKFxuICAgIHNpemU6ICRmb250U2l6ZVh4eExhcmdlLFxuICAgIGxpbmUtaGVpZ2h0OiAxLFxuICAgIHdlaWdodDogJGZvbnRXZWlnaHRCb2xkLFxuICAgIGNvbG9yOiAkY29sb3JUZXh0XG4gIClcbik7XG5cbkBlYWNoICRzaXplTmFtZSwgJHNpemVWYWx1ZSBpbiAkc2l6ZSB7XG4gIC52dWlUaXRsZS0tI3skc2l6ZU5hbWV9IHtcbiAgICBmb250LXNpemU6ICN7bWFwLmdldCgkc2l6ZVZhbHVlLCBcInNpemVcIil9O1xuICAgIGxpbmUtaGVpZ2h0OiAje21hcC5nZXQoJHNpemVWYWx1ZSwgXCJzaXplXCIpfTtcbiAgICBmb250LXdlaWdodDogI3ttYXAuZ2V0KCRzaXplVmFsdWUsIFwid2VpZ2h0XCIpfTtcbiAgICBjb2xvcjogI3ttYXAuZ2V0KCRzaXplVmFsdWUsIFwiY29sb3JcIil9O1xuICB9XG59XG5cbiRhbGlnbjogbGVmdCwgY2VudGVyLCByaWdodDtcblxuQGVhY2ggJGFsaWduVmFsdWUgaW4gJGFsaWduIHtcbiAgLnZ1aVRpdGxlLS0jeyRhbGlnblZhbHVlfSB7XG4gICAgdGV4dC1hbGlnbjogI3skYWxpZ25WYWx1ZX07XG4gIH1cbn1cbiIsIi52dWlUZXh0IHtcbiAgb3ZlcmZsb3ctd3JhcDogYnJlYWstd29yZDtcbiAgd29yZC1icmVhazogYnJlYWstd29yZDtcblxuICBhIHtcbiAgICBjb2xvcjogJGNvbG9yUHJpbWFyeSAhaW1wb3J0YW50O1xuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcblxuICAgICY6aG92ZXIge1xuICAgICAgdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7XG4gICAgfVxuICB9XG5cbiAgdWwge1xuICAgIGxpc3Qtc3R5bGU6IGRpc2M7XG4gIH1cblxuICBvbCB7XG4gICAgbGlzdC1zdHlsZTogYXV0bztcbiAgfVxuXG4gIHVsLFxuICBvbCB7XG4gICAgbWFyZ2luLWxlZnQ6ICRzaXplTTtcbiAgICBtYXJnaW4tYm90dG9tOiAkc2l6ZVhzO1xuXG4gICAgJjpsYXN0LWNoaWxkIHtcbiAgICAgIG1hcmdpbi1ib3R0b206IDA7XG4gICAgfVxuICB9XG5cbiAgdGFibGUge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIHRhYmxlLWxheW91dDogZml4ZWQ7XG4gICAgYm9yZGVyOiAxcHggc29saWQgJGJvcmRlckNvbG9yTGlnaHQ7XG5cbiAgICB0aGVhZCB7XG4gICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAkY29sb3JMaWdodFNoYWRlO1xuICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICRib3JkZXJDb2xvckxpZ2h0O1xuICAgIH1cblxuICAgIHRib2R5IHRyIHtcbiAgICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAkYm9yZGVyQ29sb3JMaWdodDtcbiAgICB9XG5cbiAgICB0aCB7XG4gICAgICBmb250LXNpemU6ICRmb250U2l6ZVNtYWxsO1xuICAgICAgZm9udC13ZWlnaHQ6ICRmb250V2VpZ2h0Qm9sZDtcbiAgICAgIHBhZGRpbmc6ICRzaXplWHMgJHNpemVTO1xuICAgICAgdGV4dC1hbGlnbjogbGVmdDtcbiAgICB9XG5cbiAgICB0ZCB7XG4gICAgICBmb250LXNpemU6ICRmb250U2l6ZVN0YW5kYXJkO1xuICAgICAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcbiAgICAgIHBhZGRpbmc6ICRzaXplUyAkc2l6ZVM7XG4gICAgfVxuICB9XG59XG5cbi52dWlUZXh0LS10cnVuY2F0ZSB7XG4gIEBpbmNsdWRlIHRydW5jYXRlVGV4dDtcbn1cblxuQG1peGluIGRlZmluZVRleHRTdHlsZXMoJGZvbnRTaXplKSB7XG4gIGNvbG9yOiAkY29sb3JUZXh0O1xuICBmb250LXNpemU6ICRmb250U2l6ZTtcbiAgbGluZS1oZWlnaHQ6IDEuNDtcblxuICBwIHtcbiAgICBmb250LXNpemU6ICRmb250U2l6ZTtcbiAgICBsaW5lLWhlaWdodDogMS40O1xuICAgIG1hcmdpbi1ib3R0b206ICRzaXplWHM7XG5cbiAgICAmOmxhc3QtY2hpbGQge1xuICAgICAgbWFyZ2luLWJvdHRvbTogMDtcbiAgICB9XG4gIH1cblxuICBoMSB7XG4gICAgZm9udC1zaXplOiAkZm9udFNpemUgKiAyO1xuICAgIGxpbmUtaGVpZ2h0OiAxLjQ7XG4gICAgZm9udC13ZWlnaHQ6ICRmb250V2VpZ2h0Qm9sZDtcbiAgICBtYXJnaW4tYm90dG9tOiAkc2l6ZVhzO1xuICB9XG5cbiAgaDIge1xuICAgIGZvbnQtc2l6ZTogJGZvbnRTaXplICogMS41O1xuICAgIGxpbmUtaGVpZ2h0OiAxLjQ7XG4gICAgbWFyZ2luLWJvdHRvbTogJHNpemVYcztcbiAgfVxuXG4gIGgzIHtcbiAgICBmb250LXNpemU6ICRmb250U2l6ZSAqIDEuMjU7XG4gICAgbGluZS1oZWlnaHQ6IDEuNDtcbiAgICBmb250LXdlaWdodDogJGZvbnRXZWlnaHRCb2xkO1xuICAgIG1hcmdpbi1ib3R0b206ICRzaXplWHM7XG4gICAgY29sb3I6ICRjb2xvclN1YmR1ZWQ7XG4gIH1cblxuICBoNCB7XG4gICAgZm9udC1zaXplOiAkZm9udFNpemU7XG4gICAgbGluZS1oZWlnaHQ6IDEuNDtcbiAgICBmb250LXdlaWdodDogJGZvbnRXZWlnaHRCb2xkO1xuICAgIG1hcmdpbi1ib3R0b206ICRzaXplWHM7XG4gIH1cbn1cblxuJHNpemU6IChcbiAgeHM6ICRmb250U2l6ZVNtYWxsLFxuICBzOiAkZm9udFNpemVTdGFuZGFyZCxcbiAgbTogJGZvbnRTaXplTWVkaXVtLFxuICBsOiAkZm9udFNpemVMYXJnZVxuKTtcblxuQGVhY2ggJHNpemVOYW1lLCAkZm9udFNpemUgaW4gJHNpemUge1xuICAudnVpVGV4dC0tI3skc2l6ZU5hbWV9IHtcbiAgICBAaW5jbHVkZSBkZWZpbmVUZXh0U3R5bGVzKCRmb250U2l6ZSk7XG4gIH1cbn1cblxuJGFsaWduOiBsZWZ0LCBjZW50ZXIsIHJpZ2h0O1xuXG5AZWFjaCAkYWxpZ25WYWx1ZSBpbiAkYWxpZ24ge1xuICAudnVpVGV4dC0tI3skYWxpZ25WYWx1ZX0ge1xuICAgIHRleHQtYWxpZ246ICN7JGFsaWduVmFsdWV9O1xuICB9XG59XG4iLCIkY29sb3I6IChcbiAgYWNjZW50OiAkY29sb3JBY2NlbnQsXG4gIHByaW1hcnk6ICRjb2xvclByaW1hcnksXG4gIHN1Y2Nlc3M6ICRjb2xvclN1Y2Nlc3MsXG4gIHdhcm5pbmc6ICRjb2xvcldhcm5pbmcsXG4gIGRhbmdlcjogJGNvbG9yRGFuZ2VyLFxuICBzdWJkdWVkOiAkY29sb3JTdWJkdWVkLFxuICBuZXV0cmFsOiAkY29sb3JUZXh0XG4pO1xuXG5AZWFjaCAkY29sb3JOYW1lLCAkY29sb3JWYWx1ZSBpbiAkY29sb3Ige1xuICAudnVpVGV4dENvbG9yLS0jeyRjb2xvck5hbWV9IHtcbiAgICBjb2xvcjogJGNvbG9yVmFsdWUgIWltcG9ydGFudDtcbiAgfVxufVxuIl19 */`;
-  document.head.appendChild(document.createElement("style")).appendChild(document.createTextNode(css3));
+}`;
+  document.head.appendChild(document.createElement("style")).appendChild(document.createTextNode(css2));
 
-  // docs/src/index.scss
-  var css4 = `.content {
+  // src/index.scss
+  var css3 = `.content {
   max-width: 1000px;
 }
 
 .reactSearchContainer {
   max-width: 600px;
-}
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL1VzZXJzL2RlcnlrL2NvZGUvcmVhY3Qtc2VhcmNoL2RvY3Mvc3JjIiwic291cmNlcyI6WyJpbmRleC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7OztBQUdGO0VBQ0UiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGVudCB7XG4gIG1heC13aWR0aDogMTAwMHB4O1xufVxuXG4ucmVhY3RTZWFyY2hDb250YWluZXIge1xuICBtYXgtd2lkdGg6IDYwMHB4O1xufVxuIl19 */`;
-  document.head.appendChild(document.createElement("style")).appendChild(document.createTextNode(css4));
+}`;
+  document.head.appendChild(document.createElement("style")).appendChild(document.createTextNode(css3));
 
-  // docs/src/index.tsx
+  // src/index.tsx
   var import_jsx_runtime91 = __toESM(require_jsx_runtime());
   var generateCodeSnippet = (customerId, corpusId, apiKey, placeholder, isDeepLinkable = false, openResultsInNewTab = false) => {
     let quotedPlaceholder = placeholder;
@@ -40856,9 +41893,9 @@ export const App = () => (
       /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(
         VuiAppHeader,
         {
-          left: /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)(VuiFlexContainer2, { spacing: "m", alignItems: "center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiFlexItem2, { grow: false, shrink: false, children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(HeaderLogo, {}) }),
-            /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiFlexItem2, { grow: false, shrink: false, children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiTitle2, { size: "xs", children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("h1", { children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("strong", { children: "Vectara React-Search" }) }) }) })
+          left: /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)(VuiFlexContainer, { spacing: "m", alignItems: "center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiFlexItem, { grow: false, shrink: false, children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(HeaderLogo, {}) }),
+            /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiFlexItem, { grow: false, shrink: false, children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiTitle, { size: "xs", children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("h1", { children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("strong", { children: "Vectara React-Search" }) }) }) })
           ] }),
           right: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(
             VuiIconButton,
@@ -40874,12 +41911,12 @@ export const App = () => (
         }
       ),
       /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiAppLayout, { children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiAppContent, { className: "appExampleContent", padding: "xl", children: /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)("div", { className: "content", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiTitle2, { size: "l", children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("h1", { children: "Vectara React-Search" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiTitle, { size: "l", children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("h1", { children: "Vectara React-Search" }) }),
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "m" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiText2, { children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("p", { children: "React-Search adds a Vectara-powered semantic search UI to your React applications with a few lines of code." }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiText, { children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("p", { children: "React-Search adds a Vectara-powered semantic search UI to your React applications with a few lines of code." }) }),
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "m" }),
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("div", { className: "reactSearchContainer", children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(
-          ReactSearch,
+          Zi,
           {
             corpusId: corpusId === "" ? DEFAULT_CORPUS_ID : corpusId,
             customerId: customerId === "" ? DEFAULT_CUSTOMER_ID : customerId,
@@ -40892,9 +41929,9 @@ export const App = () => (
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "m" }),
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiButtonSecondary, { color: "primary", onClick: () => setIsConfigurationDrawerOpen(true), children: "Edit configuration" }),
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "xxl" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiTitle2, { size: "m", children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("h2", { children: "Use it in your code" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiTitle, { size: "m", children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("h2", { children: "Use it in your code" }) }),
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "m" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiText2, { children: /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)("p", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiText, { children: /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)("p", { children: [
           "For help,",
           " ",
           /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiLink, { isAnchor: true, href: "https://github.com/vectara/react-search", children: "read the docs." })
@@ -40904,15 +41941,15 @@ export const App = () => (
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "s" }),
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiCode, { language: "tsx", children: generateCodeSnippet(customerId, corpusId, apiKey, placeholder, isDeeplinkable, openResultsInNewTab) }),
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "xxl" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiTitle2, { size: "m", children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("h2", { children: "Create your own view" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiTitle, { size: "m", children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("h2", { children: "Create your own view" }) }),
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "m" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)(VuiText2, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)(VuiText, { children: [
           /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("p", { children: "React-Search also exposes a useSearch hook that sends and receives data to/from the search API. This is perfect for creating your own components that are powered by Vectara's search functionality." }),
           /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("p", { children: "Check out the example below." })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "s" }),
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiCode, { language: "tsx", children: `
-import { useSearch } from "@vectara/react-search/lib";
+import { useSearch } from "@vectara/react-search/lib/useSearch";
 
 export const App = () => {
   const { fetchSearchResults, isLoading } = useSearch(
@@ -40926,7 +41963,7 @@ export const App = () => {
 };
 ` }),
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "m" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)(VuiText2, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)(VuiText, { children: [
           /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("p", {}),
           /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("p", { children: "The hook returns:" }),
           /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)("ul", { children: [
@@ -40935,7 +41972,7 @@ export const App = () => {
           ] })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "m" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)(VuiText2, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)(VuiText, { children: [
           "For more details, including return value types,",
           " ",
           /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiLink, { isAnchor: true, href: "https://github.com/vectara/react-search", children: "read the docs." })
@@ -41130,4 +42167,3 @@ react-router-dom/dist/index.js:
    * @license MIT
    *)
 */
-//# sourceMappingURL=script.js.map
