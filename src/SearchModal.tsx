@@ -18,7 +18,10 @@ export const SearchModal = forwardRef(({ onClose, isOpen, children }: Props, ref
   // Return focus on unmount.
   useEffect(() => {
     if (isOpen) {
-      returnFocusElRef.current = document.activeElement as HTMLElement;
+      // We have to be more specific when picking out the return focus element.
+      // This is because document.activeElement is now a custom element containing a shadow DOM
+      // In order to properly return focus, we key in on the actual button inside the shadow DOM.
+      returnFocusElRef.current = document.activeElement?.shadowRoot?.querySelector("button") as HTMLElement;
     } else {
       returnFocusElRef.current?.focus();
       returnFocusElRef.current = null;
