@@ -41,7 +41,7 @@ export const SearchModal = forwardRef(({ onClose, isOpen, children }: Props, ref
               onEscapeKey={onCloseDelayed}
               onClickOutside={onCloseDelayed}
               // Enable manual focus return to work.
-              returnFocus={true}
+              returnFocus={false}
               // Enable focus on contents when it's open,
               // but enable manual focus return to work when it's closed.
               autoFocus={isOpen}
@@ -131,8 +131,6 @@ class SearchModalContentsWebComponent extends HTMLElement {
   }
 
   public connectedCallback() {
-    const onCloseDelayed = this.onCloseDelayed;
-    const isOpen = this.getAttribute("isOpen") === "true";
     const children = this.reactChildren;
     const ref = this.ref;
 

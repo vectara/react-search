@@ -306,7 +306,10 @@ class ReactSearchWebComponent extends HTMLElement {
   historySize?: number;
 
   static get observedAttributes() {
-    return ["customerid", "corpusid", "apikey", "placeholder", "isDeepLinkable", "openResultsInNewTab"];
+    // All of these are observed as lower-cased, because HTML tag attributes are implicitly converted to be lower-cased.
+    // We avoid extra work by passing props to this web component as they come in, i.e. customerId,
+    // but in order to properly observe them, we need to use their final lower-cased form.
+    return ["customerid", "corpusid", "apikey", "placeholder", "isdeeplinkable", "openresultsinnewtab"];
   }
 
   constructor() {
@@ -335,8 +338,8 @@ class ReactSearchWebComponent extends HTMLElement {
     const corpusId = this.getAttribute("corpusId") ?? "";
     const apiKey = this.getAttribute("apiKey") ?? "";
     const placeholder = this.getAttribute("placeholder") ?? undefined;
-    const isDeepLinkable = this.getAttribute("isDeeplinkable") === "true";
-    const openResultsInNewTab = this.getAttribute("openResultsInNewTab") === "true";
+    const isDeepLinkable = this.getAttribute("isdeeplinkable") === "true";
+    const openResultsInNewTab = this.getAttribute("openresultsinnewtab") === "true";
 
     ReactDOM.render(
       <>
