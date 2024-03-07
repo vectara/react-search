@@ -12,6 +12,7 @@ type Props = {
 export const SearchInput = ({ value, onChange, placeholder, autoFocus, onSubmit, ...rest }: Props) => {
   return (
     <input
+      data-testid="searchInput"
       className="vrsSearchInput"
       type="text"
       autoComplete="off"

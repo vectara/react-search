@@ -8,9 +8,9 @@
   "scripts": {
     "build": "npm run clean && node build.js && tsc --emitDeclarationOnly --outDir lib",
     "buildDocs": "node docs/build.js",
-    "docs": "node docs/docsServer.js",
     "clean": "rimraf lib",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "docs": "npm install && npm run build && npm install --prefix docs && npm run docs --prefix docs"
   },
   "author": {
     "name": "Vectara, Inc.",
@@ -36,7 +36,8 @@
     "classnames": "^2.3.2",
     "lodash": "^4.17.21",
     "prismjs": "^1.29.0",
-    "react-focus-on": "^3.9.1"
+    "react-focus-on": "^3.9.1",
+    "shadow-dom-testing-library": "^1.11.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.2.0",
