@@ -359,6 +359,10 @@ class ReactSearchWebComponent extends HTMLElement {
   attributeChangedCallback() {
     this.connectedCallback();
   }
+
+  disconnectedCallback() {
+    ReactDOM.unmountComponentAtNode(this.mountPoint);
+  }
 }
 
 window.customElements.get("react-search") || window.customElements.define("react-search", ReactSearchWebComponent);
