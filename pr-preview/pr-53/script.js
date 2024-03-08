@@ -30717,7 +30717,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
 
   // ../lib/index.js
   var import_react7 = __toESM(require_react());
-  var X = __toESM(require_react_dom());
+  var j = __toESM(require_react_dom());
   var import_uuid_by_string = __toESM(require_src());
   var import_classnames = __toESM(require_classnames());
   var import_jsx_runtime = __toESM(require_jsx_runtime());
@@ -32883,13 +32883,13 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   var import_react12 = __toESM(require_react());
   var import_jsx_runtime9 = __toESM(require_jsx_runtime());
   var import_jsx_runtime10 = __toESM(require_jsx_runtime());
-  var we = Object.defineProperty;
-  var Ce = Object.defineProperties;
+  var Ce = Object.defineProperty;
+  var we = Object.defineProperties;
   var Fe = Object.getOwnPropertyDescriptors;
   var z = Object.getOwnPropertySymbols;
   var ie = Object.prototype.hasOwnProperty;
   var ne = Object.prototype.propertyIsEnumerable;
-  var te = (t, e, i) => e in t ? we(t, e, { enumerable: true, configurable: true, writable: true, value: i }) : t[e] = i;
+  var te = (t, e, i) => e in t ? Ce(t, e, { enumerable: true, configurable: true, writable: true, value: i }) : t[e] = i;
   var v = (t, e) => {
     for (var i in e || (e = {}))
       ie.call(e, i) && te(t, i, e[i]);
@@ -32898,7 +32898,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         ne.call(e, i) && te(t, i, e[i]);
     return t;
   };
-  var T = (t, e) => Ce(t, Fe(e));
+  var T = (t, e) => we(t, Fe(e));
   var S = (t, e) => {
     var i = {};
     for (var n in t)
@@ -32939,20 +32939,20 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     let m = e === false, b = i === false, f = (0, import_classnames2.default)("vuiFlexItem", `vuiFlexItem--${n}`, Me[o], { [`vuiFlexItem--flexGrow${e}`]: typeof e == "number", "vuiFlexItem--flexGrowNone": m, [`vuiFlexItem--flexShrink${i}`]: typeof i == "number", "vuiFlexItem--flexShrinkNone": b, "vuiFlexItem--truncate": u }, r);
     return (0, import_jsx_runtime2.jsx)("div", T(v({ className: f }, a), { children: t }));
   };
-  var H = ({ children: t }) => {
+  var O = ({ children: t }) => {
     let e = (0, import_react8.useRef)(null);
     return (0, import_react8.useEffect)(() => (e.current = document.createElement("div"), document.body.appendChild(e.current), () => {
       var i, n;
       (n = (i = e.current) == null ? void 0 : i.parentNode) == null || n.removeChild(e.current);
     }), []), e.current ? (0, import_react_dom.createPortal)(t, e.current) : null;
   };
-  var V = ({ onClick: t, children: e }) => (0, import_jsx_runtime3.jsxs)("div", { className: "vuiScreenBlock", children: [e, (0, import_jsx_runtime3.jsx)("div", { className: "vuiScreenBlock__mask", onClick: t })] });
+  var H = ({ onClick: t, children: e }) => (0, import_jsx_runtime3.jsxs)("div", { className: "vuiScreenBlock", children: [e, (0, import_jsx_runtime3.jsx)("div", { className: "vuiScreenBlock__mask", onClick: t })] });
   var je = { xs: "vuiSpinner--xs", s: "vuiSpinner--s", m: "vuiSpinner--m", l: "vuiSpinner--l", xl: "vuiSpinner--xl", xxl: "vuiSpinner--xxl", xxxl: "vuiSpinner--xxxl" };
-  var q = ({ size: t = "m" }) => {
+  var V = ({ size: t = "m" }) => {
     let e = (0, import_classnames3.default)("vuiSpinner", je[t]);
     return (0, import_jsx_runtime4.jsx)("div", { className: e, children: (0, import_jsx_runtime4.jsxs)("svg", { className: "vuiSpinner__animation", version: "1.0", width: "100px", height: "100px", viewBox: "0 0 128 128", xmlSpace: "preserve", children: [(0, import_jsx_runtime4.jsxs)("g", { children: [(0, import_jsx_runtime4.jsx)("path", { fill: "#d7c3fc", d: "M99.359,10.919a60.763,60.763,0,1,0,0,106.162A63.751,63.751,0,1,1,99.359,10.919Z" }), (0, import_jsx_runtime4.jsx)("animateTransform", { attributeName: "transform", type: "rotate", from: "0 64 64", to: "360 64 64", dur: "960ms", repeatCount: "indefinite" })] }), (0, import_jsx_runtime4.jsxs)("g", { children: [(0, import_jsx_runtime4.jsx)("path", { fill: "#ab81fa", d: "M28.641,117.081a60.763,60.763,0,1,0,0-106.162A63.751,63.751,0,1,1,28.641,117.081Z" }), (0, import_jsx_runtime4.jsx)("animateTransform", { attributeName: "transform", type: "rotate", from: "0 64 64", to: "360 64 64", dur: "1440ms", repeatCount: "indefinite" })] }), (0, import_jsx_runtime4.jsxs)("g", { children: [(0, import_jsx_runtime4.jsx)("path", { fill: "#7027f6", d: "M117.081,99.313a60.763,60.763,0,1,0-106.162,0A63.751,63.751,0,1,1,117.081,99.313Z" }), (0, import_jsx_runtime4.jsx)("animateTransform", { attributeName: "transform", type: "rotate", from: "0 64 64", to: "360 64 64", dur: "2880ms", repeatCount: "indefinite" })] })] }) });
   };
-  var U = (a) => {
+  var q = (a) => {
     var c = a, { children: t, className: e, id: i, truncate: n, size: o = "s", align: r } = c, u = S(c, ["children", "className", "id", "truncate", "size", "align"]);
     let s = (0, import_classnames4.default)("vuiText", `vuiText--${o}`, { [`vuiText--${r}`]: r, "vuiText--truncate": n }, e);
     return (0, import_jsx_runtime5.jsx)("div", T(v({ className: s, id: i }, u), { children: t }));
@@ -32964,12 +32964,12 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
       return s.append("customer-id", t), s.append("x-api-key", i), s.append("content-type", "application/json"), s.append("x-source", "react-search"), s;
     }, [t, i]), a = (0, import_react10.useCallback)((s) => JSON.stringify({ query: [{ query: s, start: 0, numResults: 20, corpusKey: [{ corpusId: e }] }] }), [e]);
     return { fetchSearchResults: (s) => L(void 0, null, function* () {
-      var d, C;
+      var d, w;
       r(true);
       let m = a(s), f = yield (yield fetch(n, { headers: u, body: m, method: "POST" })).json();
       r(false);
-      let w = (C = Ke((d = f.responseSet) == null ? void 0 : d[0])) != null ? C : [];
-      return Ze(w);
+      let C = (w = Ke((d = f.responseSet) == null ? void 0 : d[0])) != null ? w : [];
+      return Ze(C);
     }), isLoading: o };
   };
   var Ue = (t) => {
@@ -32987,8 +32987,8 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
       return;
     let e = [], { response: i, document: n } = t;
     return i.forEach((o) => {
-      let { documentIndex: r, text: u } = o, { pre: a, post: c, text: s } = We(u), m = n[Number(r)], { id: b, metadata: f } = m, { source: w, url: d, title: C, metadata: A } = $e(f);
-      e.push({ id: b, snippet: { pre: a, text: s, post: c }, source: w, url: d, title: C, metadata: A });
+      let { documentIndex: r, text: u } = o, { pre: a, post: c, text: s } = We(u), m = n[Number(r)], { id: b, metadata: f } = m, { source: C, url: d, title: w, metadata: X } = $e(f);
+      e.push({ id: b, snippet: { pre: a, text: s, post: c }, source: C, url: d, title: w, metadata: X });
     }), e;
   };
   var re = "%START_SNIPPET%";
@@ -33012,7 +33012,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     let { title: n, url: o, snippet: { text: r } } = t, u = (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [n && (0, import_jsx_runtime7.jsx)("p", { className: "vrsSearchResultTitle", children: n }), (0, import_jsx_runtime7.jsx)("p", { className: "vrsSearchResultSnippet", children: r })] });
     return o ? (0, import_jsx_runtime7.jsx)("a", { "data-testid": "vrsResultLink", className: `vrsSearchResult vrsSearchResult-isLink ${e ? "isSelected" : ""}`, href: o, target: i ? "_blank" : "_self", children: u }) : (0, import_jsx_runtime7.jsx)("div", { "data-testid": "vrsResultWrapper", className: "vrsSearchResult", children: u });
   };
-  var $ = `.vuiFlexContainer {
+  var U = `.vuiFlexContainer {
   display: flex;
   align-items: stretch;
 }
@@ -33866,10 +33866,10 @@ fieldset {
         t();
       }, 0);
     };
-    return (0, import_jsx_runtime8.jsx)(H, { children: (0, import_jsx_runtime8.jsx)("div", { className: "vrsStyleWrapper", children: e && (0, import_jsx_runtime8.jsx)(V, { children: (0, import_jsx_runtime8.jsx)(FocusOn2, { onEscapeKey: r, onClickOutside: r, returnFocus: false, autoFocus: e, children: (0, import_jsx_runtime8.jsx)(it, { ref: n, children: i }) }) }) }) });
+    return (0, import_jsx_runtime8.jsx)(O, { children: (0, import_jsx_runtime8.jsx)("div", { className: "vrsStyleWrapper", children: e && (0, import_jsx_runtime8.jsx)(H, { children: (0, import_jsx_runtime8.jsx)(FocusOn2, { onEscapeKey: r, onClickOutside: r, returnFocus: false, autoFocus: e, children: (0, import_jsx_runtime8.jsx)(it, { ref: n, children: i }) }) }) }) });
   });
   var tt = ({ ref: t, children: e }) => (0, import_jsx_runtime8.jsx)("div", { className: "vrsSearchModalContainer", children: (0, import_jsx_runtime8.jsx)("div", { ref: t, className: "vrsSearchModal", children: e }) });
-  var K = class extends HTMLElement {
+  var $ = class extends HTMLElement {
     static get observedAttributes() {
       return ["isopen", "onclosedelayedupdatetime", "reactchildrenupdatetime", "refupdatetime"];
     }
@@ -33885,10 +33885,10 @@ fieldset {
     constructor() {
       super(), this.sr = this.attachShadow({ mode: "open" });
       try {
-        this.sheet = new CSSStyleSheet(), this.sheet.replaceSync($), this.sr.adoptedStyleSheets = [this.sheet];
+        this.sheet = new CSSStyleSheet(), this.sheet.replaceSync(U), this.sr.adoptedStyleSheets = [this.sheet];
       } catch (e) {
         let i = document.createElement("style");
-        i.innerText = $, this.sr.appendChild(i);
+        i.innerText = U, this.sr.appendChild(i);
       }
       this.mountPoint = document.createElement("div"), this.sr.appendChild(this.mountPoint);
     }
@@ -33900,7 +33900,7 @@ fieldset {
       this.connectedCallback();
     }
   };
-  window.customElements.get("react-search-modal-contents") || window.customElements.define("react-search-modal-contents", K);
+  window.customElements.get("react-search-modal-contents") || window.customElements.define("react-search-modal-contents", $);
   var it = (t) => {
     let e = (0, import_react11.useRef)(null);
     return (0, import_react11.useEffect)(() => {
@@ -33917,7 +33917,7 @@ fieldset {
     }, [i]);
     return { getPreviousSearches: n, addPreviousSearch: o };
   };
-  var Z = `.vuiFlexContainer {
+  var W = `.vuiFlexContainer {
   display: flex;
   align-items: stretch;
 }
@@ -35364,10 +35364,10 @@ button {
       return decodeURIComponent(i);
   };
   var ut = ({ customerId: t, apiKey: e, corpusId: i, apiUrl: n, historySize: o = 10, placeholder: r = "Search", isDeeplinkable: u = false, openResultsInNewTab: a = false }) => {
-    let c = (0, import_react7.useMemo)(() => (0, import_uuid_by_string.default)(`${t}-${i}-${e}`), [t, i, e]), { addPreviousSearch: s } = pe(c, o), { fetchSearchResults: m, isLoading: b } = le(t, i, e, n), [f, w] = (0, import_react7.useState)(null), [d, C] = (0, import_react7.useState)([]), [A, N] = (0, import_react7.useState)(false), [k, O] = (0, import_react7.useState)(""), he = (0, import_react7.useRef)(null), y = (0, import_react7.useRef)(null), Q = (0, import_react7.useRef)(0);
+    let c = (0, import_react7.useMemo)(() => (0, import_uuid_by_string.default)(`${t}-${i}-${e}`), [t, i, e]), { addPreviousSearch: s } = pe(c, o), { fetchSearchResults: m, isLoading: b } = le(t, i, e, n), [f, C] = (0, import_react7.useState)(null), [d, w] = (0, import_react7.useState)([]), [X, N] = (0, import_react7.useState)(false), [k, A] = (0, import_react7.useState)(""), he = (0, import_react7.useRef)(null), y = (0, import_react7.useRef)(null), Q = (0, import_react7.useRef)(0);
     (0, import_react7.useEffect)(() => {
       let x = new URLSearchParams(window.location.search), p = st(x, "search");
-      p && (N(true), O(p), E(p));
+      p && (N(true), A(p), E(p));
     }, []);
     let E = (x) => L(void 0, null, function* () {
       if (x.length === 0)
@@ -35378,7 +35378,7 @@ button {
       }
       s(x);
       let p = ++Q.current, h = yield m(x);
-      p === Q.current && (C(h), w(null), y.current = null);
+      p === Q.current && (w(h), C(null), y.current = null);
     });
     (0, import_react7.useEffect)(() => {
       let x = setTimeout(() => {
@@ -35388,14 +35388,14 @@ button {
     }, [k]);
     let ve = (x) => {
       let p = x.target.value;
-      O(p), p.length === 0 && Y();
+      A(p), p.length === 0 && Y();
     }, ge = (0, import_react7.useCallback)((x) => {
       let p = x.key;
-      p === "Enter" && (x.preventDefault(), f !== null ? window.open(d[f].url, a ? "_blank" : "_self") : E(k)), d.length !== 0 && (p === "ArrowDown" && w((h) => h === null || h === d.length - 1 ? 0 : h + 1), p === "ArrowUp" && w((h) => h === null || h === 0 ? d.length - 1 : h - 1));
+      p === "Enter" && (x.preventDefault(), f !== null ? window.open(d[f].url, a ? "_blank" : "_self") : E(k)), d.length !== 0 && (p === "ArrowDown" && C((h) => h === null || h === d.length - 1 ? 0 : h + 1), p === "ArrowUp" && C((h) => h === null || h === 0 ? d.length - 1 : h - 1));
     }, [d, f]), Y = () => {
-      C([]), w(null), y.current = null;
+      w([]), C(null), y.current = null;
     }, Se = () => {
-      if (N(false), O(""), Y(), u) {
+      if (N(false), A(""), Y(), u) {
         let x = new URLSearchParams(window.location.search);
         x.delete("search"), history.replaceState(null, "", "?" + x.toString());
       }
@@ -35410,9 +35410,9 @@ button {
         p.key === "k" && p.ctrlKey && N(true);
       };
       return document.addEventListener("keyup", x), () => {
-        console.log("### Cleaned up key handlers"), document.removeEventListener("keyup", x);
+        document.removeEventListener("keyup", x);
       };
-    }, []), (0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: (0, import_jsx_runtime10.jsxs)("div", { className: "vrsStyleWrapper", children: [(0, import_jsx_runtime10.jsx)("div", { ref: he, children: (0, import_jsx_runtime10.jsx)("button", { className: "vrsSearchButton", onClick: () => N(true), children: (0, import_jsx_runtime10.jsxs)(P, { alignItems: "center", spacing: "none", justifyContent: "spaceBetween", className: "vrsSearchButton__inner", children: [(0, import_jsx_runtime10.jsx)(R, { children: (0, import_jsx_runtime10.jsxs)(P, { alignItems: "center", spacing: "xs", children: [(0, import_jsx_runtime10.jsx)(R, { children: (0, import_jsx_runtime10.jsx)(de, {}) }), (0, import_jsx_runtime10.jsx)(R, { children: (0, import_jsx_runtime10.jsx)(U, { children: (0, import_jsx_runtime10.jsx)("div", { children: "Search" }) }) })] }) }), (0, import_jsx_runtime10.jsx)("div", { className: "vrsSearchButtonShortcut", children: "Ctrl + K" })] }) }) }), (0, import_jsx_runtime10.jsxs)(xe, { isOpen: A, onClose: Se, children: [(0, import_jsx_runtime10.jsx)("form", { children: (0, import_jsx_runtime10.jsxs)("div", { className: "vrsSearchForm", children: [(0, import_jsx_runtime10.jsx)(me, { value: k, onChange: ve, onKeyDown: ge, placeholder: r }), b ? (0, import_jsx_runtime10.jsx)("div", { className: "vrsSubmitButtonWrapper", children: (0, import_jsx_runtime10.jsx)(q, { size: "xs" }) }) : (0, import_jsx_runtime10.jsx)("div", { className: "vrsSubmitButtonWrapper", children: (0, import_jsx_runtime10.jsx)("button", { className: "vrsSubmitButton", onClick: (x) => {
+    }, []), (0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: (0, import_jsx_runtime10.jsxs)("div", { className: "vrsStyleWrapper", children: [(0, import_jsx_runtime10.jsx)("div", { ref: he, children: (0, import_jsx_runtime10.jsx)("button", { className: "vrsSearchButton", onClick: () => N(true), children: (0, import_jsx_runtime10.jsxs)(P, { alignItems: "center", spacing: "none", justifyContent: "spaceBetween", className: "vrsSearchButton__inner", children: [(0, import_jsx_runtime10.jsx)(R, { children: (0, import_jsx_runtime10.jsxs)(P, { alignItems: "center", spacing: "xs", children: [(0, import_jsx_runtime10.jsx)(R, { children: (0, import_jsx_runtime10.jsx)(de, {}) }), (0, import_jsx_runtime10.jsx)(R, { children: (0, import_jsx_runtime10.jsx)(q, { children: (0, import_jsx_runtime10.jsx)("div", { children: "Search" }) }) })] }) }), (0, import_jsx_runtime10.jsx)("div", { className: "vrsSearchButtonShortcut", children: "Ctrl + K" })] }) }) }), (0, import_jsx_runtime10.jsxs)(xe, { isOpen: X, onClose: Se, children: [(0, import_jsx_runtime10.jsx)("form", { children: (0, import_jsx_runtime10.jsxs)("div", { className: "vrsSearchForm", children: [(0, import_jsx_runtime10.jsx)(me, { value: k, onChange: ve, onKeyDown: ge, placeholder: r }), b ? (0, import_jsx_runtime10.jsx)("div", { className: "vrsSubmitButtonWrapper", children: (0, import_jsx_runtime10.jsx)(V, { size: "xs" }) }) : (0, import_jsx_runtime10.jsx)("div", { className: "vrsSubmitButtonWrapper", children: (0, import_jsx_runtime10.jsx)("button", { className: "vrsSubmitButton", onClick: (x) => {
       x.preventDefault(), E(k);
     }, children: (0, import_jsx_runtime10.jsx)(de, {}) }) })] }) }), ee && (0, import_jsx_runtime10.jsx)("div", { className: "vrsSearchModalResults", children: ee })] })] }) });
   };
@@ -35424,30 +35424,27 @@ button {
     constructor() {
       super(), this.sr = this.attachShadow({ mode: "open" });
       try {
-        this.sheet = new CSSStyleSheet(), this.sheet.replaceSync(Z), this.sr.adoptedStyleSheets = [this.sheet];
+        this.sheet = new CSSStyleSheet(), this.sheet.replaceSync(W), this.sr.adoptedStyleSheets = [this.sheet];
       } catch (e) {
         let i = document.createElement("style");
-        i.innerText = Z, this.sr.appendChild(i);
+        i.innerText = W, this.sr.appendChild(i);
       }
       this.mountPoint = document.createElement("div"), this.sr.appendChild(this.mountPoint);
     }
     connectedCallback() {
       var a, c, s, m;
       let e = (a = this.getAttribute("customerId")) != null ? a : "", i = (c = this.getAttribute("corpusId")) != null ? c : "", n = (s = this.getAttribute("apiKey")) != null ? s : "", o = (m = this.getAttribute("placeholder")) != null ? m : void 0, r = this.getAttribute("isdeeplinkable") === "true", u = this.getAttribute("openresultsinnewtab") === "true";
-      X.render((0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: (0, import_jsx_runtime10.jsx)(ut, { customerId: e, corpusId: i, apiKey: n, placeholder: o, isDeeplinkable: r, openResultsInNewTab: u }) }), this.mountPoint);
+      j.render((0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: (0, import_jsx_runtime10.jsx)(ut, { customerId: e, corpusId: i, apiKey: n, placeholder: o, isDeeplinkable: r, openResultsInNewTab: u }) }), this.mountPoint);
     }
     attributeChangedCallback() {
       this.connectedCallback();
     }
     disconnectedCallback() {
-      X.unmountComponentAtNode(this.mountPoint), console.log("### Unmounted web component");
+      j.unmountComponentAtNode(this.mountPoint);
     }
   };
   window.customElements.get("react-search") || window.customElements.define("react-search", J);
-  var Zi = (t) => {
-    let e = (0, import_react7.useRef)(Math.random());
-    return console.log("### Rendered ReactSearch wrapper component with ID: ", e.current), (0, import_jsx_runtime10.jsx)("react-search", v({}, t));
-  };
+  var Zi = (t) => (0, import_jsx_runtime10.jsx)("react-search", v({}, t));
 
   // src/ui/components/flex/FlexContainer.tsx
   var import_classnames7 = __toESM(require_classnames());
@@ -41877,7 +41874,6 @@ export const App = () => (
     const [placeholder, setPlaceholder] = (0, import_react46.useState)(DEFAULT_PLACEHOLDER);
     const [isDeeplinkable, setIsDeeplinkable] = (0, import_react46.useState)(false);
     const [openResultsInNewTab, setOpenResultsInNewTab] = (0, import_react46.useState)(false);
-    const [isSearchVisible, setIsSearchVisible] = (0, import_react46.useState)(true);
     const onUpdateCorpusId = (0, import_react46.useCallback)((e) => {
       setCorpusId(e.target.value);
     }, []);
@@ -41922,7 +41918,7 @@ export const App = () => (
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "m" }),
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiText, { children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("p", { children: "React-Search adds a Vectara-powered semantic search UI to your React applications with a few lines of code." }) }),
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "m" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("div", { className: "reactSearchContainer", children: isSearchVisible && /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(import_jsx_runtime91.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("div", { className: "reactSearchContainer", children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(
           Zi,
           {
             corpusId: corpusId === "" ? DEFAULT_CORPUS_ID : corpusId,
@@ -41932,23 +41928,9 @@ export const App = () => (
             isDeeplinkable,
             openResultsInNewTab
           }
-        ) }) }),
+        ) }),
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "m" }),
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiButtonSecondary, { color: "primary", onClick: () => setIsConfigurationDrawerOpen(true), children: "Edit configuration" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "s" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiButtonSecondary, { color: "primary", onClick: () => setIsSearchVisible(!isSearchVisible), children: "Toggle Search Button" }),
-          /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiText, { size: "xs", children: "Toggle this to test unmounting the Search component. If it did:" }),
-          /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)("ul", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)(VuiText, { size: "xs", children: [
-              "- Ctrl-k should ",
-              /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("strong", { children: "not" }),
-              " open modal"
-            ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiText, { size: "xs", children: '- Console should log "### Unmounted web component" (triggered from web component disconnectedCallback)' }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiText, { size: "xs", children: '- Console should log "### Cleaned up key handlers" (triggered from ReactSearchInternal)' }) })
-          ] })
-        ] }),
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "xxl" }),
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiTitle, { size: "m", children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("h2", { children: "Use it in your code" }) }),
         /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "m" }),
