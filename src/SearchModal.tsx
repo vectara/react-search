@@ -10,53 +10,58 @@ type Props = {
   onClose: () => void;
   isOpen?: boolean;
   children?: ReactNode[];
+  zIndex: number;
 };
 
-export const SearchModal = forwardRef(({ onClose, isOpen, children }: Props, ref: ForwardedRef<HTMLDivElement>) => {
-  const returnFocusElRef = useRef<HTMLElement | null>(null);
+export const SearchModal = forwardRef(
+  ({ onClose, isOpen, children, zIndex }: Props, ref: ForwardedRef<HTMLDivElement>) => {
+    const returnFocusElRef = useRef<HTMLElement | null>(null);
 
-  // Return focus on unmount.
-  useEffect(() => {
-    if (isOpen) {
-      // We have to be more specific when picking out the return focus element.
-      // This is because document.activeElement is now a custom element containing a shadow DOM
-      // In order to properly return focus, we key in on the actual button inside the shadow DOM.
-      returnFocusElRef.current = document.activeElement?.shadowRoot?.querySelector("button") as HTMLElement;
-    } else {
-      returnFocusElRef.current?.focus();
-      returnFocusElRef.current = null;
-    }
-  }, [isOpen]);
+    // Return focus on unmount.
+    useEffect(() => {
+      if (isOpen) {
+        // We have to be more specific when picking out the return focus element.
+        // This is because document.activeElement is now a custom element containing a shadow DOM
+        // In order to properly return focus, we key in on the actual button inside the shadow DOM.
+        returnFocusElRef.current = document.activeElement?.shadowRoot?.querySelector("button") as HTMLElement;
+      } else {
+        returnFocusElRef.current?.focus();
+        returnFocusElRef.current = null;
+      }
+    }, [isOpen]);
 
-  // Allow contents to respond to blur events before unmounting.
-  const onCloseDelayed = () => {
-    window.setTimeout(() => {
-      onClose();
-    }, 0);
-  };
+    // Allow contents to respond to blur events before unmounting.
+    const onCloseDelayed = () => {
+      window.setTimeout(() => {
+        onClose();
+      }, 0);
+    };
 
-  return (
-    <VuiPortal>
-      <div className="vrsStyleWrapper">
-        {isOpen && (
-          <VuiScreenBlock>
-            <FocusOn
-              onEscapeKey={onCloseDelayed}
-              onClickOutside={onCloseDelayed}
-              // Enable manual focus return to work.
-              returnFocus={false}
-              // Enable focus on contents when it's open,
-              // but enable manual focus return to work when it's closed.
-              autoFocus={isOpen}
-            >
-              <SearchModalContents ref={ref}>{children}</SearchModalContents>
-            </FocusOn>
-          </VuiScreenBlock>
-        )}
-      </div>
-    </VuiPortal>
-  );
-});
+    return (
+      <VuiPortal>
+        <div className="vrsStyleWrapper">
+          {isOpen && (
+            <div style={{ zIndex }}>
+              <VuiScreenBlock>
+                <FocusOn
+                  onEscapeKey={onCloseDelayed}
+                  onClickOutside={onCloseDelayed}
+                  // Enable manual focus return to work.
+                  returnFocus={false}
+                  // Enable focus on contents when it's open,
+                  // but enable manual focus return to work when it's closed.
+                  autoFocus={isOpen}
+                >
+                  <SearchModalContents ref={ref}>{children}</SearchModalContents>
+                </FocusOn>
+              </VuiScreenBlock>
+            </div>
+          )}
+        </div>
+      </VuiPortal>
+    );
+  }
+);
 
 interface SearchModalContentsProps {
   children: ReactNode;

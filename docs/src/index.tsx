@@ -58,12 +58,14 @@ const generateCodeSnippet = (
     props.push(`openResultsInNewTab={${openResultsInNewTab}}`);
   }
 
+  props.push(`zIndex={ /* (optional) number representing the z-index the search modal should have */ }`);
+
   return `import { ReactSearch } from "@vectara/react-search";
 
 export const App = () => (
   <div>
     <ReactSearch
-      ${props.join("\n        ")}
+      ${props.join("\n      ")}
     />
   </div>
 );`;

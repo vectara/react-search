@@ -23,6 +23,9 @@ export interface Props {
 
   // Whether to open selected results in a new browser tab.
   openResultsInNewTab?: boolean;
+
+  // Used to control the search modal's z-index. Defaults to 9999.
+  zIndex?: number;
 }
 
 export type DeserializedSearchResult = {
