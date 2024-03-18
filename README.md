@@ -54,8 +54,10 @@ import { ReactSearch } from "@vectara/react-search";
   customerId="CUSTOMER_ID"
   corpusId="CORPUS_ID"
   apiKey="API_KEY"
-  placeholder="Search for anything"
-  isDeeplinkable
+  placeholder={ /* (optional) string to be used as search input placeholder */ }
+  isDeeplinkable={ /* (optional) boolean indicating if search can be deeplinked */ }
+  openResultsInNewTab={ /* (optional) boolean indicating if links should open in a new tab */ }
+  zIndex={ /* (optional) number representing the z-index the search modal should have */ }
 />;
 ```
 
@@ -88,6 +90,10 @@ Defaults to `false`. Set this option if you want to persist a search query to a 
 ##### `openResultsInNewTab` (optional)
 
 Defaults to `false`. Set this option if you want a search result to open in a new tab.
+
+##### `zIndex` (optional)
+
+Customize the z-index of the search modal
 
 ### Power your own search UI with the useSearch hook
 

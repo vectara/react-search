@@ -39,7 +39,8 @@ const ReactSearchInternal: FC<Props> = ({
   historySize = 10,
   placeholder = "Search",
   isDeeplinkable = false,
-  openResultsInNewTab = false
+  openResultsInNewTab = false,
+  zIndex = 9999
 }) => {
   // Compute a unique ID for this search component.
   // This creates a namespace, and ensures that stored search results
@@ -234,7 +235,7 @@ const ReactSearchInternal: FC<Props> = ({
             </VuiFlexContainer>
           </button>
         </div>
-        <SearchModal isOpen={isOpen} onClose={closeModalAndResetResults}>
+        <SearchModal isOpen={isOpen} onClose={closeModalAndResetResults} zIndex={zIndex}>
           <form>
             <div className="vrsSearchForm">
               <div className="vrsCloseButtonWrapper">
@@ -333,7 +334,7 @@ class ReactSearchWebComponent extends HTMLElement {
     // All of these are observed as lower-cased, because HTML tag attributes are implicitly converted to be lower-cased.
     // We avoid extra work by passing props to this web component as they come in, i.e. customerId,
     // but in order to properly observe them, we need to use their final lower-cased form.
-    return ["customerid", "corpusid", "apikey", "placeholder", "isdeeplinkable", "openresultsinnewtab"];
+    return ["customerid", "corpusid", "apikey", "placeholder", "isdeeplinkable", "openresultsinnewtab", "zindex"];
   }
 
   constructor() {
@@ -364,6 +365,7 @@ class ReactSearchWebComponent extends HTMLElement {
     const placeholder = this.getAttribute("placeholder") ?? undefined;
     const isDeepLinkable = this.getAttribute("isdeeplinkable") === "true";
     const openResultsInNewTab = this.getAttribute("openresultsinnewtab") === "true";
+    const zIndex = this.getAttribute("zIndex") !== null ? parseInt(this.getAttribute("zIndex")!) : undefined;
 
     ReactDOM.render(
       <>
@@ -374,6 +376,7 @@ class ReactSearchWebComponent extends HTMLElement {
           placeholder={placeholder}
           isDeeplinkable={isDeepLinkable}
           openResultsInNewTab={openResultsInNewTab}
+          zIndex={zIndex}
         />
       </>,
       this.mountPoint
