@@ -1,0 +1,7 @@
+@import "./vui/styleUtils/_colors";
+@import "./vui/styleUtils/_depth";
+@import "./vui/components/screenBlock/index";
+
+.vrsModalWrapper {
+  position: fixed;
+}

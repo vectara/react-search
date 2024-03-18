@@ -19,6 +19,7 @@ import { useSearchHistory } from "./useSearchHistory";
 
 // @ts-ignore
 import cssText from "./_index.scss";
+import "./globals.scss";
 
 import { SearchInput } from "./SearchInput";
 
@@ -208,7 +209,7 @@ const ReactSearchInternal: FC<Props> = ({
 
   return (
     <>
-      <div className="vrsStyleWrapper">
+      <div>
         <div ref={buttonRef}>
           <button className="vrsSearchButton" onClick={() => setIsOpen(true)}>
             <VuiFlexContainer
