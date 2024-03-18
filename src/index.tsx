@@ -240,6 +240,7 @@ const ReactSearchInternal: FC<Props> = ({
               <div className="vrsCloseButtonWrapper">
                 <button
                   className="vrsSubmitButton"
+                  aria-label="Close"
                   onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                     e.preventDefault();
                     closeModalAndResetResults();
