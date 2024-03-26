@@ -17,7 +17,14 @@ const sharedConfig = {
 
   // css-text outputs CSS as a string which can be embedded as a stylesheet in a web component
   // See for more info: https://github.com/glromeo/esbuild-sass-plugin?tab=readme-ov-file#type-css-text
-  plugins: [cssPlugin(), sassPlugin({ type: "css-text" })],
+  plugins: [
+    cssPlugin(),
+    sassPlugin({
+      filter: /globals\.scss$/,
+      type: "style"
+    }),
+    sassPlugin({ type: "css-text" })
+  ],
   outdir: "./lib",
   outbase: "./src"
 };

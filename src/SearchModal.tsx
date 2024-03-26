@@ -39,25 +39,23 @@ export const SearchModal = forwardRef(
 
     return (
       <VuiPortal>
-        <div className="vrsStyleWrapper">
-          {isOpen && (
-            <div style={{ zIndex }}>
-              <VuiScreenBlock>
-                <FocusOn
-                  onEscapeKey={onCloseDelayed}
-                  onClickOutside={onCloseDelayed}
-                  // Enable manual focus return to work.
-                  returnFocus={false}
-                  // Enable focus on contents when it's open,
-                  // but enable manual focus return to work when it's closed.
-                  autoFocus={isOpen}
-                >
-                  <SearchModalContents ref={ref}>{children}</SearchModalContents>
-                </FocusOn>
-              </VuiScreenBlock>
-            </div>
-          )}
-        </div>
+        {isOpen && (
+          <div className="vrsModalWrapper" style={{ zIndex }}>
+            <VuiScreenBlock>
+              <FocusOn
+                onEscapeKey={onCloseDelayed}
+                onClickOutside={onCloseDelayed}
+                // Enable manual focus return to work.
+                returnFocus={false}
+                // Enable focus on contents when it's open,
+                // but enable manual focus return to work when it's closed.
+                autoFocus={isOpen}
+              >
+                <SearchModalContents ref={ref}>{children}</SearchModalContents>
+              </FocusOn>
+            </VuiScreenBlock>
+          </div>
+        )}
       </VuiPortal>
     );
   }
