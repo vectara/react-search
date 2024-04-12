@@ -54,10 +54,10 @@ import { ReactSearch } from "@vectara/react-search";
   customerId="CUSTOMER_ID"
   corpusId="CORPUS_ID"
   apiKey="API_KEY"
-  placeholder={ /* (optional) string to be used as search input placeholder */ }
-  isDeeplinkable={ /* (optional) boolean indicating if search can be deeplinked */ }
-  openResultsInNewTab={ /* (optional) boolean indicating if links should open in a new tab */ }
-  zIndex={ /* (optional) number representing the z-index the search modal should have */ }
+  placeholder="Placeholder" // Optional search input placeholder
+  isDeeplinkable={true} // Optional boolean determining if search results will be deeplinked
+  openResultsInNewTab={true} // Optional boolean determining if links will open in a new tab
+  zIndex={5} // Optional number assigned to the z-index of the search modal
 />;
 ```
 
@@ -189,3 +189,5 @@ Additionally, any changes to the development app source code at `/docs/index.tsx
 ## License
 
 Vectara React-Search is an open-sourced software licensed under the [Apache 2.0 license](/LICENSE).
+
+_This repository contains sample code that can help you build UIs powered by Vectara, and is licensed under the Apache 2.0 License. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License._
