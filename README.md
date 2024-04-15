@@ -45,7 +45,7 @@ npm install --save @vectara/react-search
 
 Then use it in your application like this:
 
-```js
+```jsx
 import { ReactSearch } from "@vectara/react-search";
 
 /* snip */
@@ -57,8 +57,8 @@ import { ReactSearch } from "@vectara/react-search";
   placeholder="Placeholder" // Optional search input placeholder
   isDeeplinkable={true} // Optional boolean determining if search results will be deeplinked
   openResultsInNewTab={true} // Optional boolean determining if links will open in a new tab
-  zIndex={5} // Optional number assigned to the z-index of the search modal
-/>;
+  zIndex={/* Optional number assigned to the z-index of the search modal */}
+/>
 ```
 
 #### <u>Configuration options</u>
