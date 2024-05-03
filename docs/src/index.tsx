@@ -21,6 +21,7 @@ import { HeaderLogo } from "./components/HeaderLogo";
 import { ConfigurationDrawer } from "components/ConfigurationDrawer";
 import "./ui/_index.scss";
 import "./index.scss";
+import { set } from "lodash";
 
 const generateCodeSnippet = (
   customerId?: string,
@@ -28,7 +29,9 @@ const generateCodeSnippet = (
   apiKey?: string,
   placeholder?: string,
   isDeepLinkable: boolean = false,
-  openResultsInNewTab: boolean = false
+  openResultsInNewTab: boolean = false,
+  isSummaryToggleVisible: boolean = false,
+  isSummaryToggleInitiallyEnabled: boolean = false
 ) => {
   let quotedPlaceholder = placeholder;
 
@@ -58,6 +61,14 @@ const generateCodeSnippet = (
     props.push(`openResultsInNewTab={${openResultsInNewTab}}`);
   }
 
+  if (isSummaryToggleVisible) {
+    props.push(`isSummaryToggleVisible={${isSummaryToggleVisible}}`);
+  }
+
+  if (isSummaryToggleInitiallyEnabled) {
+    props.push(`isSummaryToggleInitiallyEnabled={${isSummaryToggleInitiallyEnabled}}`);
+  }
+
   props.push(`zIndex={ /* (optional) number representing the z-index the search modal should have */ }`);
 
   return `import { ReactSearch } from "@vectara/react-search";
@@ -84,30 +95,8 @@ const App = () => {
   const [placeholder, setPlaceholder] = useState<string>(DEFAULT_PLACEHOLDER);
   const [isDeeplinkable, setIsDeeplinkable] = useState<boolean>(false);
   const [openResultsInNewTab, setOpenResultsInNewTab] = useState<boolean>(false);
-
-  const onUpdateCorpusId = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    setCorpusId(e.target.value);
-  }, []);
-
-  const onUpdateCustomerId = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    setCustomerId(e.target.value);
-  }, []);
-
-  const onUpdateApiKey = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    setApiKey(e.target.value);
-  }, []);
-
-  const onUpdatePlaceholder = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    setPlaceholder(e.target.value);
-  }, []);
-
-  const onUpdateIsDeeplinkable = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    setIsDeeplinkable(e.target.checked);
-  }, []);
-
-  const onUpdateOpenResultsInNewTab = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    setOpenResultsInNewTab(e.target.checked);
-  }, []);
+  const [isSummaryToggleVisible, setIsSummaryToggleVisible] = useState<boolean>(false);
+  const [isSummaryToggleInitiallyEnabled, setIsSummaryToggleInitiallyEnabled] = useState<boolean>(false);
 
   return (
     <>
@@ -173,6 +162,8 @@ const App = () => {
                 placeholder={placeholder}
                 isDeeplinkable={isDeeplinkable}
                 openResultsInNewTab={openResultsInNewTab}
+                isSummaryToggleVisible={isSummaryToggleVisible}
+                isSummaryToggleInitiallyEnabled={isSummaryToggleInitiallyEnabled}
               />
             </div>
 
@@ -268,17 +259,21 @@ export const App = () => {
               isOpen={isConfigurationDrawerOpen}
               setIsOpen={setIsConfigurationDrawerOpen}
               corpusId={corpusId}
-              onUpdateCorpusId={onUpdateCorpusId}
+              setCorpusId={setCorpusId}
               customerId={customerId}
-              onUpdateCustomerId={onUpdateCustomerId}
+              setCustomerId={setCustomerId}
               apiKey={apiKey}
-              onUpdateApiKey={onUpdateApiKey}
+              setApiKey={setApiKey}
               placeholder={placeholder}
-              onUpdatePlaceholder={onUpdatePlaceholder}
+              setPlaceholder={setPlaceholder}
               isDeeplinkable={isDeeplinkable}
-              onUpdateIsDeeplinkable={onUpdateIsDeeplinkable}
+              setIsDeeplinkable={setIsDeeplinkable}
               openResultsInNewTab={openResultsInNewTab}
-              onUpdateOpenResultsInNewTab={onUpdateOpenResultsInNewTab}
+              setOpenResultsInNewTab={setOpenResultsInNewTab}
+              isSummaryToggleVisible={isSummaryToggleVisible}
+              setIsSummaryToggleVisible={setIsSummaryToggleVisible}
+              isSummaryToggleInitiallyEnabled={isSummaryToggleInitiallyEnabled}
+              setIsSummaryToggleInitiallyEnabled={setIsSummaryToggleInitiallyEnabled}
             />
           </div>
         </VuiAppContent>

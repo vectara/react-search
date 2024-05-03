@@ -27,7 +27,7 @@ export const useSearch = (
   }, [customerId, apiKey]);
 
   const generateRequestBody = useCallback(
-    (query: string) => {
+    (query: string, summary: boolean) => {
       return JSON.stringify({
         query: [
           {
@@ -38,7 +38,15 @@ export const useSearch = (
               {
                 corpusId
               }
-            ]
+            ],
+            summary: summary
+              ? [
+                  {
+                    maxSummarizedResults: 5,
+                    responseLang: "eng"
+                  }
+                ]
+              : undefined
           }
         ]
       });
@@ -46,9 +54,15 @@ export const useSearch = (
     [corpusId]
   );
 
-  const fetchSearchResults = async (query: string): Promise<DeserializedSearchResult[]> => {
+  const fetchSearchResults = async (
+    query: string,
+    summary: boolean
+  ): Promise<{
+    searchResults: DeserializedSearchResult[];
+    summary?: string;
+  }> => {
     setIsLoading(true);
-    const requestBody = generateRequestBody(query);
+    const requestBody = generateRequestBody(query, summary);
     const response = await fetch(apiUrl, {
       headers,
       body: requestBody,
@@ -59,7 +73,10 @@ export const useSearch = (
 
     const results = deserializeSearchResponse(responseJson.responseSet?.[0]) ?? [];
 
-    return compileDedupedResults(results);
+    return {
+      searchResults: compileDedupedResults(results),
+      summary: responseJson.responseSet?.[0].summary?.[0]?.text
+    };
   };
 
   return { fetchSearchResults, isLoading };

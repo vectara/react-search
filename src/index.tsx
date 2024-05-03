@@ -1,6 +1,5 @@
 import {
   ChangeEvent,
-  FC,
   useCallback,
   useState,
   KeyboardEvent as ReactKeyboardEvent,
@@ -22,6 +21,7 @@ import cssText from "./_index.scss";
 import "./globals.scss";
 
 import { SearchInput } from "./SearchInput";
+import { SummaryContainer } from "SummaryContainer";
 
 const getQueryParam = (urlParams: URLSearchParams, key: string) => {
   const value = urlParams.get(key);
@@ -32,7 +32,7 @@ const getQueryParam = (urlParams: URLSearchParams, key: string) => {
 /**
  * A client-side search component that queries a specific corpus with a user-provided string.
  */
-const ReactSearchInternal: FC<Props> = ({
+const ReactSearchInternal = ({
   customerId,
   apiKey,
   corpusId,
@@ -41,8 +41,11 @@ const ReactSearchInternal: FC<Props> = ({
   placeholder = "Search",
   isDeeplinkable = false,
   openResultsInNewTab = false,
-  zIndex = 9999
-}) => {
+  zIndex = 9999,
+  onToggleSummary,
+  isSummaryToggleVisible = false,
+  isSummaryToggleInitiallyEnabled = false
+}: Props) => {
   // Compute a unique ID for this search component.
   // This creates a namespace, and ensures that stored search results
   // for one search box don't appear for another.
@@ -53,14 +56,20 @@ const ReactSearchInternal: FC<Props> = ({
   const { addPreviousSearch } = useSearchHistory(searchId, historySize);
   const { fetchSearchResults, isLoading } = useSearch(customerId, corpusId, apiKey, apiUrl);
 
-  const [selectedResultIndex, setSelectedResultIndex] = useState<number | null>(null);
+  const [selectedResultIndex, setSelectedResultIndex] = useState<number>();
   const [searchResults, setSearchResults] = useState<DeserializedSearchResult[]>([]);
+  const [summary, setSummary] = useState<string>();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>("");
+  const [isSummaryEnabled, setIsSummaryEnabled] = useState<boolean>(isSummaryToggleInitiallyEnabled);
 
   const buttonRef = useRef<HTMLDivElement | null>(null);
   const selectedResultRef = useRef<HTMLDivElement | null>(null);
   const searchCount = useRef<number>(0);
+
+  useEffect(() => {
+    setIsSummaryEnabled(isSummaryToggleInitiallyEnabled);
+  }, [isSummaryToggleInitiallyEnabled]);
 
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
@@ -87,11 +96,12 @@ const ReactSearchInternal: FC<Props> = ({
 
     addPreviousSearch(query);
     const searchId = ++searchCount.current;
-    const results = await fetchSearchResults(query);
+    const { searchResults, summary } = await fetchSearchResults(query, isSummaryEnabled);
 
     if (searchId === searchCount.current) {
-      setSearchResults(results);
-      setSelectedResultIndex(null);
+      setSearchResults(searchResults);
+      setSummary(summary);
+      setSelectedResultIndex(undefined);
       selectedResultRef.current = null;
     }
   };
@@ -103,6 +113,10 @@ const ReactSearchInternal: FC<Props> = ({
 
     return () => clearTimeout(timeoutId);
   }, [searchValue]);
+
+  useEffect(() => {
+    sendSearchQuery(searchValue);
+  }, [isSummaryEnabled]);
 
   const onChange = (evt: ChangeEvent<HTMLInputElement>) => {
     const currentQuery = evt.target.value;
@@ -120,7 +134,7 @@ const ReactSearchInternal: FC<Props> = ({
       if (key === "Enter") {
         evt.preventDefault();
 
-        if (selectedResultIndex !== null) {
+        if (selectedResultIndex !== undefined) {
           window.open(searchResults[selectedResultIndex].url, openResultsInNewTab ? "_blank" : "_self");
         } else {
           sendSearchQuery(searchValue);
@@ -133,13 +147,13 @@ const ReactSearchInternal: FC<Props> = ({
 
       if (key === "ArrowDown") {
         setSelectedResultIndex((prevValue) => {
-          return prevValue === null || prevValue === searchResults.length - 1 ? 0 : prevValue + 1;
+          return prevValue === undefined || prevValue === searchResults.length - 1 ? 0 : prevValue + 1;
         });
       }
 
       if (key === "ArrowUp") {
         setSelectedResultIndex((prevValue) => {
-          return prevValue === null || prevValue === 0 ? searchResults.length - 1 : prevValue - 1;
+          return prevValue === undefined || prevValue === 0 ? searchResults.length - 1 : prevValue - 1;
         });
       }
     },
@@ -147,8 +161,9 @@ const ReactSearchInternal: FC<Props> = ({
   );
 
   const resetResults = () => {
+    setSummary(undefined);
     setSearchResults([]);
-    setSelectedResultIndex(null);
+    setSelectedResultIndex(undefined);
     selectedResultRef.current = null;
   };
 
@@ -167,7 +182,7 @@ const ReactSearchInternal: FC<Props> = ({
 
   const resultsList =
     searchResults.length === 0
-      ? null
+      ? undefined
       : searchResults.map((searchResult, index) => {
           const {
             snippet: { pre, text, post }
@@ -236,6 +251,7 @@ const ReactSearchInternal: FC<Props> = ({
             </VuiFlexContainer>
           </button>
         </div>
+
         <SearchModal isOpen={isOpen} onClose={closeModalAndResetResults} zIndex={zIndex}>
           <form>
             <div className="vrsSearchForm">
@@ -251,6 +267,7 @@ const ReactSearchInternal: FC<Props> = ({
                   <CloseIcon size="12px" />
                 </button>
               </div>
+
               <SearchInput
                 value={searchValue}
                 onChange={onChange}
@@ -258,6 +275,7 @@ const ReactSearchInternal: FC<Props> = ({
                 placeholder={placeholder}
                 autoFocus={true}
               />
+
               {isLoading ? (
                 <div className="vrsSubmitButtonWrapper">
                   <VuiSpinner size="xs" />
@@ -277,6 +295,18 @@ const ReactSearchInternal: FC<Props> = ({
               )}
             </div>
           </form>
+
+          {isSummaryToggleVisible && (
+            <SummaryContainer
+              isSummaryEnabled={isSummaryEnabled}
+              setIsSummaryEnabled={(isSummaryEnabled: boolean) => {
+                setIsSummaryEnabled(isSummaryEnabled);
+                onToggleSummary?.(isSummaryEnabled);
+              }}
+              isLoading={isLoading}
+              summary={summary}
+            />
+          )}
 
           {resultsList && <div className="vrsSearchModalResults">{resultsList}</div>}
         </SearchModal>
@@ -330,12 +360,24 @@ class ReactSearchWebComponent extends HTMLElement {
   openResultsInNewTab?: boolean;
   apiUrl?: string;
   historySize?: number;
+  isSummaryToggleVisible?: boolean;
+  isSummaryToggleInitiallyEnabled?: boolean;
 
   static get observedAttributes() {
     // All of these are observed as lower-cased, because HTML tag attributes are implicitly converted to be lower-cased.
     // We avoid extra work by passing props to this web component as they come in, i.e. customerId,
     // but in order to properly observe them, we need to use their final lower-cased form.
-    return ["customerid", "corpusid", "apikey", "placeholder", "isdeeplinkable", "openresultsinnewtab", "zindex"];
+    return [
+      "customerid",
+      "corpusid",
+      "apikey",
+      "placeholder",
+      "isdeeplinkable",
+      "openresultsinnewtab",
+      "zindex",
+      "issummarytogglevisible",
+      "issummarytoggleinitiallyenabled"
+    ];
   }
 
   constructor() {
@@ -367,6 +409,8 @@ class ReactSearchWebComponent extends HTMLElement {
     const isDeepLinkable = this.getAttribute("isdeeplinkable") === "true";
     const openResultsInNewTab = this.getAttribute("openresultsinnewtab") === "true";
     const zIndex = this.getAttribute("zIndex") !== null ? parseInt(this.getAttribute("zIndex")!) : undefined;
+    const isSummaryToggleVisible = this.getAttribute("issummarytogglevisible") === "true";
+    const isSummaryToggleInitiallyEnabled = this.getAttribute("issummarytoggleinitiallyenabled") === "true";
 
     ReactDOM.render(
       <>
@@ -378,6 +422,8 @@ class ReactSearchWebComponent extends HTMLElement {
           isDeeplinkable={isDeepLinkable}
           openResultsInNewTab={openResultsInNewTab}
           zIndex={zIndex}
+          isSummaryToggleVisible={isSummaryToggleVisible}
+          isSummaryToggleInitiallyEnabled={isSummaryToggleInitiallyEnabled}
         />
       </>,
       this.mountPoint

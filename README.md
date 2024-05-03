@@ -93,7 +93,15 @@ Defaults to `false`. Set this option if you want a search result to open in a ne
 
 ##### `zIndex` (optional)
 
-Customize the z-index of the search modal
+Define the z-index of the search modal.
+
+##### `isSummaryToggleVisible` (optional)
+
+Whether users will be able to summarize search results or not.
+
+##### `isSummaryToggleInitiallyEnabled` (optional)
+
+If users can toggle summarization, whether the toggle should be enabled by defualt.
 
 ### Power your own search UI with the useSearch hook
 
@@ -117,7 +125,7 @@ The values returned by the hook can be passed on to your custom components as pr
 
 #### <u>Hook Values</u>
 
-##### fetchSearchResults: `async (query: string) => Promise<DeserializedSearchResult[]>`
+##### fetchSearchResults: `async (query: string, summarize: boolean) => Promise<DeserializedSearchResult[]>`
 
 This is used to send a message to the search API. When the search succeeds, an array of search results is returned. Each search result is a `DeserializedSearchResult` object. More information on types can be found [here](src/types.ts).
 

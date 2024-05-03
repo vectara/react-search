@@ -26,6 +26,15 @@ export interface Props {
 
   // Used to control the search modal's z-index. Defaults to 9999.
   zIndex?: number;
+
+  // A callback that's called when the "Summarize search results" toggle is toggled.
+  onToggleSummary?: (isSummaryEnabled: boolean) => void;
+
+  // Whether users will be able to summarize search results or not.
+  isSummaryToggleVisible?: boolean;
+
+  // If users can toggle summarization, whether the toggle should be enabled by defualt.
+  isSummaryToggleInitiallyEnabled?: boolean;
 }
 
 export type DeserializedSearchResult = {
