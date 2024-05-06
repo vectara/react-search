@@ -19,7 +19,7 @@ export interface Props {
   placeholder?: string;
 
   // Whether to enable deeplinking to a particular search.
-  isDeeplinkable?: boolean;
+  isDeepLinkable?: boolean;
 
   // Whether to open selected results in a new browser tab.
   openResultsInNewTab?: boolean;

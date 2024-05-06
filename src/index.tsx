@@ -39,7 +39,7 @@ const ReactSearchInternal = ({
   apiUrl,
   historySize = 10,
   placeholder = "Search",
-  isDeeplinkable = false,
+  isDeepLinkable = false,
   openResultsInNewTab = false,
   zIndex = 9999,
   onToggleSummary,
@@ -87,7 +87,7 @@ const ReactSearchInternal = ({
       return;
     }
 
-    if (isDeeplinkable) {
+    if (isDeepLinkable) {
       // Persist search.
       const queryParams = new URLSearchParams(window.location.search);
       queryParams.set("search", query);
@@ -174,7 +174,7 @@ const ReactSearchInternal = ({
     setSearchValue("");
     resetResults();
 
-    if (isDeeplinkable) {
+    if (isDeepLinkable) {
       // Clear persisted search.
       const queryParams = new URLSearchParams(window.location.search);
       queryParams.delete("search");

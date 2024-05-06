@@ -21,9 +21,11 @@ type Props = {
   setApiKey: (apiKey: string) => void;
   placeholder: string;
   setPlaceholder: (placeholder: string) => void;
-  isDeeplinkable: boolean;
-  setIsDeeplinkable: (isDeepLinkable: boolean) => void;
+  isDeepLinkable: boolean;
+  setIsDeepLinkable: (isDeepLinkable: boolean) => void;
   openResultsInNewTab: boolean;
+  isOnToggleSummaryHandled: boolean;
+  setIsOnToggleSummaryHandled: (isOnToggleSummaryHandled: boolean) => void;
   setOpenResultsInNewTab: (openResultsInNewTab: boolean) => void;
   isSummaryToggleVisible: boolean;
   setIsSummaryToggleVisible: (isSummaryToggleVisible: boolean) => void;
@@ -42,10 +44,12 @@ export const ConfigurationDrawer = ({
   setApiKey,
   placeholder,
   setPlaceholder,
-  isDeeplinkable,
-  setIsDeeplinkable,
+  isDeepLinkable,
+  setIsDeepLinkable,
   openResultsInNewTab,
   setOpenResultsInNewTab,
+  isOnToggleSummaryHandled,
+  setIsOnToggleSummaryHandled,
   isSummaryToggleVisible,
   setIsSummaryToggleVisible,
   isSummaryToggleInitiallyEnabled,
@@ -109,18 +113,18 @@ export const ConfigurationDrawer = ({
       <VuiSpacer size="l" />
 
       <VuiTitle size="s">
-        <h3 className="header">Link behavior</h3>
+        <h3 className="header">Search behavior</h3>
       </VuiTitle>
 
       <VuiSpacer size="s" />
 
-      <VuiFormGroup label="Allow deeplinking" labelFor="isDeepLinkable">
-        <VuiToggle checked={isDeeplinkable} onChange={(e) => setIsDeeplinkable(e.target.checked)} id="isDeeplinkable" />
+      <VuiFormGroup label="Enable deep-linking to a search" labelFor="isDeepLinkable">
+        <VuiToggle checked={isDeepLinkable} onChange={(e) => setIsDeepLinkable(e.target.checked)} id="isDeepLinkable" />
       </VuiFormGroup>
 
       <VuiSpacer size="xs" />
 
-      <VuiFormGroup label="Open results in a new tab" labelFor="openResultsInNewTab">
+      <VuiFormGroup label="Open a search result's link in a new tab" labelFor="openResultsInNewTab">
         <VuiToggle
           checked={openResultsInNewTab}
           onChange={(e) => setOpenResultsInNewTab(e.target.checked)}
@@ -135,6 +139,16 @@ export const ConfigurationDrawer = ({
       </VuiTitle>
 
       <VuiSpacer size="s" />
+
+      <VuiFormGroup label="Handle summary toggle change" labelFor="summaryToggleHandler">
+        <VuiToggle
+          checked={isOnToggleSummaryHandled}
+          onChange={(e) => setIsOnToggleSummaryHandled(e.target.checked)}
+          id="summaryToggleHandler"
+        />
+      </VuiFormGroup>
+
+      <VuiSpacer size="xs" />
 
       <VuiFormGroup label="Is summary toggle visible" labelFor="summaryToggleVisible">
         <VuiToggle

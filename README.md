@@ -55,7 +55,7 @@ import { ReactSearch } from "@vectara/react-search";
   corpusId="CORPUS_ID"
   apiKey="API_KEY"
   placeholder="Placeholder" // Optional search input placeholder
-  isDeeplinkable={true} // Optional boolean determining if search results will be deeplinked
+  isDeepLinkable={true} // Optional boolean determining if search results will be deep-linked
   openResultsInNewTab={true} // Optional boolean determining if links will open in a new tab
   zIndex={/* Optional number assigned to the z-index of the search modal */}
 />
@@ -83,7 +83,7 @@ By default, React-Search sends query requests to the Vectara servers. If you wan
 
 Configure the placeholder text in the search modal's input.
 
-##### `isDeeplinkable` (optional)
+##### `isDeepLinkable` (optional)
 
 Defaults to `false`. Set this option if you want to persist a search query to a URL parameter. This will enable users to share or bookmark the URL. Loading the URL will automatically open the search modal and search for the query that's stored in the URL.
 
