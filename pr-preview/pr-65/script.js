@@ -35771,7 +35771,7 @@ button {
     if (i)
       return decodeURIComponent(i);
   };
-  var _t = ({ customerId: t, apiKey: e, corpusId: i, apiUrl: n, historySize: l = 10, placeholder: r = "Search", isDeeplinkable: s = false, openResultsInNewTab: u = false, zIndex: x = 9999, onToggleSummary: c, isSummaryToggleVisible: d = false, isSummaryToggleInitiallyEnabled: f = false }) => {
+  var _t = ({ customerId: t, apiKey: e, corpusId: i, apiUrl: n, historySize: l = 10, placeholder: r = "Search", isDeepLinkable: s = false, openResultsInNewTab: u = false, zIndex: x = 9999, onToggleSummary: c, isSummaryToggleVisible: d = false, isSummaryToggleInitiallyEnabled: f = false }) => {
     let R = (0, import_react7.useMemo)(() => (0, import_uuid_by_string.default)(`${t}-${i}-${e}`), [t, i, e]), { addPreviousSearch: E } = Re(R, l), { fetchSearchResults: L, isLoading: I } = we(t, i, e, n), [S, T] = (0, import_react7.useState)(), [b, B] = (0, import_react7.useState)([]), [Me, ce] = (0, import_react7.useState)(), [Pe, j] = (0, import_react7.useState)(false), [N, U] = (0, import_react7.useState)(""), [K, ue] = (0, import_react7.useState)(f), Le = (0, import_react7.useRef)(null), _ = (0, import_react7.useRef)(null), xe = (0, import_react7.useRef)(0);
     (0, import_react7.useEffect)(() => {
       ue(f);
@@ -39123,10 +39123,12 @@ pre[class*="language-"] {
     setApiKey,
     placeholder,
     setPlaceholder,
-    isDeeplinkable,
-    setIsDeeplinkable,
+    isDeepLinkable,
+    setIsDeepLinkable,
     openResultsInNewTab,
     setOpenResultsInNewTab,
+    isOnToggleSummaryHandled,
+    setIsOnToggleSummaryHandled,
     isSummaryToggleVisible,
     setIsSummaryToggleVisible,
     isSummaryToggleInitiallyEnabled,
@@ -39154,11 +39156,11 @@ pre[class*="language-"] {
           /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "s" }),
           /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiFormGroup, { label: "Placeholder text", labelFor: "placeholderText", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiTextInput, { value: placeholder, onChange: (e) => setPlaceholder(e.target.value), fullWidth: true }) }),
           /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "l" }),
-          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiTitle, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)("h3", { className: "header", children: "Link behavior" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiTitle, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)("h3", { className: "header", children: "Search behavior" }) }),
           /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "s" }),
-          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiFormGroup, { label: "Allow deeplinking", labelFor: "isDeepLinkable", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiToggle, { checked: isDeeplinkable, onChange: (e) => setIsDeeplinkable(e.target.checked), id: "isDeeplinkable" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiFormGroup, { label: "Enable deep-linking to a search", labelFor: "isDeepLinkable", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiToggle, { checked: isDeepLinkable, onChange: (e) => setIsDeepLinkable(e.target.checked), id: "isDeepLinkable" }) }),
           /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "xs" }),
-          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiFormGroup, { label: "Open results in a new tab", labelFor: "openResultsInNewTab", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiFormGroup, { label: "Open a search result's link in a new tab", labelFor: "openResultsInNewTab", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(
             VuiToggle,
             {
               checked: openResultsInNewTab,
@@ -39169,6 +39171,15 @@ pre[class*="language-"] {
           /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "l" }),
           /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiTitle, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)("h3", { className: "header", children: "Summarization" }) }),
           /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "s" }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiFormGroup, { label: "Handle summary toggle change", labelFor: "summaryToggleHandler", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(
+            VuiToggle,
+            {
+              checked: isOnToggleSummaryHandled,
+              onChange: (e) => setIsOnToggleSummaryHandled(e.target.checked),
+              id: "summaryToggleHandler"
+            }
+          ) }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "xs" }),
           /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiFormGroup, { label: "Is summary toggle visible", labelFor: "summaryToggleVisible", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(
             VuiToggle,
             {
@@ -42276,7 +42287,17 @@ fieldset {
 
   // src/index.tsx
   var import_jsx_runtime94 = __toESM(require_jsx_runtime());
-  var generateCodeSnippet = (customerId, corpusId, apiKey, placeholder, isDeepLinkable = false, openResultsInNewTab = false, isSummaryToggleVisible = false, isSummaryToggleInitiallyEnabled = false) => {
+  var generateCodeSnippet = ({
+    customerId,
+    corpusId,
+    apiKey,
+    placeholder,
+    isDeepLinkable = false,
+    openResultsInNewTab = false,
+    isOnToggleSummaryHandled = false,
+    isSummaryToggleVisible = false,
+    isSummaryToggleInitiallyEnabled = false
+  }) => {
     let quotedPlaceholder = placeholder;
     if (placeholder) {
       if (placeholder.match('"')) {
@@ -42294,10 +42315,13 @@ fieldset {
       props.push(`placeholder=${quotedPlaceholder}`);
     }
     if (isDeepLinkable) {
-      props.push(`isDeeplinkable={${isDeepLinkable}}`);
+      props.push(`isDeepLinkable={${isDeepLinkable}}`);
     }
     if (openResultsInNewTab) {
       props.push(`openResultsInNewTab={${openResultsInNewTab}}`);
+    }
+    if (isOnToggleSummaryHandled) {
+      props.push(`onToggleSummary={(isSummaryEnabled: boolean) => console.log(isSummaryEnabled)}`);
     }
     if (isSummaryToggleVisible) {
       props.push(`isSummaryToggleVisible={${isSummaryToggleVisible}}`);
@@ -42326,8 +42350,9 @@ export const App = () => (
     const [customerId, setCustomerId] = (0, import_react46.useState)("");
     const [apiKey, setApiKey] = (0, import_react46.useState)("");
     const [placeholder, setPlaceholder] = (0, import_react46.useState)(DEFAULT_PLACEHOLDER);
-    const [isDeeplinkable, setIsDeeplinkable] = (0, import_react46.useState)(false);
+    const [isDeepLinkable, setIsDeepLinkable] = (0, import_react46.useState)(false);
     const [openResultsInNewTab, setOpenResultsInNewTab] = (0, import_react46.useState)(false);
+    const [isOnToggleSummaryHandled, setIsOnToggleSummaryHandled] = (0, import_react46.useState)(false);
     const [isSummaryToggleVisible, setIsSummaryToggleVisible] = (0, import_react46.useState)(false);
     const [isSummaryToggleInitiallyEnabled, setIsSummaryToggleInitiallyEnabled] = (0, import_react46.useState)(false);
     return /* @__PURE__ */ (0, import_jsx_runtime94.jsxs)(import_jsx_runtime94.Fragment, { children: [
@@ -42363,7 +42388,7 @@ export const App = () => (
             customerId: customerId === "" ? DEFAULT_CUSTOMER_ID : customerId,
             apiKey: apiKey === "" ? DEFAULT_API_KEY : apiKey,
             placeholder,
-            isDeeplinkable,
+            isDeepLinkable,
             openResultsInNewTab,
             isSummaryToggleVisible,
             isSummaryToggleInitiallyEnabled,
@@ -42383,7 +42408,17 @@ export const App = () => (
         /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiSpacer, { size: "m" }),
         /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiCode, { children: "npm install @vectara/react-search" }),
         /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiSpacer, { size: "s" }),
-        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiCode, { language: "tsx", children: generateCodeSnippet(customerId, corpusId, apiKey, placeholder, isDeeplinkable, openResultsInNewTab) }),
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiCode, { language: "tsx", children: generateCodeSnippet({
+          customerId,
+          corpusId,
+          apiKey,
+          placeholder,
+          isDeepLinkable,
+          openResultsInNewTab,
+          isOnToggleSummaryHandled,
+          isSummaryToggleVisible,
+          isSummaryToggleInitiallyEnabled
+        }) }),
         /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiSpacer, { size: "xxl" }),
         /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiTitle, { size: "m", children: /* @__PURE__ */ (0, import_jsx_runtime94.jsx)("h2", { children: "Create your own view" }) }),
         /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiSpacer, { size: "m" }),
@@ -42434,10 +42469,12 @@ export const App = () => {
             setApiKey,
             placeholder,
             setPlaceholder,
-            isDeeplinkable,
-            setIsDeeplinkable,
+            isDeepLinkable,
+            setIsDeepLinkable,
             openResultsInNewTab,
             setOpenResultsInNewTab,
+            isOnToggleSummaryHandled,
+            setIsOnToggleSummaryHandled,
             isSummaryToggleVisible,
             setIsSummaryToggleVisible,
             isSummaryToggleInitiallyEnabled,
