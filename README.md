@@ -95,6 +95,10 @@ Defaults to `false`. Set this option if you want a search result to open in a ne
 
 Define the z-index of the search modal.
 
+##### `onToggleSummary` (optional)
+
+Accepts a callback that will receive a boolean argument indicating whether the "Summarize search results" toggle is enabled.
+
 ##### `isSummaryToggleVisible` (optional)
 
 Whether users will be able to summarize search results or not.
@@ -125,7 +129,7 @@ The values returned by the hook can be passed on to your custom components as pr
 
 #### <u>Hook Values</u>
 
-##### fetchSearchResults: `async (query: string, summarize: boolean) => Promise<DeserializedSearchResult[]>`
+##### fetchSearchResults: `async (query: string, summarize: boolean) => Promise<{ searchResults: DeserializedSearchResult[]; summary?: string }>`
 
 This is used to send a message to the search API. When the search succeeds, an object consisting of an array of search results and an optional summary is returned. Each search result is a `DeserializedSearchResult` object. More information on types can be found [here](src/types.ts).
 
