@@ -1,4 +1,4 @@
-import { removeCitations } from "vui/utils/citations";
+import { removeCitations } from "./vui/utils/citations";
 import { VuiFlexContainer, VuiFlexItem, VuiSpacer, VuiSpinner, VuiText, VuiToggle } from "./vui";
 
 type Props = {

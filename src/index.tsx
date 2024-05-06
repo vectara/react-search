@@ -21,7 +21,7 @@ import cssText from "./_index.scss";
 import "./globals.scss";
 
 import { SearchInput } from "./SearchInput";
-import { SummaryContainer } from "SummaryContainer";
+import { SummaryContainer } from "./SummaryContainer";
 
 const getQueryParam = (urlParams: URLSearchParams, key: string) => {
   const value = urlParams.get(key);

@@ -27,7 +27,7 @@ export const useSearch = (
   }, [customerId, apiKey]);
 
   const generateRequestBody = useCallback(
-    (query: string, summary: boolean) => {
+    (query: string, summary?: boolean) => {
       return JSON.stringify({
         query: [
           {
@@ -56,7 +56,7 @@ export const useSearch = (
 
   const fetchSearchResults = async (
     query: string,
-    summary: boolean
+    summary?: boolean
   ): Promise<{
     searchResults: DeserializedSearchResult[];
     summary?: string;
