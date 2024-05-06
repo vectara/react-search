@@ -114,6 +114,8 @@ const ReactSearchInternal = ({
     return () => clearTimeout(timeoutId);
   }, [searchValue]);
 
+  //T his enables the toggle state to update when the prop is changed,
+  // e.g. by toggling the summary on in the Configuration Drawer in the docs.
   useEffect(() => {
     sendSearchQuery(searchValue);
   }, [isSummaryEnabled]);
@@ -355,7 +357,7 @@ class ReactSearchWebComponent extends HTMLElement {
 
   static get observedAttributes() {
     // We use the stringified version of the React props to trigger a re-render.
-    return ["props"];
+    return ["serializedprops"];
   }
 
   constructor() {
@@ -398,5 +400,5 @@ export const ReactSearch = (props: Props) => {
   _props = props;
 
   // @ts-ignore
-  return <react-search props={JSON.stringify(props)} />;
+  return <react-search serializedprops={JSON.stringify(props)} />;
 };
