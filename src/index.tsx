@@ -346,38 +346,16 @@ export const CloseIcon = ({ size }: { size: string }) => (
   </svg>
 );
 
+let _props = {};
+
 class ReactSearchWebComponent extends HTMLElement {
   sheet!: CSSStyleSheet;
   sr!: ShadowRoot;
   mountPoint!: HTMLDivElement;
 
-  // Props
-  customerId!: string;
-  corpusId!: string;
-  apiKey!: string;
-  placeholder?: string;
-  isDeeplinkable?: boolean;
-  openResultsInNewTab?: boolean;
-  apiUrl?: string;
-  historySize?: number;
-  isSummaryToggleVisible?: boolean;
-  isSummaryToggleInitiallyEnabled?: boolean;
-
   static get observedAttributes() {
-    // All of these are observed as lower-cased, because HTML tag attributes are implicitly converted to be lower-cased.
-    // We avoid extra work by passing props to this web component as they come in, i.e. customerId,
-    // but in order to properly observe them, we need to use their final lower-cased form.
-    return [
-      "customerid",
-      "corpusid",
-      "apikey",
-      "placeholder",
-      "isdeeplinkable",
-      "openresultsinnewtab",
-      "zindex",
-      "issummarytogglevisible",
-      "issummarytoggleinitiallyenabled"
-    ];
+    // We use the stringified version of the React props to trigger a re-render.
+    return ["props"];
   }
 
   constructor() {
@@ -402,32 +380,7 @@ class ReactSearchWebComponent extends HTMLElement {
   }
 
   public connectedCallback() {
-    const customerId = this.getAttribute("customerId") ?? "";
-    const corpusId = this.getAttribute("corpusId") ?? "";
-    const apiKey = this.getAttribute("apiKey") ?? "";
-    const placeholder = this.getAttribute("placeholder") ?? undefined;
-    const isDeepLinkable = this.getAttribute("isdeeplinkable") === "true";
-    const openResultsInNewTab = this.getAttribute("openresultsinnewtab") === "true";
-    const zIndex = this.getAttribute("zIndex") !== null ? parseInt(this.getAttribute("zIndex")!) : undefined;
-    const isSummaryToggleVisible = this.getAttribute("issummarytogglevisible") === "true";
-    const isSummaryToggleInitiallyEnabled = this.getAttribute("issummarytoggleinitiallyenabled") === "true";
-
-    ReactDOM.render(
-      <>
-        <ReactSearchInternal
-          customerId={customerId}
-          corpusId={corpusId}
-          apiKey={apiKey}
-          placeholder={placeholder}
-          isDeeplinkable={isDeepLinkable}
-          openResultsInNewTab={openResultsInNewTab}
-          zIndex={zIndex}
-          isSummaryToggleVisible={isSummaryToggleVisible}
-          isSummaryToggleInitiallyEnabled={isSummaryToggleInitiallyEnabled}
-        />
-      </>,
-      this.mountPoint
-    );
+    ReactDOM.render(<ReactSearchInternal {...(_props as Props)} />, this.mountPoint);
   }
 
   attributeChangedCallback() {
@@ -442,6 +395,8 @@ class ReactSearchWebComponent extends HTMLElement {
 window.customElements.get("react-search") || window.customElements.define("react-search", ReactSearchWebComponent);
 
 export const ReactSearch = (props: Props) => {
+  _props = props;
+
   // @ts-ignore
-  return <react-search {...props} />;
+  return <react-search props={JSON.stringify(props)} />;
 };

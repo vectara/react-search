@@ -1,4 +1,4 @@
-import { ChangeEvent, useCallback, useState } from "react";
+import { useState } from "react";
 import ReactDOM from "react-dom";
 import { BiLogoGithub } from "react-icons/bi";
 import { ReactSearch } from "@vectara/react-search";
@@ -21,7 +21,6 @@ import { HeaderLogo } from "./components/HeaderLogo";
 import { ConfigurationDrawer } from "components/ConfigurationDrawer";
 import "./ui/_index.scss";
 import "./index.scss";
-import { set } from "lodash";
 
 const generateCodeSnippet = (
   customerId?: string,
@@ -164,6 +163,9 @@ const App = () => {
                 openResultsInNewTab={openResultsInNewTab}
                 isSummaryToggleVisible={isSummaryToggleVisible}
                 isSummaryToggleInitiallyEnabled={isSummaryToggleInitiallyEnabled}
+                onToggleSummary={(isSummaryEnabled: boolean) =>
+                  console.log(`onToggleSummary callback received isSummaryEnabled: ${isSummaryEnabled}`)
+                }
               />
             </div>
 

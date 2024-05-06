@@ -127,7 +127,7 @@ The values returned by the hook can be passed on to your custom components as pr
 
 ##### fetchSearchResults: `async (query: string, summarize: boolean) => Promise<DeserializedSearchResult[]>`
 
-This is used to send a message to the search API. When the search succeeds, an array of search results is returned. Each search result is a `DeserializedSearchResult` object. More information on types can be found [here](src/types.ts).
+This is used to send a message to the search API. When the search succeeds, an object consisting of an array of search results and an optional summary is returned. Each search result is a `DeserializedSearchResult` object. More information on types can be found [here](src/types.ts).
 
 ##### isLoading: `boolean`
 
