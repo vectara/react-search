@@ -35837,7 +35837,7 @@ button {
   var ze = {};
   var se = class extends HTMLElement {
     static get observedAttributes() {
-      return ["props"];
+      return ["serializedprops"];
     }
     constructor() {
       super(), this.sr = this.attachShadow({ mode: "open" });
@@ -35860,7 +35860,7 @@ button {
     }
   };
   window.customElements.get("react-search") || window.customElements.define("react-search", se);
-  var er = (t) => (ze = t, (0, import_jsx_runtime13.jsx)("react-search", { props: JSON.stringify(t) }));
+  var er = (t) => (ze = t, (0, import_jsx_runtime13.jsx)("react-search", { serializedprops: JSON.stringify(t) }));
 
   // src/ui/components/flex/FlexContainer.tsx
   var import_classnames8 = __toESM(require_classnames());
