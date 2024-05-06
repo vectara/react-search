@@ -4438,7 +4438,7 @@
             var warnedForNaNValue = false;
             var warnedForInfinityValue = false;
             var camelize = function(string2) {
-              return string2.replace(hyphenPattern, function(_2, character) {
+              return string2.replace(hyphenPattern, function(_, character) {
                 return character.toUpperCase();
               });
             };
@@ -7995,8 +7995,8 @@
             }
             accumulateEnterLeaveTwoPhaseListeners(dispatchQueue, leave, enter, from, to);
           }
-          function is(x, y) {
-            return x === y && (x !== 0 || 1 / x === 1 / y) || x !== x && y !== y;
+          function is(x, y2) {
+            return x === y2 && (x !== 0 || 1 / x === 1 / y2) || x !== x && y2 !== y2;
           }
           var objectIs = typeof Object.is === "function" ? Object.is : is;
           var hasOwnProperty$2 = Object.prototype.hasOwnProperty;
@@ -23207,11 +23207,11 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           shape: createShapeTypeChecker,
           exact: createStrictShapeTypeChecker
         };
-        function is(x, y) {
-          if (x === y) {
-            return x !== 0 || 1 / x === 1 / y;
+        function is(x, y2) {
+          if (x === y2) {
+            return x !== 0 || 1 / x === 1 / y2;
           } else {
-            return x !== x && y !== y;
+            return x !== x && y2 !== y2;
           }
         }
         function PropTypeError(message, data) {
@@ -23616,7 +23616,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         var lang = /(?:^|\s)lang(?:uage)?-([\w-]+)(?=\s|$)/i;
         var uniqueId = 0;
         var plainTextGrammar = {};
-        var _2 = {
+        var _ = {
           /**
            * By default, Prism will attempt to highlight all code elements (by calling {@link Prism.highlightAll}) on the
            * current page after the page finished loading. This might be a problem if e.g. you wanted to asynchronously load
@@ -23696,8 +23696,8 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
              * type(String)    === 'Function'
              * type(/abc+/)    === 'RegExp'
              */
-            type: function(o) {
-              return Object.prototype.toString.call(o).slice(8, -1);
+            type: function(o2) {
+              return Object.prototype.toString.call(o2).slice(8, -1);
             },
             /**
              * Returns a unique number for the given object. Later calls will still return the same number.
@@ -23721,22 +23721,22 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
              * @returns {T}
              * @template T
              */
-            clone: function deepClone(o, visited) {
+            clone: function deepClone(o2, visited) {
               visited = visited || {};
               var clone;
               var id2;
-              switch (_2.util.type(o)) {
+              switch (_.util.type(o2)) {
                 case "Object":
-                  id2 = _2.util.objId(o);
+                  id2 = _.util.objId(o2);
                   if (visited[id2]) {
                     return visited[id2];
                   }
                   clone = /** @type {Record<string, any>} */
                   {};
                   visited[id2] = clone;
-                  for (var key in o) {
-                    if (o.hasOwnProperty(key)) {
-                      clone[key] = deepClone(o[key], visited);
+                  for (var key in o2) {
+                    if (o2.hasOwnProperty(key)) {
+                      clone[key] = deepClone(o2[key], visited);
                     }
                   }
                   return (
@@ -23744,7 +23744,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
                     clone
                   );
                 case "Array":
-                  id2 = _2.util.objId(o);
+                  id2 = _.util.objId(o2);
                   if (visited[id2]) {
                     return visited[id2];
                   }
@@ -23752,15 +23752,15 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
                   visited[id2] = clone;
                   /** @type {Array} */
                   /** @type {any} */
-                  o.forEach(function(v2, i) {
-                    clone[i] = deepClone(v2, visited);
+                  o2.forEach(function(v, i) {
+                    clone[i] = deepClone(v, visited);
                   });
                   return (
                     /** @type {any} */
                     clone
                   );
                 default:
-                  return o;
+                  return o2;
               }
             },
             /**
@@ -23773,9 +23773,9 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
              */
             getLanguage: function(element) {
               while (element) {
-                var m = lang.exec(element.className);
-                if (m) {
-                  return m[1].toLowerCase();
+                var m2 = lang.exec(element.className);
+                if (m2) {
+                  return m2[1].toLowerCase();
                 }
                 element = element.parentElement;
               }
@@ -23902,7 +23902,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
              * });
              */
             extend: function(id2, redef) {
-              var lang2 = _2.util.clone(_2.languages[id2]);
+              var lang2 = _.util.clone(_.languages[id2]);
               for (var key in redef) {
                 lang2[key] = redef[key];
               }
@@ -23985,7 +23985,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
              */
             insertBefore: function(inside, before, insert, root2) {
               root2 = root2 || /** @type {any} */
-              _2.languages;
+              _.languages;
               var grammar = root2[inside];
               var ret = {};
               for (var token in grammar) {
@@ -24004,7 +24004,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
               }
               var old = root2[inside];
               root2[inside] = ret;
-              _2.languages.DFS(_2.languages, function(key, value) {
+              _.languages.DFS(_.languages, function(key, value) {
                 if (value === old && key != inside) {
                   this[key] = ret;
                 }
@@ -24012,14 +24012,14 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
               return ret;
             },
             // Traverse a language definition with Depth First Search
-            DFS: function DFS(o, callback, type, visited) {
+            DFS: function DFS(o2, callback, type, visited) {
               visited = visited || {};
-              var objId = _2.util.objId;
-              for (var i in o) {
-                if (o.hasOwnProperty(i)) {
-                  callback.call(o, i, o[i], type || i);
-                  var property = o[i];
-                  var propertyType = _2.util.type(property);
+              var objId = _.util.objId;
+              for (var i in o2) {
+                if (o2.hasOwnProperty(i)) {
+                  callback.call(o2, i, o2[i], type || i);
+                  var property = o2[i];
+                  var propertyType = _.util.type(property);
                   if (propertyType === "Object" && !visited[objId(property)]) {
                     visited[objId(property)] = true;
                     DFS(property, callback, null, visited);
@@ -24045,7 +24045,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
            * @public
            */
           highlightAll: function(async, callback) {
-            _2.highlightAllUnder(document, async, callback);
+            _.highlightAllUnder(document, async, callback);
           },
           /**
            * Fetches all the descendants of `container` that have a `.language-xxxx` class and then calls
@@ -24068,11 +24068,11 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
               container,
               selector: 'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'
             };
-            _2.hooks.run("before-highlightall", env);
+            _.hooks.run("before-highlightall", env);
             env.elements = Array.prototype.slice.apply(env.container.querySelectorAll(env.selector));
-            _2.hooks.run("before-all-elements-highlight", env);
+            _.hooks.run("before-all-elements-highlight", env);
             for (var i = 0, element; element = env.elements[i++]; ) {
-              _2.highlightElement(element, async === true, env.callback);
+              _.highlightElement(element, async === true, env.callback);
             }
           },
           /**
@@ -24104,12 +24104,12 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
            * @public
            */
           highlightElement: function(element, async, callback) {
-            var language = _2.util.getLanguage(element);
-            var grammar = _2.languages[language];
-            _2.util.setLanguage(element, language);
+            var language = _.util.getLanguage(element);
+            var grammar = _.languages[language];
+            _.util.setLanguage(element, language);
             var parent = element.parentElement;
             if (parent && parent.nodeName.toLowerCase() === "pre") {
-              _2.util.setLanguage(parent, language);
+              _.util.setLanguage(parent, language);
             }
             var code = element.textContent;
             var env = {
@@ -24120,29 +24120,29 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
             };
             function insertHighlightedCode(highlightedCode) {
               env.highlightedCode = highlightedCode;
-              _2.hooks.run("before-insert", env);
+              _.hooks.run("before-insert", env);
               env.element.innerHTML = env.highlightedCode;
-              _2.hooks.run("after-highlight", env);
-              _2.hooks.run("complete", env);
+              _.hooks.run("after-highlight", env);
+              _.hooks.run("complete", env);
               callback && callback.call(env.element);
             }
-            _2.hooks.run("before-sanity-check", env);
+            _.hooks.run("before-sanity-check", env);
             parent = env.element.parentElement;
             if (parent && parent.nodeName.toLowerCase() === "pre" && !parent.hasAttribute("tabindex")) {
               parent.setAttribute("tabindex", "0");
             }
             if (!env.code) {
-              _2.hooks.run("complete", env);
+              _.hooks.run("complete", env);
               callback && callback.call(env.element);
               return;
             }
-            _2.hooks.run("before-highlight", env);
+            _.hooks.run("before-highlight", env);
             if (!env.grammar) {
-              insertHighlightedCode(_2.util.encode(env.code));
+              insertHighlightedCode(_.util.encode(env.code));
               return;
             }
             if (async && _self2.Worker) {
-              var worker = new Worker(_2.filename);
+              var worker = new Worker(_.filename);
               worker.onmessage = function(evt) {
                 insertHighlightedCode(evt.data);
               };
@@ -24152,7 +24152,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
                 immediateClose: true
               }));
             } else {
-              insertHighlightedCode(_2.highlight(env.code, env.grammar, env.language));
+              insertHighlightedCode(_.highlight(env.code, env.grammar, env.language));
             }
           },
           /**
@@ -24181,13 +24181,13 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
               grammar,
               language
             };
-            _2.hooks.run("before-tokenize", env);
+            _.hooks.run("before-tokenize", env);
             if (!env.grammar) {
               throw new Error('The language "' + env.language + '" has no grammar.');
             }
-            env.tokens = _2.tokenize(env.code, env.grammar);
-            _2.hooks.run("after-tokenize", env);
-            return Token.stringify(_2.util.encode(env.tokens), env.language);
+            env.tokens = _.tokenize(env.code, env.grammar);
+            _.hooks.run("after-tokenize", env);
+            return Token.stringify(_.util.encode(env.tokens), env.language);
           },
           /**
            * This is the heart of Prism, and the most low-level function you can use. It accepts a string of text as input
@@ -24246,7 +24246,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
              * @public
              */
             add: function(name, callback) {
-              var hooks = _2.hooks.all;
+              var hooks = _.hooks.all;
               hooks[name] = hooks[name] || [];
               hooks[name].push(callback);
             },
@@ -24260,7 +24260,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
              * @public
              */
             run: function(name, env) {
-              var callbacks = _2.hooks.all[name];
+              var callbacks = _.hooks.all[name];
               if (!callbacks || !callbacks.length) {
                 return;
               }
@@ -24271,33 +24271,33 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           },
           Token
         };
-        _self2.Prism = _2;
+        _self2.Prism = _;
         function Token(type, content, alias, matchedStr) {
           this.type = type;
           this.content = content;
           this.alias = alias;
           this.length = (matchedStr || "").length | 0;
         }
-        Token.stringify = function stringify(o, language) {
-          if (typeof o == "string") {
-            return o;
+        Token.stringify = function stringify(o2, language) {
+          if (typeof o2 == "string") {
+            return o2;
           }
-          if (Array.isArray(o)) {
+          if (Array.isArray(o2)) {
             var s = "";
-            o.forEach(function(e) {
+            o2.forEach(function(e) {
               s += stringify(e, language);
             });
             return s;
           }
           var env = {
-            type: o.type,
-            content: stringify(o.content, language),
+            type: o2.type,
+            content: stringify(o2.content, language),
             tag: "span",
-            classes: ["token", o.type],
+            classes: ["token", o2.type],
             attributes: {},
             language
           };
-          var aliases = o.alias;
+          var aliases = o2.alias;
           if (aliases) {
             if (Array.isArray(aliases)) {
               Array.prototype.push.apply(env.classes, aliases);
@@ -24305,7 +24305,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
               env.classes.push(aliases);
             }
           }
-          _2.hooks.run("wrap", env);
+          _.hooks.run("wrap", env);
           var attributes = "";
           for (var name in env.attributes) {
             attributes += " " + name + '="' + (env.attributes[name] || "").replace(/"/g, "&quot;") + '"';
@@ -24374,9 +24374,9 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
                   if (currentNode.value instanceof Token) {
                     continue;
                   }
-                  for (var k = currentNode; k !== tokenList.tail && (p < to || typeof k.value === "string"); k = k.next) {
+                  for (var k2 = currentNode; k2 !== tokenList.tail && (p < to || typeof k2.value === "string"); k2 = k2.next) {
                     removeCount++;
-                    p += k.value.length;
+                    p += k2.value.length;
                   }
                   removeCount--;
                   str = text.slice(pos, p);
@@ -24401,7 +24401,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
                   pos += before.length;
                 }
                 removeRange(tokenList, removeFrom, removeCount);
-                var wrapped = new Token(token, inside ? _2.tokenize(matchStr, inside) : matchStr, alias, matchStr);
+                var wrapped = new Token(token, inside ? _.tokenize(matchStr, inside) : matchStr, alias, matchStr);
                 currentNode = addAfter(tokenList, removeFrom, wrapped);
                 if (after) {
                   addAfter(tokenList, currentNode, after);
@@ -24456,35 +24456,35 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         }
         if (!_self2.document) {
           if (!_self2.addEventListener) {
-            return _2;
+            return _;
           }
-          if (!_2.disableWorkerMessageHandler) {
+          if (!_.disableWorkerMessageHandler) {
             _self2.addEventListener("message", function(evt) {
               var message = JSON.parse(evt.data);
               var lang2 = message.language;
               var code = message.code;
               var immediateClose = message.immediateClose;
-              _self2.postMessage(_2.highlight(code, _2.languages[lang2], lang2));
+              _self2.postMessage(_.highlight(code, _.languages[lang2], lang2));
               if (immediateClose) {
                 _self2.close();
               }
             }, false);
           }
-          return _2;
+          return _;
         }
-        var script = _2.util.currentScript();
+        var script = _.util.currentScript();
         if (script) {
-          _2.filename = script.src;
+          _.filename = script.src;
           if (script.hasAttribute("data-manual")) {
-            _2.manual = true;
+            _.manual = true;
           }
         }
         function highlightAutomaticallyCallback() {
-          if (!_2.manual) {
-            _2.highlightAll();
+          if (!_.manual) {
+            _.highlightAll();
           }
         }
-        if (!_2.manual) {
+        if (!_.manual) {
           var readyState = document.readyState;
           if (readyState === "loading" || readyState === "interactive" && script && script.defer) {
             document.addEventListener("DOMContentLoaded", highlightAutomaticallyCallback);
@@ -24496,7 +24496,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
             }
           }
         }
-        return _2;
+        return _;
       }(_self);
       if (typeof module2 !== "undefined" && module2.exports) {
         module2.exports = Prism3;
@@ -24958,11 +24958,11 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           xhr.send(null);
         }
         function parseRange(range) {
-          var m = /^\s*(\d+)\s*(?:(,)\s*(?:(\d+)\s*)?)?$/.exec(range || "");
-          if (m) {
-            var start = Number(m[1]);
-            var comma = m[2];
-            var end = m[3];
+          var m2 = /^\s*(\d+)\s*(?:(,)\s*(?:(\d+)\s*)?)?$/.exec(range || "");
+          if (m2) {
+            var start = Number(m2[1]);
+            var comma = m2[2];
+            var end = m2[3];
             if (!comma) {
               return [start, start];
             }
@@ -25747,7 +25747,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           return string2.match(reUnicodeWord) || [];
         }
         var runInContext = function runInContext2(context) {
-          context = context == null ? root2 : _2.defaults(root2.Object(), context, _2.pick(root2, contextProps));
+          context = context == null ? root2 : _.defaults(root2.Object(), context, _.pick(root2, contextProps));
           var Array2 = context.Array, Date2 = context.Date, Error2 = context.Error, Function2 = context.Function, Math2 = context.Math, Object2 = context.Object, RegExp2 = context.RegExp, String2 = context.String, TypeError2 = context.TypeError;
           var arrayProto = Array2.prototype, funcProto = Function2.prototype, objectProto = Object2.prototype;
           var coreJsData = context["__core-js_shared__"];
@@ -30521,17 +30521,17 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           }
           return lodash;
         };
-        var _2 = runInContext();
+        var _ = runInContext();
         if (typeof define == "function" && typeof define.amd == "object" && define.amd) {
-          root2._ = _2;
+          root2._ = _;
           define(function() {
-            return _2;
+            return _;
           });
         } else if (freeModule) {
-          (freeModule.exports = _2)._ = _2;
-          freeExports._ = _2;
+          (freeModule.exports = _)._ = _;
+          freeExports._ = _;
         } else {
-          root2._ = _2;
+          root2._ = _;
         }
       }).call(exports2);
     }
@@ -30606,10 +30606,10 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   function ownKeys(e, r) {
     var t = Object.keys(e);
     if (Object.getOwnPropertySymbols) {
-      var o = Object.getOwnPropertySymbols(e);
-      r && (o = o.filter(function(r2) {
+      var o2 = Object.getOwnPropertySymbols(e);
+      r && (o2 = o2.filter(function(r2) {
         return Object.getOwnPropertyDescriptor(e, r2).enumerable;
-      })), t.push.apply(t, o);
+      })), t.push.apply(t, o2);
     }
     return t;
   }
@@ -30770,14 +30770,14 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   function __spreadArrays() {
     for (var s = 0, i = 0, il = arguments.length; i < il; i++)
       s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-      for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-        r[k] = a[j];
+    for (var r = Array(s), k2 = 0, i = 0; i < il; i++)
+      for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k2++)
+        r[k2] = a[j];
     return r;
   }
   function __spreadArray(to, from, pack) {
     if (pack || arguments.length === 2)
-      for (var i = 0, l2 = from.length, ar; i < l2; i++) {
+      for (var i = 0, l = from.length, ar; i < l; i++) {
         if (ar || !(i in from)) {
           if (!ar)
             ar = Array.prototype.slice.call(from, 0, i);
@@ -31294,12 +31294,12 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   var import_prop_types3 = __toESM(require_prop_types());
 
   // ../node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js
-  function _setPrototypeOf(o, p) {
-    _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf2(o2, p2) {
-      o2.__proto__ = p2;
-      return o2;
+  function _setPrototypeOf(o2, p) {
+    _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf2(o3, p2) {
+      o3.__proto__ = p2;
+      return o3;
     };
-    return _setPrototypeOf(o, p);
+    return _setPrototypeOf(o2, p);
   }
 
   // ../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js
@@ -31310,13 +31310,13 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   }
 
   // ../node_modules/@babel/runtime/helpers/esm/typeof.js
-  function _typeof(o) {
+  function _typeof(o2) {
     "@babel/helpers - typeof";
-    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o2) {
-      return typeof o2;
-    } : function(o2) {
-      return o2 && "function" == typeof Symbol && o2.constructor === Symbol && o2 !== Symbol.prototype ? "symbol" : typeof o2;
-    }, _typeof(o);
+    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o3) {
+      return typeof o3;
+    } : function(o3) {
+      return o3 && "function" == typeof Symbol && o3.constructor === Symbol && o3 !== Symbol.prototype ? "symbol" : typeof o3;
+    }, _typeof(o2);
   }
 
   // ../node_modules/@babel/runtime/helpers/esm/toPrimitive.js
@@ -31641,9 +31641,9 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   // ../node_modules/focus-lock/dist/es2015/utils/all-affected.js
   var filterNested = function(nodes) {
     var contained = /* @__PURE__ */ new Set();
-    var l2 = nodes.length;
-    for (var i = 0; i < l2; i += 1) {
-      for (var j = i + 1; j < l2; j += 1) {
+    var l = nodes.length;
+    for (var i = 0; i < l; i += 1) {
+      for (var j = i + 1; j < l; j += 1) {
         var position = nodes[i].compareDocumentPosition(nodes[j]);
         if ((position & Node.DOCUMENT_POSITION_CONTAINED_BY) > 0) {
           contained.add(j);
@@ -31653,7 +31653,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         }
       }
     }
-    return nodes.filter(function(_2, index) {
+    return nodes.filter(function(_, index) {
       return !contained.has(index);
     });
   };
@@ -32484,8 +32484,8 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   var extractRef3 = function(ref) {
     return ref && "current" in ref ? ref.current : ref;
   };
-  var deltaCompare = function(x, y) {
-    return x[0] === y[0] && x[1] === y[1];
+  var deltaCompare = function(x, y2) {
+    return x[0] === y2[0] && x[1] === y2[1];
   };
   var generateStyle = function(id2) {
     return "\n  .block-interactivity-".concat(id2, " {pointer-events: none;}\n  .allow-interactivity-").concat(id2, " {pointer-events: all;}\n");
@@ -32887,61 +32887,61 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   var import_jsx_runtime11 = __toESM(require_jsx_runtime());
   var import_jsx_runtime12 = __toESM(require_jsx_runtime());
   var import_jsx_runtime13 = __toESM(require_jsx_runtime());
-  var Oe = Object.defineProperty;
-  var De = Object.defineProperties;
-  var Ge = Object.getOwnPropertyDescriptors;
+  var Ve = Object.defineProperty;
+  var Ge = Object.defineProperties;
+  var je = Object.getOwnPropertyDescriptors;
   var X = Object.getOwnPropertySymbols;
-  var he = Object.prototype.hasOwnProperty;
-  var ve = Object.prototype.propertyIsEnumerable;
-  var fe = (t, e, i) => e in t ? Oe(t, e, { enumerable: true, configurable: true, writable: true, value: i }) : t[e] = i;
-  var h = (t, e) => {
+  var ve = Object.prototype.hasOwnProperty;
+  var he = Object.prototype.propertyIsEnumerable;
+  var fe = (t, e, i) => e in t ? Ve(t, e, { enumerable: true, configurable: true, writable: true, value: i }) : t[e] = i;
+  var m = (t, e) => {
     for (var i in e || (e = {}))
-      he.call(e, i) && fe(t, i, e[i]);
+      ve.call(e, i) && fe(t, i, e[i]);
     if (X)
       for (var i of X(e))
-        ve.call(e, i) && fe(t, i, e[i]);
+        he.call(e, i) && fe(t, i, e[i]);
     return t;
   };
-  var _ = (t, e) => De(t, Ge(e));
-  var C = (t, e) => {
+  var w = (t, e) => Ge(t, je(e));
+  var h = (t, e) => {
     var i = {};
     for (var n in t)
-      he.call(t, n) && e.indexOf(n) < 0 && (i[n] = t[n]);
+      ve.call(t, n) && e.indexOf(n) < 0 && (i[n] = t[n]);
     if (t != null && X)
       for (var n of X(t))
-        e.indexOf(n) < 0 && ve.call(t, n) && (i[n] = t[n]);
+        e.indexOf(n) < 0 && he.call(t, n) && (i[n] = t[n]);
     return i;
   };
-  var A = (t, e, i) => new Promise((n, r) => {
-    var o = (x) => {
+  var A = (t, e, i) => new Promise((n, l) => {
+    var r = (x) => {
       try {
         u(i.next(x));
       } catch (c) {
-        r(c);
+        l(c);
       }
-    }, a = (x) => {
+    }, s = (x) => {
       try {
         u(i.throw(x));
       } catch (c) {
-        r(c);
+        l(c);
       }
-    }, u = (x) => x.done ? n(x.value) : Promise.resolve(x.value).then(o, a);
+    }, u = (x) => x.done ? n(x.value) : Promise.resolve(x.value).then(r, s);
     u((i = i.apply(t, e)).next());
   });
   var Xe = { baseline: "vuiFlexContainer--alignItemsBaseline", center: "vuiFlexContainer--alignItemsCenter", end: "vuiFlexContainer--alignItemsEnd", start: "vuiFlexContainer--alignItemsStart", stretch: "vuiFlexContainer--alignItemsStretch" };
   var Ae = { column: "vuiFlexContainer--directionColumn", columnReverse: "vuiFlexContainer--directionColumnReverse", row: "vuiFlexContainer--directionRow", rowReverse: "vuiFlexContainer--directionRowReverse" };
   var He = { center: "vuiFlexContainer--justifyContentCenter", end: "vuiFlexContainer--justifyContentEnd", start: "vuiFlexContainer--justifyContentStart", spaceAround: "vuiFlexContainer--justifyContentSpaceAround", spaceBetween: "vuiFlexContainer--justifyContentSpaceBetween", spaceEvenly: "vuiFlexContainer--justifyContentSpaceEvenly" };
   var qe = { none: "vuiFlexContainer--spacingNone", xxs: "vuiFlexContainer--spacingXxs", xs: "vuiFlexContainer--spacingXs", s: "vuiFlexContainer--spacingS", m: "vuiFlexContainer--spacingM", l: "vuiFlexContainer--spacingL", xl: "vuiFlexContainer--spacingXl", xxl: "vuiFlexContainer--spacingXxl" };
-  var w = (c) => {
-    var m = c, { children: t, alignItems: e = "stretch", direction: i = "row", justifyContent: n = "start", spacing: r = "m", wrap: o, className: a, fullWidth: u } = m, x = C(m, ["children", "alignItems", "direction", "justifyContent", "spacing", "wrap", "className", "fullWidth"]);
-    let d = (0, import_classnames.default)(a, "vuiFlexContainer", Xe[e], Ae[i], He[n], qe[r], { "vuiFlexContainer--wrap": o, "vuiFlexContainer--fullWidth": u });
-    return (0, import_jsx_runtime.jsx)("div", _(h({ className: d }, x), { children: t }));
+  var F = (c) => {
+    var d = c, { children: t, alignItems: e = "stretch", direction: i = "row", justifyContent: n = "start", spacing: l = "m", wrap: r, className: s, fullWidth: u } = d, x = h(d, ["children", "alignItems", "direction", "justifyContent", "spacing", "wrap", "className", "fullWidth"]);
+    let f = (0, import_classnames.default)(s, "vuiFlexContainer", Xe[e], Ae[i], He[n], qe[l], { "vuiFlexContainer--wrap": r, "vuiFlexContainer--fullWidth": u });
+    return (0, import_jsx_runtime.jsx)("div", w(m({ className: f }, x), { children: t }));
   };
   var Ue = { baseline: "vuiFlexItem--alignItemsBaseline", center: "vuiFlexItem--alignItemsCenter", end: "vuiFlexItem--alignItemsEnd", start: "vuiFlexItem--alignItemsStart", stretch: "vuiFlexItem--alignItemsStretch" };
-  var v = (x) => {
-    var c = x, { children: t, grow: e, shrink: i, basis: n = "auto", alignItems: r = "stretch", className: o, truncate: a } = c, u = C(c, ["children", "grow", "shrink", "basis", "alignItems", "className", "truncate"]);
-    let m = e === false, d = i === false, k = (0, import_classnames2.default)("vuiFlexItem", `vuiFlexItem--${n}`, Ue[r], { [`vuiFlexItem--flexGrow${e}`]: typeof e == "number", "vuiFlexItem--flexGrowNone": m, [`vuiFlexItem--flexShrink${i}`]: typeof i == "number", "vuiFlexItem--flexShrinkNone": d, "vuiFlexItem--truncate": a }, o);
-    return (0, import_jsx_runtime2.jsx)("div", _(h({ className: k }, u), { children: t }));
+  var g = (x) => {
+    var c = x, { children: t, grow: e, shrink: i, basis: n = "auto", alignItems: l = "stretch", className: r, truncate: s } = c, u = h(c, ["children", "grow", "shrink", "basis", "alignItems", "className", "truncate"]);
+    let d = e === false, f = i === false, R = (0, import_classnames2.default)("vuiFlexItem", `vuiFlexItem--${n}`, Ue[l], { [`vuiFlexItem--flexGrow${e}`]: typeof e == "number", "vuiFlexItem--flexGrowNone": d, [`vuiFlexItem--flexShrink${i}`]: typeof i == "number", "vuiFlexItem--flexShrinkNone": f, "vuiFlexItem--truncate": s }, r);
+    return (0, import_jsx_runtime2.jsx)("div", w(m({ className: R }, u), { children: t }));
   };
   var J = ({ children: t }) => {
     let e = (0, import_react8.useRef)(null);
@@ -32956,72 +32956,63 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return (0, import_jsx_runtime4.jsx)("div", { className: e });
   };
   var rt = { xs: "vuiSpinner--xs", s: "vuiSpinner--s", m: "vuiSpinner--m", l: "vuiSpinner--l", xl: "vuiSpinner--xl", xxl: "vuiSpinner--xxl", xxxl: "vuiSpinner--xxxl" };
-  var O = ({ color: t = "accent", size: e = "m" }) => {
+  var V = ({ color: t = "accent", size: e = "m" }) => {
     let i = (0, import_classnames4.default)("vuiSpinner", rt[e], `vuiSpinner--${t}`);
     return (0, import_jsx_runtime5.jsx)("div", { className: i, children: (0, import_jsx_runtime5.jsx)("svg", { version: "1.1", xmlns: "http://www.w3.org/2000/svg", x: "0px", y: "0px", viewBox: "0 0 50 50", children: (0, import_jsx_runtime5.jsx)("path", { fill: "#000", d: "M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z", children: (0, import_jsx_runtime5.jsx)("animateTransform", { attributeType: "xml", attributeName: "transform", type: "rotate", from: "0 25 25", to: "360 25 25", dur: "0.6s", repeatCount: "indefinite" }) }) }) });
   };
   var z = (u) => {
-    var x = u, { children: t, className: e, id: i, truncate: n, size: r = "s", align: o } = x, a = C(x, ["children", "className", "id", "truncate", "size", "align"]);
-    let c = (0, import_classnames5.default)("vuiText", `vuiText--${r}`, { [`vuiText--${o}`]: o, "vuiText--truncate": n }, e);
-    return (0, import_jsx_runtime6.jsx)("div", _(h({ className: c, id: i }, a), { children: t }));
+    var x = u, { children: t, className: e, id: i, truncate: n, size: l = "s", align: r } = x, s = h(x, ["children", "className", "id", "truncate", "size", "align"]);
+    let c = (0, import_classnames5.default)("vuiText", `vuiText--${l}`, { [`vuiText--${r}`]: r, "vuiText--truncate": n }, e);
+    return (0, import_jsx_runtime6.jsx)("div", w(m({ className: c, id: i }, s), { children: t }));
   };
   var q = 0;
   var ge = () => (q === Number.MAX_SAFE_INTEGER ? q = 0 : q++, q.toString());
-  var at = function(t, e) {
-    var i = {};
-    for (var n in t)
-      Object.prototype.hasOwnProperty.call(t, n) && e.indexOf(n) < 0 && (i[n] = t[n]);
-    if (t != null && typeof Object.getOwnPropertySymbols == "function")
-      for (var r = 0, n = Object.getOwnPropertySymbols(t); r < n.length; r++)
-        e.indexOf(n[r]) < 0 && Object.prototype.propertyIsEnumerable.call(t, n[r]) && (i[n[r]] = t[n[r]]);
-    return i;
+  var ee = (r) => {
+    var s = r, { id: t, checked: e, onChange: i, label: n } = s, l = h(s, ["id", "checked", "onChange", "label"]);
+    let u, x = {};
+    return n && (u = ge(), x["aria-labelledby"] = u), (0, import_jsx_runtime8.jsxs)(F, { alignItems: "center", spacing: "s", children: [(0, import_jsx_runtime8.jsx)(g, { grow: false, children: (0, import_jsx_runtime8.jsxs)("label", w(m({ className: "vuiToggle" }, l), { children: [(0, import_jsx_runtime8.jsx)("input", m({ className: "vuiToggle__input", type: "checkbox", checked: e, onChange: i, id: t }, x)), (0, import_jsx_runtime8.jsx)("span", { className: "vuiToggle__button" })] })) }), n && (0, import_jsx_runtime8.jsx)(g, { grow: false, children: (0, import_jsx_runtime8.jsx)("div", { id: u, children: n }) })] });
   };
-  var ee = (t) => {
-    var { id: e, checked: i, onChange: n, label: r } = t, o = at(t, ["id", "checked", "onChange", "label"]);
-    let a, u = {};
-    return r && (a = ge(), u["aria-labelledby"] = a), (0, import_jsx_runtime8.jsxs)(w, Object.assign({ alignItems: "center", spacing: "s" }, { children: [(0, import_jsx_runtime8.jsx)(v, Object.assign({ grow: false }, { children: (0, import_jsx_runtime8.jsxs)("label", Object.assign({ className: "vuiToggle" }, { children: [(0, import_jsx_runtime8.jsx)("input", Object.assign({ className: "vuiToggle__input", type: "checkbox", checked: i, onChange: n, id: e }, u, o)), (0, import_jsx_runtime8.jsx)("span", { className: "vuiToggle__button" })] })) })), r && (0, import_jsx_runtime8.jsx)(v, Object.assign({ grow: false }, { children: (0, import_jsx_runtime8.jsx)("div", Object.assign({ id: a }, { children: r })) }))] }));
-  };
-  var xt = "https://api.vectara.io/v1/query";
-  var we = (t, e, i, n = xt) => {
-    let [r, o] = (0, import_react10.useState)(false), a = import_react10.default.useMemo(() => {
+  var ut = "https://api.vectara.io/v1/query";
+  var we = (t, e, i, n = ut) => {
+    let [l, r] = (0, import_react10.useState)(false), s = import_react10.default.useMemo(() => {
       let c = new Headers();
       return c.append("customer-id", t), c.append("x-api-key", i), c.append("content-type", "application/json"), c.append("x-source", "react-search"), c;
-    }, [t, i]), u = (0, import_react10.useCallback)((c, m) => JSON.stringify({ query: [{ query: c, start: 0, numResults: 20, corpusKey: [{ corpusId: e }], summary: m ? [{ maxSummarizedResults: 5, responseLang: "eng" }] : void 0 }] }), [e]);
-    return { fetchSearchResults: (c, m) => A(void 0, null, function* () {
-      var y, g, I, b, B;
-      o(true);
-      let d = u(c, m), R = yield (yield fetch(n, { headers: a, body: d, method: "POST" })).json();
-      o(false);
-      let L = (g = dt((y = R.responseSet) == null ? void 0 : y[0])) != null ? g : [];
-      return { searchResults: ht(L), summary: (B = (b = (I = R.responseSet) == null ? void 0 : I[0].summary) == null ? void 0 : b[0]) == null ? void 0 : B.text };
-    }), isLoading: r };
+    }, [t, i]), u = (0, import_react10.useCallback)((c, d) => JSON.stringify({ query: [{ query: c, start: 0, numResults: 20, corpusKey: [{ corpusId: e }], summary: d ? [{ maxSummarizedResults: 5, responseLang: "eng" }] : void 0 }] }), [e]);
+    return { fetchSearchResults: (c, d) => A(void 0, null, function* () {
+      var I, S, T, b, B;
+      r(true);
+      let f = u(c, d), E = yield (yield fetch(n, { headers: s, body: f, method: "POST" })).json();
+      r(false);
+      let L = (S = mt((I = E.responseSet) == null ? void 0 : I[0])) != null ? S : [];
+      return { searchResults: ft(L), summary: (B = (b = (T = E.responseSet) == null ? void 0 : T[0].summary) == null ? void 0 : b[0]) == null ? void 0 : B.text };
+    }), isLoading: l };
   };
-  var pt = (t) => {
+  var xt = (t) => {
     let e = {};
     return t.forEach((i) => {
       e[i.name] = i.value;
     }), e;
   };
-  var mt = (t) => {
-    let e = pt(t);
+  var pt = (t) => {
+    let e = xt(t);
     return { source: e.source, url: e.url, title: e.title, metadata: e };
   };
-  var dt = (t) => {
+  var mt = (t) => {
     if (!t)
       return;
     let e = [], { response: i, document: n } = t;
-    return i.forEach((r) => {
-      let { documentIndex: o, text: a } = r, { pre: u, post: x, text: c } = ft(a), m = n[Number(o)], { id: d, metadata: k } = m, { source: R, url: L, title: y, metadata: g } = mt(k);
-      e.push({ id: d, snippet: { pre: u, text: c, post: x }, source: R, url: L, title: y, metadata: g });
+    return i.forEach((l) => {
+      let { documentIndex: r, text: s } = l, { pre: u, post: x, text: c } = dt(s), d = n[Number(r)], { id: f, metadata: R } = d, { source: E, url: L, title: I, metadata: S } = pt(R);
+      e.push({ id: f, snippet: { pre: u, text: c, post: x }, source: E, url: L, title: I, metadata: S });
     }), e;
   };
-  var Se = "%START_SNIPPET%";
+  var be = "%START_SNIPPET%";
   var Ce = "%END_SNIPPET%";
-  var ft = (t) => {
-    let [e, i] = t.indexOf(Se) !== -1 ? t.split(Se) : ["", t], [n, r] = i.indexOf(Ce) !== -1 ? i.split(Ce) : [i, ""];
-    return { pre: e, post: r, text: n };
+  var dt = (t) => {
+    let [e, i] = t.indexOf(be) !== -1 ? t.split(be) : ["", t], [n, l] = i.indexOf(Ce) !== -1 ? i.split(Ce) : [i, ""];
+    return { pre: e, post: l, text: n };
   };
-  var ht = (t) => {
+  var ft = (t) => {
     let e = {}, i = [];
     return t.forEach((n) => {
       if (n.url) {
@@ -33033,8 +33024,8 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }), i;
   };
   var Fe = ({ searchResult: t, isSelected: e = false, opensInNewTab: i = false }) => {
-    let { title: n, url: r, snippet: { text: o } } = t, a = (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [n && (0, import_jsx_runtime9.jsx)("p", { className: "vrsSearchResultTitle", children: n }), (0, import_jsx_runtime9.jsx)("p", { className: "vrsSearchResultSnippet", children: o })] });
-    return r ? (0, import_jsx_runtime9.jsx)("a", { "data-testid": "vrsResultLink", className: `vrsSearchResult vrsSearchResult-isLink ${e ? "isSelected" : ""}`, href: r, target: i ? "_blank" : "_self", children: a }) : (0, import_jsx_runtime9.jsx)("div", { "data-testid": "vrsResultWrapper", className: "vrsSearchResult", children: a });
+    let { title: n, url: l, snippet: { text: r } } = t, s = (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [n && (0, import_jsx_runtime9.jsx)("p", { className: "vrsSearchResultTitle", children: n }), (0, import_jsx_runtime9.jsx)("p", { className: "vrsSearchResultSnippet", children: r })] });
+    return l ? (0, import_jsx_runtime9.jsx)("a", { "data-testid": "vrsResultLink", className: `vrsSearchResult vrsSearchResult-isLink ${e ? "isSelected" : ""}`, href: l, target: i ? "_blank" : "_self", children: s }) : (0, import_jsx_runtime9.jsx)("div", { "data-testid": "vrsResultWrapper", className: "vrsSearchResult", children: s });
   };
   var te = `.vuiFlexContainer {
   display: flex;
@@ -34007,20 +33998,20 @@ fieldset {
     overflow-y: none !important;
   }
 }`;
-  var ke = (0, import_react11.forwardRef)(({ onClose: t, isOpen: e, children: i, zIndex: n }, r) => {
-    let o = (0, import_react11.useRef)(null);
+  var ke = (0, import_react11.forwardRef)(({ onClose: t, isOpen: e, children: i, zIndex: n }, l) => {
+    let r = (0, import_react11.useRef)(null);
     (0, import_react11.useEffect)(() => {
       var u, x, c;
-      e ? o.current = (x = (u = document.activeElement) == null ? void 0 : u.shadowRoot) == null ? void 0 : x.querySelector("button") : ((c = o.current) == null || c.focus(), o.current = null);
+      e ? r.current = (x = (u = document.activeElement) == null ? void 0 : u.shadowRoot) == null ? void 0 : x.querySelector("button") : ((c = r.current) == null || c.focus(), r.current = null);
     }, [e]);
-    let a = () => {
+    let s = () => {
       window.setTimeout(() => {
         t();
       }, 0);
     };
-    return (0, import_jsx_runtime10.jsx)(J, { children: e && (0, import_jsx_runtime10.jsx)("div", { className: "vrsModalWrapper", style: { zIndex: n }, children: (0, import_jsx_runtime10.jsx)(Q, { children: (0, import_jsx_runtime10.jsx)(FocusOn2, { onEscapeKey: a, onClickOutside: a, returnFocus: false, autoFocus: e, children: (0, import_jsx_runtime10.jsx)(wt, { ref: r, children: i }) }) }) }) });
+    return (0, import_jsx_runtime10.jsx)(J, { children: e && (0, import_jsx_runtime10.jsx)("div", { className: "vrsModalWrapper", style: { zIndex: n }, children: (0, import_jsx_runtime10.jsx)(Q, { children: (0, import_jsx_runtime10.jsx)(FocusOn2, { onEscapeKey: s, onClickOutside: s, returnFocus: false, autoFocus: e, children: (0, import_jsx_runtime10.jsx)(Ct, { ref: l, children: i }) }) }) }) });
   });
-  var Ct = ({ ref: t, children: e }) => (0, import_jsx_runtime10.jsx)("div", { className: "vrsSearchModalContainer", children: (0, import_jsx_runtime10.jsx)("div", { ref: t, className: "vrsSearchModal", children: e }) });
+  var bt = ({ ref: t, children: e }) => (0, import_jsx_runtime10.jsx)("div", { className: "vrsSearchModalContainer", children: (0, import_jsx_runtime10.jsx)("div", { ref: t, className: "vrsSearchModal", children: e }) });
   var ie = class extends HTMLElement {
     static get observedAttributes() {
       return ["isopen", "onclosedelayedupdatetime", "reactchildrenupdatetime", "refupdatetime"];
@@ -34046,14 +34037,14 @@ fieldset {
     }
     connectedCallback() {
       let e = this.reactChildren, i = this.ref;
-      Te.render((0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: (0, import_jsx_runtime10.jsx)(Ct, { ref: i, children: e }) }), this.mountPoint);
+      Te.render((0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: (0, import_jsx_runtime10.jsx)(bt, { ref: i, children: e }) }), this.mountPoint);
     }
     attributeChangedCallback() {
       this.connectedCallback();
     }
   };
   window.customElements.get("react-search-modal-contents") || window.customElements.define("react-search-modal-contents", ie);
-  var wt = (t) => {
+  var Ct = (t) => {
     let e = (0, import_react11.useRef)(null);
     return (0, import_react11.useEffect)(() => {
       e.current && (e.current.setReactChildren(t.children), e.current.setRef(t.ref), e.current.setOnCloseDelayed(t.onCloseDelayed));
@@ -34061,13 +34052,13 @@ fieldset {
   };
   var Re = (t, e = 10) => {
     let i = (0, import_react12.useCallback)(() => `vectara-search:${t}:history`, [t]), n = (0, import_react12.useCallback)(() => {
-      let o = window.localStorage.getItem(i());
-      return JSON.parse(o != null ? o : "[]");
-    }, [i]), r = (0, import_react12.useCallback)((o) => {
-      let a = n(), u = [o, ...a].slice(0, e);
+      let r = window.localStorage.getItem(i());
+      return JSON.parse(r != null ? r : "[]");
+    }, [i]), l = (0, import_react12.useCallback)((r) => {
+      let s = n(), u = [r, ...s].slice(0, e);
       window.localStorage.setItem(i(), JSON.stringify(u));
     }, [i]);
-    return { getPreviousSearches: n, addPreviousSearch: r };
+    return { getPreviousSearches: n, addPreviousSearch: l };
   };
   var re = `.vuiFlexContainer {
   display: flex;
@@ -35743,7 +35734,7 @@ button {
   background-color: rgb(217, 226, 255);
   color: rgb(38, 76, 214);
 }`;
-  var yt = `.vuiScreenBlock {
+  var Ft = `.vuiScreenBlock {
   position: fixed;
   top: 0;
   left: 0;
@@ -35764,85 +35755,85 @@ button {
 .vrsModalWrapper {
   position: fixed;
 }`;
-  document.head.appendChild(document.createElement("style")).appendChild(document.createTextNode(yt));
-  var Ee = (a) => {
-    var u = a, { value: t, onChange: e, placeholder: i, autoFocus: n, onSubmit: r } = u, o = C(u, ["value", "onChange", "placeholder", "autoFocus", "onSubmit"]);
-    return (0, import_jsx_runtime11.jsx)("input", h({ "data-testid": "searchInput", className: "vrsSearchInput", type: "text", autoComplete: "off", autoCapitalize: "off", spellCheck: "false", autoFocus: n, placeholder: i, value: t, onChange: e }, o));
+  document.head.appendChild(document.createElement("style")).appendChild(document.createTextNode(Ft));
+  var Ee = (s) => {
+    var u = s, { value: t, onChange: e, placeholder: i, autoFocus: n, onSubmit: l } = u, r = h(u, ["value", "onChange", "placeholder", "autoFocus", "onSubmit"]);
+    return (0, import_jsx_runtime11.jsx)("input", m({ "data-testid": "searchInput", className: "vrsSearchInput", type: "text", autoComplete: "off", autoCapitalize: "off", spellCheck: "false", autoFocus: n, placeholder: i, value: t, onChange: e }, r));
   };
-  var Tt = /(^\[(\d+(,*\s*\d*)*)\] ?)|( ?\[(\d+(,*\s*\d*)*)\])/g;
-  var oe = (t) => t.replace(Tt, "");
+  var It = /(^\[(\d+(,*\s*\d*)*)\] ?)|( ?\[(\d+(,*\s*\d*)*)\])/g;
+  var oe = (t) => t.replace(It, "");
   var Ne = ({ isSummaryEnabled: t, setIsSummaryEnabled: e, isLoading: i, summary: n }) => {
-    let r = n ? oe(n) : void 0, o;
-    return t && (i ? o = (0, import_jsx_runtime12.jsxs)(w, { spacing: "s", children: [(0, import_jsx_runtime12.jsx)(v, { children: (0, import_jsx_runtime12.jsx)(O, { size: "s" }) }), (0, import_jsx_runtime12.jsx)(v, { children: (0, import_jsx_runtime12.jsx)(z, { children: "Summarizing\u2026" }) })] }) : r && (o = (0, import_jsx_runtime12.jsx)(z, { children: (0, import_jsx_runtime12.jsx)("p", { children: r }) }))), (0, import_jsx_runtime12.jsxs)("div", { className: "vrsAnswerContainer", children: [(0, import_jsx_runtime12.jsx)(ee, { checked: t, onChange: (a) => e(a.target.checked), label: "Summarize seach results" }), o && (0, import_jsx_runtime12.jsxs)(import_jsx_runtime12.Fragment, { children: [(0, import_jsx_runtime12.jsx)(Y, { size: "m" }), o] })] });
+    let l = n ? oe(n) : void 0, r;
+    return t && (i ? r = (0, import_jsx_runtime12.jsxs)(F, { spacing: "s", children: [(0, import_jsx_runtime12.jsx)(g, { children: (0, import_jsx_runtime12.jsx)(V, { size: "s" }) }), (0, import_jsx_runtime12.jsx)(g, { children: (0, import_jsx_runtime12.jsx)(z, { children: "Summarizing\u2026" }) })] }) : l && (r = (0, import_jsx_runtime12.jsx)(z, { children: (0, import_jsx_runtime12.jsx)("p", { children: l }) }))), (0, import_jsx_runtime12.jsxs)("div", { className: "vrsAnswerContainer", children: [(0, import_jsx_runtime12.jsx)(ee, { checked: t, onChange: (s) => e(s.target.checked), label: "Summarize seach results" }), r && (0, import_jsx_runtime12.jsxs)(import_jsx_runtime12.Fragment, { children: [(0, import_jsx_runtime12.jsx)(Y, { size: "m" }), r] })] });
   };
-  var _t = (t, e) => {
+  var Nt = (t, e) => {
     let i = t.get(e);
     if (i)
       return decodeURIComponent(i);
   };
-  var zt = ({ customerId: t, apiKey: e, corpusId: i, apiUrl: n, historySize: r = 10, placeholder: o = "Search", isDeeplinkable: a = false, openResultsInNewTab: u = false, zIndex: x = 9999, onToggleSummary: c, isSummaryToggleVisible: m = false, isSummaryToggleInitiallyEnabled: d = false }) => {
-    let k = (0, import_react7.useMemo)(() => (0, import_uuid_by_string.default)(`${t}-${i}-${e}`), [t, i, e]), { addPreviousSearch: R } = Re(k, r), { fetchSearchResults: L, isLoading: y } = we(t, i, e, n), [g, I] = (0, import_react7.useState)(), [b, B] = (0, import_react7.useState)([]), [Me, ce] = (0, import_react7.useState)(), [Pe, G] = (0, import_react7.useState)(false), [E, U] = (0, import_react7.useState)(""), [K, ue] = (0, import_react7.useState)(d), Le = (0, import_react7.useRef)(null), N = (0, import_react7.useRef)(null), xe = (0, import_react7.useRef)(0);
+  var _t = ({ customerId: t, apiKey: e, corpusId: i, apiUrl: n, historySize: l = 10, placeholder: r = "Search", isDeeplinkable: s = false, openResultsInNewTab: u = false, zIndex: x = 9999, onToggleSummary: c, isSummaryToggleVisible: d = false, isSummaryToggleInitiallyEnabled: f = false }) => {
+    let R = (0, import_react7.useMemo)(() => (0, import_uuid_by_string.default)(`${t}-${i}-${e}`), [t, i, e]), { addPreviousSearch: E } = Re(R, l), { fetchSearchResults: L, isLoading: I } = we(t, i, e, n), [S, T] = (0, import_react7.useState)(), [b, B] = (0, import_react7.useState)([]), [Me, ce] = (0, import_react7.useState)(), [Pe, j] = (0, import_react7.useState)(false), [N, U] = (0, import_react7.useState)(""), [K, ue] = (0, import_react7.useState)(f), Le = (0, import_react7.useRef)(null), _ = (0, import_react7.useRef)(null), xe = (0, import_react7.useRef)(0);
     (0, import_react7.useEffect)(() => {
-      ue(d);
-    }, [d]), (0, import_react7.useEffect)(() => {
-      let s = new URLSearchParams(window.location.search), p = _t(s, "search");
-      p && (G(true), U(p), j(p));
+      ue(f);
+    }, [f]), (0, import_react7.useEffect)(() => {
+      let a = new URLSearchParams(window.location.search), p = Nt(a, "search");
+      p && (j(true), U(p), D(p));
     }, []);
-    let j = (s) => A(void 0, null, function* () {
-      if (s.length === 0)
+    let D = (a) => A(void 0, null, function* () {
+      if (a.length === 0)
         return;
-      if (a) {
-        let V = new URLSearchParams(window.location.search);
-        V.set("search", s), history.replaceState(null, "", "?" + V.toString());
+      if (s) {
+        let O = new URLSearchParams(window.location.search);
+        O.set("search", a), history.replaceState(null, "", "?" + O.toString());
       }
-      R(s);
-      let p = ++xe.current, { searchResults: f, summary: Z } = yield L(s, K);
-      p === xe.current && (B(f), ce(Z), I(void 0), N.current = null);
+      E(a);
+      let p = ++xe.current, { searchResults: v, summary: Z } = yield L(a, K);
+      p === xe.current && (B(v), ce(Z), T(void 0), _.current = null);
     });
     (0, import_react7.useEffect)(() => {
-      let s = setTimeout(() => {
-        j(E);
+      let a = setTimeout(() => {
+        D(N);
       }, 500);
-      return () => clearTimeout(s);
-    }, [E]), (0, import_react7.useEffect)(() => {
-      j(E);
+      return () => clearTimeout(a);
+    }, [N]), (0, import_react7.useEffect)(() => {
+      D(N);
     }, [K]);
-    let Be = (s) => {
-      let p = s.target.value;
+    let Be = (a) => {
+      let p = a.target.value;
       U(p), p.length === 0 && pe();
-    }, je = (0, import_react7.useCallback)((s) => {
-      let p = s.key;
-      p === "Enter" && (s.preventDefault(), g !== void 0 ? window.open(b[g].url, u ? "_blank" : "_self") : j(E)), b.length !== 0 && (p === "ArrowDown" && I((f) => f === void 0 || f === b.length - 1 ? 0 : f + 1), p === "ArrowUp" && I((f) => f === void 0 || f === 0 ? b.length - 1 : f - 1));
-    }, [b, g]), pe = () => {
-      ce(void 0), B([]), I(void 0), N.current = null;
+    }, De = (0, import_react7.useCallback)((a) => {
+      let p = a.key;
+      p === "Enter" && (a.preventDefault(), S !== void 0 ? window.open(b[S].url, u ? "_blank" : "_self") : D(N)), b.length !== 0 && (p === "ArrowDown" && T((v) => v === void 0 || v === b.length - 1 ? 0 : v + 1), p === "ArrowUp" && T((v) => v === void 0 || v === 0 ? b.length - 1 : v - 1));
+    }, [b, S]), pe = () => {
+      ce(void 0), B([]), T(void 0), _.current = null;
     }, me = () => {
-      if (G(false), U(""), pe(), a) {
-        let s = new URLSearchParams(window.location.search);
-        s.delete("search"), history.replaceState(null, "", "?" + s.toString());
+      if (j(false), U(""), pe(), s) {
+        let a = new URLSearchParams(window.location.search);
+        a.delete("search"), history.replaceState(null, "", "?" + a.toString());
       }
-    }, de = b.length === 0 ? void 0 : b.map((s, p) => {
-      let { snippet: { pre: f, text: Z, post: V } } = s;
-      return (0, import_jsx_runtime13.jsx)("div", { ref: g === p ? N : void 0, children: (0, import_jsx_runtime13.jsx)(Fe, { searchResult: s, isSelected: g === p, opensInNewTab: u }) }, `${f}${Z}${V}`);
+    }, de = b.length === 0 ? void 0 : b.map((a, p) => {
+      let { snippet: { pre: v, text: Z, post: O } } = a;
+      return (0, import_jsx_runtime13.jsx)("div", { ref: S === p ? _ : void 0, children: (0, import_jsx_runtime13.jsx)(Fe, { searchResult: a, isSelected: S === p, opensInNewTab: u }) }, `${v}${Z}${O}`);
     });
     return (0, import_react7.useEffect)(() => {
-      N.current && N.current.scrollIntoView({ behavior: "instant", block: "nearest" });
-    }, [N.current]), (0, import_react7.useEffect)(() => {
-      let s = (p) => {
-        p.key === "k" && p.ctrlKey && G(true);
+      _.current && _.current.scrollIntoView({ behavior: "instant", block: "nearest" });
+    }, [_.current]), (0, import_react7.useEffect)(() => {
+      let a = (p) => {
+        p.key === "k" && p.ctrlKey && j(true);
       };
-      return document.addEventListener("keyup", s), () => {
-        document.removeEventListener("keyup", s);
+      return document.addEventListener("keyup", a), () => {
+        document.removeEventListener("keyup", a);
       };
-    }, []), (0, import_jsx_runtime13.jsx)(import_jsx_runtime13.Fragment, { children: (0, import_jsx_runtime13.jsxs)("div", { children: [(0, import_jsx_runtime13.jsx)("div", { ref: Le, children: (0, import_jsx_runtime13.jsx)("button", { className: "vrsSearchButton", onClick: () => G(true), children: (0, import_jsx_runtime13.jsxs)(w, { alignItems: "center", spacing: "none", justifyContent: "spaceBetween", className: "vrsSearchButton__inner", children: [(0, import_jsx_runtime13.jsx)(v, { children: (0, import_jsx_runtime13.jsxs)(w, { alignItems: "center", spacing: "xs", children: [(0, import_jsx_runtime13.jsx)(v, { children: (0, import_jsx_runtime13.jsx)(_e, {}) }), (0, import_jsx_runtime13.jsx)(v, { children: (0, import_jsx_runtime13.jsx)(z, { children: (0, import_jsx_runtime13.jsx)("div", { children: "Search" }) }) })] }) }), (0, import_jsx_runtime13.jsx)("div", { className: "vrsSearchButtonShortcut", children: "Ctrl + K" })] }) }) }), (0, import_jsx_runtime13.jsxs)(ke, { isOpen: Pe, onClose: me, zIndex: x, children: [(0, import_jsx_runtime13.jsx)("form", { children: (0, import_jsx_runtime13.jsxs)("div", { className: "vrsSearchForm", children: [(0, import_jsx_runtime13.jsx)("div", { className: "vrsCloseButtonWrapper", children: (0, import_jsx_runtime13.jsx)("button", { className: "vrsSubmitButton", "aria-label": "Close", onClick: (s) => {
-      s.preventDefault(), me();
-    }, children: (0, import_jsx_runtime13.jsx)(Mt, { size: "12px" }) }) }), (0, import_jsx_runtime13.jsx)(Ee, { value: E, onChange: Be, onKeyDown: je, placeholder: o, autoFocus: true }), y ? (0, import_jsx_runtime13.jsx)("div", { className: "vrsSubmitButtonWrapper", children: (0, import_jsx_runtime13.jsx)(O, { size: "xs" }) }) : (0, import_jsx_runtime13.jsx)("div", { className: "vrsSubmitButtonWrapper", children: (0, import_jsx_runtime13.jsx)("button", { className: "vrsSubmitButton", onClick: (s) => {
-      s.preventDefault(), j(E);
-    }, children: (0, import_jsx_runtime13.jsx)(_e, {}) }) })] }) }), m && (0, import_jsx_runtime13.jsx)(Ne, { isSummaryEnabled: K, setIsSummaryEnabled: (s) => {
-      ue(s), c == null || c(s);
-    }, isLoading: y, summary: Me }), de && (0, import_jsx_runtime13.jsx)("div", { className: "vrsSearchModalResults", children: de })] })] }) });
+    }, []), (0, import_jsx_runtime13.jsx)(import_jsx_runtime13.Fragment, { children: (0, import_jsx_runtime13.jsxs)("div", { children: [(0, import_jsx_runtime13.jsx)("div", { ref: Le, children: (0, import_jsx_runtime13.jsx)("button", { className: "vrsSearchButton", onClick: () => j(true), children: (0, import_jsx_runtime13.jsxs)(F, { alignItems: "center", spacing: "none", justifyContent: "spaceBetween", className: "vrsSearchButton__inner", children: [(0, import_jsx_runtime13.jsx)(g, { children: (0, import_jsx_runtime13.jsxs)(F, { alignItems: "center", spacing: "xs", children: [(0, import_jsx_runtime13.jsx)(g, { children: (0, import_jsx_runtime13.jsx)(_e, {}) }), (0, import_jsx_runtime13.jsx)(g, { children: (0, import_jsx_runtime13.jsx)(z, { children: (0, import_jsx_runtime13.jsx)("div", { children: "Search" }) }) })] }) }), (0, import_jsx_runtime13.jsx)("div", { className: "vrsSearchButtonShortcut", children: "Ctrl + K" })] }) }) }), (0, import_jsx_runtime13.jsxs)(ke, { isOpen: Pe, onClose: me, zIndex: x, children: [(0, import_jsx_runtime13.jsx)("form", { children: (0, import_jsx_runtime13.jsxs)("div", { className: "vrsSearchForm", children: [(0, import_jsx_runtime13.jsx)("div", { className: "vrsCloseButtonWrapper", children: (0, import_jsx_runtime13.jsx)("button", { className: "vrsSubmitButton", "aria-label": "Close", onClick: (a) => {
+      a.preventDefault(), me();
+    }, children: (0, import_jsx_runtime13.jsx)(zt, { size: "12px" }) }) }), (0, import_jsx_runtime13.jsx)(Ee, { value: N, onChange: Be, onKeyDown: De, placeholder: r, autoFocus: true }), I ? (0, import_jsx_runtime13.jsx)("div", { className: "vrsSubmitButtonWrapper", children: (0, import_jsx_runtime13.jsx)(V, { size: "xs" }) }) : (0, import_jsx_runtime13.jsx)("div", { className: "vrsSubmitButtonWrapper", children: (0, import_jsx_runtime13.jsx)("button", { className: "vrsSubmitButton", onClick: (a) => {
+      a.preventDefault(), D(N);
+    }, children: (0, import_jsx_runtime13.jsx)(_e, {}) }) })] }) }), d && (0, import_jsx_runtime13.jsx)(Ne, { isSummaryEnabled: K, setIsSummaryEnabled: (a) => {
+      ue(a), c == null || c(a);
+    }, isLoading: I, summary: Me }), de && (0, import_jsx_runtime13.jsx)("div", { className: "vrsSearchModalResults", children: de })] })] }) });
   };
   var _e = () => (0, import_jsx_runtime13.jsx)("div", { children: (0, import_jsx_runtime13.jsxs)("svg", { xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink", fill: "currentColor", height: "17px", width: "17px", version: "1.1", viewBox: "-24.52 -24.52 539.44 539.44", xmlSpace: "preserve", stroke: "currentColor", strokeWidth: "12", children: [(0, import_jsx_runtime13.jsx)("g", { id: "SVGRepo_bgCarrier", strokeWidth: "0" }), (0, import_jsx_runtime13.jsx)("g", { id: "SVGRepo_tracerCarrier", strokeLinecap: "round", strokeLinejoin: "round" }), (0, import_jsx_runtime13.jsx)("g", { id: "SVGRepo_iconCarrier", children: (0, import_jsx_runtime13.jsxs)("g", { children: [(0, import_jsx_runtime13.jsx)("path", { d: "M484.1,454.796l-110.5-110.6c29.8-36.3,47.6-82.8,47.6-133.4c0-116.3-94.3-210.6-210.6-210.6S0,94.496,0,210.796 s94.3,210.6,210.6,210.6c50.8,0,97.4-18,133.8-48l110.5,110.5c12.9,11.8,25,4.2,29.2,0C492.5,475.596,492.5,463.096,484.1,454.796z M41.1,210.796c0-93.6,75.9-169.5,169.5-169.5s169.6,75.9,169.6,169.5s-75.9,169.5-169.5,169.5S41.1,304.396,41.1,210.796z" }), " "] }) })] }) });
-  var Mt = ({ size: t }) => (0, import_jsx_runtime13.jsx)("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 329.26933 329", width: t, height: t, fill: "currentColor", children: (0, import_jsx_runtime13.jsx)("path", { d: "m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0" }) });
+  var zt = ({ size: t }) => (0, import_jsx_runtime13.jsx)("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 329.26933 329", width: t, height: t, fill: "currentColor", children: (0, import_jsx_runtime13.jsx)("path", { d: "m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0" }) });
   var ze = {};
   var se = class extends HTMLElement {
     static get observedAttributes() {
@@ -35859,7 +35850,7 @@ button {
       this.mountPoint = document.createElement("div"), this.sr.appendChild(this.mountPoint);
     }
     connectedCallback() {
-      W.render((0, import_jsx_runtime13.jsx)(zt, h({}, ze)), this.mountPoint);
+      W.render((0, import_jsx_runtime13.jsx)(_t, m({}, ze)), this.mountPoint);
     }
     attributeChangedCallback() {
       this.connectedCallback();
@@ -36234,7 +36225,7 @@ button {
     }
     warning(path === "*" || !path.endsWith("*") || path.endsWith("/*"), 'Route path "' + path + '" will be treated as if it were ' + ('"' + path.replace(/\*$/, "/*") + '" because the `*` character must ') + "always follow a `/` in the pattern. To get rid of this warning, " + ('please change the route path to "' + path.replace(/\*$/, "/*") + '".'));
     let params = [];
-    let regexpSource = "^" + path.replace(/\/*\*?$/, "").replace(/^\/*/, "/").replace(/[\\.*+^${}|()[\]]/g, "\\$&").replace(/\/:([\w-]+)(\?)?/g, (_2, paramName, isOptional) => {
+    let regexpSource = "^" + path.replace(/\/*\*?$/, "").replace(/^\/*/, "/").replace(/[\\.*+^${}|()[\]]/g, "\\$&").replace(/\/:([\w-]+)(\?)?/g, (_, paramName, isOptional) => {
       params.push({
         paramName,
         isOptional: isOptional != null
@@ -36582,7 +36573,7 @@ button {
       matches,
       loaderData
     } = useDataRouterState(DataRouterStateHook.UseMatches);
-    return React18.useMemo(() => matches.map((m) => convertRouteMatchToUiMatch(m, loaderData)), [matches, loaderData]);
+    return React18.useMemo(() => matches.map((m2) => convertRouteMatchToUiMatch(m2, loaderData)), [matches, loaderData]);
   }
   function useNavigateStable() {
     let {
