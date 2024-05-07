@@ -55,7 +55,7 @@ import { ReactSearch } from "@vectara/react-search";
   corpusId="CORPUS_ID"
   apiKey="API_KEY"
   placeholder="Placeholder" // Optional search input placeholder
-  isDeeplinkable={true} // Optional boolean determining if search results will be deeplinked
+  isDeepLinkable={true} // Optional boolean determining if search results will be deep-linked
   openResultsInNewTab={true} // Optional boolean determining if links will open in a new tab
   zIndex={/* Optional number assigned to the z-index of the search modal */}
 />
@@ -83,7 +83,7 @@ By default, React-Search sends query requests to the Vectara servers. If you wan
 
 Configure the placeholder text in the search modal's input.
 
-##### `isDeeplinkable` (optional)
+##### `isDeepLinkable` (optional)
 
 Defaults to `false`. Set this option if you want to persist a search query to a URL parameter. This will enable users to share or bookmark the URL. Loading the URL will automatically open the search modal and search for the query that's stored in the URL.
 
@@ -93,7 +93,19 @@ Defaults to `false`. Set this option if you want a search result to open in a ne
 
 ##### `zIndex` (optional)
 
-Customize the z-index of the search modal
+Define the z-index of the search modal.
+
+##### `onToggleSummary` (optional)
+
+Accepts a callback that will receive a boolean argument indicating whether the "Summarize search results" toggle is enabled.
+
+##### `isSummaryToggleVisible` (optional)
+
+Whether users will be able to summarize search results or not.
+
+##### `isSummaryToggleInitiallyEnabled` (optional)
+
+If users can toggle summarization, whether the toggle should be enabled by defualt.
 
 ### Power your own search UI with the useSearch hook
 
@@ -117,9 +129,9 @@ The values returned by the hook can be passed on to your custom components as pr
 
 #### <u>Hook Values</u>
 
-##### fetchSearchResults: `async (query: string) => Promise<DeserializedSearchResult[]>`
+##### fetchSearchResults: `async (query: string, summarize: boolean) => Promise<{ searchResults: DeserializedSearchResult[]; summary?: string }>`
 
-This is used to send a message to the search API. When the search succeeds, an array of search results is returned. Each search result is a `DeserializedSearchResult` object. More information on types can be found [here](src/types.ts).
+This is used to send a message to the search API. When the search succeeds, an object consisting of an array of search results and an optional summary is returned. Each search result is a `DeserializedSearchResult` object. More information on types can be found [here](src/types.ts).
 
 ##### isLoading: `boolean`
 

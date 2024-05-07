@@ -53,9 +53,8 @@ const renderSearch = (customProps: Partial<ReactSearchProps> = {}) => {
     placeholder: "mock-placeholder",
     ...customProps
   };
-  const { container } = render(<ReactSearch {...props} />);
 
-  return container;
+  render(<ReactSearch {...props} />);
 };
 
 describe("ReactSearch", () => {
@@ -74,7 +73,7 @@ describe("ReactSearch", () => {
   describe("Search Results", () => {
     it("should render SearchResults", async () => {
       (useSearch as jest.Mock).mockImplementation(() => ({
-        fetchSearchResults: async () => Promise.resolve([MOCK_SEARCH_RESULT]),
+        fetchSearchResults: async () => Promise.resolve({ searchResults: [MOCK_SEARCH_RESULT] }),
         isLoading: false
       }));
 
@@ -94,7 +93,7 @@ describe("ReactSearch", () => {
     it("should render SearchResults that are configured to open in a new tab", async () => {
       renderSearch({ openResultsInNewTab: true });
 
-      await act(() => {
+      act(() => {
         const input = screen.getByShadowTestId("searchInput");
         fireEvent.change(input, { target: { value: "mock-value" } });
         jest.runAllTimers();
@@ -106,7 +105,7 @@ describe("ReactSearch", () => {
     });
 
     it("should render input value and make request for a deeplinked search", () => {
-      const mockFetchSearchResults = jest.fn().mockImplementation(async () => Promise.resolve([]));
+      const mockFetchSearchResults = jest.fn().mockImplementation(async () => Promise.resolve({ searchResults: [] }));
       (useSearch as jest.Mock).mockImplementation(() => ({
         fetchSearchResults: mockFetchSearchResults,
         isLoading: false

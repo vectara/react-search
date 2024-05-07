@@ -14,34 +14,46 @@ type Props = {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
   corpusId: string;
-  onUpdateCorpusId: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  setCorpusId: (corpusId: string) => void;
   customerId: string;
-  onUpdateCustomerId: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  setCustomerId: (customerId: string) => void;
   apiKey: string;
-  onUpdateApiKey: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  setApiKey: (apiKey: string) => void;
   placeholder: string;
-  onUpdatePlaceholder: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  isDeeplinkable: boolean;
-  onUpdateIsDeeplinkable: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  setPlaceholder: (placeholder: string) => void;
+  isDeepLinkable: boolean;
+  setIsDeepLinkable: (isDeepLinkable: boolean) => void;
   openResultsInNewTab: boolean;
-  onUpdateOpenResultsInNewTab: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  isOnToggleSummaryHandled: boolean;
+  setIsOnToggleSummaryHandled: (isOnToggleSummaryHandled: boolean) => void;
+  setOpenResultsInNewTab: (openResultsInNewTab: boolean) => void;
+  isSummaryToggleVisible: boolean;
+  setIsSummaryToggleVisible: (isSummaryToggleVisible: boolean) => void;
+  isSummaryToggleInitiallyEnabled: boolean;
+  setIsSummaryToggleInitiallyEnabled: (isSummaryToggleInitiallyEnabled: boolean) => void;
 };
 
 export const ConfigurationDrawer = ({
   isOpen,
   setIsOpen,
   corpusId,
-  onUpdateCorpusId,
+  setCorpusId,
   customerId,
-  onUpdateCustomerId,
+  setCustomerId,
   apiKey,
-  onUpdateApiKey,
+  setApiKey,
   placeholder,
-  onUpdatePlaceholder,
-  isDeeplinkable,
-  onUpdateIsDeeplinkable,
+  setPlaceholder,
+  isDeepLinkable,
+  setIsDeepLinkable,
   openResultsInNewTab,
-  onUpdateOpenResultsInNewTab
+  setOpenResultsInNewTab,
+  isOnToggleSummaryHandled,
+  setIsOnToggleSummaryHandled,
+  isSummaryToggleVisible,
+  setIsSummaryToggleVisible,
+  isSummaryToggleInitiallyEnabled,
+  setIsSummaryToggleInitiallyEnabled
 }: Props) => {
   return (
     <VuiDrawer
@@ -71,49 +83,89 @@ export const ConfigurationDrawer = ({
       <VuiSpacer size="s" />
 
       <VuiFormGroup label="Customer ID" labelFor="customerId">
-        <VuiTextInput value={customerId} onChange={onUpdateCustomerId} />
+        <VuiTextInput value={customerId} onChange={(e) => setCustomerId(e.target.value)} />
       </VuiFormGroup>
 
       <VuiSpacer size="xs" />
 
       <VuiFormGroup label="Corpus ID" labelFor="corpusId">
-        <VuiTextInput value={corpusId} onChange={onUpdateCorpusId} />
+        <VuiTextInput value={corpusId} onChange={(e) => setCorpusId(e.target.value)} />
       </VuiFormGroup>
 
       <VuiSpacer size="xs" />
 
       <VuiFormGroup label="API key" labelFor="apiKey">
-        <VuiTextInput value={apiKey} onChange={onUpdateApiKey} fullWidth />
+        <VuiTextInput value={apiKey} onChange={(e) => setApiKey(e.target.value)} fullWidth />
       </VuiFormGroup>
 
       <VuiSpacer size="l" />
 
       <VuiTitle size="s">
-        <h3 className="header">Customize appearance</h3>
+        <h3 className="header">Search input</h3>
       </VuiTitle>
 
       <VuiSpacer size="s" />
 
       <VuiFormGroup label="Placeholder text" labelFor="placeholderText">
-        <VuiTextInput value={placeholder} onChange={onUpdatePlaceholder} fullWidth />
+        <VuiTextInput value={placeholder} onChange={(e) => setPlaceholder(e.target.value)} fullWidth />
       </VuiFormGroup>
 
       <VuiSpacer size="l" />
 
       <VuiTitle size="s">
-        <h3 className="header">Customize behavior</h3>
+        <h3 className="header">Search behavior</h3>
       </VuiTitle>
 
       <VuiSpacer size="s" />
 
-      <VuiFormGroup label="Allow deeplinking" labelFor="isDeepLinkable">
-        <VuiToggle checked={isDeeplinkable} onChange={onUpdateIsDeeplinkable} id="isDeeplinkable" />
+      <VuiFormGroup label="Enable deep-linking to a search" labelFor="isDeepLinkable">
+        <VuiToggle checked={isDeepLinkable} onChange={(e) => setIsDeepLinkable(e.target.checked)} id="isDeepLinkable" />
       </VuiFormGroup>
 
       <VuiSpacer size="xs" />
 
-      <VuiFormGroup label="Open results in a new tab" labelFor="openResultsInNewTab">
-        <VuiToggle checked={openResultsInNewTab} onChange={onUpdateOpenResultsInNewTab} id="openResultsInNewTab" />
+      <VuiFormGroup label="Open a search result's link in a new tab" labelFor="openResultsInNewTab">
+        <VuiToggle
+          checked={openResultsInNewTab}
+          onChange={(e) => setOpenResultsInNewTab(e.target.checked)}
+          id="openResultsInNewTab"
+        />
+      </VuiFormGroup>
+
+      <VuiSpacer size="l" />
+
+      <VuiTitle size="s">
+        <h3 className="header">Summarization</h3>
+      </VuiTitle>
+
+      <VuiSpacer size="s" />
+
+      <VuiFormGroup label="Handle summary toggle change" labelFor="summaryToggleHandler">
+        <VuiToggle
+          checked={isOnToggleSummaryHandled}
+          onChange={(e) => setIsOnToggleSummaryHandled(e.target.checked)}
+          id="summaryToggleHandler"
+        />
+      </VuiFormGroup>
+
+      <VuiSpacer size="xs" />
+
+      <VuiFormGroup label="Is summary toggle visible" labelFor="summaryToggleVisible">
+        <VuiToggle
+          checked={isSummaryToggleVisible}
+          onChange={(e) => setIsSummaryToggleVisible(e.target.checked)}
+          id="summaryToggleVisible"
+        />
+      </VuiFormGroup>
+
+      <VuiSpacer size="xs" />
+
+      <VuiFormGroup label="Is summary toggle initially enabled" labelFor="summaryToggleInitiallyEnabled">
+        <VuiToggle
+          checked={isSummaryToggleInitiallyEnabled}
+          onChange={(e) => setIsSummaryToggleInitiallyEnabled(e.target.checked)}
+          id="summaryToggleInitiallyEnabled"
+        />
       </VuiFormGroup>
 
       <VuiSpacer size="l" />

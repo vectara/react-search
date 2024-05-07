@@ -1,6 +1,7 @@
 @import "./vui/styleUtils/index";
 @import "./vui/components/index";
 @import "./vui/_reset";
+@import "./answerContainer";
 @import "./searchInput";
 @import "./searchResult";
 
@@ -41,7 +42,7 @@ $modalPadding: 6vh;
   }
 
   .vrsSearchModalResults {
-    border-top: 1px solid $borderColor;
+    border-top: 1px solid $borderColorLight;
     overflow-y: auto;
   }
 }

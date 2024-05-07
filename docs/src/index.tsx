@@ -1,4 +1,4 @@
-import { ChangeEvent, useCallback, useState } from "react";
+import { useState } from "react";
 import ReactDOM from "react-dom";
 import { BiLogoGithub } from "react-icons/bi";
 import { ReactSearch } from "@vectara/react-search";
@@ -22,14 +22,27 @@ import { ConfigurationDrawer } from "components/ConfigurationDrawer";
 import "./ui/_index.scss";
 import "./index.scss";
 
-const generateCodeSnippet = (
-  customerId?: string,
-  corpusId?: string,
-  apiKey?: string,
-  placeholder?: string,
-  isDeepLinkable: boolean = false,
-  openResultsInNewTab: boolean = false
-) => {
+const generateCodeSnippet = ({
+  customerId,
+  corpusId,
+  apiKey,
+  placeholder,
+  isDeepLinkable = false,
+  openResultsInNewTab = false,
+  isOnToggleSummaryHandled = false,
+  isSummaryToggleVisible = false,
+  isSummaryToggleInitiallyEnabled = false
+}: {
+  customerId?: string;
+  corpusId?: string;
+  apiKey?: string;
+  placeholder?: string;
+  isDeepLinkable: boolean;
+  openResultsInNewTab: boolean;
+  isOnToggleSummaryHandled: boolean;
+  isSummaryToggleVisible: boolean;
+  isSummaryToggleInitiallyEnabled: boolean;
+}) => {
   let quotedPlaceholder = placeholder;
 
   if (placeholder) {
@@ -51,11 +64,23 @@ const generateCodeSnippet = (
   }
 
   if (isDeepLinkable) {
-    props.push(`isDeeplinkable={${isDeepLinkable}}`);
+    props.push(`isDeepLinkable={${isDeepLinkable}}`);
   }
 
   if (openResultsInNewTab) {
     props.push(`openResultsInNewTab={${openResultsInNewTab}}`);
+  }
+
+  if (isOnToggleSummaryHandled) {
+    props.push(`onToggleSummary={(isSummaryEnabled: boolean) => console.log(isSummaryEnabled)}`);
+  }
+
+  if (isSummaryToggleVisible) {
+    props.push(`isSummaryToggleVisible={${isSummaryToggleVisible}}`);
+  }
+
+  if (isSummaryToggleInitiallyEnabled) {
+    props.push(`isSummaryToggleInitiallyEnabled={${isSummaryToggleInitiallyEnabled}}`);
   }
 
   props.push(`zIndex={ /* (optional) number representing the z-index the search modal should have */ }`);
@@ -82,32 +107,11 @@ const App = () => {
   const [customerId, setCustomerId] = useState<string>("");
   const [apiKey, setApiKey] = useState<string>("");
   const [placeholder, setPlaceholder] = useState<string>(DEFAULT_PLACEHOLDER);
-  const [isDeeplinkable, setIsDeeplinkable] = useState<boolean>(false);
+  const [isDeepLinkable, setIsDeepLinkable] = useState<boolean>(false);
   const [openResultsInNewTab, setOpenResultsInNewTab] = useState<boolean>(false);
-
-  const onUpdateCorpusId = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    setCorpusId(e.target.value);
-  }, []);
-
-  const onUpdateCustomerId = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    setCustomerId(e.target.value);
-  }, []);
-
-  const onUpdateApiKey = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    setApiKey(e.target.value);
-  }, []);
-
-  const onUpdatePlaceholder = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    setPlaceholder(e.target.value);
-  }, []);
-
-  const onUpdateIsDeeplinkable = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    setIsDeeplinkable(e.target.checked);
-  }, []);
-
-  const onUpdateOpenResultsInNewTab = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    setOpenResultsInNewTab(e.target.checked);
-  }, []);
+  const [isOnToggleSummaryHandled, setIsOnToggleSummaryHandled] = useState<boolean>(false);
+  const [isSummaryToggleVisible, setIsSummaryToggleVisible] = useState<boolean>(false);
+  const [isSummaryToggleInitiallyEnabled, setIsSummaryToggleInitiallyEnabled] = useState<boolean>(false);
 
   return (
     <>
@@ -171,8 +175,13 @@ const App = () => {
                 customerId={customerId === "" ? DEFAULT_CUSTOMER_ID : customerId}
                 apiKey={apiKey === "" ? DEFAULT_API_KEY : apiKey}
                 placeholder={placeholder}
-                isDeeplinkable={isDeeplinkable}
+                isDeepLinkable={isDeepLinkable}
                 openResultsInNewTab={openResultsInNewTab}
+                isSummaryToggleVisible={isSummaryToggleVisible}
+                isSummaryToggleInitiallyEnabled={isSummaryToggleInitiallyEnabled}
+                onToggleSummary={(isSummaryEnabled: boolean) =>
+                  console.log(`onToggleSummary callback received isSummaryEnabled: ${isSummaryEnabled}`)
+                }
               />
             </div>
 
@@ -206,7 +215,17 @@ const App = () => {
             <VuiSpacer size="s" />
 
             <VuiCode language="tsx">
-              {generateCodeSnippet(customerId, corpusId, apiKey, placeholder, isDeeplinkable, openResultsInNewTab)}
+              {generateCodeSnippet({
+                customerId,
+                corpusId,
+                apiKey,
+                placeholder,
+                isDeepLinkable,
+                openResultsInNewTab,
+                isOnToggleSummaryHandled,
+                isSummaryToggleVisible,
+                isSummaryToggleInitiallyEnabled
+              })}
             </VuiCode>
 
             <VuiSpacer size="xxl" />
@@ -268,17 +287,23 @@ export const App = () => {
               isOpen={isConfigurationDrawerOpen}
               setIsOpen={setIsConfigurationDrawerOpen}
               corpusId={corpusId}
-              onUpdateCorpusId={onUpdateCorpusId}
+              setCorpusId={setCorpusId}
               customerId={customerId}
-              onUpdateCustomerId={onUpdateCustomerId}
+              setCustomerId={setCustomerId}
               apiKey={apiKey}
-              onUpdateApiKey={onUpdateApiKey}
+              setApiKey={setApiKey}
               placeholder={placeholder}
-              onUpdatePlaceholder={onUpdatePlaceholder}
-              isDeeplinkable={isDeeplinkable}
-              onUpdateIsDeeplinkable={onUpdateIsDeeplinkable}
+              setPlaceholder={setPlaceholder}
+              isDeepLinkable={isDeepLinkable}
+              setIsDeepLinkable={setIsDeepLinkable}
               openResultsInNewTab={openResultsInNewTab}
-              onUpdateOpenResultsInNewTab={onUpdateOpenResultsInNewTab}
+              setOpenResultsInNewTab={setOpenResultsInNewTab}
+              isOnToggleSummaryHandled={isOnToggleSummaryHandled}
+              setIsOnToggleSummaryHandled={setIsOnToggleSummaryHandled}
+              isSummaryToggleVisible={isSummaryToggleVisible}
+              setIsSummaryToggleVisible={setIsSummaryToggleVisible}
+              isSummaryToggleInitiallyEnabled={isSummaryToggleInitiallyEnabled}
+              setIsSummaryToggleInitiallyEnabled={setIsSummaryToggleInitiallyEnabled}
             />
           </div>
         </VuiAppContent>
