@@ -1146,7 +1146,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useLayoutEffect(create, deps);
           }
-          function useCallback6(callback, deps) {
+          function useCallback5(callback, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useCallback(callback, deps);
           }
@@ -1707,7 +1707,7 @@
           exports2.isValidElement = isValidElement2;
           exports2.lazy = lazy;
           exports2.memo = memo;
-          exports2.useCallback = useCallback6;
+          exports2.useCallback = useCallback5;
           exports2.useContext = useContext3;
           exports2.useDebugValue = useDebugValue;
           exports2.useEffect = useEffect20;
@@ -4438,7 +4438,7 @@
             var warnedForNaNValue = false;
             var warnedForInfinityValue = false;
             var camelize = function(string2) {
-              return string2.replace(hyphenPattern, function(_2, character) {
+              return string2.replace(hyphenPattern, function(_, character) {
                 return character.toUpperCase();
               });
             };
@@ -7995,8 +7995,8 @@
             }
             accumulateEnterLeaveTwoPhaseListeners(dispatchQueue, leave, enter, from, to);
           }
-          function is(x, y) {
-            return x === y && (x !== 0 || 1 / x === 1 / y) || x !== x && y !== y;
+          function is(x, y2) {
+            return x === y2 && (x !== 0 || 1 / x === 1 / y2) || x !== x && y2 !== y2;
           }
           var objectIs = typeof Object.is === "function" ? Object.is : is;
           var hasOwnProperty$2 = Object.prototype.hasOwnProperty;
@@ -21700,97 +21700,97 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         };
         Sha1.prototype.hash = function() {
           var a = this.h0, b = this.h1, c = this.h2, d = this.h3, e = this.h4;
-          var f, j2, t, blocks2 = this.blocks;
-          for (j2 = 16; j2 < 80; ++j2) {
-            t = blocks2[j2 - 3] ^ blocks2[j2 - 8] ^ blocks2[j2 - 14] ^ blocks2[j2 - 16];
-            blocks2[j2] = t << 1 | t >>> 31;
+          var f, j, t, blocks2 = this.blocks;
+          for (j = 16; j < 80; ++j) {
+            t = blocks2[j - 3] ^ blocks2[j - 8] ^ blocks2[j - 14] ^ blocks2[j - 16];
+            blocks2[j] = t << 1 | t >>> 31;
           }
-          for (j2 = 0; j2 < 20; j2 += 5) {
+          for (j = 0; j < 20; j += 5) {
             f = b & c | ~b & d;
             t = a << 5 | a >>> 27;
-            e = t + f + e + 1518500249 + blocks2[j2] << 0;
+            e = t + f + e + 1518500249 + blocks2[j] << 0;
             b = b << 30 | b >>> 2;
             f = a & b | ~a & c;
             t = e << 5 | e >>> 27;
-            d = t + f + d + 1518500249 + blocks2[j2 + 1] << 0;
+            d = t + f + d + 1518500249 + blocks2[j + 1] << 0;
             a = a << 30 | a >>> 2;
             f = e & a | ~e & b;
             t = d << 5 | d >>> 27;
-            c = t + f + c + 1518500249 + blocks2[j2 + 2] << 0;
+            c = t + f + c + 1518500249 + blocks2[j + 2] << 0;
             e = e << 30 | e >>> 2;
             f = d & e | ~d & a;
             t = c << 5 | c >>> 27;
-            b = t + f + b + 1518500249 + blocks2[j2 + 3] << 0;
+            b = t + f + b + 1518500249 + blocks2[j + 3] << 0;
             d = d << 30 | d >>> 2;
             f = c & d | ~c & e;
             t = b << 5 | b >>> 27;
-            a = t + f + a + 1518500249 + blocks2[j2 + 4] << 0;
+            a = t + f + a + 1518500249 + blocks2[j + 4] << 0;
             c = c << 30 | c >>> 2;
           }
-          for (; j2 < 40; j2 += 5) {
+          for (; j < 40; j += 5) {
             f = b ^ c ^ d;
             t = a << 5 | a >>> 27;
-            e = t + f + e + 1859775393 + blocks2[j2] << 0;
+            e = t + f + e + 1859775393 + blocks2[j] << 0;
             b = b << 30 | b >>> 2;
             f = a ^ b ^ c;
             t = e << 5 | e >>> 27;
-            d = t + f + d + 1859775393 + blocks2[j2 + 1] << 0;
+            d = t + f + d + 1859775393 + blocks2[j + 1] << 0;
             a = a << 30 | a >>> 2;
             f = e ^ a ^ b;
             t = d << 5 | d >>> 27;
-            c = t + f + c + 1859775393 + blocks2[j2 + 2] << 0;
+            c = t + f + c + 1859775393 + blocks2[j + 2] << 0;
             e = e << 30 | e >>> 2;
             f = d ^ e ^ a;
             t = c << 5 | c >>> 27;
-            b = t + f + b + 1859775393 + blocks2[j2 + 3] << 0;
+            b = t + f + b + 1859775393 + blocks2[j + 3] << 0;
             d = d << 30 | d >>> 2;
             f = c ^ d ^ e;
             t = b << 5 | b >>> 27;
-            a = t + f + a + 1859775393 + blocks2[j2 + 4] << 0;
+            a = t + f + a + 1859775393 + blocks2[j + 4] << 0;
             c = c << 30 | c >>> 2;
           }
-          for (; j2 < 60; j2 += 5) {
+          for (; j < 60; j += 5) {
             f = b & c | b & d | c & d;
             t = a << 5 | a >>> 27;
-            e = t + f + e - 1894007588 + blocks2[j2] << 0;
+            e = t + f + e - 1894007588 + blocks2[j] << 0;
             b = b << 30 | b >>> 2;
             f = a & b | a & c | b & c;
             t = e << 5 | e >>> 27;
-            d = t + f + d - 1894007588 + blocks2[j2 + 1] << 0;
+            d = t + f + d - 1894007588 + blocks2[j + 1] << 0;
             a = a << 30 | a >>> 2;
             f = e & a | e & b | a & b;
             t = d << 5 | d >>> 27;
-            c = t + f + c - 1894007588 + blocks2[j2 + 2] << 0;
+            c = t + f + c - 1894007588 + blocks2[j + 2] << 0;
             e = e << 30 | e >>> 2;
             f = d & e | d & a | e & a;
             t = c << 5 | c >>> 27;
-            b = t + f + b - 1894007588 + blocks2[j2 + 3] << 0;
+            b = t + f + b - 1894007588 + blocks2[j + 3] << 0;
             d = d << 30 | d >>> 2;
             f = c & d | c & e | d & e;
             t = b << 5 | b >>> 27;
-            a = t + f + a - 1894007588 + blocks2[j2 + 4] << 0;
+            a = t + f + a - 1894007588 + blocks2[j + 4] << 0;
             c = c << 30 | c >>> 2;
           }
-          for (; j2 < 80; j2 += 5) {
+          for (; j < 80; j += 5) {
             f = b ^ c ^ d;
             t = a << 5 | a >>> 27;
-            e = t + f + e - 899497514 + blocks2[j2] << 0;
+            e = t + f + e - 899497514 + blocks2[j] << 0;
             b = b << 30 | b >>> 2;
             f = a ^ b ^ c;
             t = e << 5 | e >>> 27;
-            d = t + f + d - 899497514 + blocks2[j2 + 1] << 0;
+            d = t + f + d - 899497514 + blocks2[j + 1] << 0;
             a = a << 30 | a >>> 2;
             f = e ^ a ^ b;
             t = d << 5 | d >>> 27;
-            c = t + f + c - 899497514 + blocks2[j2 + 2] << 0;
+            c = t + f + c - 899497514 + blocks2[j + 2] << 0;
             e = e << 30 | e >>> 2;
             f = d ^ e ^ a;
             t = c << 5 | c >>> 27;
-            b = t + f + b - 899497514 + blocks2[j2 + 3] << 0;
+            b = t + f + b - 899497514 + blocks2[j + 3] << 0;
             d = d << 30 | d >>> 2;
             f = c ^ d ^ e;
             t = b << 5 | b >>> 27;
-            a = t + f + a - 899497514 + blocks2[j2 + 4] << 0;
+            a = t + f + a - 899497514 + blocks2[j + 4] << 0;
             c = c << 30 | c >>> 2;
           }
           this.h0 = this.h0 + a << 0;
@@ -23207,11 +23207,11 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           shape: createShapeTypeChecker,
           exact: createStrictShapeTypeChecker
         };
-        function is(x, y) {
-          if (x === y) {
-            return x !== 0 || 1 / x === 1 / y;
+        function is(x, y2) {
+          if (x === y2) {
+            return x !== 0 || 1 / x === 1 / y2;
           } else {
-            return x !== x && y !== y;
+            return x !== x && y2 !== y2;
           }
         }
         function PropTypeError(message, data) {
@@ -23616,7 +23616,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         var lang = /(?:^|\s)lang(?:uage)?-([\w-]+)(?=\s|$)/i;
         var uniqueId = 0;
         var plainTextGrammar = {};
-        var _2 = {
+        var _ = {
           /**
            * By default, Prism will attempt to highlight all code elements (by calling {@link Prism.highlightAll}) on the
            * current page after the page finished loading. This might be a problem if e.g. you wanted to asynchronously load
@@ -23696,8 +23696,8 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
              * type(String)    === 'Function'
              * type(/abc+/)    === 'RegExp'
              */
-            type: function(o) {
-              return Object.prototype.toString.call(o).slice(8, -1);
+            type: function(o2) {
+              return Object.prototype.toString.call(o2).slice(8, -1);
             },
             /**
              * Returns a unique number for the given object. Later calls will still return the same number.
@@ -23721,22 +23721,22 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
              * @returns {T}
              * @template T
              */
-            clone: function deepClone(o, visited) {
+            clone: function deepClone(o2, visited) {
               visited = visited || {};
               var clone;
               var id2;
-              switch (_2.util.type(o)) {
+              switch (_.util.type(o2)) {
                 case "Object":
-                  id2 = _2.util.objId(o);
+                  id2 = _.util.objId(o2);
                   if (visited[id2]) {
                     return visited[id2];
                   }
                   clone = /** @type {Record<string, any>} */
                   {};
                   visited[id2] = clone;
-                  for (var key in o) {
-                    if (o.hasOwnProperty(key)) {
-                      clone[key] = deepClone(o[key], visited);
+                  for (var key in o2) {
+                    if (o2.hasOwnProperty(key)) {
+                      clone[key] = deepClone(o2[key], visited);
                     }
                   }
                   return (
@@ -23744,7 +23744,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
                     clone
                   );
                 case "Array":
-                  id2 = _2.util.objId(o);
+                  id2 = _.util.objId(o2);
                   if (visited[id2]) {
                     return visited[id2];
                   }
@@ -23752,15 +23752,15 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
                   visited[id2] = clone;
                   /** @type {Array} */
                   /** @type {any} */
-                  o.forEach(function(v2, i) {
-                    clone[i] = deepClone(v2, visited);
+                  o2.forEach(function(v, i) {
+                    clone[i] = deepClone(v, visited);
                   });
                   return (
                     /** @type {any} */
                     clone
                   );
                 default:
-                  return o;
+                  return o2;
               }
             },
             /**
@@ -23773,9 +23773,9 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
              */
             getLanguage: function(element) {
               while (element) {
-                var m = lang.exec(element.className);
-                if (m) {
-                  return m[1].toLowerCase();
+                var m2 = lang.exec(element.className);
+                if (m2) {
+                  return m2[1].toLowerCase();
                 }
                 element = element.parentElement;
               }
@@ -23902,7 +23902,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
              * });
              */
             extend: function(id2, redef) {
-              var lang2 = _2.util.clone(_2.languages[id2]);
+              var lang2 = _.util.clone(_.languages[id2]);
               for (var key in redef) {
                 lang2[key] = redef[key];
               }
@@ -23985,7 +23985,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
              */
             insertBefore: function(inside, before, insert, root2) {
               root2 = root2 || /** @type {any} */
-              _2.languages;
+              _.languages;
               var grammar = root2[inside];
               var ret = {};
               for (var token in grammar) {
@@ -24004,7 +24004,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
               }
               var old = root2[inside];
               root2[inside] = ret;
-              _2.languages.DFS(_2.languages, function(key, value) {
+              _.languages.DFS(_.languages, function(key, value) {
                 if (value === old && key != inside) {
                   this[key] = ret;
                 }
@@ -24012,14 +24012,14 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
               return ret;
             },
             // Traverse a language definition with Depth First Search
-            DFS: function DFS(o, callback, type, visited) {
+            DFS: function DFS(o2, callback, type, visited) {
               visited = visited || {};
-              var objId = _2.util.objId;
-              for (var i in o) {
-                if (o.hasOwnProperty(i)) {
-                  callback.call(o, i, o[i], type || i);
-                  var property = o[i];
-                  var propertyType = _2.util.type(property);
+              var objId = _.util.objId;
+              for (var i in o2) {
+                if (o2.hasOwnProperty(i)) {
+                  callback.call(o2, i, o2[i], type || i);
+                  var property = o2[i];
+                  var propertyType = _.util.type(property);
                   if (propertyType === "Object" && !visited[objId(property)]) {
                     visited[objId(property)] = true;
                     DFS(property, callback, null, visited);
@@ -24045,7 +24045,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
            * @public
            */
           highlightAll: function(async, callback) {
-            _2.highlightAllUnder(document, async, callback);
+            _.highlightAllUnder(document, async, callback);
           },
           /**
            * Fetches all the descendants of `container` that have a `.language-xxxx` class and then calls
@@ -24068,11 +24068,11 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
               container,
               selector: 'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'
             };
-            _2.hooks.run("before-highlightall", env);
+            _.hooks.run("before-highlightall", env);
             env.elements = Array.prototype.slice.apply(env.container.querySelectorAll(env.selector));
-            _2.hooks.run("before-all-elements-highlight", env);
+            _.hooks.run("before-all-elements-highlight", env);
             for (var i = 0, element; element = env.elements[i++]; ) {
-              _2.highlightElement(element, async === true, env.callback);
+              _.highlightElement(element, async === true, env.callback);
             }
           },
           /**
@@ -24104,12 +24104,12 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
            * @public
            */
           highlightElement: function(element, async, callback) {
-            var language = _2.util.getLanguage(element);
-            var grammar = _2.languages[language];
-            _2.util.setLanguage(element, language);
+            var language = _.util.getLanguage(element);
+            var grammar = _.languages[language];
+            _.util.setLanguage(element, language);
             var parent = element.parentElement;
             if (parent && parent.nodeName.toLowerCase() === "pre") {
-              _2.util.setLanguage(parent, language);
+              _.util.setLanguage(parent, language);
             }
             var code = element.textContent;
             var env = {
@@ -24120,29 +24120,29 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
             };
             function insertHighlightedCode(highlightedCode) {
               env.highlightedCode = highlightedCode;
-              _2.hooks.run("before-insert", env);
+              _.hooks.run("before-insert", env);
               env.element.innerHTML = env.highlightedCode;
-              _2.hooks.run("after-highlight", env);
-              _2.hooks.run("complete", env);
+              _.hooks.run("after-highlight", env);
+              _.hooks.run("complete", env);
               callback && callback.call(env.element);
             }
-            _2.hooks.run("before-sanity-check", env);
+            _.hooks.run("before-sanity-check", env);
             parent = env.element.parentElement;
             if (parent && parent.nodeName.toLowerCase() === "pre" && !parent.hasAttribute("tabindex")) {
               parent.setAttribute("tabindex", "0");
             }
             if (!env.code) {
-              _2.hooks.run("complete", env);
+              _.hooks.run("complete", env);
               callback && callback.call(env.element);
               return;
             }
-            _2.hooks.run("before-highlight", env);
+            _.hooks.run("before-highlight", env);
             if (!env.grammar) {
-              insertHighlightedCode(_2.util.encode(env.code));
+              insertHighlightedCode(_.util.encode(env.code));
               return;
             }
             if (async && _self2.Worker) {
-              var worker = new Worker(_2.filename);
+              var worker = new Worker(_.filename);
               worker.onmessage = function(evt) {
                 insertHighlightedCode(evt.data);
               };
@@ -24152,7 +24152,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
                 immediateClose: true
               }));
             } else {
-              insertHighlightedCode(_2.highlight(env.code, env.grammar, env.language));
+              insertHighlightedCode(_.highlight(env.code, env.grammar, env.language));
             }
           },
           /**
@@ -24181,13 +24181,13 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
               grammar,
               language
             };
-            _2.hooks.run("before-tokenize", env);
+            _.hooks.run("before-tokenize", env);
             if (!env.grammar) {
               throw new Error('The language "' + env.language + '" has no grammar.');
             }
-            env.tokens = _2.tokenize(env.code, env.grammar);
-            _2.hooks.run("after-tokenize", env);
-            return Token.stringify(_2.util.encode(env.tokens), env.language);
+            env.tokens = _.tokenize(env.code, env.grammar);
+            _.hooks.run("after-tokenize", env);
+            return Token.stringify(_.util.encode(env.tokens), env.language);
           },
           /**
            * This is the heart of Prism, and the most low-level function you can use. It accepts a string of text as input
@@ -24246,7 +24246,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
              * @public
              */
             add: function(name, callback) {
-              var hooks = _2.hooks.all;
+              var hooks = _.hooks.all;
               hooks[name] = hooks[name] || [];
               hooks[name].push(callback);
             },
@@ -24260,7 +24260,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
              * @public
              */
             run: function(name, env) {
-              var callbacks = _2.hooks.all[name];
+              var callbacks = _.hooks.all[name];
               if (!callbacks || !callbacks.length) {
                 return;
               }
@@ -24271,33 +24271,33 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           },
           Token
         };
-        _self2.Prism = _2;
+        _self2.Prism = _;
         function Token(type, content, alias, matchedStr) {
           this.type = type;
           this.content = content;
           this.alias = alias;
           this.length = (matchedStr || "").length | 0;
         }
-        Token.stringify = function stringify(o, language) {
-          if (typeof o == "string") {
-            return o;
+        Token.stringify = function stringify(o2, language) {
+          if (typeof o2 == "string") {
+            return o2;
           }
-          if (Array.isArray(o)) {
+          if (Array.isArray(o2)) {
             var s = "";
-            o.forEach(function(e) {
+            o2.forEach(function(e) {
               s += stringify(e, language);
             });
             return s;
           }
           var env = {
-            type: o.type,
-            content: stringify(o.content, language),
+            type: o2.type,
+            content: stringify(o2.content, language),
             tag: "span",
-            classes: ["token", o.type],
+            classes: ["token", o2.type],
             attributes: {},
             language
           };
-          var aliases = o.alias;
+          var aliases = o2.alias;
           if (aliases) {
             if (Array.isArray(aliases)) {
               Array.prototype.push.apply(env.classes, aliases);
@@ -24305,7 +24305,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
               env.classes.push(aliases);
             }
           }
-          _2.hooks.run("wrap", env);
+          _.hooks.run("wrap", env);
           var attributes = "";
           for (var name in env.attributes) {
             attributes += " " + name + '="' + (env.attributes[name] || "").replace(/"/g, "&quot;") + '"';
@@ -24329,11 +24329,11 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
             }
             var patterns = grammar[token];
             patterns = Array.isArray(patterns) ? patterns : [patterns];
-            for (var j2 = 0; j2 < patterns.length; ++j2) {
-              if (rematch && rematch.cause == token + "," + j2) {
+            for (var j = 0; j < patterns.length; ++j) {
+              if (rematch && rematch.cause == token + "," + j) {
                 return;
               }
-              var patternObj = patterns[j2];
+              var patternObj = patterns[j];
               var inside = patternObj.inside;
               var lookbehind = !!patternObj.lookbehind;
               var greedy = !!patternObj.greedy;
@@ -24374,9 +24374,9 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
                   if (currentNode.value instanceof Token) {
                     continue;
                   }
-                  for (var k = currentNode; k !== tokenList.tail && (p < to || typeof k.value === "string"); k = k.next) {
+                  for (var k2 = currentNode; k2 !== tokenList.tail && (p < to || typeof k2.value === "string"); k2 = k2.next) {
                     removeCount++;
-                    p += k.value.length;
+                    p += k2.value.length;
                   }
                   removeCount--;
                   str = text.slice(pos, p);
@@ -24401,14 +24401,14 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
                   pos += before.length;
                 }
                 removeRange(tokenList, removeFrom, removeCount);
-                var wrapped = new Token(token, inside ? _2.tokenize(matchStr, inside) : matchStr, alias, matchStr);
+                var wrapped = new Token(token, inside ? _.tokenize(matchStr, inside) : matchStr, alias, matchStr);
                 currentNode = addAfter(tokenList, removeFrom, wrapped);
                 if (after) {
                   addAfter(tokenList, currentNode, after);
                 }
                 if (removeCount > 1) {
                   var nestedRematch = {
-                    cause: token + "," + j2,
+                    cause: token + "," + j,
                     reach
                   };
                   matchGrammar(text, tokenList, grammar, currentNode.prev, pos, nestedRematch);
@@ -24456,35 +24456,35 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         }
         if (!_self2.document) {
           if (!_self2.addEventListener) {
-            return _2;
+            return _;
           }
-          if (!_2.disableWorkerMessageHandler) {
+          if (!_.disableWorkerMessageHandler) {
             _self2.addEventListener("message", function(evt) {
               var message = JSON.parse(evt.data);
               var lang2 = message.language;
               var code = message.code;
               var immediateClose = message.immediateClose;
-              _self2.postMessage(_2.highlight(code, _2.languages[lang2], lang2));
+              _self2.postMessage(_.highlight(code, _.languages[lang2], lang2));
               if (immediateClose) {
                 _self2.close();
               }
             }, false);
           }
-          return _2;
+          return _;
         }
-        var script = _2.util.currentScript();
+        var script = _.util.currentScript();
         if (script) {
-          _2.filename = script.src;
+          _.filename = script.src;
           if (script.hasAttribute("data-manual")) {
-            _2.manual = true;
+            _.manual = true;
           }
         }
         function highlightAutomaticallyCallback() {
-          if (!_2.manual) {
-            _2.highlightAll();
+          if (!_.manual) {
+            _.highlightAll();
           }
         }
-        if (!_2.manual) {
+        if (!_.manual) {
           var readyState = document.readyState;
           if (readyState === "loading" || readyState === "interactive" && script && script.defer) {
             document.addEventListener("DOMContentLoaded", highlightAutomaticallyCallback);
@@ -24496,7 +24496,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
             }
           }
         }
-        return _2;
+        return _;
       }(_self);
       if (typeof module2 !== "undefined" && module2.exports) {
         module2.exports = Prism3;
@@ -24958,11 +24958,11 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           xhr.send(null);
         }
         function parseRange(range) {
-          var m = /^\s*(\d+)\s*(?:(,)\s*(?:(\d+)\s*)?)?$/.exec(range || "");
-          if (m) {
-            var start = Number(m[1]);
-            var comma = m[2];
-            var end = m[3];
+          var m2 = /^\s*(\d+)\s*(?:(,)\s*(?:(\d+)\s*)?)?$/.exec(range || "");
+          if (m2) {
+            var start = Number(m2[1]);
+            var comma = m2[2];
+            var end = m2[3];
             if (!comma) {
               return [start, start];
             }
@@ -25747,7 +25747,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           return string2.match(reUnicodeWord) || [];
         }
         var runInContext = function runInContext2(context) {
-          context = context == null ? root2 : _2.defaults(root2.Object(), context, _2.pick(root2, contextProps));
+          context = context == null ? root2 : _.defaults(root2.Object(), context, _.pick(root2, contextProps));
           var Array2 = context.Array, Date2 = context.Date, Error2 = context.Error, Function2 = context.Function, Math2 = context.Math, Object2 = context.Object, RegExp2 = context.RegExp, String2 = context.String, TypeError2 = context.TypeError;
           var arrayProto = Array2.prototype, funcProto = Function2.prototype, objectProto = Object2.prototype;
           var coreJsData = context["__core-js_shared__"];
@@ -29094,7 +29094,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           function eq(value, other) {
             return value === other || value !== value && other !== other;
           }
-          var gt = createRelationalOperation(baseGt);
+          var gt2 = createRelationalOperation(baseGt);
           var gte = createRelationalOperation(function(value, other) {
             return value >= other;
           });
@@ -30233,7 +30233,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           lodash.forOwn = forOwn;
           lodash.forOwnRight = forOwnRight;
           lodash.get = get2;
-          lodash.gt = gt;
+          lodash.gt = gt2;
           lodash.gte = gte;
           lodash.has = has;
           lodash.hasIn = hasIn;
@@ -30521,17 +30521,17 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           }
           return lodash;
         };
-        var _2 = runInContext();
+        var _ = runInContext();
         if (typeof define == "function" && typeof define.amd == "object" && define.amd) {
-          root2._ = _2;
+          root2._ = _;
           define(function() {
-            return _2;
+            return _;
           });
         } else if (freeModule) {
-          (freeModule.exports = _2)._ = _2;
-          freeExports._ = _2;
+          (freeModule.exports = _)._ = _;
+          freeExports._ = _;
         } else {
-          root2._ = _2;
+          root2._ = _;
         }
       }).call(exports2);
     }
@@ -30603,23 +30603,23 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     };
     return _extends.apply(this, arguments);
   }
-  function ownKeys(e, r2) {
+  function ownKeys(e, r) {
     var t = Object.keys(e);
     if (Object.getOwnPropertySymbols) {
-      var o = Object.getOwnPropertySymbols(e);
-      r2 && (o = o.filter(function(r3) {
-        return Object.getOwnPropertyDescriptor(e, r3).enumerable;
-      })), t.push.apply(t, o);
+      var o2 = Object.getOwnPropertySymbols(e);
+      r && (o2 = o2.filter(function(r2) {
+        return Object.getOwnPropertyDescriptor(e, r2).enumerable;
+      })), t.push.apply(t, o2);
     }
     return t;
   }
   function _objectSpread(e) {
-    for (var r2 = 1; r2 < arguments.length; r2++) {
-      var t = null != arguments[r2] ? arguments[r2] : {};
-      r2 % 2 ? ownKeys(Object(t), true).forEach(function(r3) {
-        _defineProperty(e, r3, t[r3]);
-      }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function(r3) {
-        Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
+    for (var r = 1; r < arguments.length; r++) {
+      var t = null != arguments[r] ? arguments[r] : {};
+      r % 2 ? ownKeys(Object(t), true).forEach(function(r2) {
+        _defineProperty(e, r2, t[r2]);
+      }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function(r2) {
+        Object.defineProperty(e, r2, Object.getOwnPropertyDescriptor(t, r2));
       });
     }
     return e;
@@ -30717,7 +30717,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
 
   // ../lib/index.js
   var import_react7 = __toESM(require_react());
-  var A = __toESM(require_react_dom());
+  var W = __toESM(require_react_dom());
   var import_uuid_by_string = __toESM(require_src());
   var import_classnames = __toESM(require_classnames());
   var import_jsx_runtime = __toESM(require_jsx_runtime());
@@ -30733,11 +30733,14 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   var import_classnames5 = __toESM(require_classnames());
   var import_jsx_runtime6 = __toESM(require_jsx_runtime());
   var import_classnames6 = __toESM(require_classnames());
+  var import_jsx_runtime7 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime8 = __toESM(require_jsx_runtime());
+  var import_classnames7 = __toESM(require_classnames());
   var import_react9 = __toESM(require_react());
   var import_react10 = __toESM(require_react());
-  var import_jsx_runtime7 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime9 = __toESM(require_jsx_runtime());
   var import_react11 = __toESM(require_react());
-  var xe = __toESM(require_react_dom());
+  var Te = __toESM(require_react_dom());
 
   // ../node_modules/tslib/tslib.es6.mjs
   var __assign = function() {
@@ -30767,10 +30770,10 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   function __spreadArrays() {
     for (var s = 0, i = 0, il = arguments.length; i < il; i++)
       s += arguments[i].length;
-    for (var r2 = Array(s), k = 0, i = 0; i < il; i++)
-      for (var a = arguments[i], j2 = 0, jl = a.length; j2 < jl; j2++, k++)
-        r2[k] = a[j2];
-    return r2;
+    for (var r = Array(s), k2 = 0, i = 0; i < il; i++)
+      for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k2++)
+        r[k2] = a[j];
+    return r;
   }
   function __spreadArray(to, from, pack) {
     if (pack || arguments.length === 2)
@@ -31291,12 +31294,12 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   var import_prop_types3 = __toESM(require_prop_types());
 
   // ../node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js
-  function _setPrototypeOf(o, p) {
-    _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf2(o2, p2) {
-      o2.__proto__ = p2;
-      return o2;
+  function _setPrototypeOf(o2, p) {
+    _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf2(o3, p2) {
+      o3.__proto__ = p2;
+      return o3;
     };
-    return _setPrototypeOf(o, p);
+    return _setPrototypeOf(o2, p);
   }
 
   // ../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js
@@ -31307,27 +31310,27 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   }
 
   // ../node_modules/@babel/runtime/helpers/esm/typeof.js
-  function _typeof(o) {
+  function _typeof(o2) {
     "@babel/helpers - typeof";
-    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o2) {
-      return typeof o2;
-    } : function(o2) {
-      return o2 && "function" == typeof Symbol && o2.constructor === Symbol && o2 !== Symbol.prototype ? "symbol" : typeof o2;
-    }, _typeof(o);
+    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o3) {
+      return typeof o3;
+    } : function(o3) {
+      return o3 && "function" == typeof Symbol && o3.constructor === Symbol && o3 !== Symbol.prototype ? "symbol" : typeof o3;
+    }, _typeof(o2);
   }
 
   // ../node_modules/@babel/runtime/helpers/esm/toPrimitive.js
-  function toPrimitive(t, r2) {
+  function toPrimitive(t, r) {
     if ("object" != _typeof(t) || !t)
       return t;
     var e = t[Symbol.toPrimitive];
     if (void 0 !== e) {
-      var i = e.call(t, r2 || "default");
+      var i = e.call(t, r || "default");
       if ("object" != _typeof(i))
         return i;
       throw new TypeError("@@toPrimitive must return a primitive value.");
     }
-    return ("string" === r2 ? String : Number)(t);
+    return ("string" === r ? String : Number)(t);
   }
 
   // ../node_modules/@babel/runtime/helpers/esm/toPropertyKey.js
@@ -31640,17 +31643,17 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     var contained = /* @__PURE__ */ new Set();
     var l = nodes.length;
     for (var i = 0; i < l; i += 1) {
-      for (var j2 = i + 1; j2 < l; j2 += 1) {
-        var position = nodes[i].compareDocumentPosition(nodes[j2]);
+      for (var j = i + 1; j < l; j += 1) {
+        var position = nodes[i].compareDocumentPosition(nodes[j]);
         if ((position & Node.DOCUMENT_POSITION_CONTAINED_BY) > 0) {
-          contained.add(j2);
+          contained.add(j);
         }
         if ((position & Node.DOCUMENT_POSITION_CONTAINS) > 0) {
           contained.add(i);
         }
       }
     }
-    return nodes.filter(function(_2, index) {
+    return nodes.filter(function(_, index) {
       return !contained.has(index);
     });
   };
@@ -32481,8 +32484,8 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   var extractRef3 = function(ref) {
     return ref && "current" in ref ? ref.current : ref;
   };
-  var deltaCompare = function(x, y) {
-    return x[0] === y[0] && x[1] === y[1];
+  var deltaCompare = function(x, y2) {
+    return x[0] === y2[0] && x[1] === y2[1];
   };
   var generateStyle = function(id2) {
     return "\n  .block-interactivity-".concat(id2, " {pointer-events: none;}\n  .allow-interactivity-").concat(id2, " {pointer-events: all;}\n");
@@ -32879,125 +32882,137 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   });
 
   // ../lib/index.js
-  var import_jsx_runtime8 = __toESM(require_jsx_runtime());
-  var import_react12 = __toESM(require_react());
-  var import_jsx_runtime9 = __toESM(require_jsx_runtime());
   var import_jsx_runtime10 = __toESM(require_jsx_runtime());
-  var we = Object.defineProperty;
-  var Fe = Object.defineProperties;
-  var Ie = Object.getOwnPropertyDescriptors;
-  var L = Object.getOwnPropertySymbols;
-  var ne = Object.prototype.hasOwnProperty;
-  var re = Object.prototype.propertyIsEnumerable;
-  var ie = (t, e, i) => e in t ? we(t, e, { enumerable: true, configurable: true, writable: true, value: i }) : t[e] = i;
-  var v = (t, e) => {
+  var import_react12 = __toESM(require_react());
+  var import_jsx_runtime11 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime12 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime13 = __toESM(require_jsx_runtime());
+  var Ve = Object.defineProperty;
+  var Ge = Object.defineProperties;
+  var je = Object.getOwnPropertyDescriptors;
+  var X = Object.getOwnPropertySymbols;
+  var ve = Object.prototype.hasOwnProperty;
+  var he = Object.prototype.propertyIsEnumerable;
+  var fe = (t, e, i) => e in t ? Ve(t, e, { enumerable: true, configurable: true, writable: true, value: i }) : t[e] = i;
+  var m = (t, e) => {
     for (var i in e || (e = {}))
-      ne.call(e, i) && ie(t, i, e[i]);
-    if (L)
-      for (var i of L(e))
-        re.call(e, i) && ie(t, i, e[i]);
+      ve.call(e, i) && fe(t, i, e[i]);
+    if (X)
+      for (var i of X(e))
+        he.call(e, i) && fe(t, i, e[i]);
     return t;
   };
-  var T = (t, e) => Fe(t, Ie(e));
-  var C = (t, e) => {
+  var w = (t, e) => Ge(t, je(e));
+  var h = (t, e) => {
     var i = {};
     for (var n in t)
-      ne.call(t, n) && e.indexOf(n) < 0 && (i[n] = t[n]);
-    if (t != null && L)
-      for (var n of L(t))
-        e.indexOf(n) < 0 && re.call(t, n) && (i[n] = t[n]);
+      ve.call(t, n) && e.indexOf(n) < 0 && (i[n] = t[n]);
+    if (t != null && X)
+      for (var n of X(t))
+        e.indexOf(n) < 0 && he.call(t, n) && (i[n] = t[n]);
     return i;
   };
-  var P = (t, e, i) => new Promise((n, a) => {
-    var o = (x) => {
+  var A = (t, e, i) => new Promise((n, l) => {
+    var r = (x) => {
       try {
-        c(i.next(x));
-      } catch (l) {
-        a(l);
+        u(i.next(x));
+      } catch (c) {
+        l(c);
       }
-    }, u = (x) => {
+    }, s = (x) => {
       try {
-        c(i.throw(x));
-      } catch (l) {
-        a(l);
+        u(i.throw(x));
+      } catch (c) {
+        l(c);
       }
-    }, c = (x) => x.done ? n(x.value) : Promise.resolve(x.value).then(o, u);
-    c((i = i.apply(t, e)).next());
+    }, u = (x) => x.done ? n(x.value) : Promise.resolve(x.value).then(r, s);
+    u((i = i.apply(t, e)).next());
   });
-  var Te = { baseline: "vuiFlexContainer--alignItemsBaseline", center: "vuiFlexContainer--alignItemsCenter", end: "vuiFlexContainer--alignItemsEnd", start: "vuiFlexContainer--alignItemsStart", stretch: "vuiFlexContainer--alignItemsStretch" };
-  var ke = { column: "vuiFlexContainer--directionColumn", columnReverse: "vuiFlexContainer--directionColumnReverse", row: "vuiFlexContainer--directionRow", rowReverse: "vuiFlexContainer--directionRowReverse" };
-  var Re = { center: "vuiFlexContainer--justifyContentCenter", end: "vuiFlexContainer--justifyContentEnd", start: "vuiFlexContainer--justifyContentStart", spaceAround: "vuiFlexContainer--justifyContentSpaceAround", spaceBetween: "vuiFlexContainer--justifyContentSpaceBetween", spaceEvenly: "vuiFlexContainer--justifyContentSpaceEvenly" };
-  var Ne = { none: "vuiFlexContainer--spacingNone", xxs: "vuiFlexContainer--spacingXxs", xs: "vuiFlexContainer--spacingXs", s: "vuiFlexContainer--spacingS", m: "vuiFlexContainer--spacingM", l: "vuiFlexContainer--spacingL", xl: "vuiFlexContainer--spacingXl", xxl: "vuiFlexContainer--spacingXxl" };
-  var B = (l) => {
-    var m = l, { children: t, alignItems: e = "stretch", direction: i = "row", justifyContent: n = "start", spacing: a = "m", wrap: o, className: u, fullWidth: c } = m, x = C(m, ["children", "alignItems", "direction", "justifyContent", "spacing", "wrap", "className", "fullWidth"]);
-    let f = (0, import_classnames.default)(u, "vuiFlexContainer", Te[e], ke[i], Re[n], Ne[a], { "vuiFlexContainer--wrap": o, "vuiFlexContainer--fullWidth": c });
-    return (0, import_jsx_runtime.jsx)("div", T(v({ className: f }, x), { children: t }));
+  var Xe = { baseline: "vuiFlexContainer--alignItemsBaseline", center: "vuiFlexContainer--alignItemsCenter", end: "vuiFlexContainer--alignItemsEnd", start: "vuiFlexContainer--alignItemsStart", stretch: "vuiFlexContainer--alignItemsStretch" };
+  var Ae = { column: "vuiFlexContainer--directionColumn", columnReverse: "vuiFlexContainer--directionColumnReverse", row: "vuiFlexContainer--directionRow", rowReverse: "vuiFlexContainer--directionRowReverse" };
+  var He = { center: "vuiFlexContainer--justifyContentCenter", end: "vuiFlexContainer--justifyContentEnd", start: "vuiFlexContainer--justifyContentStart", spaceAround: "vuiFlexContainer--justifyContentSpaceAround", spaceBetween: "vuiFlexContainer--justifyContentSpaceBetween", spaceEvenly: "vuiFlexContainer--justifyContentSpaceEvenly" };
+  var qe = { none: "vuiFlexContainer--spacingNone", xxs: "vuiFlexContainer--spacingXxs", xs: "vuiFlexContainer--spacingXs", s: "vuiFlexContainer--spacingS", m: "vuiFlexContainer--spacingM", l: "vuiFlexContainer--spacingL", xl: "vuiFlexContainer--spacingXl", xxl: "vuiFlexContainer--spacingXxl" };
+  var F = (c) => {
+    var d = c, { children: t, alignItems: e = "stretch", direction: i = "row", justifyContent: n = "start", spacing: l = "m", wrap: r, className: s, fullWidth: u } = d, x = h(d, ["children", "alignItems", "direction", "justifyContent", "spacing", "wrap", "className", "fullWidth"]);
+    let f = (0, import_classnames.default)(s, "vuiFlexContainer", Xe[e], Ae[i], He[n], qe[l], { "vuiFlexContainer--wrap": r, "vuiFlexContainer--fullWidth": u });
+    return (0, import_jsx_runtime.jsx)("div", w(m({ className: f }, x), { children: t }));
   };
-  var Me = { baseline: "vuiFlexItem--alignItemsBaseline", center: "vuiFlexItem--alignItemsCenter", end: "vuiFlexItem--alignItemsEnd", start: "vuiFlexItem--alignItemsStart", stretch: "vuiFlexItem--alignItemsStretch" };
-  var R = (x) => {
-    var l = x, { children: t, grow: e, shrink: i, basis: n = "auto", alignItems: a = "stretch", className: o, truncate: u } = l, c = C(l, ["children", "grow", "shrink", "basis", "alignItems", "className", "truncate"]);
-    let m = e === false, f = i === false, w = (0, import_classnames2.default)("vuiFlexItem", `vuiFlexItem--${n}`, Me[a], { [`vuiFlexItem--flexGrow${e}`]: typeof e == "number", "vuiFlexItem--flexGrowNone": m, [`vuiFlexItem--flexShrink${i}`]: typeof i == "number", "vuiFlexItem--flexShrinkNone": f, "vuiFlexItem--truncate": u }, o);
-    return (0, import_jsx_runtime2.jsx)("div", T(v({ className: w }, c), { children: t }));
+  var Ue = { baseline: "vuiFlexItem--alignItemsBaseline", center: "vuiFlexItem--alignItemsCenter", end: "vuiFlexItem--alignItemsEnd", start: "vuiFlexItem--alignItemsStart", stretch: "vuiFlexItem--alignItemsStretch" };
+  var g = (x) => {
+    var c = x, { children: t, grow: e, shrink: i, basis: n = "auto", alignItems: l = "stretch", className: r, truncate: s } = c, u = h(c, ["children", "grow", "shrink", "basis", "alignItems", "className", "truncate"]);
+    let d = e === false, f = i === false, R = (0, import_classnames2.default)("vuiFlexItem", `vuiFlexItem--${n}`, Ue[l], { [`vuiFlexItem--flexGrow${e}`]: typeof e == "number", "vuiFlexItem--flexGrowNone": d, [`vuiFlexItem--flexShrink${i}`]: typeof i == "number", "vuiFlexItem--flexShrinkNone": f, "vuiFlexItem--truncate": s }, r);
+    return (0, import_jsx_runtime2.jsx)("div", w(m({ className: R }, u), { children: t }));
   };
-  var H = ({ children: t }) => {
+  var J = ({ children: t }) => {
     let e = (0, import_react8.useRef)(null);
     return (0, import_react8.useEffect)(() => (e.current = document.createElement("div"), document.body.appendChild(e.current), () => {
       var i, n;
       (n = (i = e.current) == null ? void 0 : i.parentNode) == null || n.removeChild(e.current);
     }), []), e.current ? (0, import_react_dom.createPortal)(t, e.current) : null;
   };
-  var O = ({ onClick: t, children: e }) => (0, import_jsx_runtime3.jsxs)("div", { className: "vuiScreenBlock", children: [e, (0, import_jsx_runtime3.jsx)("div", { className: "vuiScreenBlock__mask", onClick: t })] });
-  var Ae = { xs: "vuiSpinner--xs", s: "vuiSpinner--s", m: "vuiSpinner--m", l: "vuiSpinner--l", xl: "vuiSpinner--xl", xxl: "vuiSpinner--xxl", xxxl: "vuiSpinner--xxxl" };
-  var V = ({ size: t = "m" }) => {
-    let e = (0, import_classnames3.default)("vuiSpinner", Ae[t]);
-    return (0, import_jsx_runtime4.jsx)("div", { className: e, children: (0, import_jsx_runtime4.jsxs)("svg", { className: "vuiSpinner__animation", version: "1.0", width: "100px", height: "100px", viewBox: "0 0 128 128", xmlSpace: "preserve", children: [(0, import_jsx_runtime4.jsxs)("g", { children: [(0, import_jsx_runtime4.jsx)("path", { fill: "#d7c3fc", d: "M99.359,10.919a60.763,60.763,0,1,0,0,106.162A63.751,63.751,0,1,1,99.359,10.919Z" }), (0, import_jsx_runtime4.jsx)("animateTransform", { attributeName: "transform", type: "rotate", from: "0 64 64", to: "360 64 64", dur: "960ms", repeatCount: "indefinite" })] }), (0, import_jsx_runtime4.jsxs)("g", { children: [(0, import_jsx_runtime4.jsx)("path", { fill: "#ab81fa", d: "M28.641,117.081a60.763,60.763,0,1,0,0-106.162A63.751,63.751,0,1,1,28.641,117.081Z" }), (0, import_jsx_runtime4.jsx)("animateTransform", { attributeName: "transform", type: "rotate", from: "0 64 64", to: "360 64 64", dur: "1440ms", repeatCount: "indefinite" })] }), (0, import_jsx_runtime4.jsxs)("g", { children: [(0, import_jsx_runtime4.jsx)("path", { fill: "#7027f6", d: "M117.081,99.313a60.763,60.763,0,1,0-106.162,0A63.751,63.751,0,1,1,117.081,99.313Z" }), (0, import_jsx_runtime4.jsx)("animateTransform", { attributeName: "transform", type: "rotate", from: "0 64 64", to: "360 64 64", dur: "2880ms", repeatCount: "indefinite" })] })] }) });
+  var Q = ({ onClick: t, children: e }) => (0, import_jsx_runtime3.jsxs)("div", { className: "vuiScreenBlock", children: [e, (0, import_jsx_runtime3.jsx)("div", { className: "vuiScreenBlock__mask", onClick: t })] });
+  var Y = ({ size: t = "m" }) => {
+    let e = (0, import_classnames3.default)("vuiSpacer", { [`vuiSpacer--${t}`]: t });
+    return (0, import_jsx_runtime4.jsx)("div", { className: e });
   };
-  var q = (c) => {
-    var x = c, { children: t, className: e, id: i, truncate: n, size: a = "s", align: o } = x, u = C(x, ["children", "className", "id", "truncate", "size", "align"]);
-    let l = (0, import_classnames4.default)("vuiText", `vuiText--${a}`, { [`vuiText--${o}`]: o, "vuiText--truncate": n }, e);
-    return (0, import_jsx_runtime5.jsx)("div", T(v({ className: l, id: i }, u), { children: t }));
+  var rt = { xs: "vuiSpinner--xs", s: "vuiSpinner--s", m: "vuiSpinner--m", l: "vuiSpinner--l", xl: "vuiSpinner--xl", xxl: "vuiSpinner--xxl", xxxl: "vuiSpinner--xxxl" };
+  var V = ({ color: t = "accent", size: e = "m" }) => {
+    let i = (0, import_classnames4.default)("vuiSpinner", rt[e], `vuiSpinner--${t}`);
+    return (0, import_jsx_runtime5.jsx)("div", { className: i, children: (0, import_jsx_runtime5.jsx)("svg", { version: "1.1", xmlns: "http://www.w3.org/2000/svg", x: "0px", y: "0px", viewBox: "0 0 50 50", children: (0, import_jsx_runtime5.jsx)("path", { fill: "#000", d: "M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z", children: (0, import_jsx_runtime5.jsx)("animateTransform", { attributeType: "xml", attributeName: "transform", type: "rotate", from: "0 25 25", to: "360 25 25", dur: "0.6s", repeatCount: "indefinite" }) }) }) });
   };
-  var Ue = "https://api.vectara.io/v1/query";
-  var ae = (t, e, i, n = Ue) => {
-    let [a, o] = (0, import_react10.useState)(false), u = import_react10.default.useMemo(() => {
-      let l = new Headers();
-      return l.append("customer-id", t), l.append("x-api-key", i), l.append("content-type", "application/json"), l.append("x-source", "react-search"), l;
-    }, [t, i]), c = (0, import_react10.useCallback)((l) => JSON.stringify({ query: [{ query: l, start: 0, numResults: 20, corpusKey: [{ corpusId: e }] }] }), [e]);
-    return { fetchSearchResults: (l) => P(void 0, null, function* () {
-      var S, d;
-      o(true);
-      let m = c(l), w = yield (yield fetch(n, { headers: u, body: m, method: "POST" })).json();
-      o(false);
-      let b = (d = Ke((S = w.responseSet) == null ? void 0 : S[0])) != null ? d : [];
-      return Je(b);
-    }), isLoading: a };
+  var z = (u) => {
+    var x = u, { children: t, className: e, id: i, truncate: n, size: l = "s", align: r } = x, s = h(x, ["children", "className", "id", "truncate", "size", "align"]);
+    let c = (0, import_classnames5.default)("vuiText", `vuiText--${l}`, { [`vuiText--${r}`]: r, "vuiText--truncate": n }, e);
+    return (0, import_jsx_runtime6.jsx)("div", w(m({ className: c, id: i }, s), { children: t }));
   };
-  var We = (t) => {
+  var q = 0;
+  var ge = () => (q === Number.MAX_SAFE_INTEGER ? q = 0 : q++, q.toString());
+  var ee = (r) => {
+    var s = r, { id: t, checked: e, onChange: i, label: n } = s, l = h(s, ["id", "checked", "onChange", "label"]);
+    let u, x = {};
+    return n && (u = ge(), x["aria-labelledby"] = u), (0, import_jsx_runtime8.jsxs)(F, { alignItems: "center", spacing: "s", children: [(0, import_jsx_runtime8.jsx)(g, { grow: false, children: (0, import_jsx_runtime8.jsxs)("label", w(m({ className: "vuiToggle" }, l), { children: [(0, import_jsx_runtime8.jsx)("input", m({ className: "vuiToggle__input", type: "checkbox", checked: e, onChange: i, id: t }, x)), (0, import_jsx_runtime8.jsx)("span", { className: "vuiToggle__button" })] })) }), n && (0, import_jsx_runtime8.jsx)(g, { grow: false, children: (0, import_jsx_runtime8.jsx)("div", { id: u, children: n }) })] });
+  };
+  var ut = "https://api.vectara.io/v1/query";
+  var we = (t, e, i, n = ut) => {
+    let [l, r] = (0, import_react10.useState)(false), s = import_react10.default.useMemo(() => {
+      let c = new Headers();
+      return c.append("customer-id", t), c.append("x-api-key", i), c.append("content-type", "application/json"), c.append("x-source", "react-search"), c;
+    }, [t, i]), u = (0, import_react10.useCallback)((c, d) => JSON.stringify({ query: [{ query: c, start: 0, numResults: 20, corpusKey: [{ corpusId: e }], summary: d ? [{ maxSummarizedResults: 5, responseLang: "eng" }] : void 0 }] }), [e]);
+    return { fetchSearchResults: (c, d) => A(void 0, null, function* () {
+      var I, S, T, b, B;
+      r(true);
+      let f = u(c, d), E = yield (yield fetch(n, { headers: s, body: f, method: "POST" })).json();
+      r(false);
+      let L = (S = mt((I = E.responseSet) == null ? void 0 : I[0])) != null ? S : [];
+      return { searchResults: ft(L), summary: (B = (b = (T = E.responseSet) == null ? void 0 : T[0].summary) == null ? void 0 : b[0]) == null ? void 0 : B.text };
+    }), isLoading: l };
+  };
+  var xt = (t) => {
     let e = {};
     return t.forEach((i) => {
       e[i.name] = i.value;
     }), e;
   };
-  var $e = (t) => {
-    let e = We(t);
+  var pt = (t) => {
+    let e = xt(t);
     return { source: e.source, url: e.url, title: e.title, metadata: e };
   };
-  var Ke = (t) => {
+  var mt = (t) => {
     if (!t)
       return;
     let e = [], { response: i, document: n } = t;
-    return i.forEach((a) => {
-      let { documentIndex: o, text: u } = a, { pre: c, post: x, text: l } = Ze(u), m = n[Number(o)], { id: f, metadata: w } = m, { source: b, url: S, title: d, metadata: N } = $e(w);
-      e.push({ id: f, snippet: { pre: c, text: l, post: x }, source: b, url: S, title: d, metadata: N });
+    return i.forEach((l) => {
+      let { documentIndex: r, text: s } = l, { pre: u, post: x, text: c } = dt(s), d = n[Number(r)], { id: f, metadata: R } = d, { source: E, url: L, title: I, metadata: S } = pt(R);
+      e.push({ id: f, snippet: { pre: u, text: c, post: x }, source: E, url: L, title: I, metadata: S });
     }), e;
   };
-  var oe = "%START_SNIPPET%";
-  var le = "%END_SNIPPET%";
-  var Ze = (t) => {
-    let [e, i] = t.indexOf(oe) !== -1 ? t.split(oe) : ["", t], [n, a] = i.indexOf(le) !== -1 ? i.split(le) : [i, ""];
-    return { pre: e, post: a, text: n };
+  var be = "%START_SNIPPET%";
+  var Ce = "%END_SNIPPET%";
+  var dt = (t) => {
+    let [e, i] = t.indexOf(be) !== -1 ? t.split(be) : ["", t], [n, l] = i.indexOf(Ce) !== -1 ? i.split(Ce) : [i, ""];
+    return { pre: e, post: l, text: n };
   };
-  var Je = (t) => {
+  var ft = (t) => {
     let e = {}, i = [];
     return t.forEach((n) => {
       if (n.url) {
@@ -33008,11 +33023,11 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
       i.push(n);
     }), i;
   };
-  var se = ({ searchResult: t, isSelected: e = false, opensInNewTab: i = false }) => {
-    let { title: n, url: a, snippet: { text: o } } = t, u = (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [n && (0, import_jsx_runtime7.jsx)("p", { className: "vrsSearchResultTitle", children: n }), (0, import_jsx_runtime7.jsx)("p", { className: "vrsSearchResultSnippet", children: o })] });
-    return a ? (0, import_jsx_runtime7.jsx)("a", { "data-testid": "vrsResultLink", className: `vrsSearchResult vrsSearchResult-isLink ${e ? "isSelected" : ""}`, href: a, target: i ? "_blank" : "_self", children: u }) : (0, import_jsx_runtime7.jsx)("div", { "data-testid": "vrsResultWrapper", className: "vrsSearchResult", children: u });
+  var Fe = ({ searchResult: t, isSelected: e = false, opensInNewTab: i = false }) => {
+    let { title: n, url: l, snippet: { text: r } } = t, s = (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [n && (0, import_jsx_runtime9.jsx)("p", { className: "vrsSearchResultTitle", children: n }), (0, import_jsx_runtime9.jsx)("p", { className: "vrsSearchResultSnippet", children: r })] });
+    return l ? (0, import_jsx_runtime9.jsx)("a", { "data-testid": "vrsResultLink", className: `vrsSearchResult vrsSearchResult-isLink ${e ? "isSelected" : ""}`, href: l, target: i ? "_blank" : "_self", children: s }) : (0, import_jsx_runtime9.jsx)("div", { "data-testid": "vrsResultWrapper", className: "vrsSearchResult", children: s });
   };
-  var U = `.vuiFlexContainer {
+  var te = `.vuiFlexContainer {
   display: flex;
   align-items: stretch;
 }
@@ -33311,19 +33326,90 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.vuiSpinner--xs {
-  width: 16px;
+.vuiSpacer {
+  flex-shrink: 0;
+}
+
+.vuiSpacer--xxxs {
+  height: 2px;
+}
+
+.vuiSpacer--xxs {
+  height: 4px;
+}
+
+.vuiSpacer--xs {
+  height: 8px;
+}
+
+.vuiSpacer--s {
+  height: 12px;
+}
+
+.vuiSpacer--m {
   height: 16px;
 }
 
-.vuiSpinner--s {
-  width: 24px;
+.vuiSpacer--l {
   height: 24px;
 }
 
-.vuiSpinner--m {
-  width: 32px;
+.vuiSpacer--xl {
   height: 32px;
+}
+
+.vuiSpacer--xxl {
+  height: 40px;
+}
+
+.vuiSpinner--accent svg path,
+.vuiSpinner--accent svg rect {
+  fill: #551edf;
+}
+
+.vuiSpinner--primary svg path,
+.vuiSpinner--primary svg rect {
+  fill: rgb(38, 76, 214);
+}
+
+.vuiSpinner--success svg path,
+.vuiSpinner--success svg rect {
+  fill: #04821f;
+}
+
+.vuiSpinner--danger svg path,
+.vuiSpinner--danger svg rect {
+  fill: #c41535;
+}
+
+.vuiSpinner--warning svg path,
+.vuiSpinner--warning svg rect {
+  fill: #965a15;
+}
+
+.vuiSpinner--empty svg path,
+.vuiSpinner--empty svg rect {
+  fill: #ffffff;
+}
+
+.vuiSpinner--dark svg path,
+.vuiSpinner--dark svg rect {
+  fill: #2c313a;
+}
+
+.vuiSpinner--xs {
+  width: 14px;
+  height: 14px;
+}
+
+.vuiSpinner--s {
+  width: 15.9px;
+  height: 15.9px;
+}
+
+.vuiSpinner--m {
+  width: 20.08px;
+  height: 20.08px;
 }
 
 .vuiSpinner--l {
@@ -33346,9 +33432,51 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   height: 100px;
 }
 
-.vuiSpinner__animation {
-  width: 100%;
-  height: 100%;
+.vuiToggle {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+}
+
+.vuiToggle__input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.vuiToggle__input:checked + .vuiToggle__button {
+  background-color: rgb(38, 76, 214);
+}
+.vuiToggle__input:focus-visible + .vuiToggle__button {
+  outline: 2px solid rgba(38, 76, 214, 0.75);
+  outline-offset: 2px;
+}
+.vuiToggle__input:checked + .vuiToggle__button:before {
+  transform: translateX(16px);
+}
+
+.vuiToggle__button {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cbcdde;
+  transition: 0.2s;
+  border-radius: 16px;
+  box-shadow: inset rgba(0, 0, 0, 0.1) 0px 2px 2px;
+}
+.vuiToggle__button:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: #ffffff;
+  transition: 0.2s;
+  border-radius: 50%;
 }
 
 .vuiTitle {
@@ -33727,6 +33855,11 @@ fieldset {
   min-inline-size: auto;
 }
 
+.vrsAnswerContainer {
+  border-top: 1px solid #e3e4f3;
+  padding: 16px 24px;
+}
+
 .vrsSearchForm {
   position: relative;
   display: flex;
@@ -33846,7 +33979,7 @@ fieldset {
   overflow: hidden;
 }
 .vrsSearchModalContainer .vrsSearchModalResults {
-  border-top: 1px solid #cbcdde;
+  border-top: 1px solid #e3e4f3;
   overflow-y: auto;
 }
 
@@ -33865,21 +33998,21 @@ fieldset {
     overflow-y: none !important;
   }
 }`;
-  var pe = (0, import_react11.forwardRef)(({ onClose: t, isOpen: e, children: i, zIndex: n }, a) => {
-    let o = (0, import_react11.useRef)(null);
+  var ke = (0, import_react11.forwardRef)(({ onClose: t, isOpen: e, children: i, zIndex: n }, l) => {
+    let r = (0, import_react11.useRef)(null);
     (0, import_react11.useEffect)(() => {
-      var c, x, l;
-      e ? o.current = (x = (c = document.activeElement) == null ? void 0 : c.shadowRoot) == null ? void 0 : x.querySelector("button") : ((l = o.current) == null || l.focus(), o.current = null);
+      var u, x, c;
+      e ? r.current = (x = (u = document.activeElement) == null ? void 0 : u.shadowRoot) == null ? void 0 : x.querySelector("button") : ((c = r.current) == null || c.focus(), r.current = null);
     }, [e]);
-    let u = () => {
+    let s = () => {
       window.setTimeout(() => {
         t();
       }, 0);
     };
-    return (0, import_jsx_runtime8.jsx)(H, { children: e && (0, import_jsx_runtime8.jsx)("div", { className: "vrsModalWrapper", style: { zIndex: n }, children: (0, import_jsx_runtime8.jsx)(O, { children: (0, import_jsx_runtime8.jsx)(FocusOn2, { onEscapeKey: u, onClickOutside: u, returnFocus: false, autoFocus: e, children: (0, import_jsx_runtime8.jsx)(nt, { ref: a, children: i }) }) }) }) });
+    return (0, import_jsx_runtime10.jsx)(J, { children: e && (0, import_jsx_runtime10.jsx)("div", { className: "vrsModalWrapper", style: { zIndex: n }, children: (0, import_jsx_runtime10.jsx)(Q, { children: (0, import_jsx_runtime10.jsx)(FocusOn2, { onEscapeKey: s, onClickOutside: s, returnFocus: false, autoFocus: e, children: (0, import_jsx_runtime10.jsx)(Ct, { ref: l, children: i }) }) }) }) });
   });
-  var it = ({ ref: t, children: e }) => (0, import_jsx_runtime8.jsx)("div", { className: "vrsSearchModalContainer", children: (0, import_jsx_runtime8.jsx)("div", { ref: t, className: "vrsSearchModal", children: e }) });
-  var W = class extends HTMLElement {
+  var bt = ({ ref: t, children: e }) => (0, import_jsx_runtime10.jsx)("div", { className: "vrsSearchModalContainer", children: (0, import_jsx_runtime10.jsx)("div", { ref: t, className: "vrsSearchModal", children: e }) });
+  var ie = class extends HTMLElement {
     static get observedAttributes() {
       return ["isopen", "onclosedelayedupdatetime", "reactchildrenupdatetime", "refupdatetime"];
     }
@@ -33895,39 +34028,39 @@ fieldset {
     constructor() {
       super(), this.sr = this.attachShadow({ mode: "open" });
       try {
-        this.sheet = new CSSStyleSheet(), this.sheet.replaceSync(U), this.sr.adoptedStyleSheets = [this.sheet];
+        this.sheet = new CSSStyleSheet(), this.sheet.replaceSync(te), this.sr.adoptedStyleSheets = [this.sheet];
       } catch (e) {
         let i = document.createElement("style");
-        i.innerText = U, this.sr.appendChild(i);
+        i.innerText = te, this.sr.appendChild(i);
       }
       this.mountPoint = document.createElement("div"), this.sr.appendChild(this.mountPoint);
     }
     connectedCallback() {
       let e = this.reactChildren, i = this.ref;
-      xe.render((0, import_jsx_runtime8.jsx)(import_jsx_runtime8.Fragment, { children: (0, import_jsx_runtime8.jsx)(it, { ref: i, children: e }) }), this.mountPoint);
+      Te.render((0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: (0, import_jsx_runtime10.jsx)(bt, { ref: i, children: e }) }), this.mountPoint);
     }
     attributeChangedCallback() {
       this.connectedCallback();
     }
   };
-  window.customElements.get("react-search-modal-contents") || window.customElements.define("react-search-modal-contents", W);
-  var nt = (t) => {
+  window.customElements.get("react-search-modal-contents") || window.customElements.define("react-search-modal-contents", ie);
+  var Ct = (t) => {
     let e = (0, import_react11.useRef)(null);
     return (0, import_react11.useEffect)(() => {
       e.current && (e.current.setReactChildren(t.children), e.current.setRef(t.ref), e.current.setOnCloseDelayed(t.onCloseDelayed));
-    }, [t]), (0, import_jsx_runtime8.jsx)("react-search-modal-contents", { ref: e, isOpen: t.isOpen });
+    }, [t]), (0, import_jsx_runtime10.jsx)("react-search-modal-contents", { ref: e, isOpen: t.isOpen });
   };
-  var me = (t, e = 10) => {
+  var Re = (t, e = 10) => {
     let i = (0, import_react12.useCallback)(() => `vectara-search:${t}:history`, [t]), n = (0, import_react12.useCallback)(() => {
-      let o = window.localStorage.getItem(i());
-      return JSON.parse(o != null ? o : "[]");
-    }, [i]), a = (0, import_react12.useCallback)((o) => {
-      let u = n(), c = [o, ...u].slice(0, e);
-      window.localStorage.setItem(i(), JSON.stringify(c));
+      let r = window.localStorage.getItem(i());
+      return JSON.parse(r != null ? r : "[]");
+    }, [i]), l = (0, import_react12.useCallback)((r) => {
+      let s = n(), u = [r, ...s].slice(0, e);
+      window.localStorage.setItem(i(), JSON.stringify(u));
     }, [i]);
-    return { getPreviousSearches: n, addPreviousSearch: a };
+    return { getPreviousSearches: n, addPreviousSearch: l };
   };
-  var K = `.vuiFlexContainer {
+  var re = `.vuiFlexContainer {
   display: flex;
   align-items: stretch;
 }
@@ -34226,19 +34359,90 @@ fieldset {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.vuiSpinner--xs {
-  width: 16px;
+.vuiSpacer {
+  flex-shrink: 0;
+}
+
+.vuiSpacer--xxxs {
+  height: 2px;
+}
+
+.vuiSpacer--xxs {
+  height: 4px;
+}
+
+.vuiSpacer--xs {
+  height: 8px;
+}
+
+.vuiSpacer--s {
+  height: 12px;
+}
+
+.vuiSpacer--m {
   height: 16px;
 }
 
-.vuiSpinner--s {
-  width: 24px;
+.vuiSpacer--l {
   height: 24px;
 }
 
-.vuiSpinner--m {
-  width: 32px;
+.vuiSpacer--xl {
   height: 32px;
+}
+
+.vuiSpacer--xxl {
+  height: 40px;
+}
+
+.vuiSpinner--accent svg path,
+.vuiSpinner--accent svg rect {
+  fill: #551edf;
+}
+
+.vuiSpinner--primary svg path,
+.vuiSpinner--primary svg rect {
+  fill: rgb(38, 76, 214);
+}
+
+.vuiSpinner--success svg path,
+.vuiSpinner--success svg rect {
+  fill: #04821f;
+}
+
+.vuiSpinner--danger svg path,
+.vuiSpinner--danger svg rect {
+  fill: #c41535;
+}
+
+.vuiSpinner--warning svg path,
+.vuiSpinner--warning svg rect {
+  fill: #965a15;
+}
+
+.vuiSpinner--empty svg path,
+.vuiSpinner--empty svg rect {
+  fill: #ffffff;
+}
+
+.vuiSpinner--dark svg path,
+.vuiSpinner--dark svg rect {
+  fill: #2c313a;
+}
+
+.vuiSpinner--xs {
+  width: 14px;
+  height: 14px;
+}
+
+.vuiSpinner--s {
+  width: 15.9px;
+  height: 15.9px;
+}
+
+.vuiSpinner--m {
+  width: 20.08px;
+  height: 20.08px;
 }
 
 .vuiSpinner--l {
@@ -34261,9 +34465,51 @@ fieldset {
   height: 100px;
 }
 
-.vuiSpinner__animation {
-  width: 100%;
-  height: 100%;
+.vuiToggle {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+}
+
+.vuiToggle__input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.vuiToggle__input:checked + .vuiToggle__button {
+  background-color: rgb(38, 76, 214);
+}
+.vuiToggle__input:focus-visible + .vuiToggle__button {
+  outline: 2px solid rgba(38, 76, 214, 0.75);
+  outline-offset: 2px;
+}
+.vuiToggle__input:checked + .vuiToggle__button:before {
+  transform: translateX(16px);
+}
+
+.vuiToggle__button {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cbcdde;
+  transition: 0.2s;
+  border-radius: 16px;
+  box-shadow: inset rgba(0, 0, 0, 0.1) 0px 2px 2px;
+}
+.vuiToggle__button:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: #ffffff;
+  transition: 0.2s;
+  border-radius: 50%;
 }
 
 .vuiTitle {
@@ -34761,19 +35007,90 @@ fieldset {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.vuiSpinner--xs {
-  width: 16px;
+.vuiSpacer {
+  flex-shrink: 0;
+}
+
+.vuiSpacer--xxxs {
+  height: 2px;
+}
+
+.vuiSpacer--xxs {
+  height: 4px;
+}
+
+.vuiSpacer--xs {
+  height: 8px;
+}
+
+.vuiSpacer--s {
+  height: 12px;
+}
+
+.vuiSpacer--m {
   height: 16px;
 }
 
-.vuiSpinner--s {
-  width: 24px;
+.vuiSpacer--l {
   height: 24px;
 }
 
-.vuiSpinner--m {
-  width: 32px;
+.vuiSpacer--xl {
   height: 32px;
+}
+
+.vuiSpacer--xxl {
+  height: 40px;
+}
+
+.vuiSpinner--accent svg path,
+.vuiSpinner--accent svg rect {
+  fill: #551edf;
+}
+
+.vuiSpinner--primary svg path,
+.vuiSpinner--primary svg rect {
+  fill: rgb(38, 76, 214);
+}
+
+.vuiSpinner--success svg path,
+.vuiSpinner--success svg rect {
+  fill: #04821f;
+}
+
+.vuiSpinner--danger svg path,
+.vuiSpinner--danger svg rect {
+  fill: #c41535;
+}
+
+.vuiSpinner--warning svg path,
+.vuiSpinner--warning svg rect {
+  fill: #965a15;
+}
+
+.vuiSpinner--empty svg path,
+.vuiSpinner--empty svg rect {
+  fill: #ffffff;
+}
+
+.vuiSpinner--dark svg path,
+.vuiSpinner--dark svg rect {
+  fill: #2c313a;
+}
+
+.vuiSpinner--xs {
+  width: 14px;
+  height: 14px;
+}
+
+.vuiSpinner--s {
+  width: 15.9px;
+  height: 15.9px;
+}
+
+.vuiSpinner--m {
+  width: 20.08px;
+  height: 20.08px;
 }
 
 .vuiSpinner--l {
@@ -34796,9 +35113,51 @@ fieldset {
   height: 100px;
 }
 
-.vuiSpinner__animation {
-  width: 100%;
-  height: 100%;
+.vuiToggle {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+}
+
+.vuiToggle__input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.vuiToggle__input:checked + .vuiToggle__button {
+  background-color: rgb(38, 76, 214);
+}
+.vuiToggle__input:focus-visible + .vuiToggle__button {
+  outline: 2px solid rgba(38, 76, 214, 0.75);
+  outline-offset: 2px;
+}
+.vuiToggle__input:checked + .vuiToggle__button:before {
+  transform: translateX(16px);
+}
+
+.vuiToggle__button {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cbcdde;
+  transition: 0.2s;
+  border-radius: 16px;
+  box-shadow: inset rgba(0, 0, 0, 0.1) 0px 2px 2px;
+}
+.vuiToggle__button:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: #ffffff;
+  transition: 0.2s;
+  border-radius: 50%;
 }
 
 .vuiTitle {
@@ -35177,6 +35536,11 @@ fieldset {
   min-inline-size: auto;
 }
 
+.vrsAnswerContainer {
+  border-top: 1px solid #e3e4f3;
+  padding: 16px 24px;
+}
+
 .vrsSearchForm {
   position: relative;
   display: flex;
@@ -35296,7 +35660,7 @@ fieldset {
   overflow: hidden;
 }
 .vrsSearchModalContainer .vrsSearchModalResults {
-  border-top: 1px solid #cbcdde;
+  border-top: 1px solid #e3e4f3;
   overflow-y: auto;
 }
 
@@ -35370,7 +35734,7 @@ button {
   background-color: rgb(217, 226, 255);
   color: rgb(38, 76, 214);
 }`;
-  var ot = `.vuiScreenBlock {
+  var Ft = `.vuiScreenBlock {
   position: fixed;
   top: 0;
   left: 0;
@@ -35391,105 +35755,116 @@ button {
 .vrsModalWrapper {
   position: fixed;
 }`;
-  document.head.appendChild(document.createElement("style")).appendChild(document.createTextNode(ot));
-  var de = (u) => {
-    var c = u, { value: t, onChange: e, placeholder: i, autoFocus: n, onSubmit: a } = c, o = C(c, ["value", "onChange", "placeholder", "autoFocus", "onSubmit"]);
-    return (0, import_jsx_runtime9.jsx)("input", v({ "data-testid": "searchInput", className: "vrsSearchInput", type: "text", autoComplete: "off", autoCapitalize: "off", spellCheck: "false", autoFocus: n, placeholder: i, value: t, onChange: e }, o));
+  document.head.appendChild(document.createElement("style")).appendChild(document.createTextNode(Ft));
+  var Ee = (s) => {
+    var u = s, { value: t, onChange: e, placeholder: i, autoFocus: n, onSubmit: l } = u, r = h(u, ["value", "onChange", "placeholder", "autoFocus", "onSubmit"]);
+    return (0, import_jsx_runtime11.jsx)("input", m({ "data-testid": "searchInput", className: "vrsSearchInput", type: "text", autoComplete: "off", autoCapitalize: "off", spellCheck: "false", autoFocus: n, placeholder: i, value: t, onChange: e }, r));
   };
-  var ct = (t, e) => {
+  var It = /(^\[(\d+(,*\s*\d*)*)\] ?)|( ?\[(\d+(,*\s*\d*)*)\])/g;
+  var oe = (t) => t.replace(It, "");
+  var Ne = ({ isSummaryEnabled: t, setIsSummaryEnabled: e, isLoading: i, summary: n }) => {
+    let l = n ? oe(n) : void 0, r;
+    return t && (i ? r = (0, import_jsx_runtime12.jsxs)(F, { spacing: "s", children: [(0, import_jsx_runtime12.jsx)(g, { children: (0, import_jsx_runtime12.jsx)(V, { size: "s" }) }), (0, import_jsx_runtime12.jsx)(g, { children: (0, import_jsx_runtime12.jsx)(z, { children: "Summarizing\u2026" }) })] }) : l && (r = (0, import_jsx_runtime12.jsx)(z, { children: (0, import_jsx_runtime12.jsx)("p", { children: l }) }))), (0, import_jsx_runtime12.jsxs)("div", { className: "vrsAnswerContainer", children: [(0, import_jsx_runtime12.jsx)(ee, { checked: t, onChange: (s) => e(s.target.checked), label: "Summarize seach results" }), r && (0, import_jsx_runtime12.jsxs)(import_jsx_runtime12.Fragment, { children: [(0, import_jsx_runtime12.jsx)(Y, { size: "m" }), r] })] });
+  };
+  var Nt = (t, e) => {
     let i = t.get(e);
     if (i)
       return decodeURIComponent(i);
   };
-  var xt = ({ customerId: t, apiKey: e, corpusId: i, apiUrl: n, historySize: a = 10, placeholder: o = "Search", isDeeplinkable: u = false, openResultsInNewTab: c = false, zIndex: x = 9999 }) => {
-    let l = (0, import_react7.useMemo)(() => (0, import_uuid_by_string.default)(`${t}-${i}-${e}`), [t, i, e]), { addPreviousSearch: m } = me(l, a), { fetchSearchResults: f, isLoading: w } = ae(t, i, e, n), [b, S] = (0, import_react7.useState)(null), [d, N] = (0, import_react7.useState)([]), [ve, E] = (0, import_react7.useState)(false), [k, X] = (0, import_react7.useState)(""), ge = (0, import_react7.useRef)(null), y = (0, import_react7.useRef)(null), Q = (0, import_react7.useRef)(0);
+  var _t = ({ customerId: t, apiKey: e, corpusId: i, apiUrl: n, historySize: l = 10, placeholder: r = "Search", isDeepLinkable: s = false, openResultsInNewTab: u = false, zIndex: x = 9999, onToggleSummary: c, isSummaryToggleVisible: d = false, isSummaryToggleInitiallyEnabled: f = false }) => {
+    let R = (0, import_react7.useMemo)(() => (0, import_uuid_by_string.default)(`${t}-${i}-${e}`), [t, i, e]), { addPreviousSearch: E } = Re(R, l), { fetchSearchResults: L, isLoading: I } = we(t, i, e, n), [S, T] = (0, import_react7.useState)(), [b, B] = (0, import_react7.useState)([]), [Me, ce] = (0, import_react7.useState)(), [Pe, j] = (0, import_react7.useState)(false), [N, U] = (0, import_react7.useState)(""), [K, ue] = (0, import_react7.useState)(f), Le = (0, import_react7.useRef)(null), _ = (0, import_react7.useRef)(null), xe = (0, import_react7.useRef)(0);
     (0, import_react7.useEffect)(() => {
-      let s = new URLSearchParams(window.location.search), p = ct(s, "search");
-      p && (E(true), X(p), z(p));
+      ue(f);
+    }, [f]), (0, import_react7.useEffect)(() => {
+      let a = new URLSearchParams(window.location.search), p = Nt(a, "search");
+      p && (j(true), U(p), D(p));
     }, []);
-    let z = (s) => P(void 0, null, function* () {
-      if (s.length === 0)
+    let D = (a) => A(void 0, null, function* () {
+      if (a.length === 0)
         return;
-      if (u) {
-        let M = new URLSearchParams(window.location.search);
-        M.set("search", s), history.replaceState(null, "", "?" + M.toString());
+      if (s) {
+        let O = new URLSearchParams(window.location.search);
+        O.set("search", a), history.replaceState(null, "", "?" + O.toString());
       }
-      m(s);
-      let p = ++Q.current, h = yield f(s);
-      p === Q.current && (N(h), S(null), y.current = null);
+      E(a);
+      let p = ++xe.current, { searchResults: v, summary: Z } = yield L(a, K);
+      p === xe.current && (B(v), ce(Z), T(void 0), _.current = null);
     });
     (0, import_react7.useEffect)(() => {
-      let s = setTimeout(() => {
-        z(k);
+      let a = setTimeout(() => {
+        D(N);
       }, 500);
-      return () => clearTimeout(s);
-    }, [k]);
-    let be = (s) => {
-      let p = s.target.value;
-      X(p), p.length === 0 && Y();
-    }, Se = (0, import_react7.useCallback)((s) => {
-      let p = s.key;
-      p === "Enter" && (s.preventDefault(), b !== null ? window.open(d[b].url, c ? "_blank" : "_self") : z(k)), d.length !== 0 && (p === "ArrowDown" && S((h) => h === null || h === d.length - 1 ? 0 : h + 1), p === "ArrowUp" && S((h) => h === null || h === 0 ? d.length - 1 : h - 1));
-    }, [d, b]), Y = () => {
-      N([]), S(null), y.current = null;
-    }, ee = () => {
-      if (E(false), X(""), Y(), u) {
-        let s = new URLSearchParams(window.location.search);
-        s.delete("search"), history.replaceState(null, "", "?" + s.toString());
+      return () => clearTimeout(a);
+    }, [N]), (0, import_react7.useEffect)(() => {
+      D(N);
+    }, [K]);
+    let Be = (a) => {
+      let p = a.target.value;
+      U(p), p.length === 0 && pe();
+    }, De = (0, import_react7.useCallback)((a) => {
+      let p = a.key;
+      p === "Enter" && (a.preventDefault(), S !== void 0 ? window.open(b[S].url, u ? "_blank" : "_self") : D(N)), b.length !== 0 && (p === "ArrowDown" && T((v) => v === void 0 || v === b.length - 1 ? 0 : v + 1), p === "ArrowUp" && T((v) => v === void 0 || v === 0 ? b.length - 1 : v - 1));
+    }, [b, S]), pe = () => {
+      ce(void 0), B([]), T(void 0), _.current = null;
+    }, me = () => {
+      if (j(false), U(""), pe(), s) {
+        let a = new URLSearchParams(window.location.search);
+        a.delete("search"), history.replaceState(null, "", "?" + a.toString());
       }
-    }, te = d.length === 0 ? null : d.map((s, p) => {
-      let { snippet: { pre: h, text: M, post: Ce } } = s;
-      return (0, import_jsx_runtime10.jsx)("div", { ref: b === p ? y : void 0, children: (0, import_jsx_runtime10.jsx)(se, { searchResult: s, isSelected: b === p, opensInNewTab: c }) }, `${h}${M}${Ce}`);
+    }, de = b.length === 0 ? void 0 : b.map((a, p) => {
+      let { snippet: { pre: v, text: Z, post: O } } = a;
+      return (0, import_jsx_runtime13.jsx)("div", { ref: S === p ? _ : void 0, children: (0, import_jsx_runtime13.jsx)(Fe, { searchResult: a, isSelected: S === p, opensInNewTab: u }) }, `${v}${Z}${O}`);
     });
     return (0, import_react7.useEffect)(() => {
-      y.current && y.current.scrollIntoView({ behavior: "instant", block: "nearest" });
-    }, [y.current]), (0, import_react7.useEffect)(() => {
-      let s = (p) => {
-        p.key === "k" && p.ctrlKey && E(true);
+      _.current && _.current.scrollIntoView({ behavior: "instant", block: "nearest" });
+    }, [_.current]), (0, import_react7.useEffect)(() => {
+      let a = (p) => {
+        p.key === "k" && p.ctrlKey && j(true);
       };
-      return document.addEventListener("keyup", s), () => {
-        document.removeEventListener("keyup", s);
+      return document.addEventListener("keyup", a), () => {
+        document.removeEventListener("keyup", a);
       };
-    }, []), (0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: (0, import_jsx_runtime10.jsxs)("div", { children: [(0, import_jsx_runtime10.jsx)("div", { ref: ge, children: (0, import_jsx_runtime10.jsx)("button", { className: "vrsSearchButton", onClick: () => E(true), children: (0, import_jsx_runtime10.jsxs)(B, { alignItems: "center", spacing: "none", justifyContent: "spaceBetween", className: "vrsSearchButton__inner", children: [(0, import_jsx_runtime10.jsx)(R, { children: (0, import_jsx_runtime10.jsxs)(B, { alignItems: "center", spacing: "xs", children: [(0, import_jsx_runtime10.jsx)(R, { children: (0, import_jsx_runtime10.jsx)(fe, {}) }), (0, import_jsx_runtime10.jsx)(R, { children: (0, import_jsx_runtime10.jsx)(q, { children: (0, import_jsx_runtime10.jsx)("div", { children: "Search" }) }) })] }) }), (0, import_jsx_runtime10.jsx)("div", { className: "vrsSearchButtonShortcut", children: "Ctrl + K" })] }) }) }), (0, import_jsx_runtime10.jsxs)(pe, { isOpen: ve, onClose: ee, zIndex: x, children: [(0, import_jsx_runtime10.jsx)("form", { children: (0, import_jsx_runtime10.jsxs)("div", { className: "vrsSearchForm", children: [(0, import_jsx_runtime10.jsx)("div", { className: "vrsCloseButtonWrapper", children: (0, import_jsx_runtime10.jsx)("button", { className: "vrsSubmitButton", "aria-label": "Close", onClick: (s) => {
-      s.preventDefault(), ee();
-    }, children: (0, import_jsx_runtime10.jsx)(pt, { size: "12px" }) }) }), (0, import_jsx_runtime10.jsx)(de, { value: k, onChange: be, onKeyDown: Se, placeholder: o, autoFocus: true }), w ? (0, import_jsx_runtime10.jsx)("div", { className: "vrsSubmitButtonWrapper", children: (0, import_jsx_runtime10.jsx)(V, { size: "xs" }) }) : (0, import_jsx_runtime10.jsx)("div", { className: "vrsSubmitButtonWrapper", children: (0, import_jsx_runtime10.jsx)("button", { className: "vrsSubmitButton", onClick: (s) => {
-      s.preventDefault(), z(k);
-    }, children: (0, import_jsx_runtime10.jsx)(fe, {}) }) })] }) }), te && (0, import_jsx_runtime10.jsx)("div", { className: "vrsSearchModalResults", children: te })] })] }) });
+    }, []), (0, import_jsx_runtime13.jsx)(import_jsx_runtime13.Fragment, { children: (0, import_jsx_runtime13.jsxs)("div", { children: [(0, import_jsx_runtime13.jsx)("div", { ref: Le, children: (0, import_jsx_runtime13.jsx)("button", { className: "vrsSearchButton", onClick: () => j(true), children: (0, import_jsx_runtime13.jsxs)(F, { alignItems: "center", spacing: "none", justifyContent: "spaceBetween", className: "vrsSearchButton__inner", children: [(0, import_jsx_runtime13.jsx)(g, { children: (0, import_jsx_runtime13.jsxs)(F, { alignItems: "center", spacing: "xs", children: [(0, import_jsx_runtime13.jsx)(g, { children: (0, import_jsx_runtime13.jsx)(_e, {}) }), (0, import_jsx_runtime13.jsx)(g, { children: (0, import_jsx_runtime13.jsx)(z, { children: (0, import_jsx_runtime13.jsx)("div", { children: "Search" }) }) })] }) }), (0, import_jsx_runtime13.jsx)("div", { className: "vrsSearchButtonShortcut", children: "Ctrl + K" })] }) }) }), (0, import_jsx_runtime13.jsxs)(ke, { isOpen: Pe, onClose: me, zIndex: x, children: [(0, import_jsx_runtime13.jsx)("form", { children: (0, import_jsx_runtime13.jsxs)("div", { className: "vrsSearchForm", children: [(0, import_jsx_runtime13.jsx)("div", { className: "vrsCloseButtonWrapper", children: (0, import_jsx_runtime13.jsx)("button", { className: "vrsSubmitButton", "aria-label": "Close", onClick: (a) => {
+      a.preventDefault(), me();
+    }, children: (0, import_jsx_runtime13.jsx)(zt, { size: "12px" }) }) }), (0, import_jsx_runtime13.jsx)(Ee, { value: N, onChange: Be, onKeyDown: De, placeholder: r, autoFocus: true }), I ? (0, import_jsx_runtime13.jsx)("div", { className: "vrsSubmitButtonWrapper", children: (0, import_jsx_runtime13.jsx)(V, { size: "xs" }) }) : (0, import_jsx_runtime13.jsx)("div", { className: "vrsSubmitButtonWrapper", children: (0, import_jsx_runtime13.jsx)("button", { className: "vrsSubmitButton", onClick: (a) => {
+      a.preventDefault(), D(N);
+    }, children: (0, import_jsx_runtime13.jsx)(_e, {}) }) })] }) }), d && (0, import_jsx_runtime13.jsx)(Ne, { isSummaryEnabled: K, setIsSummaryEnabled: (a) => {
+      ue(a), c == null || c(a);
+    }, isLoading: I, summary: Me }), de && (0, import_jsx_runtime13.jsx)("div", { className: "vrsSearchModalResults", children: de })] })] }) });
   };
-  var fe = () => (0, import_jsx_runtime10.jsx)("div", { children: (0, import_jsx_runtime10.jsxs)("svg", { xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink", fill: "currentColor", height: "17px", width: "17px", version: "1.1", viewBox: "-24.52 -24.52 539.44 539.44", xmlSpace: "preserve", stroke: "currentColor", strokeWidth: "12", children: [(0, import_jsx_runtime10.jsx)("g", { id: "SVGRepo_bgCarrier", strokeWidth: "0" }), (0, import_jsx_runtime10.jsx)("g", { id: "SVGRepo_tracerCarrier", strokeLinecap: "round", strokeLinejoin: "round" }), (0, import_jsx_runtime10.jsx)("g", { id: "SVGRepo_iconCarrier", children: (0, import_jsx_runtime10.jsxs)("g", { children: [(0, import_jsx_runtime10.jsx)("path", { d: "M484.1,454.796l-110.5-110.6c29.8-36.3,47.6-82.8,47.6-133.4c0-116.3-94.3-210.6-210.6-210.6S0,94.496,0,210.796 s94.3,210.6,210.6,210.6c50.8,0,97.4-18,133.8-48l110.5,110.5c12.9,11.8,25,4.2,29.2,0C492.5,475.596,492.5,463.096,484.1,454.796z M41.1,210.796c0-93.6,75.9-169.5,169.5-169.5s169.6,75.9,169.6,169.5s-75.9,169.5-169.5,169.5S41.1,304.396,41.1,210.796z" }), " "] }) })] }) });
-  var pt = ({ size: t }) => (0, import_jsx_runtime10.jsx)("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 329.26933 329", width: t, height: t, fill: "currentColor", children: (0, import_jsx_runtime10.jsx)("path", { d: "m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0" }) });
-  var J = class extends HTMLElement {
+  var _e = () => (0, import_jsx_runtime13.jsx)("div", { children: (0, import_jsx_runtime13.jsxs)("svg", { xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink", fill: "currentColor", height: "17px", width: "17px", version: "1.1", viewBox: "-24.52 -24.52 539.44 539.44", xmlSpace: "preserve", stroke: "currentColor", strokeWidth: "12", children: [(0, import_jsx_runtime13.jsx)("g", { id: "SVGRepo_bgCarrier", strokeWidth: "0" }), (0, import_jsx_runtime13.jsx)("g", { id: "SVGRepo_tracerCarrier", strokeLinecap: "round", strokeLinejoin: "round" }), (0, import_jsx_runtime13.jsx)("g", { id: "SVGRepo_iconCarrier", children: (0, import_jsx_runtime13.jsxs)("g", { children: [(0, import_jsx_runtime13.jsx)("path", { d: "M484.1,454.796l-110.5-110.6c29.8-36.3,47.6-82.8,47.6-133.4c0-116.3-94.3-210.6-210.6-210.6S0,94.496,0,210.796 s94.3,210.6,210.6,210.6c50.8,0,97.4-18,133.8-48l110.5,110.5c12.9,11.8,25,4.2,29.2,0C492.5,475.596,492.5,463.096,484.1,454.796z M41.1,210.796c0-93.6,75.9-169.5,169.5-169.5s169.6,75.9,169.6,169.5s-75.9,169.5-169.5,169.5S41.1,304.396,41.1,210.796z" }), " "] }) })] }) });
+  var zt = ({ size: t }) => (0, import_jsx_runtime13.jsx)("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 329.26933 329", width: t, height: t, fill: "currentColor", children: (0, import_jsx_runtime13.jsx)("path", { d: "m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0" }) });
+  var ze = {};
+  var se = class extends HTMLElement {
     static get observedAttributes() {
-      return ["customerid", "corpusid", "apikey", "placeholder", "isdeeplinkable", "openresultsinnewtab", "zindex"];
+      return ["serializedprops"];
     }
     constructor() {
       super(), this.sr = this.attachShadow({ mode: "open" });
       try {
-        this.sheet = new CSSStyleSheet(), this.sheet.replaceSync(K), this.sr.adoptedStyleSheets = [this.sheet];
+        this.sheet = new CSSStyleSheet(), this.sheet.replaceSync(re), this.sr.adoptedStyleSheets = [this.sheet];
       } catch (e) {
         let i = document.createElement("style");
-        i.innerText = K, this.sr.appendChild(i);
+        i.innerText = re, this.sr.appendChild(i);
       }
       this.mountPoint = document.createElement("div"), this.sr.appendChild(this.mountPoint);
     }
     connectedCallback() {
-      var x, l, m, f;
-      let e = (x = this.getAttribute("customerId")) != null ? x : "", i = (l = this.getAttribute("corpusId")) != null ? l : "", n = (m = this.getAttribute("apiKey")) != null ? m : "", a = (f = this.getAttribute("placeholder")) != null ? f : void 0, o = this.getAttribute("isdeeplinkable") === "true", u = this.getAttribute("openresultsinnewtab") === "true", c = this.getAttribute("zIndex") !== null ? parseInt(this.getAttribute("zIndex")) : void 0;
-      A.render((0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: (0, import_jsx_runtime10.jsx)(xt, { customerId: e, corpusId: i, apiKey: n, placeholder: a, isDeeplinkable: o, openResultsInNewTab: u, zIndex: c }) }), this.mountPoint);
+      W.render((0, import_jsx_runtime13.jsx)(_t, m({}, ze)), this.mountPoint);
     }
     attributeChangedCallback() {
       this.connectedCallback();
     }
     disconnectedCallback() {
-      A.unmountComponentAtNode(this.mountPoint);
+      W.unmountComponentAtNode(this.mountPoint);
     }
   };
-  window.customElements.get("react-search") || window.customElements.define("react-search", J);
-  var tn = (t) => (0, import_jsx_runtime10.jsx)("react-search", v({}, t));
+  window.customElements.get("react-search") || window.customElements.define("react-search", se);
+  var er = (t) => (ze = t, (0, import_jsx_runtime13.jsx)("react-search", { serializedprops: JSON.stringify(t) }));
 
   // src/ui/components/flex/FlexContainer.tsx
-  var import_classnames7 = __toESM(require_classnames());
-  var import_jsx_runtime11 = __toESM(require_jsx_runtime());
+  var import_classnames8 = __toESM(require_classnames());
+  var import_jsx_runtime14 = __toESM(require_jsx_runtime());
   var alignItemsToClassNameMap = {
     baseline: "vuiFlexContainer--alignItemsBaseline",
     center: "vuiFlexContainer--alignItemsCenter",
@@ -35532,7 +35907,7 @@ button {
     fullWidth,
     ...rest
   }) => {
-    const classes = (0, import_classnames7.default)(
+    const classes = (0, import_classnames8.default)(
       className,
       "vuiFlexContainer",
       alignItemsToClassNameMap[alignItems],
@@ -35544,12 +35919,12 @@ button {
         "vuiFlexContainer--fullWidth": fullWidth
       }
     );
-    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: classes, ...rest, children });
+    return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: classes, ...rest, children });
   };
 
   // src/ui/components/flex/FlexItem.tsx
-  var import_classnames8 = __toESM(require_classnames());
-  var import_jsx_runtime12 = __toESM(require_jsx_runtime());
+  var import_classnames9 = __toESM(require_classnames());
+  var import_jsx_runtime15 = __toESM(require_jsx_runtime());
   var alignItemsToClassNameMap2 = {
     baseline: "vuiFlexItem--alignItemsBaseline",
     center: "vuiFlexItem--alignItemsCenter",
@@ -35569,7 +35944,7 @@ button {
   }) => {
     const isGrowNone = grow === false;
     const isShrinkNone = shrink === false;
-    const classes = (0, import_classnames8.default)(
+    const classes = (0, import_classnames9.default)(
       "vuiFlexItem",
       `vuiFlexItem--${basis}`,
       alignItemsToClassNameMap2[alignItems],
@@ -35582,13 +35957,13 @@ button {
       },
       className
     );
-    return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: classes, ...rest, children });
+    return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: classes, ...rest, children });
   };
 
   // src/ui/components/icon/Icon.tsx
-  var import_classnames9 = __toESM(require_classnames());
+  var import_classnames10 = __toESM(require_classnames());
   var import_react13 = __toESM(require_react());
-  var import_jsx_runtime13 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime16 = __toESM(require_jsx_runtime());
   var sizeToValueMap = {
     xs: "14",
     s: "16",
@@ -35599,16 +35974,16 @@ button {
     xxxl: "68"
   };
   var VuiIcon = ({ children, size = "m", color = "inherit", className, inline, ...rest }) => {
-    const innerClasses = (0, import_classnames9.default)(className, "vuiIcon__inner", {
+    const innerClasses = (0, import_classnames10.default)(className, "vuiIcon__inner", {
       [`vuiIcon--${color}`]: color
     });
-    const classes = (0, import_classnames9.default)("vuiIcon", {
+    const classes = (0, import_classnames10.default)("vuiIcon", {
       "vuiIcon--inline": inline
     });
     const icon = (0, import_react13.cloneElement)(children, {
       size: sizeToValueMap[size]
     });
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(IconContext.Provider, { value: { className: innerClasses }, children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: classes, ...rest, children: icon }) });
+    return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(IconContext.Provider, { value: { className: innerClasses }, children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: classes, ...rest, children: icon }) });
   };
 
   // src/ui/utils/createId.ts
@@ -35623,14 +35998,14 @@ button {
   };
 
   // src/ui/components/accordion/Accordion.tsx
-  var import_jsx_runtime14 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime17 = __toESM(require_jsx_runtime());
 
   // src/ui/components/horizontalRule/HorizontalRule.tsx
-  var import_jsx_runtime15 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime18 = __toESM(require_jsx_runtime());
 
   // src/ui/components/popover/Popover.tsx
   var import_react15 = __toESM(require_react());
-  var import_classnames10 = __toESM(require_classnames());
+  var import_classnames11 = __toESM(require_classnames());
 
   // src/ui/components/portal/Portal.tsx
   var import_react14 = __toESM(require_react());
@@ -35650,22 +36025,22 @@ button {
   };
 
   // src/ui/components/popover/Popover.tsx
-  var import_jsx_runtime16 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime19 = __toESM(require_jsx_runtime());
 
   // src/ui/components/spacer/Spacer.tsx
-  var import_classnames11 = __toESM(require_classnames());
-  var import_jsx_runtime17 = __toESM(require_jsx_runtime());
+  var import_classnames12 = __toESM(require_classnames());
+  var import_jsx_runtime20 = __toESM(require_jsx_runtime());
   var VuiSpacer = ({ size = "m" }) => {
-    const classes = (0, import_classnames11.default)("vuiSpacer", { [`vuiSpacer--${size}`]: size });
-    return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: classes });
+    const classes = (0, import_classnames12.default)("vuiSpacer", { [`vuiSpacer--${size}`]: size });
+    return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: classes });
   };
 
   // src/ui/components/accountMenu/AccountMenu.tsx
-  var import_jsx_runtime18 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime21 = __toESM(require_jsx_runtime());
 
   // src/ui/components/app/AppContent.tsx
-  var import_classnames12 = __toESM(require_classnames());
-  var import_jsx_runtime19 = __toESM(require_jsx_runtime());
+  var import_classnames13 = __toESM(require_classnames());
+  var import_jsx_runtime22 = __toESM(require_jsx_runtime());
   var paddingToClassNameMap = {
     none: "vuiAppContent--paddingNone",
     xs: "vuiAppContent--paddingXs",
@@ -35675,7 +36050,7 @@ button {
     xl: "vuiAppContent--paddingXl"
   };
   var VuiAppContent = ({ children, className, fullWidth, padding = "none", ...rest }) => {
-    const classes = (0, import_classnames12.default)(
+    const classes = (0, import_classnames13.default)(
       "vuiAppContent",
       paddingToClassNameMap[padding],
       {
@@ -35683,28 +36058,28 @@ button {
       },
       className
     );
-    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", { className: classes, ...rest, children });
+    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: classes, ...rest, children });
   };
 
   // src/ui/components/app/AppHeader.tsx
-  var import_jsx_runtime20 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime23 = __toESM(require_jsx_runtime());
   var VuiAppHeader = ({ left, right, ...rest }) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: "vuiAppHeader", ...rest, children: /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(VuiFlexContainer, { className: "vuiAppHeader__inner", justifyContent: "spaceBetween", alignItems: "center", children: [
-      Boolean(left) && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(VuiFlexItem, { grow: false, shrink: false, children: left }),
-      Boolean(right) && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(VuiFlexItem, { grow: false, shrink: false, children: right })
+    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "vuiAppHeader", ...rest, children: /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(VuiFlexContainer, { className: "vuiAppHeader__inner", justifyContent: "spaceBetween", alignItems: "center", children: [
+      Boolean(left) && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(VuiFlexItem, { grow: false, shrink: false, children: left }),
+      Boolean(right) && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(VuiFlexItem, { grow: false, shrink: false, children: right })
     ] }) });
   };
 
   // src/ui/components/app/AppLayout.tsx
   var import_react20 = __toESM(require_react());
-  var import_classnames16 = __toESM(require_classnames());
+  var import_classnames17 = __toESM(require_classnames());
 
   // src/ui/components/app/appSideNav/AppSideNav.tsx
   var import_react19 = __toESM(require_react());
-  var import_classnames15 = __toESM(require_classnames());
+  var import_classnames16 = __toESM(require_classnames());
 
   // src/ui/components/button/IconButton.tsx
-  var import_classnames13 = __toESM(require_classnames());
+  var import_classnames14 = __toESM(require_classnames());
   var import_react17 = __toESM(require_react());
 
   // ../node_modules/react-router-dom/dist/index.js
@@ -35850,7 +36225,7 @@ button {
     }
     warning(path === "*" || !path.endsWith("*") || path.endsWith("/*"), 'Route path "' + path + '" will be treated as if it were ' + ('"' + path.replace(/\*$/, "/*") + '" because the `*` character must ') + "always follow a `/` in the pattern. To get rid of this warning, " + ('please change the route path to "' + path.replace(/\*$/, "/*") + '".'));
     let params = [];
-    let regexpSource = "^" + path.replace(/\/*\*?$/, "").replace(/^\/*/, "/").replace(/[\\.*+^${}|()[\]]/g, "\\$&").replace(/\/:([\w-]+)(\?)?/g, (_2, paramName, isOptional) => {
+    let regexpSource = "^" + path.replace(/\/*\*?$/, "").replace(/^\/*/, "/").replace(/[\\.*+^${}|()[\]]/g, "\\$&").replace(/\/:([\w-]+)(\?)?/g, (_, paramName, isOptional) => {
       params.push({
         paramName,
         isOptional: isOptional != null
@@ -36198,7 +36573,7 @@ button {
       matches,
       loaderData
     } = useDataRouterState(DataRouterStateHook.UseMatches);
-    return React18.useMemo(() => matches.map((m) => convertRouteMatchToUiMatch(m, loaderData)), [matches, loaderData]);
+    return React18.useMemo(() => matches.map((m2) => convertRouteMatchToUiMatch(m2, loaderData)), [matches, loaderData]);
   }
   function useNavigateStable() {
     let {
@@ -36951,7 +37326,7 @@ button {
   };
 
   // src/ui/components/button/IconButton.tsx
-  var import_jsx_runtime21 = (
+  var import_jsx_runtime24 = (
     // @ts-expect-error HTMLAnchorElement is not HTMLButtonElement.
     __toESM(require_jsx_runtime())
   );
@@ -36970,7 +37345,7 @@ button {
       ...rest
     }, ref) => {
       const props = {
-        className: (0, import_classnames13.default)("vuiIconButton", className, `vuiIconButton--${color}`, `vuiIconButton--${size}`),
+        className: (0, import_classnames14.default)("vuiIconButton", className, `vuiIconButton--${color}`, `vuiIconButton--${size}`),
         onClick,
         tabIndex,
         ...rest
@@ -36978,64 +37353,64 @@ button {
       const buttonIcon = createButtonIcon(icon, size, color);
       if (href) {
         if (isAnchor) {
-          return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("a", { href, target, ...props, ...getTrackingProps(track), ref, children: buttonIcon });
+          return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("a", { href, target, ...props, ...getTrackingProps(track), ref, children: buttonIcon });
         }
         return (
           // @ts-expect-error Type 'string' is not assignable to type 'HTMLAttributeReferrerPolicy | undefined'.
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Link, { to: href, target, ...props, ...getTrackingProps(track), children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("button", { ref, children: buttonIcon }) })
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Link, { to: href, target, ...props, ...getTrackingProps(track), children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("button", { ref, children: buttonIcon }) })
         );
       }
-      return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("button", { ...props, ref, children: buttonIcon });
+      return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("button", { ...props, ref, children: buttonIcon });
     }
   );
 
   // src/ui/components/app/appSideNav/AppSideNavLink.tsx
-  var import_classnames14 = __toESM(require_classnames());
-  var import_jsx_runtime22 = __toESM(require_jsx_runtime());
+  var import_classnames15 = __toESM(require_classnames());
+  var import_jsx_runtime25 = __toESM(require_jsx_runtime());
   var VuiAppSideNavLink = ({ path, name, iconBefore, iconAfter, isActive, className, ...rest }) => {
     const location = useLocation();
-    const classes = (0, import_classnames14.default)(
+    const classes = (0, import_classnames15.default)(
       "vuiAppSideNavLink",
       {
         "vuiAppSideNavLink--active": isActive ?? path === location.pathname
       },
       className
     );
-    const content = iconBefore || iconAfter ? /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(VuiFlexContainer, { alignItems: "center", spacing: "xxs", children: [
-      iconBefore && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(VuiFlexItem, { grow: false, shrink: false, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(VuiIcon, { size: "s", children: iconBefore }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(VuiFlexItem, { grow: false, shrink: false, children: name }),
-      iconAfter && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(VuiFlexItem, { grow: false, shrink: false, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(VuiIcon, { size: "s", children: iconAfter }) })
+    const content = iconBefore || iconAfter ? /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(VuiFlexContainer, { alignItems: "center", spacing: "xxs", children: [
+      iconBefore && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(VuiFlexItem, { grow: false, shrink: false, children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(VuiIcon, { size: "s", children: iconBefore }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(VuiFlexItem, { grow: false, shrink: false, children: name }),
+      iconAfter && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(VuiFlexItem, { grow: false, shrink: false, children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(VuiIcon, { size: "s", children: iconAfter }) })
     ] }) : name;
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Link, { className: classes, to: path ?? "/", ...rest, children: content });
+    return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Link, { className: classes, to: path ?? "/", ...rest, children: content });
   };
 
   // src/ui/components/app/appSideNav/AppSideNavSections.tsx
-  var import_jsx_runtime23 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime26 = __toESM(require_jsx_runtime());
   var buildSections = (sections) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "vuiAppSideNavSections", children: sections.map(({ name, pages }) => {
-      const renderedPages = pages.map(({ name: name2, path }) => /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(VuiAppSideNavLink, { path, name: name2 }, path ?? name2));
-      return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(VuiAppSideNavSection, { name, children: renderedPages }, name);
+    return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "vuiAppSideNavSections", children: sections.map(({ name, pages }) => {
+      const renderedPages = pages.map(({ name: name2, path }) => /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(VuiAppSideNavLink, { path, name: name2 }, path ?? name2));
+      return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(VuiAppSideNavSection, { name, children: renderedPages }, name);
     }) });
   };
   var VuiAppSideNavSection = ({ name, children }) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "vuiAppSideNavSection", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "vuiAppSideNavSection__title", children: name }),
-      /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "vuiAppSideNavSection__items", children })
+    return /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "vuiAppSideNavSection", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "vuiAppSideNavSection__title", children: name }),
+      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "vuiAppSideNavSection__items", children })
     ] }, name);
   };
 
   // src/ui/components/app/appSideNav/AppSideNavTree.tsx
   var import_react18 = __toESM(require_react());
-  var import_jsx_runtime24 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime27 = __toESM(require_jsx_runtime());
   var buildTree = (items) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "vuiAppSideNavTree", children: buildTreeItems(items) });
+    return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "vuiAppSideNavTree", children: buildTreeItems(items) });
   };
   var buildTreeItems = (items) => {
     return items.map(({ name, pages, path, iconBefore, iconAfter, isActive, ...rest }) => {
       if (path) {
         if (pages) {
           const childPages = buildTreeItems(pages);
-          return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+          return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
             AppSideNavTreeSection,
             {
               path,
@@ -37049,7 +37424,7 @@ button {
             path ?? name
           );
         }
-        return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+        return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
           VuiAppSideNavLink,
           {
             path,
@@ -37062,13 +37437,13 @@ button {
           path ?? name
         );
       }
-      return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "vuiAppSideNavTreeSection__subTitle", ...rest, children: name }, name);
+      return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "vuiAppSideNavTreeSection__subTitle", ...rest, children: name }, name);
     });
   };
   var AppSideNavTreeSection = ({ name, path, children, iconBefore, iconAfter, isActive, ...rest }) => {
     const [isOpen, setIsOpen] = (0, import_react18.useState)(true);
-    return /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "vuiAppSideNavTreeSection", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "vuiAppSideNavTreeSection", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
         VuiAppSideNavLink,
         {
           path: path ?? "/",
@@ -37079,22 +37454,22 @@ button {
           ...rest
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
         VuiIconButton,
         {
           size: "s",
           className: "vuiAppSideNavTreeToggleButton",
           onClick: () => setIsOpen(!isOpen),
           color: "neutral",
-          icon: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(VuiIcon, { children: isOpen ? /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(BiChevronUp, {}) : /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(BiChevronDown, {}) })
+          icon: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(VuiIcon, { children: isOpen ? /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(BiChevronUp, {}) : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(BiChevronDown, {}) })
         }
       ),
-      isOpen && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "vuiAppSideNavTreeChildren", children })
+      isOpen && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "vuiAppSideNavTreeChildren", children })
     ] });
   };
 
   // src/ui/components/app/appSideNav/AppSideNav.tsx
-  var import_jsx_runtime25 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime28 = __toESM(require_jsx_runtime());
   var buildSideNavItems = (items) => {
     return isTree(items) ? buildTree(items) : buildSections(items);
   };
@@ -37115,15 +37490,15 @@ button {
         }
       }
     }, [isTouched, isCollapsed]);
-    const classes = (0, import_classnames15.default)("vuiAppSideNav", {
+    const classes = (0, import_classnames16.default)("vuiAppSideNav", {
       "vuiAppSideNav-isCollapsed": isCollapsed
     });
-    const contentClasses = (0, import_classnames15.default)("vuiAppSideNavContent", {
+    const contentClasses = (0, import_classnames16.default)("vuiAppSideNavContent", {
       "vuiAppSideNavContent-isHidden": isCollapsed
     });
     const navItems = buildSideNavItems(items);
-    return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: classes, children: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "vuiAppSideNav__inner", children: [
-      isCollapsed ? /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("div", { className: classes, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: "vuiAppSideNav__inner", children: [
+      isCollapsed ? /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
         VuiIconButton,
         {
           ref: expandButtonRef,
@@ -37131,9 +37506,9 @@ button {
           onClick: () => setIsCollapsed(false),
           className: "vuiAppSideNavExpandButton",
           color: "neutral",
-          icon: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(VuiIcon, { children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(BiChevronRight, {}) })
+          icon: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(VuiIcon, { children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(BiChevronRight, {}) })
         }
-      ) : /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_jsx_runtime25.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+      ) : /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_jsx_runtime28.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
         "button",
         {
           ref: collapseButtonRef,
@@ -37142,13 +37517,13 @@ button {
             setIsTouched(true);
             setIsCollapsed(true);
           },
-          children: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(VuiFlexContainer, { alignItems: "center", spacing: "xxs", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(VuiFlexItem, { shrink: false, grow: false, children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(VuiIcon, { children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(BiChevronLeft, {}) }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(VuiFlexItem, { shrink: false, grow: false, children: "Collapse nav" })
+          children: /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(VuiFlexContainer, { alignItems: "center", spacing: "xxs", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(VuiFlexItem, { shrink: false, grow: false, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(VuiIcon, { children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(BiChevronLeft, {}) }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(VuiFlexItem, { shrink: false, grow: false, children: "Collapse nav" })
           ] })
         }
       ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: contentClasses, inert: isCollapsed ? "" : null, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: contentClasses, inert: isCollapsed ? "" : null, children: [
         navItems,
         content
       ] })
@@ -37156,31 +37531,31 @@ button {
   };
 
   // src/ui/components/app/AppLayout.tsx
-  var import_jsx_runtime26 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime29 = __toESM(require_jsx_runtime());
   var VuiAppLayout = (0, import_react20.forwardRef)(
     ({ children, navItems, navContent, full }, ref) => {
-      const classes = (0, import_classnames16.default)("vuiAppLayout", {
+      const classes = (0, import_classnames17.default)("vuiAppLayout", {
         "vuiAppLayout--full": full
       });
-      return /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: classes, children: [
-        (navItems || navContent) && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "vuiAppLayout__sideNav", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(VuiAppSideNav, { items: navItems, content: navContent }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "vuiAppLayout__content", ref, children })
+      return /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: classes, children: [
+        (navItems || navContent) && /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "vuiAppLayout__sideNav", children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(VuiAppSideNav, { items: navItems, content: navContent }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "vuiAppLayout__content", ref, children })
       ] });
     }
   );
 
   // src/ui/components/badge/Badge.tsx
-  var import_classnames17 = __toESM(require_classnames());
-  var import_jsx_runtime27 = __toESM(require_jsx_runtime());
+  var import_classnames18 = __toESM(require_classnames());
+  var import_jsx_runtime30 = __toESM(require_jsx_runtime());
 
   // src/ui/components/button/ButtonPrimary.tsx
   var import_react22 = __toESM(require_react());
-  var import_classnames19 = __toESM(require_classnames());
+  var import_classnames20 = __toESM(require_classnames());
 
   // src/ui/components/button/BaseButton.tsx
   var import_react21 = __toESM(require_react());
-  var import_classnames18 = __toESM(require_classnames());
-  var import_jsx_runtime28 = __toESM(require_jsx_runtime());
+  var import_classnames19 = __toESM(require_classnames());
+  var import_jsx_runtime31 = __toESM(require_jsx_runtime());
   var alignToClassMap = {
     left: "vuiBaseButton--alignLeft",
     center: "vuiBaseButton--alignCenter",
@@ -37206,26 +37581,26 @@ button {
       isSubmit,
       ...rest
     }, ref) => {
-      const classes = (0, import_classnames18.default)("vuiBaseButton", className, `vuiBaseButton--${size}`, alignToClassMap[align], {
+      const classes = (0, import_classnames19.default)("vuiBaseButton", className, `vuiBaseButton--${size}`, alignToClassMap[align], {
         "vuiBaseButton-isInert": isInert,
         "vuiBaseButton-isDisabled": isDisabled,
         "vuiBaseButton--fullWidth": fullWidth,
         [`vuiBaseButton--${iconSide}`]: Boolean(icon) && Boolean(children)
       });
-      const iconContainer = icon ? /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("span", { className: "vuiBaseButtonIconContainer", children: icon }) : null;
+      const iconContainer = icon ? /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("span", { className: "vuiBaseButtonIconContainer", children: icon }) : null;
       if (htmlFor) {
-        return /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("label", { htmlFor, className: classes, tabIndex, ...rest, children: [
+        return /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("label", { htmlFor, className: classes, tabIndex, ...rest, children: [
           iconContainer,
           children
         ] });
       }
       if (href) {
-        const wrapperClasses = (0, import_classnames18.default)("vuiBaseButtonLinkWrapper", {
+        const wrapperClasses = (0, import_classnames19.default)("vuiBaseButtonLinkWrapper", {
           "vuiBaseButtonLinkWrapper--fullWidth": fullWidth
         });
         return (
           // @ts-expect-error Type 'string' is not assignable to type 'HTMLAttributeReferrerPolicy | undefined'.
-          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
             Link,
             {
               className: wrapperClasses,
@@ -37235,7 +37610,7 @@ button {
               tabIndex,
               ...rest,
               ...getTrackingProps(track),
-              children: /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("button", { className: classes, tabIndex: -1, ref, children: [
+              children: /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("button", { className: classes, tabIndex: -1, ref, children: [
                 iconContainer,
                 children
               ] })
@@ -37251,7 +37626,7 @@ button {
       };
       return (
         // @ts-expect-error HTMLButtonElement conflict with HTMLAnchorElement
-        /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("button", { className: classes, ...props, ref, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("button", { className: classes, ...props, ref, children: [
           iconContainer,
           children
         ] })
@@ -37260,7 +37635,7 @@ button {
   );
 
   // src/ui/components/button/ButtonPrimary.tsx
-  var import_jsx_runtime29 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime32 = __toESM(require_jsx_runtime());
   var colorToIconColorMap = {
     accent: "empty",
     primary: "empty",
@@ -37272,18 +37647,18 @@ button {
   };
   var VuiButtonPrimary = (0, import_react22.forwardRef)(
     ({ children, icon, color, size = "m", className, isSelected, isDisabled, ...rest }, ref) => {
-      const classes = (0, import_classnames19.default)(className, "vuiButtonPrimary", `vuiButtonPrimary--${color}`, {
+      const classes = (0, import_classnames20.default)(className, "vuiButtonPrimary", `vuiButtonPrimary--${color}`, {
         "vuiButtonPrimary-isSelected": isSelected
       });
       const buttonIcon = createButtonIcon(icon, size, color, colorToIconColorMap);
-      return /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(BaseButton, { ref, className: classes, icon: buttonIcon, size, isDisabled, ...rest, children });
+      return /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(BaseButton, { ref, className: classes, icon: buttonIcon, size, isDisabled, ...rest, children });
     }
   );
 
   // src/ui/components/button/ButtonSecondary.tsx
   var import_react23 = __toESM(require_react());
-  var import_classnames20 = __toESM(require_classnames());
-  var import_jsx_runtime30 = __toESM(require_jsx_runtime());
+  var import_classnames21 = __toESM(require_classnames());
+  var import_jsx_runtime33 = __toESM(require_jsx_runtime());
   var colorToIconColorMap2 = {
     accent: "accent",
     primary: "primary",
@@ -37295,19 +37670,19 @@ button {
   };
   var VuiButtonSecondary = (0, import_react23.forwardRef)(
     ({ children, icon, color, size = "m", className, isSelected, isDisabled, solid, ...rest }, ref) => {
-      const classes = (0, import_classnames20.default)(className, "vuiButtonSecondary", `vuiButtonSecondary--${color}`, {
+      const classes = (0, import_classnames21.default)(className, "vuiButtonSecondary", `vuiButtonSecondary--${color}`, {
         "vuiButtonSecondary-isSelected": isSelected,
         "vuiButtonSecondary--solid": solid
       });
       const buttonIcon = createButtonIcon(icon, size, color, colorToIconColorMap2);
-      return /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(BaseButton, { ref, className: classes, icon: buttonIcon, size, isDisabled, ...rest, children });
+      return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(BaseButton, { ref, className: classes, icon: buttonIcon, size, isDisabled, ...rest, children });
     }
   );
 
   // src/ui/components/button/ButtonTertiary.tsx
   var import_react24 = __toESM(require_react());
-  var import_classnames21 = __toESM(require_classnames());
-  var import_jsx_runtime31 = __toESM(require_jsx_runtime());
+  var import_classnames22 = __toESM(require_classnames());
+  var import_jsx_runtime34 = __toESM(require_jsx_runtime());
   var colorToIconColorMap3 = {
     accent: "accent",
     primary: "primary",
@@ -37319,24 +37694,24 @@ button {
   };
   var VuiButtonTertiary = (0, import_react24.forwardRef)(
     ({ children, icon, color, size = "m", className, isSelected, isDisabled, noPadding, ...rest }, ref) => {
-      const classes = (0, import_classnames21.default)(className, "vuiButtonTertiary", `vuiButtonTertiary--${color}`, {
+      const classes = (0, import_classnames22.default)(className, "vuiButtonTertiary", `vuiButtonTertiary--${color}`, {
         "vuiButtonTertiary-isSelected": isSelected,
         "vuiButtonTertiary-noPadding": noPadding
       });
       const buttonIcon = createButtonIcon(icon, size, color, colorToIconColorMap3);
-      return /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(BaseButton, { ref, className: classes, icon: buttonIcon, size, isDisabled, ...rest, children });
+      return /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(BaseButton, { ref, className: classes, icon: buttonIcon, size, isDisabled, ...rest, children });
     }
   );
 
   // src/ui/components/callout/Callout.tsx
-  var import_classnames25 = __toESM(require_classnames());
+  var import_classnames26 = __toESM(require_classnames());
 
   // src/ui/components/typography/Title.tsx
-  var import_classnames22 = __toESM(require_classnames());
+  var import_classnames23 = __toESM(require_classnames());
   var import_react25 = __toESM(require_react());
   var VuiTitle = ({ children, className, size, align, ...rest }) => {
     return (0, import_react25.cloneElement)(children, {
-      className: (0, import_classnames22.default)(
+      className: (0, import_classnames23.default)(
         "vuiTitle",
         `vuiTitle--${size}`,
         {
@@ -37350,18 +37725,18 @@ button {
   };
 
   // src/ui/components/typography/TextColor.tsx
-  var import_classnames23 = __toESM(require_classnames());
-  var import_jsx_runtime32 = __toESM(require_jsx_runtime());
+  var import_classnames24 = __toESM(require_classnames());
+  var import_jsx_runtime35 = __toESM(require_jsx_runtime());
   var VuiTextColor = ({ children, color, className }) => {
-    const classes = (0, import_classnames23.default)(className, "vuiTextColor", `vuiTextColor--${color}`);
-    return /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("span", { className: classes, children });
+    const classes = (0, import_classnames24.default)(className, "vuiTextColor", `vuiTextColor--${color}`);
+    return /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("span", { className: classes, children });
   };
 
   // src/ui/components/typography/Text.tsx
-  var import_classnames24 = __toESM(require_classnames());
-  var import_jsx_runtime33 = __toESM(require_jsx_runtime());
+  var import_classnames25 = __toESM(require_classnames());
+  var import_jsx_runtime36 = __toESM(require_jsx_runtime());
   var VuiText = ({ children, className, id: id2, truncate, size = "s", align, ...rest }) => {
-    const classes = (0, import_classnames24.default)(
+    const classes = (0, import_classnames25.default)(
       "vuiText",
       `vuiText--${size}`,
       {
@@ -37372,35 +37747,35 @@ button {
       },
       className
     );
-    return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: classes, id: id2, ...rest, children });
+    return /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: classes, id: id2, ...rest, children });
   };
 
   // src/ui/components/callout/Callout.tsx
-  var import_jsx_runtime34 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime37 = __toESM(require_jsx_runtime());
 
   // src/ui/components/card/Card.tsx
-  var import_classnames26 = __toESM(require_classnames());
-  var import_jsx_runtime35 = __toESM(require_jsx_runtime());
+  var import_classnames27 = __toESM(require_classnames());
+  var import_jsx_runtime38 = __toESM(require_jsx_runtime());
 
   // src/ui/components/chat/Chat.tsx
   var import_react32 = __toESM(require_react());
-  var import_classnames36 = __toESM(require_classnames());
+  var import_classnames37 = __toESM(require_classnames());
 
   // src/ui/components/form/checkbox/Checkbox.tsx
-  var import_jsx_runtime36 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime39 = __toESM(require_jsx_runtime());
 
   // src/ui/components/form/label/Label.tsx
-  var import_classnames27 = __toESM(require_classnames());
-  var import_jsx_runtime37 = __toESM(require_jsx_runtime());
+  var import_classnames28 = __toESM(require_classnames());
+  var import_jsx_runtime40 = __toESM(require_jsx_runtime());
   var VuiLabel = ({ className, labelFor, children, ...rest }) => {
-    const classes = (0, import_classnames27.default)("vuiLabel", className);
-    return /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("label", { className: classes, htmlFor: labelFor, ...rest, children });
+    const classes = (0, import_classnames28.default)("vuiLabel", className);
+    return /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("label", { className: classes, htmlFor: labelFor, ...rest, children });
   };
 
   // src/ui/components/form/input/NumberInput.tsx
-  var import_classnames28 = __toESM(require_classnames());
+  var import_classnames29 = __toESM(require_classnames());
   var import_react26 = __toESM(require_react());
-  var import_jsx_runtime38 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime41 = __toESM(require_jsx_runtime());
   var VuiNumberInput = (0, import_react26.forwardRef)(
     ({ className, id: id2, max, min, step, value, size = "m", onChange, fullWidth, isInvalid, autoFocus, ...rest }, ref) => {
       const [localValue, setLocalValue] = (0, import_react26.useState)(value);
@@ -37412,7 +37787,7 @@ button {
       (0, import_react26.useEffect)(() => {
         onChange(localValue ?? 0);
       }, [localValue]);
-      const classes = (0, import_classnames28.default)(
+      const classes = (0, import_classnames29.default)(
         "vuiInput",
         `vuiInput--${size}`,
         {
@@ -37435,7 +37810,7 @@ button {
         if (max !== void 0 && value !== void 0 && value > max)
           onChange(max);
       };
-      return /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
         "input",
         {
           autoFocus,
@@ -37456,12 +37831,12 @@ button {
   );
 
   // src/ui/components/form/radioButton/RadioButton.tsx
-  var import_jsx_runtime39 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime42 = __toESM(require_jsx_runtime());
 
   // src/ui/components/form/select/Select.tsx
-  var import_classnames29 = __toESM(require_classnames());
+  var import_classnames30 = __toESM(require_classnames());
   var import_react27 = __toESM(require_react());
-  var import_jsx_runtime40 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime43 = __toESM(require_jsx_runtime());
   var import_react28 = __toESM(require_react());
   var sizeToIconSizeMap2 = {
     m: "m",
@@ -37469,7 +37844,7 @@ button {
   };
   var VuiSelect = (0, import_react27.forwardRef)(
     ({ className, id: id2, name, options, value, size = "m", onChange, isInvalid, ...rest }, ref) => {
-      const classes = (0, import_classnames29.default)(
+      const classes = (0, import_classnames30.default)(
         "vuiSelect",
         `vuiSelect--${size}`,
         {
@@ -37481,23 +37856,23 @@ button {
         const { text, ...rest2 } = option;
         return /* @__PURE__ */ (0, import_react28.createElement)("option", { ...rest2, key: index }, text);
       });
-      return /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: classes, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("select", { ref, id: id2, name, value, onChange, ...rest, children: renderedOptions }),
-        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { className: "vuiSelect__caret", children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(VuiIcon, { color: "subdued", size: sizeToIconSizeMap2[size], children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(BiCaretDown, {}) }) })
+      return /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: classes, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("select", { ref, id: id2, name, value, onChange, ...rest, children: renderedOptions }),
+        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "vuiSelect__caret", children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(VuiIcon, { color: "subdued", size: sizeToIconSizeMap2[size], children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(BiCaretDown, {}) }) })
       ] });
     }
   );
 
   // src/ui/components/form/superRadioGroup/SuperRadioButton.tsx
-  var import_jsx_runtime41 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime44 = __toESM(require_jsx_runtime());
 
   // src/ui/components/form/superRadioGroup/SuperRadioGroup.tsx
-  var import_jsx_runtime42 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime45 = __toESM(require_jsx_runtime());
 
   // src/ui/components/form/input/TextInput.tsx
-  var import_classnames30 = __toESM(require_classnames());
+  var import_classnames31 = __toESM(require_classnames());
   var import_react29 = __toESM(require_react());
-  var import_jsx_runtime43 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime46 = __toESM(require_jsx_runtime());
   var VuiTextInput = (0, import_react29.forwardRef)(
     ({
       className,
@@ -37514,7 +37889,7 @@ button {
       autoFocus,
       ...rest
     }, ref) => {
-      const classes = (0, import_classnames30.default)(
+      const classes = (0, import_classnames31.default)(
         "vuiInput",
         "vuiInput--text",
         `vuiInput--${size}`,
@@ -37531,7 +37906,7 @@ button {
           onSubmit?.();
         }
       };
-      return /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
         "input",
         {
           autoComplete: autoComplete ? "on" : "off",
@@ -37553,18 +37928,18 @@ button {
 
   // src/ui/components/form/textArea/TextArea.tsx
   var import_react30 = __toESM(require_react());
-  var import_classnames31 = __toESM(require_classnames());
-  var import_jsx_runtime44 = __toESM(require_jsx_runtime());
+  var import_classnames32 = __toESM(require_classnames());
+  var import_jsx_runtime47 = __toESM(require_jsx_runtime());
   var VuiTextArea = (0, import_react30.forwardRef)(
     ({ className, id: id2, placeholder, value, onChange, fullWidth, name, ...rest }, ref) => {
-      const classes = (0, import_classnames31.default)(
+      const classes = (0, import_classnames32.default)(
         "vuiTextArea",
         {
           "vuiTextArea--fullWidth": fullWidth
         },
         className
       );
-      return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(
         "textarea",
         {
           ref,
@@ -37581,31 +37956,31 @@ button {
   );
 
   // src/ui/components/chat/ChatPanel.tsx
-  var import_jsx_runtime45 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime48 = __toESM(require_jsx_runtime());
 
   // src/ui/components/chat/ChatSearchResult.tsx
   var import_react31 = __toESM(require_react());
-  var import_classnames33 = __toESM(require_classnames());
+  var import_classnames34 = __toESM(require_classnames());
 
   // src/ui/components/link/Link.tsx
-  var import_classnames32 = __toESM(require_classnames());
-  var import_jsx_runtime46 = __toESM(require_jsx_runtime());
+  var import_classnames33 = __toESM(require_classnames());
+  var import_jsx_runtime49 = __toESM(require_jsx_runtime());
   var VuiLink = ({ children, href, target, onClick, className, track, isAnchor, ...rest }) => {
     if (!href) {
-      return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("button", { className: (0, import_classnames32.default)("vuiLink", "vuiLink--button", className), onClick, ...rest, children });
+      return /* @__PURE__ */ (0, import_jsx_runtime49.jsx)("button", { className: (0, import_classnames33.default)("vuiLink", "vuiLink--button", className), onClick, ...rest, children });
     }
     const props = { ...rest, ...getTrackingProps(track) };
     if (target === "_blank") {
       props.target = target;
     }
     if (isAnchor) {
-      return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("a", { className: (0, import_classnames32.default)("vuiLink", className), href, onClick, ...props, children });
+      return /* @__PURE__ */ (0, import_jsx_runtime49.jsx)("a", { className: (0, import_classnames33.default)("vuiLink", className), href, onClick, ...props, children });
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(Link, { className: (0, import_classnames32.default)("vuiLink", className), to: href, onClick, ...props, children });
+    return /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(Link, { className: (0, import_classnames33.default)("vuiLink", className), to: href, onClick, ...props, children });
   };
 
   // src/ui/components/chat/ChatSearchResult.tsx
-  var import_jsx_runtime47 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime50 = __toESM(require_jsx_runtime());
   var highlightUrl = (url, text) => `${url}#:~:text=${text}`;
   var VuiChatSearchResult = (0, import_react31.forwardRef)(
     ({ result, className, ...rest }, ref) => {
@@ -37615,17 +37990,17 @@ button {
         date,
         snippet: { pre, post, text }
       } = result;
-      const classes = (0, import_classnames33.default)("vuiChatSearchResult", "fs-mask", className);
-      return /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)("div", { className: classes, ref, ...rest, children: [
-        (title || url) && /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(VuiText, { children: url ? /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(VuiLink, { href: highlightUrl(url, text), target: "_blank", children: /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("p", { children: title ?? url }) }) : /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("p", { children: title }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(VuiText, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)("p", { children: [
-          date && /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)(VuiTextColor, { color: "subdued", children: [
+      const classes = (0, import_classnames34.default)("vuiChatSearchResult", "fs-mask", className);
+      return /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)("div", { className: classes, ref, ...rest, children: [
+        (title || url) && /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(VuiText, { children: url ? /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(VuiLink, { href: highlightUrl(url, text), target: "_blank", children: /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("p", { children: title ?? url }) }) : /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("p", { children: title }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(VuiText, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)("p", { children: [
+          date && /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)(VuiTextColor, { color: "subdued", children: [
             date,
             " \u2014 "
           ] }),
           pre,
           " ",
-          /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("strong", { children: text }),
+          /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("strong", { children: text }),
           " ",
           post
         ] }) })
@@ -37634,20 +38009,20 @@ button {
   );
 
   // src/ui/components/chat/ChatInspector.tsx
-  var import_jsx_runtime48 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime51 = __toESM(require_jsx_runtime());
 
   // src/ui/components/chat/ChatTurn.tsx
-  var import_classnames35 = __toESM(require_classnames());
+  var import_classnames36 = __toESM(require_classnames());
 
   // src/ui/components/spinner/Spinner.tsx
-  var import_classnames34 = __toESM(require_classnames());
-  var import_jsx_runtime49 = __toESM(require_jsx_runtime());
+  var import_classnames35 = __toESM(require_classnames());
+  var import_jsx_runtime52 = __toESM(require_jsx_runtime());
 
   // src/ui/components/chat/ChatTurn.tsx
-  var import_jsx_runtime50 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime53 = __toESM(require_jsx_runtime());
 
   // src/ui/components/chat/Chat.tsx
-  var import_jsx_runtime51 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime54 = __toESM(require_jsx_runtime());
 
   // src/ui/components/code/Code.tsx
   var import_react33 = __toESM(require_react());
@@ -38372,26 +38747,26 @@ pre[class*="language-"] {
   })(Prism);
 
   // src/ui/components/code/Code.tsx
-  var import_classnames37 = __toESM(require_classnames());
-  var import_jsx_runtime52 = __toESM(require_jsx_runtime());
+  var import_classnames38 = __toESM(require_classnames());
+  var import_jsx_runtime55 = __toESM(require_jsx_runtime());
   var VuiCode = ({ onCopy, language = "none", fullHeight, children = "", ...rest }) => {
     (0, import_react33.useEffect)(() => {
       import_prismjs.default.highlightAll();
     }, [children, language]);
-    const containerClasses = (0, import_classnames37.default)("vuiCodeContainer", {
+    const containerClasses = (0, import_classnames38.default)("vuiCodeContainer", {
       "vuiCodeContainer--fullHeight": fullHeight
     });
-    const classes = (0, import_classnames37.default)("vuiCode", `language-${language}`, {
+    const classes = (0, import_classnames38.default)("vuiCode", `language-${language}`, {
       "vuiCode--fullHeight": fullHeight
     });
     const testId = rest["data-testid"];
-    return /* @__PURE__ */ (0, import_jsx_runtime52.jsxs)("div", { className: containerClasses, ...rest, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("pre", { className: "vuiCodePre", children: /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("code", { className: classes, children }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime52.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)("div", { className: containerClasses, ...rest, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime55.jsx)("pre", { className: "vuiCodePre", children: /* @__PURE__ */ (0, import_jsx_runtime55.jsx)("code", { className: classes, children }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
         VuiIconButton,
         {
           color: "neutral",
-          icon: /* @__PURE__ */ (0, import_jsx_runtime52.jsx)(VuiIcon, { children: /* @__PURE__ */ (0, import_jsx_runtime52.jsx)(BiClipboard, { size: 20 }) }),
+          icon: /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(VuiIcon, { children: /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(BiClipboard, { size: 20 }) }),
           "aria-label": "Copy to clipboard",
           className: "vuiCodeCopyButton",
           onClick: () => {
@@ -38401,7 +38776,7 @@ pre[class*="language-"] {
           }
         }
       ),
-      testId && /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("div", { "data-testid": `${testId}-hidden`, hidden: true, children })
+      testId && /* @__PURE__ */ (0, import_jsx_runtime55.jsx)("div", { "data-testid": `${testId}-hidden`, hidden: true, children })
     ] });
   };
 
@@ -38409,37 +38784,37 @@ pre[class*="language-"] {
   var import_react35 = __toESM(require_react());
 
   // src/ui/components/optionsList/OptionsList.tsx
-  var import_classnames39 = __toESM(require_classnames());
+  var import_classnames40 = __toESM(require_classnames());
 
   // src/ui/components/optionsList/OptionsListItem.tsx
   var import_react34 = __toESM(require_react());
-  var import_classnames38 = __toESM(require_classnames());
-  var import_jsx_runtime53 = __toESM(require_jsx_runtime());
+  var import_classnames39 = __toESM(require_classnames());
+  var import_jsx_runtime56 = __toESM(require_jsx_runtime());
 
   // src/ui/components/optionsList/OptionsList.tsx
-  var import_jsx_runtime54 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime57 = __toESM(require_jsx_runtime());
 
   // src/ui/components/optionsButton/OptionsButton.tsx
-  var import_jsx_runtime55 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime58 = __toESM(require_jsx_runtime());
 
   // src/ui/components/copyButton/CopyButton.tsx
-  var import_jsx_runtime56 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime59 = __toESM(require_jsx_runtime());
 
   // src/ui/components/drawer/Drawer.tsx
   var import_react36 = __toESM(require_react());
-  var import_classnames40 = __toESM(require_classnames());
+  var import_classnames41 = __toESM(require_classnames());
 
   // src/ui/components/screenBlock/ScreenBlock.tsx
-  var import_jsx_runtime57 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime60 = __toESM(require_jsx_runtime());
   var VuiScreenBlock = ({ onClick, children }) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)("div", { className: "vuiScreenBlock", children: [
+    return /* @__PURE__ */ (0, import_jsx_runtime60.jsxs)("div", { className: "vuiScreenBlock", children: [
       children,
-      /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("div", { className: "vuiScreenBlock__mask", onClick })
+      /* @__PURE__ */ (0, import_jsx_runtime60.jsx)("div", { className: "vuiScreenBlock__mask", onClick })
     ] });
   };
 
   // src/ui/components/drawer/Drawer.tsx
-  var import_jsx_runtime58 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime61 = __toESM(require_jsx_runtime());
   var VuiDrawer = ({ className, color = "primary", title, children, isOpen, onClose, ...rest }) => {
     const returnFocusElRef = (0, import_react36.useRef)(null);
     (0, import_react36.useEffect)(() => {
@@ -38455,28 +38830,28 @@ pre[class*="language-"] {
         onClose?.();
       }, 0);
     };
-    const classes = (0, import_classnames40.default)("vuiDrawer", `vuiDrawer--${color}`, className);
-    return /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(VuiPortal, { children: isOpen && /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(VuiScreenBlock, { children: /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(
+    const classes = (0, import_classnames41.default)("vuiDrawer", `vuiDrawer--${color}`, className);
+    return /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(VuiPortal, { children: isOpen && /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(VuiScreenBlock, { children: /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(
       FocusOn2,
       {
         onEscapeKey: onCloseDelayed,
         onClickOutside: onCloseDelayed,
         returnFocus: false,
         autoFocus: isOpen,
-        children: /* @__PURE__ */ (0, import_jsx_runtime58.jsxs)("div", { className: classes, ...rest, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("div", { className: "vuiDrawerHeader", children: /* @__PURE__ */ (0, import_jsx_runtime58.jsxs)(VuiFlexContainer, { justifyContent: "spaceBetween", alignItems: "center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(VuiFlexItem, { grow: false, children: title }),
-            onClose && /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(VuiFlexItem, { children: /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime61.jsxs)("div", { className: classes, ...rest, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("div", { className: "vuiDrawerHeader", children: /* @__PURE__ */ (0, import_jsx_runtime61.jsxs)(VuiFlexContainer, { justifyContent: "spaceBetween", alignItems: "center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(VuiFlexItem, { grow: false, children: title }),
+            onClose && /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(VuiFlexItem, { children: /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(
               VuiIconButton,
               {
                 "data-testid": "drawerCloseButton",
                 onClick: onCloseDelayed,
                 color: "neutral",
-                icon: /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(VuiIcon, { size: "m", color: "neutral", children: /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(BiX, {}) })
+                icon: /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(VuiIcon, { size: "m", color: "neutral", children: /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(BiX, {}) })
               }
             ) })
           ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("div", { className: "vuiDrawerContent", children: /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("div", { className: "vuiDrawerContent__inner", children }) })
+          /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("div", { className: "vuiDrawerContent", children: /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("div", { className: "vuiDrawerContent__inner", children }) })
         ] })
       }
     ) }) });
@@ -38484,7 +38859,7 @@ pre[class*="language-"] {
 
   // src/ui/components/formGroup/FormGroup.tsx
   var import_react37 = __toESM(require_react());
-  var import_jsx_runtime59 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime62 = __toESM(require_jsx_runtime());
   var VuiFormGroup = ({ children, labelFor, helpText, label, errors, isRequired }) => {
     const ariaProps = {
       "aria-describedby": ""
@@ -38494,9 +38869,9 @@ pre[class*="language-"] {
     const errorMessages = errors?.map((error, index) => {
       const id2 = `error-${createId()}`;
       errorMessageIds.push(id2);
-      return /* @__PURE__ */ (0, import_jsx_runtime59.jsxs)(import_jsx_runtime59.Fragment, { children: [
-        index > 0 && /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(VuiSpacer, { size: "xs" }),
-        /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(VuiText, { size: "xs", id: id2, children: /* @__PURE__ */ (0, import_jsx_runtime59.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(VuiTextColor, { color: "danger", children: error }) }) }, error)
+      return /* @__PURE__ */ (0, import_jsx_runtime62.jsxs)(import_jsx_runtime62.Fragment, { children: [
+        index > 0 && /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(VuiSpacer, { size: "xs" }),
+        /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(VuiText, { size: "xs", id: id2, children: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(VuiTextColor, { color: "danger", children: error }) }) }, error)
       ] });
     });
     if (helpText) {
@@ -38511,71 +38886,71 @@ pre[class*="language-"] {
       id: labelFor,
       required: isRequired
     });
-    return /* @__PURE__ */ (0, import_jsx_runtime59.jsxs)(import_jsx_runtime59.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime59.jsxs)(VuiLabel, { labelFor, children: [
+    return /* @__PURE__ */ (0, import_jsx_runtime62.jsxs)(import_jsx_runtime62.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime62.jsxs)(VuiLabel, { labelFor, children: [
         label,
         isRequired && " (required)"
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(VuiSpacer, { size: "xs" }),
+      /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(VuiSpacer, { size: "xs" }),
       content,
-      (helpText || errorMessages) && /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(VuiSpacer, { size: "xs" }),
-      helpText && /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(VuiText, { size: "xs", id: ariaDescribedByLabel, children: /* @__PURE__ */ (0, import_jsx_runtime59.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(VuiTextColor, { color: "subdued", children: helpText }) }) }),
+      (helpText || errorMessages) && /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(VuiSpacer, { size: "xs" }),
+      helpText && /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(VuiText, { size: "xs", id: ariaDescribedByLabel, children: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(VuiTextColor, { color: "subdued", children: helpText }) }) }),
       errorMessages
     ] });
   };
 
   // src/ui/components/grid/Grid.tsx
-  var import_classnames41 = __toESM(require_classnames());
-  var import_jsx_runtime60 = __toESM(require_jsx_runtime());
-
-  // src/ui/components/infoTable/InfoTable.tsx
   var import_classnames42 = __toESM(require_classnames());
-  var import_jsx_runtime61 = __toESM(require_jsx_runtime());
-
-  // src/ui/components/list/List.tsx
-  var import_classnames43 = __toESM(require_classnames());
-  var import_react38 = __toESM(require_react());
-  var import_jsx_runtime62 = __toESM(require_jsx_runtime());
-
-  // src/ui/components/menu/Menu.tsx
   var import_jsx_runtime63 = __toESM(require_jsx_runtime());
 
-  // src/ui/components/menu/MenuItem.tsx
-  var import_classnames44 = __toESM(require_classnames());
+  // src/ui/components/infoTable/InfoTable.tsx
+  var import_classnames43 = __toESM(require_classnames());
   var import_jsx_runtime64 = __toESM(require_jsx_runtime());
+
+  // src/ui/components/list/List.tsx
+  var import_classnames44 = __toESM(require_classnames());
+  var import_react38 = __toESM(require_react());
+  var import_jsx_runtime65 = __toESM(require_jsx_runtime());
+
+  // src/ui/components/menu/Menu.tsx
+  var import_jsx_runtime66 = __toESM(require_jsx_runtime());
+
+  // src/ui/components/menu/MenuItem.tsx
+  var import_classnames45 = __toESM(require_classnames());
+  var import_jsx_runtime67 = __toESM(require_jsx_runtime());
 
   // src/ui/components/modal/Modal.tsx
   var import_react39 = __toESM(require_react());
-  var import_classnames45 = __toESM(require_classnames());
-  var import_jsx_runtime65 = __toESM(require_jsx_runtime());
+  var import_classnames46 = __toESM(require_classnames());
+  var import_jsx_runtime68 = __toESM(require_jsx_runtime());
 
   // src/ui/components/notification/Notifications.tsx
-  var import_classnames47 = __toESM(require_classnames());
+  var import_classnames48 = __toESM(require_classnames());
 
   // src/ui/components/notification/Notification.tsx
-  var import_classnames46 = __toESM(require_classnames());
-  var import_jsx_runtime66 = __toESM(require_jsx_runtime());
+  var import_classnames47 = __toESM(require_classnames());
+  var import_jsx_runtime69 = __toESM(require_jsx_runtime());
 
   // src/ui/components/notification/Notifications.tsx
   var import_react40 = __toESM(require_react());
-  var import_jsx_runtime67 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime70 = __toESM(require_jsx_runtime());
 
   // src/ui/components/progressBar/ProgressBar.tsx
-  var import_classnames48 = __toESM(require_classnames());
-  var import_jsx_runtime68 = __toESM(require_jsx_runtime());
+  var import_classnames49 = __toESM(require_classnames());
+  var import_jsx_runtime71 = __toESM(require_jsx_runtime());
 
   // src/ui/components/prompt/Prompt.tsx
-  var import_classnames49 = __toESM(require_classnames());
-  var import_jsx_runtime69 = __toESM(require_jsx_runtime());
+  var import_classnames50 = __toESM(require_classnames());
+  var import_jsx_runtime72 = __toESM(require_jsx_runtime());
 
   // src/ui/components/searchInput/SearchInput.tsx
-  var import_classnames50 = __toESM(require_classnames());
-  var import_jsx_runtime70 = __toESM(require_jsx_runtime());
+  var import_classnames51 = __toESM(require_classnames());
+  var import_jsx_runtime73 = __toESM(require_jsx_runtime());
 
   // src/ui/components/searchResult/SearchResult.tsx
   var import_react41 = __toESM(require_react());
-  var import_classnames51 = __toESM(require_classnames());
-  var import_jsx_runtime71 = __toESM(require_jsx_runtime());
+  var import_classnames52 = __toESM(require_classnames());
+  var import_jsx_runtime74 = __toESM(require_jsx_runtime());
   var highlightUrl2 = (url, text) => `${url}#:~:text=${text}`;
   var VuiSearchResult = (0, import_react41.forwardRef)(
     ({ result, position, isSelected, subTitle, children, className, snippetProps, ...rest }, ref) => {
@@ -38585,32 +38960,32 @@ pre[class*="language-"] {
         date,
         snippet: { pre, post, text }
       } = result;
-      const classes = (0, import_classnames51.default)("vuiSearchResult", "fs-mask", className);
-      const positionClasses = (0, import_classnames51.default)("vuiSearchResultPosition", {
+      const classes = (0, import_classnames52.default)("vuiSearchResult", "fs-mask", className);
+      const positionClasses = (0, import_classnames52.default)("vuiSearchResultPosition", {
         "vuiSearchResultPosition--selected": isSelected
       });
       const hasTitle = title && title.trim().length > 0;
       const hasUrl = url && url.trim().length > 0;
-      return /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)("div", { className: classes, ref, ...rest, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("div", { "data-testid": `searchResultCitation-${position}`, className: positionClasses, children: position }),
-        (hasTitle || hasUrl) && /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(VuiTitle, { size: "s", children: hasUrl ? /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(VuiLink, { href: highlightUrl2(url, text), target: "_blank", children: /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("h3", { children: hasTitle ? title : url }) }) : /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("h3", { children: title }) }),
-        subTitle && /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)(import_jsx_runtime71.Fragment, { children: [
-          title && /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(VuiSpacer, { size: "xs" }),
+      return /* @__PURE__ */ (0, import_jsx_runtime74.jsxs)("div", { className: classes, ref, ...rest, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime74.jsx)("div", { "data-testid": `searchResultCitation-${position}`, className: positionClasses, children: position }),
+        (hasTitle || hasUrl) && /* @__PURE__ */ (0, import_jsx_runtime74.jsx)(VuiTitle, { size: "s", children: hasUrl ? /* @__PURE__ */ (0, import_jsx_runtime74.jsx)(VuiLink, { href: highlightUrl2(url, text), target: "_blank", children: /* @__PURE__ */ (0, import_jsx_runtime74.jsx)("h3", { children: hasTitle ? title : url }) }) : /* @__PURE__ */ (0, import_jsx_runtime74.jsx)("h3", { children: title }) }),
+        subTitle && /* @__PURE__ */ (0, import_jsx_runtime74.jsxs)(import_jsx_runtime74.Fragment, { children: [
+          title && /* @__PURE__ */ (0, import_jsx_runtime74.jsx)(VuiSpacer, { size: "xs" }),
           subTitle
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(VuiText, { ...snippetProps, size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)("p", { children: [
-          date && /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)(VuiTextColor, { color: "subdued", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime74.jsx)(VuiText, { ...snippetProps, size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime74.jsxs)("p", { children: [
+          date && /* @__PURE__ */ (0, import_jsx_runtime74.jsxs)(VuiTextColor, { color: "subdued", children: [
             date,
             " \u2014 "
           ] }),
           pre,
           " ",
-          /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("strong", { children: text }),
+          /* @__PURE__ */ (0, import_jsx_runtime74.jsx)("strong", { children: text }),
           " ",
           post
         ] }) }),
-        children && /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)(import_jsx_runtime71.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(VuiSpacer, { size: "s" }),
+        children && /* @__PURE__ */ (0, import_jsx_runtime74.jsxs)(import_jsx_runtime74.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime74.jsx)(VuiSpacer, { size: "s" }),
           children
         ] })
       ] });
@@ -38619,10 +38994,10 @@ pre[class*="language-"] {
 
   // src/ui/components/searchSelect/SearchSelect.tsx
   var import_react42 = __toESM(require_react());
-  var import_jsx_runtime72 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime75 = __toESM(require_jsx_runtime());
 
   // src/ui/components/toggle/Toggle.tsx
-  var import_jsx_runtime73 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime76 = __toESM(require_jsx_runtime());
   var VuiToggle = ({ id: id2, checked, onChange, label, ...rest }) => {
     let labelId;
     const inputProps = {};
@@ -38630,9 +39005,9 @@ pre[class*="language-"] {
       labelId = createId();
       inputProps["aria-labelledby"] = labelId;
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime73.jsxs)(VuiFlexContainer, { alignItems: "center", spacing: "s", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(VuiFlexItem, { grow: false, children: /* @__PURE__ */ (0, import_jsx_runtime73.jsxs)("label", { className: "vuiToggle", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime76.jsxs)(VuiFlexContainer, { alignItems: "center", spacing: "s", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(VuiFlexItem, { grow: false, children: /* @__PURE__ */ (0, import_jsx_runtime76.jsxs)("label", { className: "vuiToggle", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(
           "input",
           {
             className: "vuiToggle__input",
@@ -38644,74 +39019,74 @@ pre[class*="language-"] {
             ...rest
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("span", { className: "vuiToggle__button" })
+        /* @__PURE__ */ (0, import_jsx_runtime76.jsx)("span", { className: "vuiToggle__button" })
       ] }) }),
-      label && /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(VuiFlexItem, { grow: false, children: /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("div", { id: labelId, children: label }) })
+      label && /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(VuiFlexItem, { grow: false, children: /* @__PURE__ */ (0, import_jsx_runtime76.jsx)("div", { id: labelId, children: label }) })
     ] });
   };
 
   // src/ui/components/setting/Setting.tsx
-  var import_jsx_runtime74 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime77 = __toESM(require_jsx_runtime());
 
   // src/ui/components/summary/Summary.tsx
-  var import_classnames52 = __toESM(require_classnames());
-  var import_jsx_runtime75 = __toESM(require_jsx_runtime());
+  var import_classnames53 = __toESM(require_classnames());
+  var import_jsx_runtime78 = __toESM(require_jsx_runtime());
 
   // src/ui/components/summary/SummaryCitation.tsx
-  var import_classnames53 = __toESM(require_classnames());
-  var import_jsx_runtime76 = __toESM(require_jsx_runtime());
+  var import_classnames54 = __toESM(require_classnames());
+  var import_jsx_runtime79 = __toESM(require_jsx_runtime());
 
   // src/ui/components/table/Table.tsx
   var import_react45 = __toESM(require_react());
-  var import_classnames55 = __toESM(require_classnames());
+  var import_classnames56 = __toESM(require_classnames());
   var import_lodash = __toESM(require_lodash());
 
   // src/ui/components/table/TableRowActions.tsx
   var import_react43 = __toESM(require_react());
-  var import_jsx_runtime77 = __toESM(require_jsx_runtime());
-
-  // src/ui/components/table/TableCell.tsx
-  var import_jsx_runtime78 = __toESM(require_jsx_runtime());
-
-  // src/ui/components/table/TableHeaderCell.tsx
-  var import_jsx_runtime79 = __toESM(require_jsx_runtime());
-
-  // src/ui/components/table/TablePagination.tsx
-  var import_classnames54 = __toESM(require_classnames());
   var import_jsx_runtime80 = __toESM(require_jsx_runtime());
 
-  // src/ui/components/table/TablePager.tsx
+  // src/ui/components/table/TableCell.tsx
   var import_jsx_runtime81 = __toESM(require_jsx_runtime());
+
+  // src/ui/components/table/TableHeaderCell.tsx
+  var import_jsx_runtime82 = __toESM(require_jsx_runtime());
+
+  // src/ui/components/table/TablePagination.tsx
+  var import_classnames55 = __toESM(require_classnames());
+  var import_jsx_runtime83 = __toESM(require_jsx_runtime());
+
+  // src/ui/components/table/TablePager.tsx
+  var import_jsx_runtime84 = __toESM(require_jsx_runtime());
 
   // src/ui/components/table/TableBulkActions.tsx
   var import_react44 = __toESM(require_react());
-  var import_jsx_runtime82 = __toESM(require_jsx_runtime());
-
-  // src/ui/components/table/TableContent.tsx
-  var import_jsx_runtime83 = __toESM(require_jsx_runtime());
-
-  // src/ui/components/table/Table.tsx
-  var import_jsx_runtime84 = __toESM(require_jsx_runtime());
-
-  // src/ui/components/tabs/Tab.tsx
-  var import_classnames56 = __toESM(require_classnames());
   var import_jsx_runtime85 = __toESM(require_jsx_runtime());
 
-  // src/ui/components/tabs/Tabs.tsx
-  var import_classnames57 = __toESM(require_classnames());
+  // src/ui/components/table/TableContent.tsx
   var import_jsx_runtime86 = __toESM(require_jsx_runtime());
 
-  // src/ui/components/tabs/TabbedRoutes.tsx
+  // src/ui/components/table/Table.tsx
   var import_jsx_runtime87 = __toESM(require_jsx_runtime());
 
-  // src/ui/components/topicButton/TopicButton.tsx
-  var import_classnames58 = __toESM(require_classnames());
+  // src/ui/components/tabs/Tab.tsx
+  var import_classnames57 = __toESM(require_classnames());
   var import_jsx_runtime88 = __toESM(require_jsx_runtime());
 
-  // src/components/HeaderLogo.tsx
+  // src/ui/components/tabs/Tabs.tsx
+  var import_classnames58 = __toESM(require_classnames());
   var import_jsx_runtime89 = __toESM(require_jsx_runtime());
-  var HeaderLogo = () => /* @__PURE__ */ (0, import_jsx_runtime89.jsxs)("svg", { width: "28", viewBox: "0 0 109 94", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime89.jsx)("mask", { id: "mask0_1_53", maskUnits: "userSpaceOnUse", x: "0", y: "0", width: "109", height: "94", children: /* @__PURE__ */ (0, import_jsx_runtime89.jsx)(
+
+  // src/ui/components/tabs/TabbedRoutes.tsx
+  var import_jsx_runtime90 = __toESM(require_jsx_runtime());
+
+  // src/ui/components/topicButton/TopicButton.tsx
+  var import_classnames59 = __toESM(require_classnames());
+  var import_jsx_runtime91 = __toESM(require_jsx_runtime());
+
+  // src/components/HeaderLogo.tsx
+  var import_jsx_runtime92 = __toESM(require_jsx_runtime());
+  var HeaderLogo = () => /* @__PURE__ */ (0, import_jsx_runtime92.jsxs)("svg", { width: "28", viewBox: "0 0 109 94", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime92.jsx)("mask", { id: "mask0_1_53", maskUnits: "userSpaceOnUse", x: "0", y: "0", width: "109", height: "94", children: /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(
       "path",
       {
         fillRule: "evenodd",
@@ -38720,10 +39095,10 @@ pre[class*="language-"] {
         fill: "white"
       }
     ) }),
-    /* @__PURE__ */ (0, import_jsx_runtime89.jsx)("g", { mask: "url(#mask0_1_53)", children: /* @__PURE__ */ (0, import_jsx_runtime89.jsx)("rect", { x: "0.908203", y: "0.0827332", width: "108", height: "93.9161", fill: "url(#pattern0)" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime89.jsxs)("defs", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime89.jsx)("pattern", { id: "pattern0", patternContentUnits: "objectBoundingBox", width: "1", height: "1", children: /* @__PURE__ */ (0, import_jsx_runtime89.jsx)("use", { href: "#image0_1_53", transform: "scale(0.000636132 0.000731529)" }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime89.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime92.jsx)("g", { mask: "url(#mask0_1_53)", children: /* @__PURE__ */ (0, import_jsx_runtime92.jsx)("rect", { x: "0.908203", y: "0.0827332", width: "108", height: "93.9161", fill: "url(#pattern0)" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime92.jsxs)("defs", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime92.jsx)("pattern", { id: "pattern0", patternContentUnits: "objectBoundingBox", width: "1", height: "1", children: /* @__PURE__ */ (0, import_jsx_runtime92.jsx)("use", { href: "#image0_1_53", transform: "scale(0.000636132 0.000731529)" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(
         "image",
         {
           id: "image0_1_53",
@@ -38736,52 +39111,94 @@ pre[class*="language-"] {
   ] });
 
   // src/components/ConfigurationDrawer.tsx
-  var import_jsx_runtime90 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime93 = __toESM(require_jsx_runtime());
   var ConfigurationDrawer = ({
     isOpen,
     setIsOpen,
     corpusId,
-    onUpdateCorpusId,
+    setCorpusId,
     customerId,
-    onUpdateCustomerId,
+    setCustomerId,
     apiKey,
-    onUpdateApiKey,
+    setApiKey,
     placeholder,
-    onUpdatePlaceholder,
-    isDeeplinkable,
-    onUpdateIsDeeplinkable,
+    setPlaceholder,
+    isDeepLinkable,
+    setIsDeepLinkable,
     openResultsInNewTab,
-    onUpdateOpenResultsInNewTab
+    setOpenResultsInNewTab,
+    isOnToggleSummaryHandled,
+    setIsOnToggleSummaryHandled,
+    isSummaryToggleVisible,
+    setIsSummaryToggleVisible,
+    isSummaryToggleInitiallyEnabled,
+    setIsSummaryToggleInitiallyEnabled
   }) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime90.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime93.jsxs)(
       VuiDrawer,
       {
         color: "primary",
         isOpen,
         onClose: () => setIsOpen(false),
-        title: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiTitle, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("h2", { children: "Search configuration" }) }),
+        title: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiTitle, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)("h2", { children: "Search configuration" }) }),
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiTitle, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("h3", { className: "header", children: "Connect to Vectara data" }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiSpacer, { size: "s" }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiText, { children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiLink, { isAnchor: true, href: "https://github.com/vectara/react-search?tab=readme-ov-file#set-up-your-search-data", children: "How to set up your Vectara data" }) }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiSpacer, { size: "s" }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiFormGroup, { label: "Customer ID", labelFor: "customerId", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiTextInput, { value: customerId, onChange: onUpdateCustomerId }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiSpacer, { size: "xs" }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiFormGroup, { label: "Corpus ID", labelFor: "corpusId", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiTextInput, { value: corpusId, onChange: onUpdateCorpusId }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiSpacer, { size: "xs" }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiFormGroup, { label: "API key", labelFor: "apiKey", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiTextInput, { value: apiKey, onChange: onUpdateApiKey, fullWidth: true }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiSpacer, { size: "l" }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiTitle, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("h3", { className: "header", children: "Customize appearance" }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiSpacer, { size: "s" }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiFormGroup, { label: "Placeholder text", labelFor: "placeholderText", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiTextInput, { value: placeholder, onChange: onUpdatePlaceholder, fullWidth: true }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiSpacer, { size: "l" }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiTitle, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("h3", { className: "header", children: "Customize behavior" }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiSpacer, { size: "s" }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiFormGroup, { label: "Allow deeplinking", labelFor: "isDeepLinkable", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiToggle, { checked: isDeeplinkable, onChange: onUpdateIsDeeplinkable, id: "isDeeplinkable" }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiSpacer, { size: "xs" }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiFormGroup, { label: "Open results in a new tab", labelFor: "openResultsInNewTab", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiToggle, { checked: openResultsInNewTab, onChange: onUpdateOpenResultsInNewTab, id: "openResultsInNewTab" }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiSpacer, { size: "l" }),
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(VuiButtonPrimary, { color: "primary", onClick: () => setIsOpen(false), children: "Close" })
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiTitle, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)("h3", { className: "header", children: "Connect to Vectara data" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "s" }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiText, { children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiLink, { isAnchor: true, href: "https://github.com/vectara/react-search?tab=readme-ov-file#set-up-your-search-data", children: "How to set up your Vectara data" }) }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "s" }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiFormGroup, { label: "Customer ID", labelFor: "customerId", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiTextInput, { value: customerId, onChange: (e) => setCustomerId(e.target.value) }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "xs" }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiFormGroup, { label: "Corpus ID", labelFor: "corpusId", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiTextInput, { value: corpusId, onChange: (e) => setCorpusId(e.target.value) }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "xs" }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiFormGroup, { label: "API key", labelFor: "apiKey", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiTextInput, { value: apiKey, onChange: (e) => setApiKey(e.target.value), fullWidth: true }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "l" }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiTitle, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)("h3", { className: "header", children: "Search input" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "s" }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiFormGroup, { label: "Placeholder text", labelFor: "placeholderText", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiTextInput, { value: placeholder, onChange: (e) => setPlaceholder(e.target.value), fullWidth: true }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "l" }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiTitle, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)("h3", { className: "header", children: "Search behavior" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "s" }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiFormGroup, { label: "Enable deep-linking to a search", labelFor: "isDeepLinkable", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiToggle, { checked: isDeepLinkable, onChange: (e) => setIsDeepLinkable(e.target.checked), id: "isDeepLinkable" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "xs" }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiFormGroup, { label: "Open a search result's link in a new tab", labelFor: "openResultsInNewTab", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(
+            VuiToggle,
+            {
+              checked: openResultsInNewTab,
+              onChange: (e) => setOpenResultsInNewTab(e.target.checked),
+              id: "openResultsInNewTab"
+            }
+          ) }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "l" }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiTitle, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)("h3", { className: "header", children: "Summarization" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "s" }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiFormGroup, { label: "Handle summary toggle change", labelFor: "summaryToggleHandler", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(
+            VuiToggle,
+            {
+              checked: isOnToggleSummaryHandled,
+              onChange: (e) => setIsOnToggleSummaryHandled(e.target.checked),
+              id: "summaryToggleHandler"
+            }
+          ) }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "xs" }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiFormGroup, { label: "Is summary toggle visible", labelFor: "summaryToggleVisible", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(
+            VuiToggle,
+            {
+              checked: isSummaryToggleVisible,
+              onChange: (e) => setIsSummaryToggleVisible(e.target.checked),
+              id: "summaryToggleVisible"
+            }
+          ) }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "xs" }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiFormGroup, { label: "Is summary toggle initially enabled", labelFor: "summaryToggleInitiallyEnabled", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(
+            VuiToggle,
+            {
+              checked: isSummaryToggleInitiallyEnabled,
+              onChange: (e) => setIsSummaryToggleInitiallyEnabled(e.target.checked),
+              id: "summaryToggleInitiallyEnabled"
+            }
+          ) }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "l" }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiButtonPrimary, { color: "primary", onClick: () => setIsOpen(false), children: "Close" })
         ]
       }
     );
@@ -41869,8 +42286,18 @@ fieldset {
   document.head.appendChild(document.createElement("style")).appendChild(document.createTextNode(css3));
 
   // src/index.tsx
-  var import_jsx_runtime91 = __toESM(require_jsx_runtime());
-  var generateCodeSnippet = (customerId, corpusId, apiKey, placeholder, isDeepLinkable = false, openResultsInNewTab = false) => {
+  var import_jsx_runtime94 = __toESM(require_jsx_runtime());
+  var generateCodeSnippet = ({
+    customerId,
+    corpusId,
+    apiKey,
+    placeholder,
+    isDeepLinkable = false,
+    openResultsInNewTab = false,
+    isOnToggleSummaryHandled = false,
+    isSummaryToggleVisible = false,
+    isSummaryToggleInitiallyEnabled = false
+  }) => {
     let quotedPlaceholder = placeholder;
     if (placeholder) {
       if (placeholder.match('"')) {
@@ -41888,10 +42315,19 @@ fieldset {
       props.push(`placeholder=${quotedPlaceholder}`);
     }
     if (isDeepLinkable) {
-      props.push(`isDeeplinkable={${isDeepLinkable}}`);
+      props.push(`isDeepLinkable={${isDeepLinkable}}`);
     }
     if (openResultsInNewTab) {
       props.push(`openResultsInNewTab={${openResultsInNewTab}}`);
+    }
+    if (isOnToggleSummaryHandled) {
+      props.push(`onToggleSummary={(isSummaryEnabled: boolean) => console.log(isSummaryEnabled)}`);
+    }
+    if (isSummaryToggleVisible) {
+      props.push(`isSummaryToggleVisible={${isSummaryToggleVisible}}`);
+    }
+    if (isSummaryToggleInitiallyEnabled) {
+      props.push(`isSummaryToggleInitiallyEnabled={${isSummaryToggleInitiallyEnabled}}`);
     }
     props.push(`zIndex={ /* (optional) number representing the z-index the search modal should have */ }`);
     return `import { ReactSearch } from "@vectara/react-search";
@@ -41914,35 +42350,20 @@ export const App = () => (
     const [customerId, setCustomerId] = (0, import_react46.useState)("");
     const [apiKey, setApiKey] = (0, import_react46.useState)("");
     const [placeholder, setPlaceholder] = (0, import_react46.useState)(DEFAULT_PLACEHOLDER);
-    const [isDeeplinkable, setIsDeeplinkable] = (0, import_react46.useState)(false);
+    const [isDeepLinkable, setIsDeepLinkable] = (0, import_react46.useState)(false);
     const [openResultsInNewTab, setOpenResultsInNewTab] = (0, import_react46.useState)(false);
-    const onUpdateCorpusId = (0, import_react46.useCallback)((e) => {
-      setCorpusId(e.target.value);
-    }, []);
-    const onUpdateCustomerId = (0, import_react46.useCallback)((e) => {
-      setCustomerId(e.target.value);
-    }, []);
-    const onUpdateApiKey = (0, import_react46.useCallback)((e) => {
-      setApiKey(e.target.value);
-    }, []);
-    const onUpdatePlaceholder = (0, import_react46.useCallback)((e) => {
-      setPlaceholder(e.target.value);
-    }, []);
-    const onUpdateIsDeeplinkable = (0, import_react46.useCallback)((e) => {
-      setIsDeeplinkable(e.target.checked);
-    }, []);
-    const onUpdateOpenResultsInNewTab = (0, import_react46.useCallback)((e) => {
-      setOpenResultsInNewTab(e.target.checked);
-    }, []);
-    return /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)(import_jsx_runtime91.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(
+    const [isOnToggleSummaryHandled, setIsOnToggleSummaryHandled] = (0, import_react46.useState)(false);
+    const [isSummaryToggleVisible, setIsSummaryToggleVisible] = (0, import_react46.useState)(false);
+    const [isSummaryToggleInitiallyEnabled, setIsSummaryToggleInitiallyEnabled] = (0, import_react46.useState)(false);
+    return /* @__PURE__ */ (0, import_jsx_runtime94.jsxs)(import_jsx_runtime94.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(
         VuiAppHeader,
         {
-          left: /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)(VuiFlexContainer, { spacing: "m", alignItems: "center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiFlexItem, { grow: false, shrink: false, children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(HeaderLogo, {}) }),
-            /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiFlexItem, { grow: false, shrink: false, children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiTitle, { size: "xs", children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("h1", { children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("strong", { children: "Vectara React-Search" }) }) }) })
+          left: /* @__PURE__ */ (0, import_jsx_runtime94.jsxs)(VuiFlexContainer, { spacing: "m", alignItems: "center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiFlexItem, { grow: false, shrink: false, children: /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(HeaderLogo, {}) }),
+            /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiFlexItem, { grow: false, shrink: false, children: /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiTitle, { size: "xs", children: /* @__PURE__ */ (0, import_jsx_runtime94.jsx)("h1", { children: /* @__PURE__ */ (0, import_jsx_runtime94.jsx)("strong", { children: "Vectara React-Search" }) }) }) })
           ] }),
-          right: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(
+          right: /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(
             VuiIconButton,
             {
               isAnchor: true,
@@ -41950,50 +42371,63 @@ export const App = () => (
               target: "_blank",
               color: "neutral",
               size: "l",
-              icon: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiIcon, { children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(BiLogoGithub, {}) })
+              icon: /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiIcon, { children: /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(BiLogoGithub, {}) })
             }
           )
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiAppLayout, { children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiAppContent, { className: "appExampleContent", padding: "xl", children: /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)("div", { className: "content", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiTitle, { size: "l", children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("h1", { children: "Vectara React-Search" }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "m" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiText, { children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("p", { children: "React-Search adds a Vectara-powered semantic search UI to your React applications with a few lines of code." }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "m" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("div", { className: "reactSearchContainer", children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(
-          tn,
+      /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiAppLayout, { children: /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiAppContent, { className: "appExampleContent", padding: "xl", children: /* @__PURE__ */ (0, import_jsx_runtime94.jsxs)("div", { className: "content", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiTitle, { size: "l", children: /* @__PURE__ */ (0, import_jsx_runtime94.jsx)("h1", { children: "Vectara React-Search" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiSpacer, { size: "m" }),
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiText, { children: /* @__PURE__ */ (0, import_jsx_runtime94.jsx)("p", { children: "React-Search adds a Vectara-powered semantic search UI to your React applications with a few lines of code." }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiSpacer, { size: "m" }),
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)("div", { className: "reactSearchContainer", children: /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(
+          er,
           {
             corpusId: corpusId === "" ? DEFAULT_CORPUS_ID : corpusId,
             customerId: customerId === "" ? DEFAULT_CUSTOMER_ID : customerId,
             apiKey: apiKey === "" ? DEFAULT_API_KEY : apiKey,
             placeholder,
-            isDeeplinkable,
-            openResultsInNewTab
+            isDeepLinkable,
+            openResultsInNewTab,
+            isSummaryToggleVisible,
+            isSummaryToggleInitiallyEnabled,
+            onToggleSummary: (isSummaryEnabled) => console.log(`onToggleSummary callback received isSummaryEnabled: ${isSummaryEnabled}`)
           }
         ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "m" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiButtonSecondary, { color: "primary", onClick: () => setIsConfigurationDrawerOpen(true), children: "Edit configuration" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "xxl" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiTitle, { size: "m", children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("h2", { children: "Use it in your code" }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "m" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiText, { children: /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)("p", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiSpacer, { size: "m" }),
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiButtonSecondary, { color: "primary", onClick: () => setIsConfigurationDrawerOpen(true), children: "Edit configuration" }),
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiSpacer, { size: "xxl" }),
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiTitle, { size: "m", children: /* @__PURE__ */ (0, import_jsx_runtime94.jsx)("h2", { children: "Use it in your code" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiSpacer, { size: "m" }),
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiText, { children: /* @__PURE__ */ (0, import_jsx_runtime94.jsxs)("p", { children: [
           "For help,",
           " ",
-          /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiLink, { isAnchor: true, href: "https://github.com/vectara/react-search", children: "read the docs." })
+          /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiLink, { isAnchor: true, href: "https://github.com/vectara/react-search", children: "read the docs." })
         ] }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "m" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiCode, { children: "npm install @vectara/react-search" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "s" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiCode, { language: "tsx", children: generateCodeSnippet(customerId, corpusId, apiKey, placeholder, isDeeplinkable, openResultsInNewTab) }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "xxl" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiTitle, { size: "m", children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("h2", { children: "Create your own view" }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "m" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)(VuiText, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("p", { children: "React-Search also exposes a useSearch hook that sends and receives data to/from the search API. This is perfect for creating your own components that are powered by Vectara's search functionality." }),
-          /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("p", { children: "Check out the example below." })
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiSpacer, { size: "m" }),
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiCode, { children: "npm install @vectara/react-search" }),
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiSpacer, { size: "s" }),
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiCode, { language: "tsx", children: generateCodeSnippet({
+          customerId,
+          corpusId,
+          apiKey,
+          placeholder,
+          isDeepLinkable,
+          openResultsInNewTab,
+          isOnToggleSummaryHandled,
+          isSummaryToggleVisible,
+          isSummaryToggleInitiallyEnabled
+        }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiSpacer, { size: "xxl" }),
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiTitle, { size: "m", children: /* @__PURE__ */ (0, import_jsx_runtime94.jsx)("h2", { children: "Create your own view" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiSpacer, { size: "m" }),
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsxs)(VuiText, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime94.jsx)("p", { children: "React-Search also exposes a useSearch hook that sends and receives data to/from the search API. This is perfect for creating your own components that are powered by Vectara's search functionality." }),
+          /* @__PURE__ */ (0, import_jsx_runtime94.jsx)("p", { children: "Check out the example below." })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "s" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiCode, { language: "tsx", children: `
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiSpacer, { size: "s" }),
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiCode, { language: "tsx", children: `
 import { useSearch } from "@vectara/react-search/lib/useSearch";
 
 export const App = () => {
@@ -42007,44 +42441,50 @@ export const App = () => {
   however you wish. */
 };
 ` }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "m" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)(VuiText, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("p", {}),
-          /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("p", { children: "The hook returns:" }),
-          /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)("ul", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("li", { children: "fetchSearchResults - a function that sends a search string to the search endpoint" }),
-            /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("li", { children: "isLoading - a boolean value indicating whether or not a search request is pending" })
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiSpacer, { size: "m" }),
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsxs)(VuiText, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime94.jsx)("p", {}),
+          /* @__PURE__ */ (0, import_jsx_runtime94.jsx)("p", { children: "The hook returns:" }),
+          /* @__PURE__ */ (0, import_jsx_runtime94.jsxs)("ul", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime94.jsx)("li", { children: "fetchSearchResults - a function that sends a search string to the search endpoint" }),
+            /* @__PURE__ */ (0, import_jsx_runtime94.jsx)("li", { children: "isLoading - a boolean value indicating whether or not a search request is pending" })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiSpacer, { size: "m" }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)(VuiText, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiSpacer, { size: "m" }),
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsxs)(VuiText, { children: [
           "For more details, including return value types,",
           " ",
-          /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(VuiLink, { isAnchor: true, href: "https://github.com/vectara/react-search", children: "read the docs." })
+          /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiLink, { isAnchor: true, href: "https://github.com/vectara/react-search", children: "read the docs." })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(
           ConfigurationDrawer,
           {
             isOpen: isConfigurationDrawerOpen,
             setIsOpen: setIsConfigurationDrawerOpen,
             corpusId,
-            onUpdateCorpusId,
+            setCorpusId,
             customerId,
-            onUpdateCustomerId,
+            setCustomerId,
             apiKey,
-            onUpdateApiKey,
+            setApiKey,
             placeholder,
-            onUpdatePlaceholder,
-            isDeeplinkable,
-            onUpdateIsDeeplinkable,
+            setPlaceholder,
+            isDeepLinkable,
+            setIsDeepLinkable,
             openResultsInNewTab,
-            onUpdateOpenResultsInNewTab
+            setOpenResultsInNewTab,
+            isOnToggleSummaryHandled,
+            setIsOnToggleSummaryHandled,
+            isSummaryToggleVisible,
+            setIsSummaryToggleVisible,
+            isSummaryToggleInitiallyEnabled,
+            setIsSummaryToggleInitiallyEnabled
           }
         )
       ] }) }) })
     ] });
   };
-  import_react_dom3.default.render(/* @__PURE__ */ (0, import_jsx_runtime91.jsx)(App, {}), document.getElementById("root"));
+  import_react_dom3.default.render(/* @__PURE__ */ (0, import_jsx_runtime94.jsx)(App, {}), document.getElementById("root"));
 })();
 /*! Bundled license information:
 
