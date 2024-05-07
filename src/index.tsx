@@ -96,13 +96,16 @@ const ReactSearchInternal = ({
 
     addPreviousSearch(query);
     const searchId = ++searchCount.current;
-    const { searchResults, summary } = await fetchSearchResults(query, isSummaryEnabled);
-
-    if (searchId === searchCount.current) {
-      setSearchResults(searchResults);
-      setSummary(summary);
-      setSelectedResultIndex(undefined);
-      selectedResultRef.current = null;
+    try {
+      const { searchResults, summary } = await fetchSearchResults(query, isSummaryEnabled);
+      if (searchId === searchCount.current) {
+        setSearchResults(searchResults);
+        setSummary(summary);
+        setSelectedResultIndex(undefined);
+        selectedResultRef.current = null;
+      }
+    } catch (error) {
+      console.log("ReactSearch error:" + error);
     }
   };
 
@@ -397,8 +400,14 @@ class ReactSearchWebComponent extends HTMLElement {
 window.customElements.get("react-search") || window.customElements.define("react-search", ReactSearchWebComponent);
 
 export const ReactSearch = (props: Props) => {
-  _props = props;
+  // This is magic. If we remove this, then in Console _props somehow ends up
+  // being undefined when consumed by ReactSearchWebComponent. We found that this
+  // conditional ensures _props is always set, though it doesn't look like props
+  // is ever undefined.
+  if (props) {
+    _props = props;
+  }
 
   // @ts-ignore
-  return <react-search serializedprops={JSON.stringify(props)} />;
+  return <react-search serializedprops={JSON.stringify(_props)} />;
 };
