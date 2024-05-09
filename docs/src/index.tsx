@@ -110,8 +110,8 @@ const App = () => {
   const [isDeepLinkable, setIsDeepLinkable] = useState<boolean>(false);
   const [openResultsInNewTab, setOpenResultsInNewTab] = useState<boolean>(false);
   const [isOnToggleSummaryHandled, setIsOnToggleSummaryHandled] = useState<boolean>(false);
-  const [isSummaryToggleVisible, setIsSummaryToggleVisible] = useState<boolean>(false);
-  const [isSummaryToggleInitiallyEnabled, setIsSummaryToggleInitiallyEnabled] = useState<boolean>(false);
+  const [isSummaryToggleVisible, setIsSummaryToggleVisible] = useState<boolean>(true);
+  const [isSummaryToggleInitiallyEnabled, setIsSummaryToggleInitiallyEnabled] = useState<boolean>(true);
 
   return (
     <>
