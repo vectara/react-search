@@ -42358,8 +42358,8 @@ export const App = () => (
     const [isDeepLinkable, setIsDeepLinkable] = (0, import_react46.useState)(false);
     const [openResultsInNewTab, setOpenResultsInNewTab] = (0, import_react46.useState)(false);
     const [isOnToggleSummaryHandled, setIsOnToggleSummaryHandled] = (0, import_react46.useState)(false);
-    const [isSummaryToggleVisible, setIsSummaryToggleVisible] = (0, import_react46.useState)(false);
-    const [isSummaryToggleInitiallyEnabled, setIsSummaryToggleInitiallyEnabled] = (0, import_react46.useState)(false);
+    const [isSummaryToggleVisible, setIsSummaryToggleVisible] = (0, import_react46.useState)(true);
+    const [isSummaryToggleInitiallyEnabled, setIsSummaryToggleInitiallyEnabled] = (0, import_react46.useState)(true);
     return /* @__PURE__ */ (0, import_jsx_runtime94.jsxs)(import_jsx_runtime94.Fragment, { children: [
       /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(
         VuiAppHeader,
