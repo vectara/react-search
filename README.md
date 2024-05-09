@@ -54,11 +54,12 @@ import { ReactSearch } from "@vectara/react-search";
   customerId="CUSTOMER_ID"
   corpusId="CORPUS_ID"
   apiKey="API_KEY"
-  placeholder="Placeholder" // Optional search input placeholder
+  placeholder="Search" // Optional search input placeholder
   isDeepLinkable={true} // Optional boolean determining if search results will be deep-linked
   openResultsInNewTab={true} // Optional boolean determining if links will open in a new tab
-  zIndex={/* Optional number assigned to the z-index of the search modal */}
-/>
+  zIndex={1000} // Optional number assigned to the z-index of the search modal
+  isSummaryToggleVisible={true} // Optional boolean determining if users can summarize search results
+/>;
 ```
 
 #### <u>Configuration options</u>
