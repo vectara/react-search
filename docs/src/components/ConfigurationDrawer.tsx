@@ -1,3 +1,4 @@
+import { RerankingConfiguration } from "../../../lib/types";
 import {
   VuiButtonPrimary,
   VuiDrawer,
@@ -7,7 +8,8 @@ import {
   VuiTitle,
   VuiFormGroup,
   VuiTextInput,
-  VuiToggle
+  VuiToggle,
+  VuiTextArea
 } from "../ui";
 
 type Props = {
@@ -31,6 +33,8 @@ type Props = {
   setIsSummaryToggleVisible: (isSummaryToggleVisible: boolean) => void;
   isSummaryToggleInitiallyEnabled: boolean;
   setIsSummaryToggleInitiallyEnabled: (isSummaryToggleInitiallyEnabled: boolean) => void;
+  rerankingConfigurationString?: string;
+  setRerankingConfigurationString: (configurationString: string) => void;
 };
 
 export const ConfigurationDrawer = ({
@@ -53,8 +57,16 @@ export const ConfigurationDrawer = ({
   isSummaryToggleVisible,
   setIsSummaryToggleVisible,
   isSummaryToggleInitiallyEnabled,
-  setIsSummaryToggleInitiallyEnabled
+  setIsSummaryToggleInitiallyEnabled,
+  rerankingConfigurationString,
+  setRerankingConfigurationString
 }: Props) => {
+  const rerankingConfigPlaceholder = `{
+  "rerankerId": 272725718,
+  "mmrConfig": {
+    "diversityBias": 0
+  }
+}`;
   return (
     <VuiDrawer
       color="primary"
@@ -165,6 +177,24 @@ export const ConfigurationDrawer = ({
           checked={isSummaryToggleInitiallyEnabled}
           onChange={(e) => setIsSummaryToggleInitiallyEnabled(e.target.checked)}
           id="summaryToggleInitiallyEnabled"
+        />
+      </VuiFormGroup>
+
+      <VuiSpacer size="l" />
+
+      <VuiTitle size="s">
+        <h3 className="header">Reranking</h3>
+      </VuiTitle>
+
+      <VuiSpacer size="s" />
+
+      <VuiFormGroup label="Reranking Configuration" labelFor="rerankingConfiguration">
+        <VuiTextArea
+          fullWidth={true}
+          placeholder={rerankingConfigPlaceholder}
+          value={rerankingConfigurationString}
+          onChange={(e) => setRerankingConfigurationString(e.target.value)}
+          id="rerankingConfiguration"
         />
       </VuiFormGroup>
 

@@ -21,6 +21,7 @@ import { HeaderLogo } from "./components/HeaderLogo";
 import { ConfigurationDrawer } from "components/ConfigurationDrawer";
 import "./ui/_index.scss";
 import "./index.scss";
+import { RerankingConfiguration } from "@vectara/react-search/lib/types";
 
 const generateCodeSnippet = ({
   customerId,
@@ -31,7 +32,8 @@ const generateCodeSnippet = ({
   openResultsInNewTab = false,
   isOnToggleSummaryHandled = false,
   isSummaryToggleVisible = false,
-  isSummaryToggleInitiallyEnabled = false
+  isSummaryToggleInitiallyEnabled = false,
+  rerankingConfiguration
 }: {
   customerId?: string;
   corpusId?: string;
@@ -42,6 +44,7 @@ const generateCodeSnippet = ({
   isOnToggleSummaryHandled: boolean;
   isSummaryToggleVisible: boolean;
   isSummaryToggleInitiallyEnabled: boolean;
+  rerankingConfiguration?: RerankingConfiguration;
 }) => {
   let quotedPlaceholder = placeholder;
 
@@ -83,6 +86,10 @@ const generateCodeSnippet = ({
     props.push(`isSummaryToggleInitiallyEnabled={${isSummaryToggleInitiallyEnabled}}`);
   }
 
+  if (rerankingConfiguration) {
+    props.push(`rerankingConfiguration={${JSON.stringify(rerankingConfiguration)}}`);
+  }
+
   props.push(`zIndex={ /* (optional) number representing the z-index the search modal should have */ }`);
 
   return `import { ReactSearch } from "@vectara/react-search";
@@ -112,6 +119,15 @@ const App = () => {
   const [isOnToggleSummaryHandled, setIsOnToggleSummaryHandled] = useState<boolean>(false);
   const [isSummaryToggleVisible, setIsSummaryToggleVisible] = useState<boolean>(true);
   const [isSummaryToggleInitiallyEnabled, setIsSummaryToggleInitiallyEnabled] = useState<boolean>(true);
+  const [rerankingConfigurationString, setRerankingConfigurationString] = useState<string | undefined>(undefined);
+
+  let rerankingConfiguration;
+
+  try {
+    rerankingConfiguration = JSON.parse(rerankingConfigurationString ?? "");
+  } catch {
+    rerankingConfiguration = undefined;
+  }
 
   return (
     <>
@@ -182,6 +198,7 @@ const App = () => {
                 onToggleSummary={(isSummaryEnabled: boolean) =>
                   console.log(`onToggleSummary callback received isSummaryEnabled: ${isSummaryEnabled}`)
                 }
+                rerankingConfiguration={rerankingConfiguration}
               />
             </div>
 
@@ -224,7 +241,8 @@ const App = () => {
                 openResultsInNewTab,
                 isOnToggleSummaryHandled,
                 isSummaryToggleVisible,
-                isSummaryToggleInitiallyEnabled
+                isSummaryToggleInitiallyEnabled,
+                rerankingConfiguration
               })}
             </VuiCode>
 
@@ -304,6 +322,8 @@ export const App = () => {
               setIsSummaryToggleVisible={setIsSummaryToggleVisible}
               isSummaryToggleInitiallyEnabled={isSummaryToggleInitiallyEnabled}
               setIsSummaryToggleInitiallyEnabled={setIsSummaryToggleInitiallyEnabled}
+              rerankingConfigurationString={rerankingConfigurationString}
+              setRerankingConfigurationString={setRerankingConfigurationString}
             />
           </div>
         </VuiAppContent>

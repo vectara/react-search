@@ -59,6 +59,9 @@ import { ReactSearch } from "@vectara/react-search";
   openResultsInNewTab={true} // Optional boolean determining if links will open in a new tab
   zIndex={1000} // Optional number assigned to the z-index of the search modal
   isSummaryToggleVisible={true} // Optional boolean determining if users can summarize search results
+  rerankingConfiguration={{
+    rerankerId: 272725718
+  }}
 />;
 ```
 
@@ -106,7 +109,12 @@ Whether users will be able to summarize search results or not.
 
 ##### `isSummaryToggleInitiallyEnabled` (optional)
 
-If users can toggle summarization, whether the toggle should be enabled by defualt.
+If users can toggle summarization, whether the toggle should be enabled by default.
+
+##### `rerankingConfiguration` (optional)
+
+Specifies a search result reranker to use, along with its configuration.
+For more information, see our [docs on reranking](https://docs.vectara.com/docs/api-reference/search-apis/reranking).
 
 ### Power your own search UI with the useSearch hook
 
@@ -123,7 +131,13 @@ import { useSearch } from "@vectara/react-search/lib/useSearch";
 
 /* snip */
 
-const { fetchSearchResults, isLoading } = useSearch("CUSTOMER_ID", "CORPUS_ID", "API_KEY");
+const { fetchSearchResults, isLoading } = useSearch(
+  "CUSTOMER_ID",
+  "CORPUS_ID",
+  "API_KEY",
+  "API_URL", // optional
+  { rerankerId: 12345 } // optional
+);
 ```
 
 The values returned by the hook can be passed on to your custom components as props or used in any way you wish.
