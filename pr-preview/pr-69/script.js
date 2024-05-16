@@ -39143,9 +39143,9 @@ pre[class*="language-"] {
   }) => {
     const rerankingConfigPlaceholder = `{
   "rerankerId": 272725718,
-    "mmrConfig": {
-      "diversityBias": 0
-    }
+  "mmrConfig": {
+    "diversityBias": 0
+  }
 }`;
     return /* @__PURE__ */ (0, import_jsx_runtime93.jsxs)(
       VuiDrawer,
@@ -42371,8 +42371,8 @@ export const App = () => (
 );`;
   };
   var DEFAULT_CORPUS_ID = "1";
-  var DEFAULT_CUSTOMER_ID = "3874164736";
-  var DEFAULT_API_KEY = "zqt_5usQAEuonK6wiZrDIHI6ZTQWUAPmoMigPjBnYw";
+  var DEFAULT_CUSTOMER_ID = "1366999410";
+  var DEFAULT_API_KEY = "zqt_UXrBcnI2UXINZkrv4g1tQPhzj02vfdtqYJIDiA";
   var DEFAULT_PLACEHOLDER = 'Try searching for "vectara" or "RAG"';
   var App = () => {
     const [isConfigurationDrawerOpen, setIsConfigurationDrawerOpen] = (0, import_react46.useState)(false);
@@ -42392,7 +42392,6 @@ export const App = () => (
     } catch {
       rerankingConfiguration = void 0;
     }
-    console.log("### RR: ", rerankingConfiguration);
     return /* @__PURE__ */ (0, import_jsx_runtime94.jsxs)(import_jsx_runtime94.Fragment, { children: [
       /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(
         VuiAppHeader,
