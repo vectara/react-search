@@ -35,7 +35,18 @@ export interface Props {
 
   // If users can toggle summarization, whether the toggle should be enabled by defualt.
   isSummaryToggleInitiallyEnabled?: boolean;
+
+  // The custom reranker configuration to use.
+  // For more information, see: https://docs.vectara.com/docs/api-reference/search-apis/reranking
+  rerankingConfiguration?: RerankingConfiguration;
 }
+
+export type RerankingConfiguration = {
+  rerankerId: number;
+  mmrConfig?: {
+    diversityBias: number;
+  };
+};
 
 export type DeserializedSearchResult = {
   id: string;

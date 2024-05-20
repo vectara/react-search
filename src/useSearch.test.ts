@@ -11,11 +11,24 @@ describe("useSearch", () => {
       })
     );
 
-    const { result } = renderHook(() => useSearch("mock-customer-id", "mock-corpus-id", "mock-api-key"));
+    const { result } = renderHook(() =>
+      useSearch("mock-customer-id", "mock-corpus-id", "mock-api-key", undefined, {
+        rerankerId: 272725718,
+        mmrConfig: {
+          diversityBias: 0.3
+        }
+      })
+    );
     const requestBody = JSON.stringify({
       query: [
         {
           query: "mock-query",
+          rerankingConfig: {
+            rerankerId: 272725718,
+            mmrConfig: {
+              diversityBias: 0.3
+            }
+          },
           start: 0,
           numResults: 20,
           corpusKey: [

@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { DeserializedSearchResult, DocMetadata, SearchResponse } from "./types";
+import { DeserializedSearchResult, DocMetadata, RerankingConfiguration, SearchResponse } from "./types";
 
 const DEFAULT_QUERY_API_URL = "https://api.vectara.io/v1/query";
 
@@ -12,7 +12,8 @@ export const useSearch = (
   customerId: string,
   corpusId: string,
   apiKey: string,
-  apiUrl: string = DEFAULT_QUERY_API_URL
+  apiUrl: string = DEFAULT_QUERY_API_URL,
+  rerankingConfig?: RerankingConfiguration
 ) => {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -32,6 +33,9 @@ export const useSearch = (
         query: [
           {
             query,
+            rerankingConfig: {
+              ...rerankingConfig
+            },
             start: 0,
             numResults: 20,
             corpusKey: [
@@ -51,7 +55,7 @@ export const useSearch = (
         ]
       });
     },
-    [corpusId]
+    [corpusId, rerankingConfig]
   );
 
   const fetchSearchResults = async (

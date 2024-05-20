@@ -44,7 +44,8 @@ const ReactSearchInternal = ({
   zIndex = 9999,
   onToggleSummary,
   isSummaryToggleVisible = false,
-  isSummaryToggleInitiallyEnabled = false
+  isSummaryToggleInitiallyEnabled = false,
+  rerankingConfiguration
 }: Props) => {
   // Compute a unique ID for this search component.
   // This creates a namespace, and ensures that stored search results
@@ -54,7 +55,7 @@ const ReactSearchInternal = ({
   // of different search boxes.
   const searchId = useMemo(() => getUuid(`${customerId}-${corpusId}-${apiKey}`), [customerId, corpusId, apiKey]);
   const { addPreviousSearch } = useSearchHistory(searchId, historySize);
-  const { fetchSearchResults, isLoading } = useSearch(customerId, corpusId, apiKey, apiUrl);
+  const { fetchSearchResults, isLoading } = useSearch(customerId, corpusId, apiKey, apiUrl, rerankingConfiguration);
 
   const [selectedResultIndex, setSelectedResultIndex] = useState<number>();
   const [searchResults, setSearchResults] = useState<DeserializedSearchResult[]>([]);
@@ -194,7 +195,10 @@ const ReactSearchInternal = ({
           } = searchResult;
 
           return (
-            <div ref={selectedResultIndex === index ? selectedResultRef : undefined} key={`${pre}${text}${post}`}>
+            <div
+              ref={selectedResultIndex === index ? selectedResultRef : undefined}
+              key={`result-${index}-${pre}${text}${post}`}
+            >
               <SearchResult
                 searchResult={searchResult}
                 isSelected={selectedResultIndex === index}
