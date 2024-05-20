@@ -32977,7 +32977,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     let [r, a] = (0, import_react10.useState)(false), c = import_react10.default.useMemo(() => {
       let m = new Headers();
       return m.append("customer-id", t), m.append("x-api-key", i), m.append("content-type", "application/json"), m.append("x-source", "react-search"), m;
-    }, [t, i]), u = (0, import_react10.useCallback)((m, v) => JSON.stringify({ query: [{ query: m, rerankingConfig: l, start: 0, numResults: 20, corpusKey: [{ corpusId: e }], summary: v ? [{ maxSummarizedResults: 5, responseLang: "eng" }] : void 0 }] }), [e, l]);
+    }, [t, i]), u = (0, import_react10.useCallback)((m, v) => JSON.stringify({ query: [{ query: m, rerankingConfig: f({}, l), start: 0, numResults: 20, corpusKey: [{ corpusId: e }], summary: v ? [{ maxSummarizedResults: 5, responseLang: "eng" }] : void 0 }] }), [e, l]);
     return { fetchSearchResults: (m, v) => A(void 0, null, function* () {
       var T, C, k, S, B;
       a(true);
