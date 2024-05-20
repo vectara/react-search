@@ -1941,9 +1941,9 @@
               }
             }
           }
-          function compare(a, b) {
-            var diff = a.sortIndex - b.sortIndex;
-            return diff !== 0 ? diff : a.id - b.id;
+          function compare(a, b2) {
+            var diff = a.sortIndex - b2.sortIndex;
+            return diff !== 0 ? diff : a.id - b2.id;
           }
           var ImmediatePriority = 1;
           var UserBlockingPriority = 2;
@@ -5472,8 +5472,8 @@
           var batchedUpdatesImpl = function(fn, bookkeeping) {
             return fn(bookkeeping);
           };
-          var discreteUpdatesImpl = function(fn, a, b, c, d2) {
-            return fn(a, b, c, d2);
+          var discreteUpdatesImpl = function(fn, a, b2, c, d) {
+            return fn(a, b2, c, d);
           };
           var flushDiscreteUpdatesImpl = function() {
           };
@@ -5499,23 +5499,23 @@
               finishEventHandler();
             }
           }
-          function batchedEventUpdates(fn, a, b) {
+          function batchedEventUpdates(fn, a, b2) {
             if (isBatchingEventUpdates) {
-              return fn(a, b);
+              return fn(a, b2);
             }
             isBatchingEventUpdates = true;
             try {
-              return batchedEventUpdatesImpl(fn, a, b);
+              return batchedEventUpdatesImpl(fn, a, b2);
             } finally {
               isBatchingEventUpdates = false;
               finishEventHandler();
             }
           }
-          function discreteUpdates(fn, a, b, c, d2) {
+          function discreteUpdates(fn, a, b2, c, d) {
             var prevIsInsideEventHandler = isInsideEventHandler;
             isInsideEventHandler = true;
             try {
-              return discreteUpdatesImpl(fn, a, b, c, d2);
+              return discreteUpdatesImpl(fn, a, b2, c, d);
             } finally {
               isInsideEventHandler = prevIsInsideEventHandler;
               if (!isInsideEventHandler) {
@@ -5592,7 +5592,7 @@
               passiveBrowserEventsSupported = false;
             }
           }
-          function invokeGuardedCallbackProd(name, func2, context, a, b, c, d2, e, f) {
+          function invokeGuardedCallbackProd(name, func2, context, a, b2, c, d, e, f2) {
             var funcArgs = Array.prototype.slice.call(arguments, 3);
             try {
               func2.apply(context, funcArgs);
@@ -5604,7 +5604,7 @@
           {
             if (typeof window !== "undefined" && typeof window.dispatchEvent === "function" && typeof document !== "undefined" && typeof document.createEvent === "function") {
               var fakeNode = document.createElement("react");
-              invokeGuardedCallbackImpl = function invokeGuardedCallbackDev(name, func2, context, a, b, c, d2, e, f) {
+              invokeGuardedCallbackImpl = function invokeGuardedCallbackDev(name, func2, context, a, b2, c, d, e, f2) {
                 if (!(typeof document !== "undefined")) {
                   {
                     throw Error("The `document` global was defined when React was initialized, but is not defined anymore. This can happen in a test environment if a component schedules an update from an asynchronous callback, but the test has already finished running. To solve this, you can either unmount the component at the end of your test (and ensure that any asynchronous operations get canceled in `componentWillUnmount`), or you can change the test itself to be asynchronous.");
@@ -5681,12 +5681,12 @@
               caughtError = error2;
             }
           };
-          function invokeGuardedCallback(name, func2, context, a, b, c, d2, e, f) {
+          function invokeGuardedCallback(name, func2, context, a, b2, c, d, e, f2) {
             hasError = false;
             caughtError = null;
             invokeGuardedCallbackImpl$1.apply(reporter, arguments);
           }
-          function invokeGuardedCallbackAndCatchFirstError(name, func2, context, a, b, c, d2, e, f) {
+          function invokeGuardedCallbackAndCatchFirstError(name, func2, context, a, b2, c, d, e, f2) {
             invokeGuardedCallback.apply(this, arguments);
             if (hasError) {
               var error2 = clearCaughtError();
@@ -5894,7 +5894,7 @@
               return fiber;
             }
             var a = fiber;
-            var b = alternate;
+            var b2 = alternate;
             while (true) {
               var parentA = a.return;
               if (parentA === null) {
@@ -5904,7 +5904,7 @@
               if (parentB === null) {
                 var nextParent = parentA.return;
                 if (nextParent !== null) {
-                  a = b = nextParent;
+                  a = b2 = nextParent;
                   continue;
                 }
                 break;
@@ -5916,7 +5916,7 @@
                     assertIsMounted(parentA);
                     return fiber;
                   }
-                  if (child === b) {
+                  if (child === b2) {
                     assertIsMounted(parentA);
                     return alternate;
                   }
@@ -5928,9 +5928,9 @@
                   }
                 }
               }
-              if (a.return !== b.return) {
+              if (a.return !== b2.return) {
                 a = parentA;
-                b = parentB;
+                b2 = parentB;
               } else {
                 var didFindChild = false;
                 var _child = parentA.child;
@@ -5938,12 +5938,12 @@
                   if (_child === a) {
                     didFindChild = true;
                     a = parentA;
-                    b = parentB;
+                    b2 = parentB;
                     break;
                   }
-                  if (_child === b) {
+                  if (_child === b2) {
                     didFindChild = true;
-                    b = parentA;
+                    b2 = parentA;
                     a = parentB;
                     break;
                   }
@@ -5955,12 +5955,12 @@
                     if (_child === a) {
                       didFindChild = true;
                       a = parentB;
-                      b = parentA;
+                      b2 = parentA;
                       break;
                     }
-                    if (_child === b) {
+                    if (_child === b2) {
                       didFindChild = true;
-                      b = parentB;
+                      b2 = parentB;
                       a = parentA;
                       break;
                     }
@@ -5973,7 +5973,7 @@
                   }
                 }
               }
-              if (!(a.alternate === b)) {
+              if (!(a.alternate === b2)) {
                 {
                   throw Error("Return fibers should always be each others' alternates. This error is likely caused by a bug in React. Please file an issue.");
                 }
@@ -6950,14 +6950,14 @@
           function laneToIndex(lane) {
             return pickArbitraryLaneIndex(lane);
           }
-          function includesSomeLane(a, b) {
-            return (a & b) !== NoLanes;
+          function includesSomeLane(a, b2) {
+            return (a & b2) !== NoLanes;
           }
           function isSubsetOfLanes(set2, subset) {
             return (set2 & subset) === subset;
           }
-          function mergeLanes(a, b) {
-            return a | b;
+          function mergeLanes(a, b2) {
+            return a | b2;
           }
           function removeLanes(set2, subset) {
             return set2 & ~subset;
@@ -6965,8 +6965,8 @@
           function laneToLanes(lane) {
             return lane;
           }
-          function higherPriorityLane(a, b) {
-            return a !== NoLane && a < b ? a : b;
+          function higherPriorityLane(a, b2) {
+            return a !== NoLane && a < b2 ? a : b2;
           }
           function createLaneMap(initial) {
             var laneMap = [];
@@ -18352,12 +18352,12 @@
               }
             }
           }
-          function discreteUpdates$1(fn, a, b, c, d2) {
+          function discreteUpdates$1(fn, a, b2, c, d) {
             var prevExecutionContext = executionContext;
             executionContext |= DiscreteEventContext;
             {
               try {
-                return runWithPriority$1(UserBlockingPriority$2, fn.bind(null, a, b, c, d2));
+                return runWithPriority$1(UserBlockingPriority$2, fn.bind(null, a, b2, c, d));
               } finally {
                 executionContext = prevExecutionContext;
                 if (executionContext === NoContext) {
@@ -21319,169 +21319,169 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           this.hash();
         };
         Md5.prototype.hash = function() {
-          var a, b, c, d2, bc, da, blocks2 = this.blocks;
+          var a, b2, c, d, bc, da, blocks2 = this.blocks;
           if (this.first) {
             a = blocks2[0] - 680876937;
             a = (a << 7 | a >>> 25) - 271733879 << 0;
-            d2 = (-1732584194 ^ a & 2004318071) + blocks2[1] - 117830708;
-            d2 = (d2 << 12 | d2 >>> 20) + a << 0;
-            c = (-271733879 ^ d2 & (a ^ -271733879)) + blocks2[2] - 1126478375;
-            c = (c << 17 | c >>> 15) + d2 << 0;
-            b = (a ^ c & (d2 ^ a)) + blocks2[3] - 1316259209;
-            b = (b << 22 | b >>> 10) + c << 0;
+            d = (-1732584194 ^ a & 2004318071) + blocks2[1] - 117830708;
+            d = (d << 12 | d >>> 20) + a << 0;
+            c = (-271733879 ^ d & (a ^ -271733879)) + blocks2[2] - 1126478375;
+            c = (c << 17 | c >>> 15) + d << 0;
+            b2 = (a ^ c & (d ^ a)) + blocks2[3] - 1316259209;
+            b2 = (b2 << 22 | b2 >>> 10) + c << 0;
           } else {
             a = this.h0;
-            b = this.h1;
+            b2 = this.h1;
             c = this.h2;
-            d2 = this.h3;
-            a += (d2 ^ b & (c ^ d2)) + blocks2[0] - 680876936;
-            a = (a << 7 | a >>> 25) + b << 0;
-            d2 += (c ^ a & (b ^ c)) + blocks2[1] - 389564586;
-            d2 = (d2 << 12 | d2 >>> 20) + a << 0;
-            c += (b ^ d2 & (a ^ b)) + blocks2[2] + 606105819;
-            c = (c << 17 | c >>> 15) + d2 << 0;
-            b += (a ^ c & (d2 ^ a)) + blocks2[3] - 1044525330;
-            b = (b << 22 | b >>> 10) + c << 0;
+            d = this.h3;
+            a += (d ^ b2 & (c ^ d)) + blocks2[0] - 680876936;
+            a = (a << 7 | a >>> 25) + b2 << 0;
+            d += (c ^ a & (b2 ^ c)) + blocks2[1] - 389564586;
+            d = (d << 12 | d >>> 20) + a << 0;
+            c += (b2 ^ d & (a ^ b2)) + blocks2[2] + 606105819;
+            c = (c << 17 | c >>> 15) + d << 0;
+            b2 += (a ^ c & (d ^ a)) + blocks2[3] - 1044525330;
+            b2 = (b2 << 22 | b2 >>> 10) + c << 0;
           }
-          a += (d2 ^ b & (c ^ d2)) + blocks2[4] - 176418897;
-          a = (a << 7 | a >>> 25) + b << 0;
-          d2 += (c ^ a & (b ^ c)) + blocks2[5] + 1200080426;
-          d2 = (d2 << 12 | d2 >>> 20) + a << 0;
-          c += (b ^ d2 & (a ^ b)) + blocks2[6] - 1473231341;
-          c = (c << 17 | c >>> 15) + d2 << 0;
-          b += (a ^ c & (d2 ^ a)) + blocks2[7] - 45705983;
-          b = (b << 22 | b >>> 10) + c << 0;
-          a += (d2 ^ b & (c ^ d2)) + blocks2[8] + 1770035416;
-          a = (a << 7 | a >>> 25) + b << 0;
-          d2 += (c ^ a & (b ^ c)) + blocks2[9] - 1958414417;
-          d2 = (d2 << 12 | d2 >>> 20) + a << 0;
-          c += (b ^ d2 & (a ^ b)) + blocks2[10] - 42063;
-          c = (c << 17 | c >>> 15) + d2 << 0;
-          b += (a ^ c & (d2 ^ a)) + blocks2[11] - 1990404162;
-          b = (b << 22 | b >>> 10) + c << 0;
-          a += (d2 ^ b & (c ^ d2)) + blocks2[12] + 1804603682;
-          a = (a << 7 | a >>> 25) + b << 0;
-          d2 += (c ^ a & (b ^ c)) + blocks2[13] - 40341101;
-          d2 = (d2 << 12 | d2 >>> 20) + a << 0;
-          c += (b ^ d2 & (a ^ b)) + blocks2[14] - 1502002290;
-          c = (c << 17 | c >>> 15) + d2 << 0;
-          b += (a ^ c & (d2 ^ a)) + blocks2[15] + 1236535329;
-          b = (b << 22 | b >>> 10) + c << 0;
-          a += (c ^ d2 & (b ^ c)) + blocks2[1] - 165796510;
-          a = (a << 5 | a >>> 27) + b << 0;
-          d2 += (b ^ c & (a ^ b)) + blocks2[6] - 1069501632;
-          d2 = (d2 << 9 | d2 >>> 23) + a << 0;
-          c += (a ^ b & (d2 ^ a)) + blocks2[11] + 643717713;
-          c = (c << 14 | c >>> 18) + d2 << 0;
-          b += (d2 ^ a & (c ^ d2)) + blocks2[0] - 373897302;
-          b = (b << 20 | b >>> 12) + c << 0;
-          a += (c ^ d2 & (b ^ c)) + blocks2[5] - 701558691;
-          a = (a << 5 | a >>> 27) + b << 0;
-          d2 += (b ^ c & (a ^ b)) + blocks2[10] + 38016083;
-          d2 = (d2 << 9 | d2 >>> 23) + a << 0;
-          c += (a ^ b & (d2 ^ a)) + blocks2[15] - 660478335;
-          c = (c << 14 | c >>> 18) + d2 << 0;
-          b += (d2 ^ a & (c ^ d2)) + blocks2[4] - 405537848;
-          b = (b << 20 | b >>> 12) + c << 0;
-          a += (c ^ d2 & (b ^ c)) + blocks2[9] + 568446438;
-          a = (a << 5 | a >>> 27) + b << 0;
-          d2 += (b ^ c & (a ^ b)) + blocks2[14] - 1019803690;
-          d2 = (d2 << 9 | d2 >>> 23) + a << 0;
-          c += (a ^ b & (d2 ^ a)) + blocks2[3] - 187363961;
-          c = (c << 14 | c >>> 18) + d2 << 0;
-          b += (d2 ^ a & (c ^ d2)) + blocks2[8] + 1163531501;
-          b = (b << 20 | b >>> 12) + c << 0;
-          a += (c ^ d2 & (b ^ c)) + blocks2[13] - 1444681467;
-          a = (a << 5 | a >>> 27) + b << 0;
-          d2 += (b ^ c & (a ^ b)) + blocks2[2] - 51403784;
-          d2 = (d2 << 9 | d2 >>> 23) + a << 0;
-          c += (a ^ b & (d2 ^ a)) + blocks2[7] + 1735328473;
-          c = (c << 14 | c >>> 18) + d2 << 0;
-          b += (d2 ^ a & (c ^ d2)) + blocks2[12] - 1926607734;
-          b = (b << 20 | b >>> 12) + c << 0;
-          bc = b ^ c;
-          a += (bc ^ d2) + blocks2[5] - 378558;
-          a = (a << 4 | a >>> 28) + b << 0;
-          d2 += (bc ^ a) + blocks2[8] - 2022574463;
-          d2 = (d2 << 11 | d2 >>> 21) + a << 0;
-          da = d2 ^ a;
-          c += (da ^ b) + blocks2[11] + 1839030562;
-          c = (c << 16 | c >>> 16) + d2 << 0;
-          b += (da ^ c) + blocks2[14] - 35309556;
-          b = (b << 23 | b >>> 9) + c << 0;
-          bc = b ^ c;
-          a += (bc ^ d2) + blocks2[1] - 1530992060;
-          a = (a << 4 | a >>> 28) + b << 0;
-          d2 += (bc ^ a) + blocks2[4] + 1272893353;
-          d2 = (d2 << 11 | d2 >>> 21) + a << 0;
-          da = d2 ^ a;
-          c += (da ^ b) + blocks2[7] - 155497632;
-          c = (c << 16 | c >>> 16) + d2 << 0;
-          b += (da ^ c) + blocks2[10] - 1094730640;
-          b = (b << 23 | b >>> 9) + c << 0;
-          bc = b ^ c;
-          a += (bc ^ d2) + blocks2[13] + 681279174;
-          a = (a << 4 | a >>> 28) + b << 0;
-          d2 += (bc ^ a) + blocks2[0] - 358537222;
-          d2 = (d2 << 11 | d2 >>> 21) + a << 0;
-          da = d2 ^ a;
-          c += (da ^ b) + blocks2[3] - 722521979;
-          c = (c << 16 | c >>> 16) + d2 << 0;
-          b += (da ^ c) + blocks2[6] + 76029189;
-          b = (b << 23 | b >>> 9) + c << 0;
-          bc = b ^ c;
-          a += (bc ^ d2) + blocks2[9] - 640364487;
-          a = (a << 4 | a >>> 28) + b << 0;
-          d2 += (bc ^ a) + blocks2[12] - 421815835;
-          d2 = (d2 << 11 | d2 >>> 21) + a << 0;
-          da = d2 ^ a;
-          c += (da ^ b) + blocks2[15] + 530742520;
-          c = (c << 16 | c >>> 16) + d2 << 0;
-          b += (da ^ c) + blocks2[2] - 995338651;
-          b = (b << 23 | b >>> 9) + c << 0;
-          a += (c ^ (b | ~d2)) + blocks2[0] - 198630844;
-          a = (a << 6 | a >>> 26) + b << 0;
-          d2 += (b ^ (a | ~c)) + blocks2[7] + 1126891415;
-          d2 = (d2 << 10 | d2 >>> 22) + a << 0;
-          c += (a ^ (d2 | ~b)) + blocks2[14] - 1416354905;
-          c = (c << 15 | c >>> 17) + d2 << 0;
-          b += (d2 ^ (c | ~a)) + blocks2[5] - 57434055;
-          b = (b << 21 | b >>> 11) + c << 0;
-          a += (c ^ (b | ~d2)) + blocks2[12] + 1700485571;
-          a = (a << 6 | a >>> 26) + b << 0;
-          d2 += (b ^ (a | ~c)) + blocks2[3] - 1894986606;
-          d2 = (d2 << 10 | d2 >>> 22) + a << 0;
-          c += (a ^ (d2 | ~b)) + blocks2[10] - 1051523;
-          c = (c << 15 | c >>> 17) + d2 << 0;
-          b += (d2 ^ (c | ~a)) + blocks2[1] - 2054922799;
-          b = (b << 21 | b >>> 11) + c << 0;
-          a += (c ^ (b | ~d2)) + blocks2[8] + 1873313359;
-          a = (a << 6 | a >>> 26) + b << 0;
-          d2 += (b ^ (a | ~c)) + blocks2[15] - 30611744;
-          d2 = (d2 << 10 | d2 >>> 22) + a << 0;
-          c += (a ^ (d2 | ~b)) + blocks2[6] - 1560198380;
-          c = (c << 15 | c >>> 17) + d2 << 0;
-          b += (d2 ^ (c | ~a)) + blocks2[13] + 1309151649;
-          b = (b << 21 | b >>> 11) + c << 0;
-          a += (c ^ (b | ~d2)) + blocks2[4] - 145523070;
-          a = (a << 6 | a >>> 26) + b << 0;
-          d2 += (b ^ (a | ~c)) + blocks2[11] - 1120210379;
-          d2 = (d2 << 10 | d2 >>> 22) + a << 0;
-          c += (a ^ (d2 | ~b)) + blocks2[2] + 718787259;
-          c = (c << 15 | c >>> 17) + d2 << 0;
-          b += (d2 ^ (c | ~a)) + blocks2[9] - 343485551;
-          b = (b << 21 | b >>> 11) + c << 0;
+          a += (d ^ b2 & (c ^ d)) + blocks2[4] - 176418897;
+          a = (a << 7 | a >>> 25) + b2 << 0;
+          d += (c ^ a & (b2 ^ c)) + blocks2[5] + 1200080426;
+          d = (d << 12 | d >>> 20) + a << 0;
+          c += (b2 ^ d & (a ^ b2)) + blocks2[6] - 1473231341;
+          c = (c << 17 | c >>> 15) + d << 0;
+          b2 += (a ^ c & (d ^ a)) + blocks2[7] - 45705983;
+          b2 = (b2 << 22 | b2 >>> 10) + c << 0;
+          a += (d ^ b2 & (c ^ d)) + blocks2[8] + 1770035416;
+          a = (a << 7 | a >>> 25) + b2 << 0;
+          d += (c ^ a & (b2 ^ c)) + blocks2[9] - 1958414417;
+          d = (d << 12 | d >>> 20) + a << 0;
+          c += (b2 ^ d & (a ^ b2)) + blocks2[10] - 42063;
+          c = (c << 17 | c >>> 15) + d << 0;
+          b2 += (a ^ c & (d ^ a)) + blocks2[11] - 1990404162;
+          b2 = (b2 << 22 | b2 >>> 10) + c << 0;
+          a += (d ^ b2 & (c ^ d)) + blocks2[12] + 1804603682;
+          a = (a << 7 | a >>> 25) + b2 << 0;
+          d += (c ^ a & (b2 ^ c)) + blocks2[13] - 40341101;
+          d = (d << 12 | d >>> 20) + a << 0;
+          c += (b2 ^ d & (a ^ b2)) + blocks2[14] - 1502002290;
+          c = (c << 17 | c >>> 15) + d << 0;
+          b2 += (a ^ c & (d ^ a)) + blocks2[15] + 1236535329;
+          b2 = (b2 << 22 | b2 >>> 10) + c << 0;
+          a += (c ^ d & (b2 ^ c)) + blocks2[1] - 165796510;
+          a = (a << 5 | a >>> 27) + b2 << 0;
+          d += (b2 ^ c & (a ^ b2)) + blocks2[6] - 1069501632;
+          d = (d << 9 | d >>> 23) + a << 0;
+          c += (a ^ b2 & (d ^ a)) + blocks2[11] + 643717713;
+          c = (c << 14 | c >>> 18) + d << 0;
+          b2 += (d ^ a & (c ^ d)) + blocks2[0] - 373897302;
+          b2 = (b2 << 20 | b2 >>> 12) + c << 0;
+          a += (c ^ d & (b2 ^ c)) + blocks2[5] - 701558691;
+          a = (a << 5 | a >>> 27) + b2 << 0;
+          d += (b2 ^ c & (a ^ b2)) + blocks2[10] + 38016083;
+          d = (d << 9 | d >>> 23) + a << 0;
+          c += (a ^ b2 & (d ^ a)) + blocks2[15] - 660478335;
+          c = (c << 14 | c >>> 18) + d << 0;
+          b2 += (d ^ a & (c ^ d)) + blocks2[4] - 405537848;
+          b2 = (b2 << 20 | b2 >>> 12) + c << 0;
+          a += (c ^ d & (b2 ^ c)) + blocks2[9] + 568446438;
+          a = (a << 5 | a >>> 27) + b2 << 0;
+          d += (b2 ^ c & (a ^ b2)) + blocks2[14] - 1019803690;
+          d = (d << 9 | d >>> 23) + a << 0;
+          c += (a ^ b2 & (d ^ a)) + blocks2[3] - 187363961;
+          c = (c << 14 | c >>> 18) + d << 0;
+          b2 += (d ^ a & (c ^ d)) + blocks2[8] + 1163531501;
+          b2 = (b2 << 20 | b2 >>> 12) + c << 0;
+          a += (c ^ d & (b2 ^ c)) + blocks2[13] - 1444681467;
+          a = (a << 5 | a >>> 27) + b2 << 0;
+          d += (b2 ^ c & (a ^ b2)) + blocks2[2] - 51403784;
+          d = (d << 9 | d >>> 23) + a << 0;
+          c += (a ^ b2 & (d ^ a)) + blocks2[7] + 1735328473;
+          c = (c << 14 | c >>> 18) + d << 0;
+          b2 += (d ^ a & (c ^ d)) + blocks2[12] - 1926607734;
+          b2 = (b2 << 20 | b2 >>> 12) + c << 0;
+          bc = b2 ^ c;
+          a += (bc ^ d) + blocks2[5] - 378558;
+          a = (a << 4 | a >>> 28) + b2 << 0;
+          d += (bc ^ a) + blocks2[8] - 2022574463;
+          d = (d << 11 | d >>> 21) + a << 0;
+          da = d ^ a;
+          c += (da ^ b2) + blocks2[11] + 1839030562;
+          c = (c << 16 | c >>> 16) + d << 0;
+          b2 += (da ^ c) + blocks2[14] - 35309556;
+          b2 = (b2 << 23 | b2 >>> 9) + c << 0;
+          bc = b2 ^ c;
+          a += (bc ^ d) + blocks2[1] - 1530992060;
+          a = (a << 4 | a >>> 28) + b2 << 0;
+          d += (bc ^ a) + blocks2[4] + 1272893353;
+          d = (d << 11 | d >>> 21) + a << 0;
+          da = d ^ a;
+          c += (da ^ b2) + blocks2[7] - 155497632;
+          c = (c << 16 | c >>> 16) + d << 0;
+          b2 += (da ^ c) + blocks2[10] - 1094730640;
+          b2 = (b2 << 23 | b2 >>> 9) + c << 0;
+          bc = b2 ^ c;
+          a += (bc ^ d) + blocks2[13] + 681279174;
+          a = (a << 4 | a >>> 28) + b2 << 0;
+          d += (bc ^ a) + blocks2[0] - 358537222;
+          d = (d << 11 | d >>> 21) + a << 0;
+          da = d ^ a;
+          c += (da ^ b2) + blocks2[3] - 722521979;
+          c = (c << 16 | c >>> 16) + d << 0;
+          b2 += (da ^ c) + blocks2[6] + 76029189;
+          b2 = (b2 << 23 | b2 >>> 9) + c << 0;
+          bc = b2 ^ c;
+          a += (bc ^ d) + blocks2[9] - 640364487;
+          a = (a << 4 | a >>> 28) + b2 << 0;
+          d += (bc ^ a) + blocks2[12] - 421815835;
+          d = (d << 11 | d >>> 21) + a << 0;
+          da = d ^ a;
+          c += (da ^ b2) + blocks2[15] + 530742520;
+          c = (c << 16 | c >>> 16) + d << 0;
+          b2 += (da ^ c) + blocks2[2] - 995338651;
+          b2 = (b2 << 23 | b2 >>> 9) + c << 0;
+          a += (c ^ (b2 | ~d)) + blocks2[0] - 198630844;
+          a = (a << 6 | a >>> 26) + b2 << 0;
+          d += (b2 ^ (a | ~c)) + blocks2[7] + 1126891415;
+          d = (d << 10 | d >>> 22) + a << 0;
+          c += (a ^ (d | ~b2)) + blocks2[14] - 1416354905;
+          c = (c << 15 | c >>> 17) + d << 0;
+          b2 += (d ^ (c | ~a)) + blocks2[5] - 57434055;
+          b2 = (b2 << 21 | b2 >>> 11) + c << 0;
+          a += (c ^ (b2 | ~d)) + blocks2[12] + 1700485571;
+          a = (a << 6 | a >>> 26) + b2 << 0;
+          d += (b2 ^ (a | ~c)) + blocks2[3] - 1894986606;
+          d = (d << 10 | d >>> 22) + a << 0;
+          c += (a ^ (d | ~b2)) + blocks2[10] - 1051523;
+          c = (c << 15 | c >>> 17) + d << 0;
+          b2 += (d ^ (c | ~a)) + blocks2[1] - 2054922799;
+          b2 = (b2 << 21 | b2 >>> 11) + c << 0;
+          a += (c ^ (b2 | ~d)) + blocks2[8] + 1873313359;
+          a = (a << 6 | a >>> 26) + b2 << 0;
+          d += (b2 ^ (a | ~c)) + blocks2[15] - 30611744;
+          d = (d << 10 | d >>> 22) + a << 0;
+          c += (a ^ (d | ~b2)) + blocks2[6] - 1560198380;
+          c = (c << 15 | c >>> 17) + d << 0;
+          b2 += (d ^ (c | ~a)) + blocks2[13] + 1309151649;
+          b2 = (b2 << 21 | b2 >>> 11) + c << 0;
+          a += (c ^ (b2 | ~d)) + blocks2[4] - 145523070;
+          a = (a << 6 | a >>> 26) + b2 << 0;
+          d += (b2 ^ (a | ~c)) + blocks2[11] - 1120210379;
+          d = (d << 10 | d >>> 22) + a << 0;
+          c += (a ^ (d | ~b2)) + blocks2[2] + 718787259;
+          c = (c << 15 | c >>> 17) + d << 0;
+          b2 += (d ^ (c | ~a)) + blocks2[9] - 343485551;
+          b2 = (b2 << 21 | b2 >>> 11) + c << 0;
           if (this.first) {
             this.h0 = a + 1732584193 << 0;
-            this.h1 = b - 271733879 << 0;
+            this.h1 = b2 - 271733879 << 0;
             this.h2 = c - 1732584194 << 0;
-            this.h3 = d2 + 271733878 << 0;
+            this.h3 = d + 271733878 << 0;
             this.first = false;
           } else {
             this.h0 = this.h0 + a << 0;
-            this.h1 = this.h1 + b << 0;
+            this.h1 = this.h1 + b2 << 0;
             this.h2 = this.h2 + c << 0;
-            this.h3 = this.h3 + d2 << 0;
+            this.h3 = this.h3 + d << 0;
           }
         };
         Md5.prototype.hex = function() {
@@ -21699,104 +21699,104 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           this.hash();
         };
         Sha1.prototype.hash = function() {
-          var a = this.h0, b = this.h1, c = this.h2, d2 = this.h3, e = this.h4;
-          var f, j, t, blocks2 = this.blocks;
+          var a = this.h0, b2 = this.h1, c = this.h2, d = this.h3, e = this.h4;
+          var f2, j, t, blocks2 = this.blocks;
           for (j = 16; j < 80; ++j) {
             t = blocks2[j - 3] ^ blocks2[j - 8] ^ blocks2[j - 14] ^ blocks2[j - 16];
             blocks2[j] = t << 1 | t >>> 31;
           }
           for (j = 0; j < 20; j += 5) {
-            f = b & c | ~b & d2;
+            f2 = b2 & c | ~b2 & d;
             t = a << 5 | a >>> 27;
-            e = t + f + e + 1518500249 + blocks2[j] << 0;
-            b = b << 30 | b >>> 2;
-            f = a & b | ~a & c;
+            e = t + f2 + e + 1518500249 + blocks2[j] << 0;
+            b2 = b2 << 30 | b2 >>> 2;
+            f2 = a & b2 | ~a & c;
             t = e << 5 | e >>> 27;
-            d2 = t + f + d2 + 1518500249 + blocks2[j + 1] << 0;
+            d = t + f2 + d + 1518500249 + blocks2[j + 1] << 0;
             a = a << 30 | a >>> 2;
-            f = e & a | ~e & b;
-            t = d2 << 5 | d2 >>> 27;
-            c = t + f + c + 1518500249 + blocks2[j + 2] << 0;
+            f2 = e & a | ~e & b2;
+            t = d << 5 | d >>> 27;
+            c = t + f2 + c + 1518500249 + blocks2[j + 2] << 0;
             e = e << 30 | e >>> 2;
-            f = d2 & e | ~d2 & a;
+            f2 = d & e | ~d & a;
             t = c << 5 | c >>> 27;
-            b = t + f + b + 1518500249 + blocks2[j + 3] << 0;
-            d2 = d2 << 30 | d2 >>> 2;
-            f = c & d2 | ~c & e;
-            t = b << 5 | b >>> 27;
-            a = t + f + a + 1518500249 + blocks2[j + 4] << 0;
+            b2 = t + f2 + b2 + 1518500249 + blocks2[j + 3] << 0;
+            d = d << 30 | d >>> 2;
+            f2 = c & d | ~c & e;
+            t = b2 << 5 | b2 >>> 27;
+            a = t + f2 + a + 1518500249 + blocks2[j + 4] << 0;
             c = c << 30 | c >>> 2;
           }
           for (; j < 40; j += 5) {
-            f = b ^ c ^ d2;
+            f2 = b2 ^ c ^ d;
             t = a << 5 | a >>> 27;
-            e = t + f + e + 1859775393 + blocks2[j] << 0;
-            b = b << 30 | b >>> 2;
-            f = a ^ b ^ c;
+            e = t + f2 + e + 1859775393 + blocks2[j] << 0;
+            b2 = b2 << 30 | b2 >>> 2;
+            f2 = a ^ b2 ^ c;
             t = e << 5 | e >>> 27;
-            d2 = t + f + d2 + 1859775393 + blocks2[j + 1] << 0;
+            d = t + f2 + d + 1859775393 + blocks2[j + 1] << 0;
             a = a << 30 | a >>> 2;
-            f = e ^ a ^ b;
-            t = d2 << 5 | d2 >>> 27;
-            c = t + f + c + 1859775393 + blocks2[j + 2] << 0;
+            f2 = e ^ a ^ b2;
+            t = d << 5 | d >>> 27;
+            c = t + f2 + c + 1859775393 + blocks2[j + 2] << 0;
             e = e << 30 | e >>> 2;
-            f = d2 ^ e ^ a;
+            f2 = d ^ e ^ a;
             t = c << 5 | c >>> 27;
-            b = t + f + b + 1859775393 + blocks2[j + 3] << 0;
-            d2 = d2 << 30 | d2 >>> 2;
-            f = c ^ d2 ^ e;
-            t = b << 5 | b >>> 27;
-            a = t + f + a + 1859775393 + blocks2[j + 4] << 0;
+            b2 = t + f2 + b2 + 1859775393 + blocks2[j + 3] << 0;
+            d = d << 30 | d >>> 2;
+            f2 = c ^ d ^ e;
+            t = b2 << 5 | b2 >>> 27;
+            a = t + f2 + a + 1859775393 + blocks2[j + 4] << 0;
             c = c << 30 | c >>> 2;
           }
           for (; j < 60; j += 5) {
-            f = b & c | b & d2 | c & d2;
+            f2 = b2 & c | b2 & d | c & d;
             t = a << 5 | a >>> 27;
-            e = t + f + e - 1894007588 + blocks2[j] << 0;
-            b = b << 30 | b >>> 2;
-            f = a & b | a & c | b & c;
+            e = t + f2 + e - 1894007588 + blocks2[j] << 0;
+            b2 = b2 << 30 | b2 >>> 2;
+            f2 = a & b2 | a & c | b2 & c;
             t = e << 5 | e >>> 27;
-            d2 = t + f + d2 - 1894007588 + blocks2[j + 1] << 0;
+            d = t + f2 + d - 1894007588 + blocks2[j + 1] << 0;
             a = a << 30 | a >>> 2;
-            f = e & a | e & b | a & b;
-            t = d2 << 5 | d2 >>> 27;
-            c = t + f + c - 1894007588 + blocks2[j + 2] << 0;
+            f2 = e & a | e & b2 | a & b2;
+            t = d << 5 | d >>> 27;
+            c = t + f2 + c - 1894007588 + blocks2[j + 2] << 0;
             e = e << 30 | e >>> 2;
-            f = d2 & e | d2 & a | e & a;
+            f2 = d & e | d & a | e & a;
             t = c << 5 | c >>> 27;
-            b = t + f + b - 1894007588 + blocks2[j + 3] << 0;
-            d2 = d2 << 30 | d2 >>> 2;
-            f = c & d2 | c & e | d2 & e;
-            t = b << 5 | b >>> 27;
-            a = t + f + a - 1894007588 + blocks2[j + 4] << 0;
+            b2 = t + f2 + b2 - 1894007588 + blocks2[j + 3] << 0;
+            d = d << 30 | d >>> 2;
+            f2 = c & d | c & e | d & e;
+            t = b2 << 5 | b2 >>> 27;
+            a = t + f2 + a - 1894007588 + blocks2[j + 4] << 0;
             c = c << 30 | c >>> 2;
           }
           for (; j < 80; j += 5) {
-            f = b ^ c ^ d2;
+            f2 = b2 ^ c ^ d;
             t = a << 5 | a >>> 27;
-            e = t + f + e - 899497514 + blocks2[j] << 0;
-            b = b << 30 | b >>> 2;
-            f = a ^ b ^ c;
+            e = t + f2 + e - 899497514 + blocks2[j] << 0;
+            b2 = b2 << 30 | b2 >>> 2;
+            f2 = a ^ b2 ^ c;
             t = e << 5 | e >>> 27;
-            d2 = t + f + d2 - 899497514 + blocks2[j + 1] << 0;
+            d = t + f2 + d - 899497514 + blocks2[j + 1] << 0;
             a = a << 30 | a >>> 2;
-            f = e ^ a ^ b;
-            t = d2 << 5 | d2 >>> 27;
-            c = t + f + c - 899497514 + blocks2[j + 2] << 0;
+            f2 = e ^ a ^ b2;
+            t = d << 5 | d >>> 27;
+            c = t + f2 + c - 899497514 + blocks2[j + 2] << 0;
             e = e << 30 | e >>> 2;
-            f = d2 ^ e ^ a;
+            f2 = d ^ e ^ a;
             t = c << 5 | c >>> 27;
-            b = t + f + b - 899497514 + blocks2[j + 3] << 0;
-            d2 = d2 << 30 | d2 >>> 2;
-            f = c ^ d2 ^ e;
-            t = b << 5 | b >>> 27;
-            a = t + f + a - 899497514 + blocks2[j + 4] << 0;
+            b2 = t + f2 + b2 - 899497514 + blocks2[j + 3] << 0;
+            d = d << 30 | d >>> 2;
+            f2 = c ^ d ^ e;
+            t = b2 << 5 | b2 >>> 27;
+            a = t + f2 + a - 899497514 + blocks2[j + 4] << 0;
             c = c << 30 | c >>> 2;
           }
           this.h0 = this.h0 + a << 0;
-          this.h1 = this.h1 + b << 0;
+          this.h1 = this.h1 + b2 << 0;
           this.h2 = this.h2 + c << 0;
-          this.h3 = this.h3 + d2 << 0;
+          this.h3 = this.h3 + d << 0;
           this.h4 = this.h4 + e << 0;
         };
         Sha1.prototype.hex = function() {
@@ -24374,9 +24374,9 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
                   if (currentNode.value instanceof Token) {
                     continue;
                   }
-                  for (var k2 = currentNode; k2 !== tokenList.tail && (p < to || typeof k2.value === "string"); k2 = k2.next) {
+                  for (var k = currentNode; k !== tokenList.tail && (p < to || typeof k.value === "string"); k = k.next) {
                     removeCount++;
-                    p += k2.value.length;
+                    p += k.value.length;
                   }
                   removeCount--;
                   str = text.slice(pos, p);
@@ -30717,7 +30717,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
 
   // ../lib/index.js
   var import_react7 = __toESM(require_react());
-  var $ = __toESM(require_react_dom());
+  var W = __toESM(require_react_dom());
   var import_uuid_by_string = __toESM(require_src());
   var import_classnames = __toESM(require_classnames());
   var import_jsx_runtime = __toESM(require_jsx_runtime());
@@ -30740,7 +30740,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   var import_react10 = __toESM(require_react());
   var import_jsx_runtime9 = __toESM(require_jsx_runtime());
   var import_react11 = __toESM(require_react());
-  var Te = __toESM(require_react_dom());
+  var ke = __toESM(require_react_dom());
 
   // ../node_modules/tslib/tslib.es6.mjs
   var __assign = function() {
@@ -30770,9 +30770,9 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   function __spreadArrays() {
     for (var s = 0, i = 0, il = arguments.length; i < il; i++)
       s += arguments[i].length;
-    for (var r = Array(s), k2 = 0, i = 0; i < il; i++)
-      for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k2++)
-        r[k2] = a[j];
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+      for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+        r[k] = a[j];
     return r;
   }
   function __spreadArray(to, from, pack) {
@@ -31505,14 +31505,14 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   };
 
   // ../node_modules/focus-lock/dist/es2015/utils/tabOrder.js
-  var tabSort = function(a, b) {
-    var tabDiff = a.tabIndex - b.tabIndex;
-    var indexDiff = a.index - b.index;
+  var tabSort = function(a, b2) {
+    var tabDiff = a.tabIndex - b2.tabIndex;
+    var indexDiff = a.index - b2.index;
     if (tabDiff) {
       if (!a.tabIndex) {
         return 1;
       }
-      if (!b.tabIndex) {
+      if (!b2.tabIndex) {
         return -1;
       }
     }
@@ -32404,8 +32404,8 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
       }
       var isScrollable = elementCouldBeScrolled(axis, current);
       if (isScrollable) {
-        var _a = getScrollVariables(axis, current), s = _a[1], d2 = _a[2];
-        if (s > d2) {
+        var _a = getScrollVariables(axis, current), s = _a[1], d = _a[2];
+        if (s > d) {
           return true;
         }
       }
@@ -32887,132 +32887,132 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   var import_jsx_runtime11 = __toESM(require_jsx_runtime());
   var import_jsx_runtime12 = __toESM(require_jsx_runtime());
   var import_jsx_runtime13 = __toESM(require_jsx_runtime());
-  var Ve = Object.defineProperty;
-  var Ge = Object.defineProperties;
-  var je = Object.getOwnPropertyDescriptors;
-  var O = Object.getOwnPropertySymbols;
-  var ve = Object.prototype.hasOwnProperty;
-  var he = Object.prototype.propertyIsEnumerable;
-  var fe = (t, e, i) => e in t ? Ve(t, e, { enumerable: true, configurable: true, writable: true, value: i }) : t[e] = i;
-  var d = (t, e) => {
+  var Ge = Object.defineProperty;
+  var je = Object.defineProperties;
+  var Oe = Object.getOwnPropertyDescriptors;
+  var X = Object.getOwnPropertySymbols;
+  var he = Object.prototype.hasOwnProperty;
+  var ge = Object.prototype.propertyIsEnumerable;
+  var ve = (t, e, i) => e in t ? Ge(t, e, { enumerable: true, configurable: true, writable: true, value: i }) : t[e] = i;
+  var f = (t, e) => {
     for (var i in e || (e = {}))
-      ve.call(e, i) && fe(t, i, e[i]);
-    if (O)
-      for (var i of O(e))
-        he.call(e, i) && fe(t, i, e[i]);
+      he.call(e, i) && ve(t, i, e[i]);
+    if (X)
+      for (var i of X(e))
+        ge.call(e, i) && ve(t, i, e[i]);
     return t;
   };
-  var w = (t, e) => Ge(t, je(e));
+  var w = (t, e) => je(t, Oe(e));
   var h = (t, e) => {
     var i = {};
     for (var n in t)
-      ve.call(t, n) && e.indexOf(n) < 0 && (i[n] = t[n]);
-    if (t != null && O)
-      for (var n of O(t))
-        e.indexOf(n) < 0 && he.call(t, n) && (i[n] = t[n]);
+      he.call(t, n) && e.indexOf(n) < 0 && (i[n] = t[n]);
+    if (t != null && X)
+      for (var n of X(t))
+        e.indexOf(n) < 0 && ge.call(t, n) && (i[n] = t[n]);
     return i;
   };
-  var X = (t, e, i) => new Promise((n, l) => {
-    var r = (x) => {
+  var A = (t, e, i) => new Promise((n, l) => {
+    var r = (u) => {
       try {
-        u(i.next(x));
-      } catch (c) {
-        l(c);
+        c(i.next(u));
+      } catch (x) {
+        l(x);
       }
-    }, s = (x) => {
+    }, a = (u) => {
       try {
-        u(i.throw(x));
-      } catch (c) {
-        l(c);
+        c(i.throw(u));
+      } catch (x) {
+        l(x);
       }
-    }, u = (x) => x.done ? n(x.value) : Promise.resolve(x.value).then(r, s);
-    u((i = i.apply(t, e)).next());
+    }, c = (u) => u.done ? n(u.value) : Promise.resolve(u.value).then(r, a);
+    c((i = i.apply(t, e)).next());
   });
-  var Xe = { baseline: "vuiFlexContainer--alignItemsBaseline", center: "vuiFlexContainer--alignItemsCenter", end: "vuiFlexContainer--alignItemsEnd", start: "vuiFlexContainer--alignItemsStart", stretch: "vuiFlexContainer--alignItemsStretch" };
-  var Ae = { column: "vuiFlexContainer--directionColumn", columnReverse: "vuiFlexContainer--directionColumnReverse", row: "vuiFlexContainer--directionRow", rowReverse: "vuiFlexContainer--directionRowReverse" };
-  var He = { center: "vuiFlexContainer--justifyContentCenter", end: "vuiFlexContainer--justifyContentEnd", start: "vuiFlexContainer--justifyContentStart", spaceAround: "vuiFlexContainer--justifyContentSpaceAround", spaceBetween: "vuiFlexContainer--justifyContentSpaceBetween", spaceEvenly: "vuiFlexContainer--justifyContentSpaceEvenly" };
-  var qe = { none: "vuiFlexContainer--spacingNone", xxs: "vuiFlexContainer--spacingXxs", xs: "vuiFlexContainer--spacingXs", s: "vuiFlexContainer--spacingS", m: "vuiFlexContainer--spacingM", l: "vuiFlexContainer--spacingL", xl: "vuiFlexContainer--spacingXl", xxl: "vuiFlexContainer--spacingXxl" };
-  var F = (c) => {
-    var f = c, { children: t, alignItems: e = "stretch", direction: i = "row", justifyContent: n = "start", spacing: l = "m", wrap: r, className: s, fullWidth: u } = f, x = h(f, ["children", "alignItems", "direction", "justifyContent", "spacing", "wrap", "className", "fullWidth"]);
-    let v = (0, import_classnames.default)(s, "vuiFlexContainer", Xe[e], Ae[i], He[n], qe[l], { "vuiFlexContainer--wrap": r, "vuiFlexContainer--fullWidth": u });
-    return (0, import_jsx_runtime.jsx)("div", w(d({ className: v }, x), { children: t }));
+  var Ae = { baseline: "vuiFlexContainer--alignItemsBaseline", center: "vuiFlexContainer--alignItemsCenter", end: "vuiFlexContainer--alignItemsEnd", start: "vuiFlexContainer--alignItemsStart", stretch: "vuiFlexContainer--alignItemsStretch" };
+  var He = { column: "vuiFlexContainer--directionColumn", columnReverse: "vuiFlexContainer--directionColumnReverse", row: "vuiFlexContainer--directionRow", rowReverse: "vuiFlexContainer--directionRowReverse" };
+  var qe = { center: "vuiFlexContainer--justifyContentCenter", end: "vuiFlexContainer--justifyContentEnd", start: "vuiFlexContainer--justifyContentStart", spaceAround: "vuiFlexContainer--justifyContentSpaceAround", spaceBetween: "vuiFlexContainer--justifyContentSpaceBetween", spaceEvenly: "vuiFlexContainer--justifyContentSpaceEvenly" };
+  var $e = { none: "vuiFlexContainer--spacingNone", xxs: "vuiFlexContainer--spacingXxs", xs: "vuiFlexContainer--spacingXs", s: "vuiFlexContainer--spacingS", m: "vuiFlexContainer--spacingM", l: "vuiFlexContainer--spacingL", xl: "vuiFlexContainer--spacingXl", xxl: "vuiFlexContainer--spacingXxl" };
+  var F = (x) => {
+    var m = x, { children: t, alignItems: e = "stretch", direction: i = "row", justifyContent: n = "start", spacing: l = "m", wrap: r, className: a, fullWidth: c } = m, u = h(m, ["children", "alignItems", "direction", "justifyContent", "spacing", "wrap", "className", "fullWidth"]);
+    let v = (0, import_classnames.default)(a, "vuiFlexContainer", Ae[e], He[i], qe[n], $e[l], { "vuiFlexContainer--wrap": r, "vuiFlexContainer--fullWidth": c });
+    return (0, import_jsx_runtime.jsx)("div", w(f({ className: v }, u), { children: t }));
   };
-  var Ue = { baseline: "vuiFlexItem--alignItemsBaseline", center: "vuiFlexItem--alignItemsCenter", end: "vuiFlexItem--alignItemsEnd", start: "vuiFlexItem--alignItemsStart", stretch: "vuiFlexItem--alignItemsStretch" };
-  var g = (x) => {
-    var c = x, { children: t, grow: e, shrink: i, basis: n = "auto", alignItems: l = "stretch", className: r, truncate: s } = c, u = h(c, ["children", "grow", "shrink", "basis", "alignItems", "className", "truncate"]);
-    let f = e === false, v = i === false, R = (0, import_classnames2.default)("vuiFlexItem", `vuiFlexItem--${n}`, Ue[l], { [`vuiFlexItem--flexGrow${e}`]: typeof e == "number", "vuiFlexItem--flexGrowNone": f, [`vuiFlexItem--flexShrink${i}`]: typeof i == "number", "vuiFlexItem--flexShrinkNone": v, "vuiFlexItem--truncate": s }, r);
-    return (0, import_jsx_runtime2.jsx)("div", w(d({ className: R }, u), { children: t }));
+  var Ke = { baseline: "vuiFlexItem--alignItemsBaseline", center: "vuiFlexItem--alignItemsCenter", end: "vuiFlexItem--alignItemsEnd", start: "vuiFlexItem--alignItemsStart", stretch: "vuiFlexItem--alignItemsStretch" };
+  var g = (u) => {
+    var x = u, { children: t, grow: e, shrink: i, basis: n = "auto", alignItems: l = "stretch", className: r, truncate: a } = x, c = h(x, ["children", "grow", "shrink", "basis", "alignItems", "className", "truncate"]);
+    let m = e === false, v = i === false, I = (0, import_classnames2.default)("vuiFlexItem", `vuiFlexItem--${n}`, Ke[l], { [`vuiFlexItem--flexGrow${e}`]: typeof e == "number", "vuiFlexItem--flexGrowNone": m, [`vuiFlexItem--flexShrink${i}`]: typeof i == "number", "vuiFlexItem--flexShrinkNone": v, "vuiFlexItem--truncate": a }, r);
+    return (0, import_jsx_runtime2.jsx)("div", w(f({ className: I }, c), { children: t }));
   };
-  var Z = ({ children: t }) => {
+  var J = ({ children: t }) => {
     let e = (0, import_react8.useRef)(null);
     return (0, import_react8.useEffect)(() => (e.current = document.createElement("div"), document.body.appendChild(e.current), () => {
       var i, n;
       (n = (i = e.current) == null ? void 0 : i.parentNode) == null || n.removeChild(e.current);
     }), []), e.current ? (0, import_react_dom.createPortal)(t, e.current) : null;
   };
-  var J = ({ onClick: t, children: e }) => (0, import_jsx_runtime3.jsxs)("div", { className: "vuiScreenBlock", children: [e, (0, import_jsx_runtime3.jsx)("div", { className: "vuiScreenBlock__mask", onClick: t })] });
-  var Q = ({ size: t = "m" }) => {
+  var Q = ({ onClick: t, children: e }) => (0, import_jsx_runtime3.jsxs)("div", { className: "vuiScreenBlock", children: [e, (0, import_jsx_runtime3.jsx)("div", { className: "vuiScreenBlock__mask", onClick: t })] });
+  var Y = ({ size: t = "m" }) => {
     let e = (0, import_classnames3.default)("vuiSpacer", { [`vuiSpacer--${t}`]: t });
     return (0, import_jsx_runtime4.jsx)("div", { className: e });
   };
-  var rt = { xs: "vuiSpinner--xs", s: "vuiSpinner--s", m: "vuiSpinner--m", l: "vuiSpinner--l", xl: "vuiSpinner--xl", xxl: "vuiSpinner--xxl", xxxl: "vuiSpinner--xxxl" };
+  var ot = { xs: "vuiSpinner--xs", s: "vuiSpinner--s", m: "vuiSpinner--m", l: "vuiSpinner--l", xl: "vuiSpinner--xl", xxl: "vuiSpinner--xxl", xxxl: "vuiSpinner--xxxl" };
   var V = ({ color: t = "accent", size: e = "m" }) => {
-    let i = (0, import_classnames4.default)("vuiSpinner", rt[e], `vuiSpinner--${t}`);
+    let i = (0, import_classnames4.default)("vuiSpinner", ot[e], `vuiSpinner--${t}`);
     return (0, import_jsx_runtime5.jsx)("div", { className: i, children: (0, import_jsx_runtime5.jsx)("svg", { version: "1.1", xmlns: "http://www.w3.org/2000/svg", x: "0px", y: "0px", viewBox: "0 0 50 50", children: (0, import_jsx_runtime5.jsx)("path", { fill: "#000", d: "M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z", children: (0, import_jsx_runtime5.jsx)("animateTransform", { attributeType: "xml", attributeName: "transform", type: "rotate", from: "0 25 25", to: "360 25 25", dur: "0.6s", repeatCount: "indefinite" }) }) }) });
   };
-  var z = (u) => {
-    var x = u, { children: t, className: e, id: i, truncate: n, size: l = "s", align: r } = x, s = h(x, ["children", "className", "id", "truncate", "size", "align"]);
-    let c = (0, import_classnames5.default)("vuiText", `vuiText--${l}`, { [`vuiText--${r}`]: r, "vuiText--truncate": n }, e);
-    return (0, import_jsx_runtime6.jsx)("div", w(d({ className: c, id: i }, s), { children: t }));
+  var z = (c) => {
+    var u = c, { children: t, className: e, id: i, truncate: n, size: l = "s", align: r } = u, a = h(u, ["children", "className", "id", "truncate", "size", "align"]);
+    let x = (0, import_classnames5.default)("vuiText", `vuiText--${l}`, { [`vuiText--${r}`]: r, "vuiText--truncate": n }, e);
+    return (0, import_jsx_runtime6.jsx)("div", w(f({ className: x, id: i }, a), { children: t }));
   };
-  var H = 0;
-  var ge = () => (H === Number.MAX_SAFE_INTEGER ? H = 0 : H++, H.toString());
-  var Y = (r) => {
-    var s = r, { id: t, checked: e, onChange: i, label: n } = s, l = h(s, ["id", "checked", "onChange", "label"]);
-    let u, x = {};
-    return n && (u = ge(), x["aria-labelledby"] = u), (0, import_jsx_runtime8.jsxs)(F, { alignItems: "center", spacing: "s", children: [(0, import_jsx_runtime8.jsx)(g, { grow: false, children: (0, import_jsx_runtime8.jsxs)("label", w(d({ className: "vuiToggle" }, l), { children: [(0, import_jsx_runtime8.jsx)("input", d({ className: "vuiToggle__input", type: "checkbox", checked: e, onChange: i, id: t }, x)), (0, import_jsx_runtime8.jsx)("span", { className: "vuiToggle__button" })] })) }), n && (0, import_jsx_runtime8.jsx)(g, { grow: false, children: (0, import_jsx_runtime8.jsx)("div", { id: u, children: n }) })] });
+  var q = 0;
+  var Se = () => (q === Number.MAX_SAFE_INTEGER ? q = 0 : q++, q.toString());
+  var ee = (r) => {
+    var a = r, { id: t, checked: e, onChange: i, label: n } = a, l = h(a, ["id", "checked", "onChange", "label"]);
+    let c, u = {};
+    return n && (c = Se(), u["aria-labelledby"] = c), (0, import_jsx_runtime8.jsxs)(F, { alignItems: "center", spacing: "s", children: [(0, import_jsx_runtime8.jsx)(g, { grow: false, children: (0, import_jsx_runtime8.jsxs)("label", w(f({ className: "vuiToggle" }, l), { children: [(0, import_jsx_runtime8.jsx)("input", f({ className: "vuiToggle__input", type: "checkbox", checked: e, onChange: i, id: t }, u)), (0, import_jsx_runtime8.jsx)("span", { className: "vuiToggle__button" })] })) }), n && (0, import_jsx_runtime8.jsx)(g, { grow: false, children: (0, import_jsx_runtime8.jsx)("div", { id: c, children: n }) })] });
   };
-  var ut = "https://api.vectara.io/v1/query";
-  var we = (t, e, i, n = ut) => {
-    let [l, r] = (0, import_react10.useState)(false), s = import_react10.default.useMemo(() => {
-      let c = new Headers();
-      return c.append("customer-id", t), c.append("x-api-key", i), c.append("content-type", "application/json"), c.append("x-source", "react-search"), c;
-    }, [t, i]), u = (0, import_react10.useCallback)((c, f) => JSON.stringify({ query: [{ query: c, start: 0, numResults: 20, corpusKey: [{ corpusId: e }], summary: f ? [{ maxSummarizedResults: 5, responseLang: "eng" }] : void 0 }] }), [e]);
-    return { fetchSearchResults: (c, f) => X(void 0, null, function* () {
-      var I, S, T, b, B;
-      r(true);
-      let v = u(c, f), E = yield (yield fetch(n, { headers: s, body: v, method: "POST" })).json();
-      r(false);
-      let L = (S = mt((I = E.responseSet) == null ? void 0 : I[0])) != null ? S : [];
-      return { searchResults: ft(L), summary: (B = (b = (T = E.responseSet) == null ? void 0 : T[0].summary) == null ? void 0 : b[0]) == null ? void 0 : B.text };
-    }), isLoading: l };
+  var xt = "https://api.vectara.io/v1/query";
+  var Fe = (t, e, i, n = xt, l) => {
+    let [r, a] = (0, import_react10.useState)(false), c = import_react10.default.useMemo(() => {
+      let m = new Headers();
+      return m.append("customer-id", t), m.append("x-api-key", i), m.append("content-type", "application/json"), m.append("x-source", "react-search"), m;
+    }, [t, i]), u = (0, import_react10.useCallback)((m, v) => JSON.stringify({ query: [{ query: m, rerankingConfig: f({}, l), start: 0, numResults: 20, corpusKey: [{ corpusId: e }], summary: v ? [{ maxSummarizedResults: 5, responseLang: "eng" }] : void 0 }] }), [e, l]);
+    return { fetchSearchResults: (m, v) => A(void 0, null, function* () {
+      var T, C, k, S, B;
+      a(true);
+      let I = u(m, v), E = yield (yield fetch(n, { headers: c, body: I, method: "POST" })).json();
+      a(false);
+      let L = (C = dt((T = E.responseSet) == null ? void 0 : T[0])) != null ? C : [];
+      return { searchResults: vt(L), summary: (B = (S = (k = E.responseSet) == null ? void 0 : k[0].summary) == null ? void 0 : S[0]) == null ? void 0 : B.text };
+    }), isLoading: r };
   };
-  var xt = (t) => {
+  var pt = (t) => {
     let e = {};
     return t.forEach((i) => {
       e[i.name] = i.value;
     }), e;
   };
-  var pt = (t) => {
-    let e = xt(t);
+  var mt = (t) => {
+    let e = pt(t);
     return { source: e.source, url: e.url, title: e.title, metadata: e };
   };
-  var mt = (t) => {
+  var dt = (t) => {
     if (!t)
       return;
     let e = [], { response: i, document: n } = t;
     return i.forEach((l) => {
-      let { documentIndex: r, text: s } = l, { pre: u, post: x, text: c } = dt(s), f = n[Number(r)], { id: v, metadata: R } = f, { source: E, url: L, title: I, metadata: S } = pt(R);
-      e.push({ id: v, snippet: { pre: u, text: c, post: x }, source: E, url: L, title: I, metadata: S });
+      let { documentIndex: r, text: a } = l, { pre: c, post: u, text: x } = ft(a), m = n[Number(r)], { id: v, metadata: I } = m, { source: j, url: E, title: L, metadata: T } = mt(I);
+      e.push({ id: v, snippet: { pre: c, text: x, post: u }, source: j, url: E, title: L, metadata: T });
     }), e;
   };
-  var be = "%START_SNIPPET%";
-  var Ce = "%END_SNIPPET%";
-  var dt = (t) => {
-    let [e, i] = t.indexOf(be) !== -1 ? t.split(be) : ["", t], [n, l] = i.indexOf(Ce) !== -1 ? i.split(Ce) : [i, ""];
+  var Ce = "%START_SNIPPET%";
+  var we = "%END_SNIPPET%";
+  var ft = (t) => {
+    let [e, i] = t.indexOf(Ce) !== -1 ? t.split(Ce) : ["", t], [n, l] = i.indexOf(we) !== -1 ? i.split(we) : [i, ""];
     return { pre: e, post: l, text: n };
   };
-  var ft = (t) => {
+  var vt = (t) => {
     let e = {}, i = [];
     return t.forEach((n) => {
       if (n.url) {
@@ -33023,11 +33023,11 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
       i.push(n);
     }), i;
   };
-  var Fe = ({ searchResult: t, isSelected: e = false, opensInNewTab: i = false }) => {
-    let { title: n, url: l, snippet: { text: r } } = t, s = (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [n && (0, import_jsx_runtime9.jsx)("p", { className: "vrsSearchResultTitle", children: n }), (0, import_jsx_runtime9.jsx)("p", { className: "vrsSearchResultSnippet", children: r })] });
-    return l ? (0, import_jsx_runtime9.jsx)("a", { "data-testid": "vrsResultLink", className: `vrsSearchResult vrsSearchResult-isLink ${e ? "isSelected" : ""}`, href: l, target: i ? "_blank" : "_self", children: s }) : (0, import_jsx_runtime9.jsx)("div", { "data-testid": "vrsResultWrapper", className: "vrsSearchResult", children: s });
+  var ye = ({ searchResult: t, isSelected: e = false, opensInNewTab: i = false }) => {
+    let { title: n, url: l, snippet: { text: r } } = t, a = (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [n && (0, import_jsx_runtime9.jsx)("p", { className: "vrsSearchResultTitle", children: n }), (0, import_jsx_runtime9.jsx)("p", { className: "vrsSearchResultSnippet", children: r })] });
+    return l ? (0, import_jsx_runtime9.jsx)("a", { "data-testid": "vrsResultLink", className: `vrsSearchResult vrsSearchResult-isLink ${e ? "isSelected" : ""}`, href: l, target: i ? "_blank" : "_self", children: a }) : (0, import_jsx_runtime9.jsx)("div", { "data-testid": "vrsResultWrapper", className: "vrsSearchResult", children: a });
   };
-  var ee = `.vuiFlexContainer {
+  var te = `.vuiFlexContainer {
   display: flex;
   align-items: stretch;
 }
@@ -33998,21 +33998,21 @@ fieldset {
     overflow-y: none !important;
   }
 }`;
-  var ke = (0, import_react11.forwardRef)(({ onClose: t, isOpen: e, children: i, zIndex: n }, l) => {
+  var Re = (0, import_react11.forwardRef)(({ onClose: t, isOpen: e, children: i, zIndex: n }, l) => {
     let r = (0, import_react11.useRef)(null);
     (0, import_react11.useEffect)(() => {
-      var u, x, c;
-      e ? r.current = (x = (u = document.activeElement) == null ? void 0 : u.shadowRoot) == null ? void 0 : x.querySelector("button") : ((c = r.current) == null || c.focus(), r.current = null);
+      var c, u, x;
+      e ? r.current = (u = (c = document.activeElement) == null ? void 0 : c.shadowRoot) == null ? void 0 : u.querySelector("button") : ((x = r.current) == null || x.focus(), r.current = null);
     }, [e]);
-    let s = () => {
+    let a = () => {
       window.setTimeout(() => {
         t();
       }, 0);
     };
-    return (0, import_jsx_runtime10.jsx)(Z, { children: e && (0, import_jsx_runtime10.jsx)("div", { className: "vrsModalWrapper", style: { zIndex: n }, children: (0, import_jsx_runtime10.jsx)(J, { children: (0, import_jsx_runtime10.jsx)(FocusOn2, { onEscapeKey: s, onClickOutside: s, returnFocus: false, autoFocus: e, children: (0, import_jsx_runtime10.jsx)(Ct, { ref: l, children: i }) }) }) }) });
+    return (0, import_jsx_runtime10.jsx)(J, { children: e && (0, import_jsx_runtime10.jsx)("div", { className: "vrsModalWrapper", style: { zIndex: n }, children: (0, import_jsx_runtime10.jsx)(Q, { children: (0, import_jsx_runtime10.jsx)(FocusOn2, { onEscapeKey: a, onClickOutside: a, returnFocus: false, autoFocus: e, children: (0, import_jsx_runtime10.jsx)(wt, { ref: l, children: i }) }) }) }) });
   });
-  var bt = ({ ref: t, children: e }) => (0, import_jsx_runtime10.jsx)("div", { className: "vrsSearchModalContainer", children: (0, import_jsx_runtime10.jsx)("div", { ref: t, className: "vrsSearchModal", children: e }) });
-  var te = class extends HTMLElement {
+  var Ct = ({ ref: t, children: e }) => (0, import_jsx_runtime10.jsx)("div", { className: "vrsSearchModalContainer", children: (0, import_jsx_runtime10.jsx)("div", { ref: t, className: "vrsSearchModal", children: e }) });
+  var ie = class extends HTMLElement {
     static get observedAttributes() {
       return ["isopen", "onclosedelayedupdatetime", "reactchildrenupdatetime", "refupdatetime"];
     }
@@ -34028,39 +34028,39 @@ fieldset {
     constructor() {
       super(), this.sr = this.attachShadow({ mode: "open" });
       try {
-        this.sheet = new CSSStyleSheet(), this.sheet.replaceSync(ee), this.sr.adoptedStyleSheets = [this.sheet];
+        this.sheet = new CSSStyleSheet(), this.sheet.replaceSync(te), this.sr.adoptedStyleSheets = [this.sheet];
       } catch (e) {
         let i = document.createElement("style");
-        i.innerText = ee, this.sr.appendChild(i);
+        i.innerText = te, this.sr.appendChild(i);
       }
       this.mountPoint = document.createElement("div"), this.sr.appendChild(this.mountPoint);
     }
     connectedCallback() {
       let e = this.reactChildren, i = this.ref;
-      Te.render((0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: (0, import_jsx_runtime10.jsx)(bt, { ref: i, children: e }) }), this.mountPoint);
+      ke.render((0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: (0, import_jsx_runtime10.jsx)(Ct, { ref: i, children: e }) }), this.mountPoint);
     }
     attributeChangedCallback() {
       this.connectedCallback();
     }
   };
-  window.customElements.get("react-search-modal-contents") || window.customElements.define("react-search-modal-contents", te);
-  var Ct = (t) => {
+  window.customElements.get("react-search-modal-contents") || window.customElements.define("react-search-modal-contents", ie);
+  var wt = (t) => {
     let e = (0, import_react11.useRef)(null);
     return (0, import_react11.useEffect)(() => {
       e.current && (e.current.setReactChildren(t.children), e.current.setRef(t.ref), e.current.setOnCloseDelayed(t.onCloseDelayed));
     }, [t]), (0, import_jsx_runtime10.jsx)("react-search-modal-contents", { ref: e, isOpen: t.isOpen });
   };
-  var Re = (t, e = 10) => {
+  var Ee = (t, e = 10) => {
     let i = (0, import_react12.useCallback)(() => `vectara-search:${t}:history`, [t]), n = (0, import_react12.useCallback)(() => {
       let r = window.localStorage.getItem(i());
       return JSON.parse(r != null ? r : "[]");
     }, [i]), l = (0, import_react12.useCallback)((r) => {
-      let s = n(), u = [r, ...s].slice(0, e);
-      window.localStorage.setItem(i(), JSON.stringify(u));
+      let a = n(), c = [r, ...a].slice(0, e);
+      window.localStorage.setItem(i(), JSON.stringify(c));
     }, [i]);
     return { getPreviousSearches: n, addPreviousSearch: l };
   };
-  var ne = `.vuiFlexContainer {
+  var re = `.vuiFlexContainer {
   display: flex;
   align-items: stretch;
 }
@@ -35734,7 +35734,7 @@ button {
   background-color: rgb(217, 226, 255);
   color: rgb(38, 76, 214);
 }`;
-  var Ft = `.vuiScreenBlock {
+  var yt = `.vuiScreenBlock {
   position: fixed;
   top: 0;
   left: 0;
@@ -35755,117 +35755,117 @@ button {
 .vrsModalWrapper {
   position: fixed;
 }`;
-  document.head.appendChild(document.createElement("style")).appendChild(document.createTextNode(Ft));
-  var Ee = (s) => {
-    var u = s, { value: t, onChange: e, placeholder: i, autoFocus: n, onSubmit: l } = u, r = h(u, ["value", "onChange", "placeholder", "autoFocus", "onSubmit"]);
-    return (0, import_jsx_runtime11.jsx)("input", d({ "data-testid": "searchInput", className: "vrsSearchInput", type: "text", autoComplete: "off", autoCapitalize: "off", spellCheck: "false", autoFocus: n, placeholder: i, value: t, onChange: e }, r));
+  document.head.appendChild(document.createElement("style")).appendChild(document.createTextNode(yt));
+  var Ne = (a) => {
+    var c = a, { value: t, onChange: e, placeholder: i, autoFocus: n, onSubmit: l } = c, r = h(c, ["value", "onChange", "placeholder", "autoFocus", "onSubmit"]);
+    return (0, import_jsx_runtime11.jsx)("input", f({ "data-testid": "searchInput", className: "vrsSearchInput", type: "text", autoComplete: "off", autoCapitalize: "off", spellCheck: "false", autoFocus: n, placeholder: i, value: t, onChange: e }, r));
   };
-  var It = /(^\[(\d+(,*\s*\d*)*)\] ?)|( ?\[(\d+(,*\s*\d*)*)\])/g;
-  var re = (t) => t.replace(It, "");
-  var Ne = ({ isSummaryEnabled: t, setIsSummaryEnabled: e, isLoading: i, summary: n }) => {
-    let l = n ? re(n) : void 0, r;
-    return t && (i ? r = (0, import_jsx_runtime12.jsxs)(F, { spacing: "s", children: [(0, import_jsx_runtime12.jsx)(g, { children: (0, import_jsx_runtime12.jsx)(V, { size: "s" }) }), (0, import_jsx_runtime12.jsx)(g, { children: (0, import_jsx_runtime12.jsx)(z, { children: "Summarizing\u2026" }) })] }) : l && (r = (0, import_jsx_runtime12.jsx)(z, { children: (0, import_jsx_runtime12.jsx)("p", { children: l }) }))), (0, import_jsx_runtime12.jsxs)("div", { className: "vrsAnswerContainer", children: [(0, import_jsx_runtime12.jsx)(Y, { checked: t, onChange: (s) => e(s.target.checked), label: "Summarize seach results" }), r && (0, import_jsx_runtime12.jsxs)(import_jsx_runtime12.Fragment, { children: [(0, import_jsx_runtime12.jsx)(Q, { size: "m" }), r] })] });
+  var Tt = /(^\[(\d+(,*\s*\d*)*)\] ?)|( ?\[(\d+(,*\s*\d*)*)\])/g;
+  var oe = (t) => t.replace(Tt, "");
+  var _e = ({ isSummaryEnabled: t, setIsSummaryEnabled: e, isLoading: i, summary: n }) => {
+    let l = n ? oe(n) : void 0, r;
+    return t && (i ? r = (0, import_jsx_runtime12.jsxs)(F, { spacing: "s", children: [(0, import_jsx_runtime12.jsx)(g, { children: (0, import_jsx_runtime12.jsx)(V, { size: "s" }) }), (0, import_jsx_runtime12.jsx)(g, { children: (0, import_jsx_runtime12.jsx)(z, { children: "Summarizing\u2026" }) })] }) : l && (r = (0, import_jsx_runtime12.jsx)(z, { children: (0, import_jsx_runtime12.jsx)("p", { children: l }) }))), (0, import_jsx_runtime12.jsxs)("div", { className: "vrsAnswerContainer", children: [(0, import_jsx_runtime12.jsx)(ee, { checked: t, onChange: (a) => e(a.target.checked), label: "Summarize seach results" }), r && (0, import_jsx_runtime12.jsxs)(import_jsx_runtime12.Fragment, { children: [(0, import_jsx_runtime12.jsx)(Y, { size: "m" }), r] })] });
   };
-  var Nt = (t, e) => {
+  var _t = (t, e) => {
     let i = t.get(e);
     if (i)
       return decodeURIComponent(i);
   };
-  var _t = ({ customerId: t, apiKey: e, corpusId: i, apiUrl: n, historySize: l = 10, placeholder: r = "Search", isDeepLinkable: s = false, openResultsInNewTab: u = false, zIndex: x = 9999, onToggleSummary: c, isSummaryToggleVisible: f = false, isSummaryToggleInitiallyEnabled: v = false }) => {
-    let R = (0, import_react7.useMemo)(() => (0, import_uuid_by_string.default)(`${t}-${i}-${e}`), [t, i, e]), { addPreviousSearch: E } = Re(R, l), { fetchSearchResults: L, isLoading: I } = we(t, i, e, n), [S, T] = (0, import_react7.useState)(), [b, B] = (0, import_react7.useState)([]), [ze, ce] = (0, import_react7.useState)(), [Me, j] = (0, import_react7.useState)(false), [N, W] = (0, import_react7.useState)(""), [U, ue] = (0, import_react7.useState)(v), Pe = (0, import_react7.useRef)(null), _ = (0, import_react7.useRef)(null), xe = (0, import_react7.useRef)(0);
+  var zt = ({ customerId: t, apiKey: e, corpusId: i, apiUrl: n, historySize: l = 10, placeholder: r = "Search", isDeepLinkable: a = false, openResultsInNewTab: c = false, zIndex: u = 9999, onToggleSummary: x, isSummaryToggleVisible: m = false, isSummaryToggleInitiallyEnabled: v = false, rerankingConfiguration: I }) => {
+    let j = (0, import_react7.useMemo)(() => (0, import_uuid_by_string.default)(`${t}-${i}-${e}`), [t, i, e]), { addPreviousSearch: E } = Ee(j, l), { fetchSearchResults: L, isLoading: T } = Fe(t, i, e, n, I), [C, k] = (0, import_react7.useState)(), [S, B] = (0, import_react7.useState)([]), [Me, ue] = (0, import_react7.useState)(), [Pe, O] = (0, import_react7.useState)(false), [N, U] = (0, import_react7.useState)(""), [K, xe] = (0, import_react7.useState)(v), Le = (0, import_react7.useRef)(null), _ = (0, import_react7.useRef)(null), pe = (0, import_react7.useRef)(0);
     (0, import_react7.useEffect)(() => {
-      ue(v);
+      xe(v);
     }, [v]), (0, import_react7.useEffect)(() => {
-      let a = new URLSearchParams(window.location.search), p = Nt(a, "search");
-      p && (j(true), W(p), D(p));
+      let s = new URLSearchParams(window.location.search), p = _t(s, "search");
+      p && (O(true), U(p), D(p));
     }, []);
-    let D = (a) => X(void 0, null, function* () {
-      if (a.length === 0)
+    let D = (s) => A(void 0, null, function* () {
+      if (s.length === 0)
         return;
-      if (s) {
-        let m = new URLSearchParams(window.location.search);
-        m.set("search", a), history.replaceState(null, "", "?" + m.toString());
+      if (a) {
+        let d = new URLSearchParams(window.location.search);
+        d.set("search", s), history.replaceState(null, "", "?" + d.toString());
       }
-      E(a);
-      let p = ++xe.current;
+      E(s);
+      let p = ++pe.current;
       try {
-        let { searchResults: m, summary: K } = yield L(a, U);
-        p === xe.current && (B(m), ce(K), T(void 0), _.current = null);
-      } catch (m) {
-        console.log("ReactSearch error:" + m);
+        let { searchResults: d, summary: Z } = yield L(s, K);
+        p === pe.current && (B(d), ue(Z), k(void 0), _.current = null);
+      } catch (d) {
+        console.log("ReactSearch error:" + d);
       }
     });
     (0, import_react7.useEffect)(() => {
-      let a = setTimeout(() => {
+      let s = setTimeout(() => {
         D(N);
       }, 500);
-      return () => clearTimeout(a);
+      return () => clearTimeout(s);
     }, [N]), (0, import_react7.useEffect)(() => {
       D(N);
-    }, [U]);
-    let Le = (a) => {
-      let p = a.target.value;
-      W(p), p.length === 0 && pe();
-    }, Be = (0, import_react7.useCallback)((a) => {
-      let p = a.key;
-      p === "Enter" && (a.preventDefault(), S !== void 0 ? window.open(b[S].url, u ? "_blank" : "_self") : D(N)), b.length !== 0 && (p === "ArrowDown" && T((m) => m === void 0 || m === b.length - 1 ? 0 : m + 1), p === "ArrowUp" && T((m) => m === void 0 || m === 0 ? b.length - 1 : m - 1));
-    }, [b, S]), pe = () => {
-      ce(void 0), B([]), T(void 0), _.current = null;
-    }, me = () => {
-      if (j(false), W(""), pe(), s) {
-        let a = new URLSearchParams(window.location.search);
-        a.delete("search"), history.replaceState(null, "", "?" + a.toString());
+    }, [K]);
+    let Be = (s) => {
+      let p = s.target.value;
+      U(p), p.length === 0 && me();
+    }, De = (0, import_react7.useCallback)((s) => {
+      let p = s.key;
+      p === "Enter" && (s.preventDefault(), C !== void 0 ? window.open(S[C].url, c ? "_blank" : "_self") : D(N)), S.length !== 0 && (p === "ArrowDown" && k((d) => d === void 0 || d === S.length - 1 ? 0 : d + 1), p === "ArrowUp" && k((d) => d === void 0 || d === 0 ? S.length - 1 : d - 1));
+    }, [S, C]), me = () => {
+      ue(void 0), B([]), k(void 0), _.current = null;
+    }, de = () => {
+      if (O(false), U(""), me(), a) {
+        let s = new URLSearchParams(window.location.search);
+        s.delete("search"), history.replaceState(null, "", "?" + s.toString());
       }
-    }, de = b.length === 0 ? void 0 : b.map((a, p) => {
-      let { snippet: { pre: m, text: K, post: De } } = a;
-      return (0, import_jsx_runtime13.jsx)("div", { ref: S === p ? _ : void 0, children: (0, import_jsx_runtime13.jsx)(Fe, { searchResult: a, isSelected: S === p, opensInNewTab: u }) }, `${m}${K}${De}`);
+    }, fe = S.length === 0 ? void 0 : S.map((s, p) => {
+      let { snippet: { pre: d, text: Z, post: Ve } } = s;
+      return (0, import_jsx_runtime13.jsx)("div", { ref: C === p ? _ : void 0, children: (0, import_jsx_runtime13.jsx)(ye, { searchResult: s, isSelected: C === p, opensInNewTab: c }) }, `result-${p}-${d}${Z}${Ve}`);
     });
     return (0, import_react7.useEffect)(() => {
       _.current && _.current.scrollIntoView({ behavior: "instant", block: "nearest" });
     }, [_.current]), (0, import_react7.useEffect)(() => {
-      let a = (p) => {
-        p.key === "k" && p.ctrlKey && j(true);
+      let s = (p) => {
+        p.key === "k" && p.ctrlKey && O(true);
       };
-      return document.addEventListener("keyup", a), () => {
-        document.removeEventListener("keyup", a);
+      return document.addEventListener("keyup", s), () => {
+        document.removeEventListener("keyup", s);
       };
-    }, []), (0, import_jsx_runtime13.jsx)(import_jsx_runtime13.Fragment, { children: (0, import_jsx_runtime13.jsxs)("div", { children: [(0, import_jsx_runtime13.jsx)("div", { ref: Pe, children: (0, import_jsx_runtime13.jsx)("button", { className: "vrsSearchButton", onClick: () => j(true), children: (0, import_jsx_runtime13.jsxs)(F, { alignItems: "center", spacing: "none", justifyContent: "spaceBetween", className: "vrsSearchButton__inner", children: [(0, import_jsx_runtime13.jsx)(g, { children: (0, import_jsx_runtime13.jsxs)(F, { alignItems: "center", spacing: "xs", children: [(0, import_jsx_runtime13.jsx)(g, { children: (0, import_jsx_runtime13.jsx)(_e, {}) }), (0, import_jsx_runtime13.jsx)(g, { children: (0, import_jsx_runtime13.jsx)(z, { children: (0, import_jsx_runtime13.jsx)("div", { children: "Search" }) }) })] }) }), (0, import_jsx_runtime13.jsx)("div", { className: "vrsSearchButtonShortcut", children: "Ctrl + K" })] }) }) }), (0, import_jsx_runtime13.jsxs)(ke, { isOpen: Me, onClose: me, zIndex: x, children: [(0, import_jsx_runtime13.jsx)("form", { children: (0, import_jsx_runtime13.jsxs)("div", { className: "vrsSearchForm", children: [(0, import_jsx_runtime13.jsx)("div", { className: "vrsCloseButtonWrapper", children: (0, import_jsx_runtime13.jsx)("button", { className: "vrsSubmitButton", "aria-label": "Close", onClick: (a) => {
-      a.preventDefault(), me();
-    }, children: (0, import_jsx_runtime13.jsx)(zt, { size: "12px" }) }) }), (0, import_jsx_runtime13.jsx)(Ee, { value: N, onChange: Le, onKeyDown: Be, placeholder: r, autoFocus: true }), I ? (0, import_jsx_runtime13.jsx)("div", { className: "vrsSubmitButtonWrapper", children: (0, import_jsx_runtime13.jsx)(V, { size: "xs" }) }) : (0, import_jsx_runtime13.jsx)("div", { className: "vrsSubmitButtonWrapper", children: (0, import_jsx_runtime13.jsx)("button", { className: "vrsSubmitButton", onClick: (a) => {
-      a.preventDefault(), D(N);
-    }, children: (0, import_jsx_runtime13.jsx)(_e, {}) }) })] }) }), f && (0, import_jsx_runtime13.jsx)(Ne, { isSummaryEnabled: U, setIsSummaryEnabled: (a) => {
-      ue(a), c == null || c(a);
-    }, isLoading: I, summary: ze }), de && (0, import_jsx_runtime13.jsx)("div", { className: "vrsSearchModalResults", children: de })] })] }) });
+    }, []), (0, import_jsx_runtime13.jsx)(import_jsx_runtime13.Fragment, { children: (0, import_jsx_runtime13.jsxs)("div", { children: [(0, import_jsx_runtime13.jsx)("div", { ref: Le, children: (0, import_jsx_runtime13.jsx)("button", { className: "vrsSearchButton", onClick: () => O(true), children: (0, import_jsx_runtime13.jsxs)(F, { alignItems: "center", spacing: "none", justifyContent: "spaceBetween", className: "vrsSearchButton__inner", children: [(0, import_jsx_runtime13.jsx)(g, { children: (0, import_jsx_runtime13.jsxs)(F, { alignItems: "center", spacing: "xs", children: [(0, import_jsx_runtime13.jsx)(g, { children: (0, import_jsx_runtime13.jsx)(ze, {}) }), (0, import_jsx_runtime13.jsx)(g, { children: (0, import_jsx_runtime13.jsx)(z, { children: (0, import_jsx_runtime13.jsx)("div", { children: "Search" }) }) })] }) }), (0, import_jsx_runtime13.jsx)("div", { className: "vrsSearchButtonShortcut", children: "Ctrl + K" })] }) }) }), (0, import_jsx_runtime13.jsxs)(Re, { isOpen: Pe, onClose: de, zIndex: u, children: [(0, import_jsx_runtime13.jsx)("form", { children: (0, import_jsx_runtime13.jsxs)("div", { className: "vrsSearchForm", children: [(0, import_jsx_runtime13.jsx)("div", { className: "vrsCloseButtonWrapper", children: (0, import_jsx_runtime13.jsx)("button", { className: "vrsSubmitButton", "aria-label": "Close", onClick: (s) => {
+      s.preventDefault(), de();
+    }, children: (0, import_jsx_runtime13.jsx)(Mt, { size: "12px" }) }) }), (0, import_jsx_runtime13.jsx)(Ne, { value: N, onChange: Be, onKeyDown: De, placeholder: r, autoFocus: true }), T ? (0, import_jsx_runtime13.jsx)("div", { className: "vrsSubmitButtonWrapper", children: (0, import_jsx_runtime13.jsx)(V, { size: "xs" }) }) : (0, import_jsx_runtime13.jsx)("div", { className: "vrsSubmitButtonWrapper", children: (0, import_jsx_runtime13.jsx)("button", { className: "vrsSubmitButton", onClick: (s) => {
+      s.preventDefault(), D(N);
+    }, children: (0, import_jsx_runtime13.jsx)(ze, {}) }) })] }) }), m && (0, import_jsx_runtime13.jsx)(_e, { isSummaryEnabled: K, setIsSummaryEnabled: (s) => {
+      xe(s), x == null || x(s);
+    }, isLoading: T, summary: Me }), fe && (0, import_jsx_runtime13.jsx)("div", { className: "vrsSearchModalResults", children: fe })] })] }) });
   };
-  var _e = () => (0, import_jsx_runtime13.jsx)("div", { children: (0, import_jsx_runtime13.jsxs)("svg", { xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink", fill: "currentColor", height: "17px", width: "17px", version: "1.1", viewBox: "-24.52 -24.52 539.44 539.44", xmlSpace: "preserve", stroke: "currentColor", strokeWidth: "12", children: [(0, import_jsx_runtime13.jsx)("g", { id: "SVGRepo_bgCarrier", strokeWidth: "0" }), (0, import_jsx_runtime13.jsx)("g", { id: "SVGRepo_tracerCarrier", strokeLinecap: "round", strokeLinejoin: "round" }), (0, import_jsx_runtime13.jsx)("g", { id: "SVGRepo_iconCarrier", children: (0, import_jsx_runtime13.jsxs)("g", { children: [(0, import_jsx_runtime13.jsx)("path", { d: "M484.1,454.796l-110.5-110.6c29.8-36.3,47.6-82.8,47.6-133.4c0-116.3-94.3-210.6-210.6-210.6S0,94.496,0,210.796 s94.3,210.6,210.6,210.6c50.8,0,97.4-18,133.8-48l110.5,110.5c12.9,11.8,25,4.2,29.2,0C492.5,475.596,492.5,463.096,484.1,454.796z M41.1,210.796c0-93.6,75.9-169.5,169.5-169.5s169.6,75.9,169.6,169.5s-75.9,169.5-169.5,169.5S41.1,304.396,41.1,210.796z" }), " "] }) })] }) });
-  var zt = ({ size: t }) => (0, import_jsx_runtime13.jsx)("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 329.26933 329", width: t, height: t, fill: "currentColor", children: (0, import_jsx_runtime13.jsx)("path", { d: "m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0" }) });
-  var ae = {};
-  var se = class extends HTMLElement {
+  var ze = () => (0, import_jsx_runtime13.jsx)("div", { children: (0, import_jsx_runtime13.jsxs)("svg", { xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink", fill: "currentColor", height: "17px", width: "17px", version: "1.1", viewBox: "-24.52 -24.52 539.44 539.44", xmlSpace: "preserve", stroke: "currentColor", strokeWidth: "12", children: [(0, import_jsx_runtime13.jsx)("g", { id: "SVGRepo_bgCarrier", strokeWidth: "0" }), (0, import_jsx_runtime13.jsx)("g", { id: "SVGRepo_tracerCarrier", strokeLinecap: "round", strokeLinejoin: "round" }), (0, import_jsx_runtime13.jsx)("g", { id: "SVGRepo_iconCarrier", children: (0, import_jsx_runtime13.jsxs)("g", { children: [(0, import_jsx_runtime13.jsx)("path", { d: "M484.1,454.796l-110.5-110.6c29.8-36.3,47.6-82.8,47.6-133.4c0-116.3-94.3-210.6-210.6-210.6S0,94.496,0,210.796 s94.3,210.6,210.6,210.6c50.8,0,97.4-18,133.8-48l110.5,110.5c12.9,11.8,25,4.2,29.2,0C492.5,475.596,492.5,463.096,484.1,454.796z M41.1,210.796c0-93.6,75.9-169.5,169.5-169.5s169.6,75.9,169.6,169.5s-75.9,169.5-169.5,169.5S41.1,304.396,41.1,210.796z" }), " "] }) })] }) });
+  var Mt = ({ size: t }) => (0, import_jsx_runtime13.jsx)("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 329.26933 329", width: t, height: t, fill: "currentColor", children: (0, import_jsx_runtime13.jsx)("path", { d: "m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0" }) });
+  var se = {};
+  var ce = class extends HTMLElement {
     static get observedAttributes() {
       return ["serializedprops"];
     }
     constructor() {
       super(), this.sr = this.attachShadow({ mode: "open" });
       try {
-        this.sheet = new CSSStyleSheet(), this.sheet.replaceSync(ne), this.sr.adoptedStyleSheets = [this.sheet];
+        this.sheet = new CSSStyleSheet(), this.sheet.replaceSync(re), this.sr.adoptedStyleSheets = [this.sheet];
       } catch (e) {
         let i = document.createElement("style");
-        i.innerText = ne, this.sr.appendChild(i);
+        i.innerText = re, this.sr.appendChild(i);
       }
       this.mountPoint = document.createElement("div"), this.sr.appendChild(this.mountPoint);
     }
     connectedCallback() {
-      $.render((0, import_jsx_runtime13.jsx)(_t, d({}, ae)), this.mountPoint);
+      W.render((0, import_jsx_runtime13.jsx)(zt, f({}, se)), this.mountPoint);
     }
     attributeChangedCallback() {
       this.connectedCallback();
     }
     disconnectedCallback() {
-      $.unmountComponentAtNode(this.mountPoint);
+      W.unmountComponentAtNode(this.mountPoint);
     }
   };
-  window.customElements.get("react-search") || window.customElements.define("react-search", se);
-  var er = (t) => (t && (ae = t), (0, import_jsx_runtime13.jsx)("react-search", { serializedprops: JSON.stringify(ae) }));
+  window.customElements.get("react-search") || window.customElements.define("react-search", ce);
+  var tr = (t) => (t && (se = t), (0, import_jsx_runtime13.jsx)("react-search", { serializedprops: JSON.stringify(se) }));
 
   // src/ui/components/flex/FlexContainer.tsx
   var import_classnames8 = __toESM(require_classnames());
@@ -39137,8 +39137,16 @@ pre[class*="language-"] {
     isSummaryToggleVisible,
     setIsSummaryToggleVisible,
     isSummaryToggleInitiallyEnabled,
-    setIsSummaryToggleInitiallyEnabled
+    setIsSummaryToggleInitiallyEnabled,
+    rerankingConfigurationString,
+    setRerankingConfigurationString
   }) => {
+    const rerankingConfigPlaceholder = `{
+  "rerankerId": 272725718,
+  "mmrConfig": {
+    "diversityBias": 0
+  }
+}`;
     return /* @__PURE__ */ (0, import_jsx_runtime93.jsxs)(
       VuiDrawer,
       {
@@ -39200,6 +39208,19 @@ pre[class*="language-"] {
               checked: isSummaryToggleInitiallyEnabled,
               onChange: (e) => setIsSummaryToggleInitiallyEnabled(e.target.checked),
               id: "summaryToggleInitiallyEnabled"
+            }
+          ) }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "l" }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiTitle, { size: "s", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)("h3", { className: "header", children: "Reranking" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "s" }),
+          /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiFormGroup, { label: "Reranking Configuration", labelFor: "rerankingConfiguration", children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(
+            VuiTextArea,
+            {
+              fullWidth: true,
+              placeholder: rerankingConfigPlaceholder,
+              value: rerankingConfigurationString,
+              onChange: (e) => setRerankingConfigurationString(e.target.value),
+              id: "rerankingConfiguration"
             }
           ) }),
           /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(VuiSpacer, { size: "l" }),
@@ -42301,7 +42322,8 @@ fieldset {
     openResultsInNewTab = false,
     isOnToggleSummaryHandled = false,
     isSummaryToggleVisible = false,
-    isSummaryToggleInitiallyEnabled = false
+    isSummaryToggleInitiallyEnabled = false,
+    rerankingConfiguration
   }) => {
     let quotedPlaceholder = placeholder;
     if (placeholder) {
@@ -42334,6 +42356,9 @@ fieldset {
     if (isSummaryToggleInitiallyEnabled) {
       props.push(`isSummaryToggleInitiallyEnabled={${isSummaryToggleInitiallyEnabled}}`);
     }
+    if (rerankingConfiguration) {
+      props.push(`rerankingConfiguration={${JSON.stringify(rerankingConfiguration)}}`);
+    }
     props.push(`zIndex={ /* (optional) number representing the z-index the search modal should have */ }`);
     return `import { ReactSearch } from "@vectara/react-search";
 
@@ -42360,6 +42385,13 @@ export const App = () => (
     const [isOnToggleSummaryHandled, setIsOnToggleSummaryHandled] = (0, import_react46.useState)(false);
     const [isSummaryToggleVisible, setIsSummaryToggleVisible] = (0, import_react46.useState)(true);
     const [isSummaryToggleInitiallyEnabled, setIsSummaryToggleInitiallyEnabled] = (0, import_react46.useState)(true);
+    const [rerankingConfigurationString, setRerankingConfigurationString] = (0, import_react46.useState)(void 0);
+    let rerankingConfiguration;
+    try {
+      rerankingConfiguration = JSON.parse(rerankingConfigurationString ?? "");
+    } catch {
+      rerankingConfiguration = void 0;
+    }
     return /* @__PURE__ */ (0, import_jsx_runtime94.jsxs)(import_jsx_runtime94.Fragment, { children: [
       /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(
         VuiAppHeader,
@@ -42387,7 +42419,7 @@ export const App = () => (
         /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiText, { children: /* @__PURE__ */ (0, import_jsx_runtime94.jsx)("p", { children: "React-Search adds a Vectara-powered semantic search UI to your React applications with a few lines of code." }) }),
         /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiSpacer, { size: "m" }),
         /* @__PURE__ */ (0, import_jsx_runtime94.jsx)("div", { className: "reactSearchContainer", children: /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(
-          er,
+          tr,
           {
             corpusId: corpusId === "" ? DEFAULT_CORPUS_ID : corpusId,
             customerId: customerId === "" ? DEFAULT_CUSTOMER_ID : customerId,
@@ -42397,7 +42429,8 @@ export const App = () => (
             openResultsInNewTab,
             isSummaryToggleVisible,
             isSummaryToggleInitiallyEnabled,
-            onToggleSummary: (isSummaryEnabled) => console.log(`onToggleSummary callback received isSummaryEnabled: ${isSummaryEnabled}`)
+            onToggleSummary: (isSummaryEnabled) => console.log(`onToggleSummary callback received isSummaryEnabled: ${isSummaryEnabled}`),
+            rerankingConfiguration
           }
         ) }),
         /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiSpacer, { size: "m" }),
@@ -42422,7 +42455,8 @@ export const App = () => (
           openResultsInNewTab,
           isOnToggleSummaryHandled,
           isSummaryToggleVisible,
-          isSummaryToggleInitiallyEnabled
+          isSummaryToggleInitiallyEnabled,
+          rerankingConfiguration
         }) }),
         /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiSpacer, { size: "xxl" }),
         /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(VuiTitle, { size: "m", children: /* @__PURE__ */ (0, import_jsx_runtime94.jsx)("h2", { children: "Create your own view" }) }),
@@ -42483,7 +42517,9 @@ export const App = () => {
             isSummaryToggleVisible,
             setIsSummaryToggleVisible,
             isSummaryToggleInitiallyEnabled,
-            setIsSummaryToggleInitiallyEnabled
+            setIsSummaryToggleInitiallyEnabled,
+            rerankingConfigurationString,
+            setRerankingConfigurationString
           }
         )
       ] }) }) })
