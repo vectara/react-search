@@ -15,6 +15,12 @@ export interface Props {
   // Default is 0.
   historySize?: number;
 
+  // Whether users can use the keyboard shortcut to open the search modal. Defaults to true.
+  isShortcutEnabled?: boolean;
+
+  // The label on the button that opens the search modal.
+  buttonLabel?: string;
+
   // The search input placeholder.
   placeholder?: string;
 

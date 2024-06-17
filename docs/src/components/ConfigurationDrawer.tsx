@@ -21,6 +21,10 @@ type Props = {
   setCustomerId: (customerId: string) => void;
   apiKey: string;
   setApiKey: (apiKey: string) => void;
+  isShortcutEnabled: boolean;
+  setIsShortcutEnabled: (isShortcutEnabled: boolean) => void;
+  buttonLabel: string;
+  setButtonLabel: (buttonLabel: string) => void;
   placeholder: string;
   setPlaceholder: (placeholder: string) => void;
   isDeepLinkable: boolean;
@@ -46,6 +50,10 @@ export const ConfigurationDrawer = ({
   setCustomerId,
   apiKey,
   setApiKey,
+  isShortcutEnabled,
+  setIsShortcutEnabled,
+  buttonLabel,
+  setButtonLabel,
   placeholder,
   setPlaceholder,
   isDeepLinkable,
@@ -108,6 +116,28 @@ export const ConfigurationDrawer = ({
 
       <VuiFormGroup label="API key" labelFor="apiKey">
         <VuiTextInput value={apiKey} onChange={(e) => setApiKey(e.target.value)} fullWidth />
+      </VuiFormGroup>
+
+      <VuiSpacer size="l" />
+
+      <VuiTitle size="s">
+        <h3 className="header">Search button</h3>
+      </VuiTitle>
+
+      <VuiSpacer size="s" />
+
+      <VuiFormGroup label="Open modal with keyboard shortcut" labelFor="isKeyboardShortcutEnabled">
+        <VuiToggle
+          checked={isShortcutEnabled}
+          onChange={(e) => setIsShortcutEnabled(e.target.checked)}
+          id="isKeyboardShortcutEnabled"
+        />
+      </VuiFormGroup>
+
+      <VuiSpacer size="xs" />
+
+      <VuiFormGroup label="Button label text" labelFor="buttonLabelText">
+        <VuiTextInput value={buttonLabel} onChange={(e) => setButtonLabel(e.target.value)} fullWidth />
       </VuiFormGroup>
 
       <VuiSpacer size="l" />
