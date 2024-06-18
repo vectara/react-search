@@ -38,6 +38,8 @@ const ReactSearchInternal = ({
   corpusId,
   apiUrl,
   historySize = 10,
+  isShortcutEnabled = true,
+  buttonLabel = "Search",
   placeholder = "Search",
   isDeepLinkable = false,
   openResultsInNewTab = false,
@@ -67,6 +69,22 @@ const ReactSearchInternal = ({
   const buttonRef = useRef<HTMLDivElement | null>(null);
   const selectedResultRef = useRef<HTMLDivElement | null>(null);
   const searchCount = useRef<number>(0);
+
+  useEffect(() => {
+    const onDocumentKeyDown = ({ key, metaKey }: KeyboardEvent) => {
+      if (metaKey && key === "k") {
+        setIsOpen(true);
+      }
+    };
+
+    if (isShortcutEnabled) {
+      document.addEventListener("keydown", onDocumentKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", onDocumentKeyDown);
+    };
+  }, [isShortcutEnabled]);
 
   useEffect(() => {
     setIsSummaryEnabled(isSummaryToggleInitiallyEnabled);
@@ -250,13 +268,13 @@ const ReactSearchInternal = ({
 
                   <VuiFlexItem>
                     <VuiText>
-                      <div>Search</div>
+                      <div>{buttonLabel}</div>
                     </VuiText>
                   </VuiFlexItem>
                 </VuiFlexContainer>
               </VuiFlexItem>
 
-              <div className="vrsSearchButtonShortcut">Ctrl + K</div>
+              {isShortcutEnabled && <div className="vrsSearchButtonShortcut">Ctrl + K</div>}
             </VuiFlexContainer>
           </button>
         </div>

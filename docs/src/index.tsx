@@ -27,6 +27,8 @@ const generateCodeSnippet = ({
   customerId,
   corpusId,
   apiKey,
+  isShortcutEnabled,
+  buttonLabel,
   placeholder,
   isDeepLinkable = false,
   openResultsInNewTab = false,
@@ -38,6 +40,8 @@ const generateCodeSnippet = ({
   customerId?: string;
   corpusId?: string;
   apiKey?: string;
+  isShortcutEnabled?: boolean;
+  buttonLabel?: string;
   placeholder?: string;
   isDeepLinkable: boolean;
   openResultsInNewTab: boolean;
@@ -61,6 +65,15 @@ const generateCodeSnippet = ({
     `corpusId="${corpusId === "" ? "<Your Vectara corpus ID>" : corpusId}"`,
     `apiKey="${apiKey === "" ? "<Your Vectara API key>" : apiKey}"`
   ];
+
+  // True is the default so only show it if it's false.
+  if (!isShortcutEnabled) {
+    props.push(`isShortcutEnabled={${isShortcutEnabled}}`);
+  }
+
+  if (buttonLabel) {
+    props.push(`buttonLabel="${buttonLabel}"`);
+  }
 
   if (placeholder) {
     props.push(`placeholder=${quotedPlaceholder}`);
@@ -113,6 +126,8 @@ const App = () => {
   const [corpusId, setCorpusId] = useState<string>("");
   const [customerId, setCustomerId] = useState<string>("");
   const [apiKey, setApiKey] = useState<string>("");
+  const [isShortcutEnabled, setIsShortcutEnabled] = useState<boolean>(true);
+  const [buttonLabel, setButtonLabel] = useState<string>("Search");
   const [placeholder, setPlaceholder] = useState<string>(DEFAULT_PLACEHOLDER);
   const [isDeepLinkable, setIsDeepLinkable] = useState<boolean>(false);
   const [openResultsInNewTab, setOpenResultsInNewTab] = useState<boolean>(false);
@@ -190,6 +205,8 @@ const App = () => {
                 corpusId={corpusId === "" ? DEFAULT_CORPUS_ID : corpusId}
                 customerId={customerId === "" ? DEFAULT_CUSTOMER_ID : customerId}
                 apiKey={apiKey === "" ? DEFAULT_API_KEY : apiKey}
+                isShortcutEnabled={isShortcutEnabled}
+                buttonLabel={buttonLabel}
                 placeholder={placeholder}
                 isDeepLinkable={isDeepLinkable}
                 openResultsInNewTab={openResultsInNewTab}
@@ -236,6 +253,8 @@ const App = () => {
                 customerId,
                 corpusId,
                 apiKey,
+                isShortcutEnabled,
+                buttonLabel,
                 placeholder,
                 isDeepLinkable,
                 openResultsInNewTab,
@@ -310,6 +329,10 @@ export const App = () => {
               setCustomerId={setCustomerId}
               apiKey={apiKey}
               setApiKey={setApiKey}
+              isShortcutEnabled={isShortcutEnabled}
+              setIsShortcutEnabled={setIsShortcutEnabled}
+              buttonLabel={buttonLabel}
+              setButtonLabel={setButtonLabel}
               placeholder={placeholder}
               setPlaceholder={setPlaceholder}
               isDeepLinkable={isDeepLinkable}
