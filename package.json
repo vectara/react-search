@@ -30,9 +30,6 @@
     "widget"
   ],
   "dependencies": {
-    "@testing-library/react-hooks": "^8.0.1",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
     "classnames": "^2.3.2",
     "lodash": "^4.17.21",
     "prismjs": "^1.29.0",
@@ -41,10 +38,13 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.2.0",
-    "@testing-library/react": "^12.1.5",
+    "@testing-library/react": "^13.4.0",
     "@types/jest": "^29.5.11",
     "@types/lodash": "^4.14.202",
     "@types/prismjs": "^1.26.3",
+    "@types/react": "^18.3.28",
+    "@types/react-dom": "^18.3.7",
+    "@vectara/vectara-ui": "^16.1.1",
     "chokidar": "^3.5.3",
     "cross-fetch": "^4.0.0",
     "esbuild": "^0.19.9",
@@ -55,8 +55,8 @@
     "jest-environment-jsdom": "^29.7.0",
     "live-server": "^1.2.2",
     "markdown-to-jsx": "^7.3.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
     "react-router-dom": "^6.8.2",
     "rimraf": "^5.0.5",
@@ -64,8 +64,9 @@
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
-    "react": ">= 17.0.2",
-    "react-dom": ">= 17.0.2",
-    "uuid-by-string": "^4.0.0"
+    "react": ">=18.2.0",
+    "react-dom": ">=18.2.0",
+    "uuid-by-string": "^4.0.0",
+    "@vectara/vectara-ui": "^16.1.1"
   }
 }
