@@ -1,6 +1,6 @@
 import { forwardRef, ForwardedRef, useEffect, useRef, ReactNode, LegacyRef } from "react";
 import * as ReactDOM from "react-dom";
-import { VuiPortal, VuiScreenBlock } from "./vui";
+import { VuiPortal, VuiScreenBlock } from "@vectara/vectara-ui";
 import { FocusOn } from "react-focus-on";
 
 // @ts-ignore

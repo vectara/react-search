@@ -9,7 +9,7 @@ import {
 } from "react";
 import * as ReactDOM from "react-dom";
 import getUuid from "uuid-by-string";
-import { VuiFlexContainer, VuiFlexItem, VuiSpinner, VuiText } from "./vui";
+import { VuiFlexContainer, VuiFlexItem, VuiSpinner, VuiText } from "@vectara/vectara-ui";
 import { DeserializedSearchResult, Props } from "./types";
 import { useSearch } from "./useSearch";
 import { SearchResult } from "./SearchResult";

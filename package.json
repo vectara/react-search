@@ -6,7 +6,7 @@
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build": "npm run clean && node build.js && tsc --emitDeclarationOnly --outDir lib",
+    "build": "npm run clean && node build.js && tsc -p tsconfig.build.json --emitDeclarationOnly --outDir lib",
     "buildDocs": "node docs/build.js",
     "clean": "rimraf lib",
     "test": "jest --coverage",
