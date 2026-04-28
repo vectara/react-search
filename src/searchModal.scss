@@ -1,6 +1,8 @@
 @import "./vui/styleUtils/index";
 @import "./vui/components/index";
 @import "./vui/_reset";
+
+// Bundled here so the modal's shadow root receives these styles.
 @import "./answerContainer";
 @import "./searchInput";
 @import "./searchResult";
