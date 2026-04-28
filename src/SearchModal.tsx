@@ -1,5 +1,5 @@
 import { forwardRef, ForwardedRef, useEffect, useRef, ReactNode, LegacyRef } from "react";
-import * as ReactDOM from "react-dom";
+import { createRoot, Root } from "react-dom/client";
 import { VuiPortal, VuiScreenBlock } from "@vectara/vectara-ui";
 import { FocusOn } from "react-focus-on";
 
@@ -80,6 +80,7 @@ class SearchModalContentsWebComponent extends HTMLElement {
   sheet!: CSSStyleSheet;
   sr!: ShadowRoot;
   mountPoint!: HTMLDivElement;
+  root: Root | null = null;
 
   // Props
   isOpen!: boolean;
@@ -140,16 +141,23 @@ class SearchModalContentsWebComponent extends HTMLElement {
     const children = this.reactChildren;
     const ref = this.ref;
 
-    ReactDOM.render(
+    if (!this.root) {
+      this.root = createRoot(this.mountPoint);
+    }
+    this.root.render(
       <>
         <SearchModalContentsInternal ref={ref}>{children}</SearchModalContentsInternal>
-      </>,
-      this.mountPoint
+      </>
     );
   }
 
   attributeChangedCallback() {
     this.connectedCallback();
+  }
+
+  disconnectedCallback() {
+    this.root?.unmount();
+    this.root = null;
   }
 }
 
