@@ -1,12 +1,12 @@
 .vrsSearchResult {
-  background-color: $colorEmptyShade;
+  background-color: var(--vui-color-empty-shade);
   display: block;
   padding: $sizeS $sizeL $sizeS $sizeL;
   text-decoration: none;
-  border-bottom: 1px solid $borderColorLight;
+  border-bottom: 1px solid var(--vui-color-border-light);
 
   &:hover {
-    background-color: $colorLightShade;
+    background-color: var(--vui-color-light-shade);
   }
 
   &:last-of-type {
@@ -16,11 +16,11 @@
 
 .vrsSearchResult-isLink {
   padding-left: $sizeM;
-  border-left: $sizeS solid $colorEmptyShade;
+  border-left: $sizeS solid var(--vui-color-empty-shade);
 
   &:hover,
   &.isSelected {
-    border-left: $sizeS solid $colorPrimary;
+    border-left: $sizeS solid var(--vui-color-primary-shade);
 
     .vrsSearchResultTitle {
       text-decoration: underline;
@@ -28,12 +28,12 @@
   }
 
   .vrsSearchResultTitle {
-    color: $colorPrimary;
+    color: var(--vui-color-primary-shade);
   }
 }
 
 .vrsSearchResultTitle {
-  color: $colorDarkerShade;
+  color: var(--vui-color-darker-shade);
   font-size: 14px;
   font-weight: 700;
   line-height: 22px;
@@ -41,7 +41,7 @@
 }
 
 .vrsSearchResultSnippet {
-  color: $colorDarkerShade;
+  color: var(--vui-color-darker-shade);
   font-size: 14px;
   line-height: 20px;
   margin-bottom: 0;

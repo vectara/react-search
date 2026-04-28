@@ -1,6 +1,5 @@
-@import "./vui/styleUtils/index";
-@import "./vui/components/index";
-@import "./vui/_reset";
+@import "@vectara/vectara-ui/lib/styles/index";
+@import "@vectara/vectara-ui/lib/sassUtils/index";
 
 // Bundled here so the modal's shadow root receives these styles.
 @import "./answerContainer";
@@ -29,7 +28,7 @@ $modalPadding: 6vh;
 
   .vrsSearchModal {
     margin-top: $modalPadding;
-    background-color: $colorEmptyShade;
+    background-color: var(--vui-color-empty-shade);
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -37,14 +36,13 @@ $modalPadding: 6vh;
     max-height: calc(100vh - ($modalPadding * 2));
     z-index: $modalZIndex;
     pointer-events: all;
-    background-color: $colorEmptyShade;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     border-radius: $sizeXs;
     overflow: hidden;
   }
 
   .vrsSearchModalResults {
-    border-top: 1px solid $borderColorLight;
+    border-top: 1px solid var(--vui-color-border-light);
     overflow-y: auto;
   }
 }
