@@ -40,7 +40,7 @@ export const SummaryContainer = ({ isSummaryEnabled, setIsSummaryEnabled, isLoad
       <VuiToggle
         checked={isSummaryEnabled}
         onChange={(e) => setIsSummaryEnabled(e.target.checked)}
-        label="Summarize seach results"
+        label="Summarize search results"
       />
 
       {summaryContent && (
