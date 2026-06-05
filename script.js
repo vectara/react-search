@@ -35764,7 +35764,7 @@ button {
   var le = (t) => t.replace(Rt, "");
   var Me = ({ isSummaryEnabled: t, setIsSummaryEnabled: e, isLoading: i, summary: n }) => {
     let a = n ? le(n) : void 0, r;
-    return t && (i ? r = (0, import_jsx_runtime12.jsxs)(w, { spacing: "s", children: [(0, import_jsx_runtime12.jsx)(g, { children: (0, import_jsx_runtime12.jsx)(j, { size: "s" }) }), (0, import_jsx_runtime12.jsx)(g, { children: (0, import_jsx_runtime12.jsx)(P, { children: "Summarizing\u2026" }) })] }) : a && (r = (0, import_jsx_runtime12.jsx)(P, { children: (0, import_jsx_runtime12.jsx)("p", { children: a }) }))), (0, import_jsx_runtime12.jsxs)("div", { className: "vrsAnswerContainer", children: [(0, import_jsx_runtime12.jsx)(te, { checked: t, onChange: (s) => e(s.target.checked), label: "Summarize seach results" }), r && (0, import_jsx_runtime12.jsxs)(import_jsx_runtime12.Fragment, { children: [(0, import_jsx_runtime12.jsx)(ee, { size: "m" }), r] })] });
+    return t && (i ? r = (0, import_jsx_runtime12.jsxs)(w, { spacing: "s", children: [(0, import_jsx_runtime12.jsx)(g, { children: (0, import_jsx_runtime12.jsx)(j, { size: "s" }) }), (0, import_jsx_runtime12.jsx)(g, { children: (0, import_jsx_runtime12.jsx)(P, { children: "Summarizing\u2026" }) })] }) : a && (r = (0, import_jsx_runtime12.jsx)(P, { children: (0, import_jsx_runtime12.jsx)("p", { children: a }) }))), (0, import_jsx_runtime12.jsxs)("div", { className: "vrsAnswerContainer", children: [(0, import_jsx_runtime12.jsx)(te, { checked: t, onChange: (s) => e(s.target.checked), label: "Summarize search results" }), r && (0, import_jsx_runtime12.jsxs)(import_jsx_runtime12.Fragment, { children: [(0, import_jsx_runtime12.jsx)(ee, { size: "m" }), r] })] });
   };
   var Mt = (t, e) => {
     let i = t.get(e);
