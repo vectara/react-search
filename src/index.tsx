@@ -7,9 +7,9 @@ import {
   useEffect,
   useMemo
 } from "react";
-import * as ReactDOM from "react-dom";
+import { createRoot, Root } from "react-dom/client";
 import getUuid from "uuid-by-string";
-import { VuiFlexContainer, VuiFlexItem, VuiSpinner, VuiText } from "./vui";
+import { VuiFlexContainer, VuiFlexItem, VuiSpinner, VuiText } from "@vectara/vectara-ui";
 import { DeserializedSearchResult, Props } from "./types";
 import { useSearch } from "./useSearch";
 import { SearchResult } from "./SearchResult";
@@ -379,6 +379,7 @@ class ReactSearchWebComponent extends HTMLElement {
   sheet!: CSSStyleSheet;
   sr!: ShadowRoot;
   mountPoint!: HTMLDivElement;
+  root: Root | null = null;
 
   static get observedAttributes() {
     // We use the stringified version of the React props to trigger a re-render.
@@ -407,7 +408,12 @@ class ReactSearchWebComponent extends HTMLElement {
   }
 
   public connectedCallback() {
-    ReactDOM.render(<ReactSearchInternal {...(_props as Props)} />, this.mountPoint);
+    // createRoot must only be called once per container — cache the Root and
+    // reuse it on subsequent renders (attributeChangedCallback re-enters here).
+    if (!this.root) {
+      this.root = createRoot(this.mountPoint);
+    }
+    this.root.render(<ReactSearchInternal {...(_props as Props)} />);
   }
 
   attributeChangedCallback() {
@@ -415,7 +421,8 @@ class ReactSearchWebComponent extends HTMLElement {
   }
 
   disconnectedCallback() {
-    ReactDOM.unmountComponentAtNode(this.mountPoint);
+    this.root?.unmount();
+    this.root = null;
   }
 }
 

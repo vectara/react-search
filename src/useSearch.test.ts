@@ -1,5 +1,5 @@
 import { useSearch } from "./useSearch";
-import { act, renderHook } from "@testing-library/react-hooks";
+import { act, renderHook } from "@testing-library/react";
 
 window.fetch = jest.fn();
 

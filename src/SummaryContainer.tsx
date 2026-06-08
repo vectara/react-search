@@ -1,5 +1,5 @@
-import { removeCitations } from "./vui/utils/citations";
-import { VuiFlexContainer, VuiFlexItem, VuiSpacer, VuiSpinner, VuiText, VuiToggle } from "./vui";
+import { removeCitations } from "@vectara/vectara-ui/lib/utils/citations";
+import { VuiFlexContainer, VuiFlexItem, VuiSpacer, VuiSpinner, VuiText, VuiToggle } from "@vectara/vectara-ui";
 
 type Props = {
   isSummaryEnabled: boolean;

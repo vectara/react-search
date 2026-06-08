@@ -1,6 +1,7 @@
-@import "./vui/styleUtils/_colors";
-@import "./vui/styleUtils/_depth";
-@import "./vui/components/screenBlock/index";
+// IMPORTANT: this stylesheet is the only one in this package that escapes the
+// shadow DOM. esbuild routes it through `sassPlugin({ type: "style" })` (see
+// buildConfigs.js) and injects it as a <style> tag in the host document head.
+// Anything imported here lands in the consumer's global cascade — keep it tiny.
 
 .vrsModalWrapper {
   position: fixed;

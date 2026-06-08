@@ -1,5 +1,5 @@
-@import "./vui/components/index";
-@import "./searchModal";
+@import "@vectara/vectara-ui/lib/styles/index";
+@import "@vectara/vectara-ui/lib/sassUtils/index";
 
 // Short circuit any styles that the shadow host may have inherited.
 :host {
@@ -31,9 +31,9 @@ button {
   align-items: center;
   font-weight: 500;
   line-height: 1;
-  border: 1px solid $borderColor;
-  color: $colorText;
-  background-color: $colorEmptyShade;
+  border: 1px solid var(--vui-color-medium-shade);
+  color: var(--vui-color-text);
+  background-color: var(--vui-color-empty-shade);
   font-size: $fontSizeMedium;
   padding: $sizeXs 1px $sizeXs $sizeS;
   height: 34px;
@@ -42,7 +42,7 @@ button {
   overflow: hidden;
 
   &:hover {
-    border-color: $colorPrimary;
+    border-color: var(--vui-color-primary-shade);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     z-index: 1;
   }
@@ -56,6 +56,6 @@ button {
   padding: $sizeXs;
   border-radius: $sizeXxxs;
   font-size: $fontSizeStandard;
-  background-color: $colorPrimaryLightShade;
-  color: $colorPrimary;
+  background-color: var(--vui-color-primary-light-shade);
+  color: var(--vui-color-primary-shade);
 }
