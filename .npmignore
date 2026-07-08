@@ -2,6 +2,9 @@
 /src
 /docs
 /images
+/.github
+/.claude
+.prettierrc.json
 buildConfigs.js
 build.js
 global.d.ts
@@ -10,3 +13,4 @@ README.md
 tsconfig.json
 setupTests.ts
 jest.config.js
+lib/tsconfig.tsbuildinfo
