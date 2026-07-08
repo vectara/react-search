@@ -1,6 +1,6 @@
 {
   "name": "@vectara/react-search",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A Vectara-powered Search component",
   "main": "lib/index.js",
   "module": "lib/index.js",
